@@ -1,0 +1,724 @@
+{
+    "Player": {
+        "XP": 0,
+        "XP Needed": 100,
+        "Max Health": 169,
+        "Health": 169,
+        "Attack": 22,
+        "Defense": 20,
+        "Speed": 16,
+        "Magic Density": 22,
+        "Magic Damage": 22,
+        "Level": 1,
+        "Stamina": 560,
+        "Critical Chance": 7,
+        "Critical Damage": 132,
+        "Evasion": 8,
+        "Accuracy": 83,
+        "Mana": 60,
+        "Tower Level": 1,
+        "Buff": {
+            "Type": "None",
+            "Value": 5,
+            "Duration": 3
+        },
+        "Title": "None",
+        "Status Effects": {
+            "Status 1": {
+                "Type": "None",
+                "Value": 0,
+                "Duration": 0
+            },
+            "Status 2": {
+                "Type": "None",
+                "Value": 0,
+                "Duration": 0
+            },
+            "Status 3": {
+                "Type": "None",
+                "Value": 0,
+                "Duration": 0
+            }
+        },
+        "Gold": 0
+    },
+    "Base_Stats": {
+        "XP": 0,
+        "XP Needed": 100,
+        "Max Health": 100,
+        "Health": 100,
+        "Attack": 10,
+        "Defense": 10,
+        "Speed": 10,
+        "Magic Density": 10,
+        "Magic Damage": 10,
+        "Level": 1,
+        "Stamina": 500,
+        "Critical Chance": 5,
+        "Critical Damage": 125,
+        "Evasion": 2,
+        "Accuracy": 75,
+        "Mana": 0,
+        "Tower Level": 1,
+        "Buff": {
+            "Type": "None",
+            "Value": 5,
+            "Duration": 3
+        }
+    },
+    "Body_Condition": {
+        "Biceps": {
+            "Strength": 5
+        },
+        "Triceps": {
+            "Strength": 5
+        },
+        "Hands": {
+            "Strength": 5
+        },
+        "Shoulders": {
+            "Strength": 5
+        },
+        "Chest": {
+            "Strength": 5
+        },
+        "Trapezius": {
+            "Strength": 5
+        },
+        "Abdomen": {
+            "Strength": 5
+        },
+        "Back": {
+            "Strength": 5
+        },
+        "Legs": {
+            "Strength": 5
+        },
+        "Head": {
+            "Strength": 5
+        }
+    },
+    "Gear": {
+        "Type": {
+            "Helmet": {
+                "None": {
+                    "Attack": 0,
+                    "Magic Damage": 0,
+                    "Critical Chance": 0,
+                    "Speed": 0,
+                    "Defense": 0,
+                    "Max Health": 0
+                }
+            },
+            "Shoulderwear": {
+                "None": {
+                    "Attack": 0,
+                    "Magic Damage": 0,
+                    "Critical Chance": 0,
+                    "Speed": 0,
+                    "Defense": 0,
+                    "Max Health": 0
+                }
+            },
+            "Armwear": {
+                "None": {
+                    "Attack": 0,
+                    "Magic Damage": 0,
+                    "Critical Chance": 0,
+                    "Speed": 0,
+                    "Defense": 0,
+                    "Max Health": 0
+                }
+            },
+            "Chestplate": {
+                "None": {
+                    "Attack": 0,
+                    "Magic Damage": 0,
+                    "Critical Chance": 0,
+                    "Speed": 0,
+                    "Defense": 0,
+                    "Max Health": 0
+                }
+            },
+            "Legwear": {
+                "None": {
+                    "Attack": 0,
+                    "Magic Damage": 0,
+                    "Critical Chance": 0,
+                    "Speed": 0,
+                    "Defense": 0,
+                    "Max Health": 0
+                }
+            },
+            "Footwear": {
+                "None": {
+                    "Attack": 0,
+                    "Magic Damage": 0,
+                    "Critical Chance": 0,
+                    "Speed": 0,
+                    "Defense": 0,
+                    "Max Health": 0
+                }
+            },
+            "Weapon": {
+                "None": {
+                    "Attack": 0,
+                    "Magic Damage": 0,
+                    "Critical Chance": 0,
+                    "Speed": 0,
+                    "Defense": 0,
+                    "Max Health": 0
+                }
+            },
+            "Offhand": {
+                "None": {
+                    "Attack": 0,
+                    "Magic Damage": 0,
+                    "Critical Chance": 0,
+                    "Speed": 0,
+                    "Defense": 0,
+                    "Max Health": 0
+                }
+            }
+        }
+    },
+    "Inventory": {
+        "Orc Tusk": 5,
+        "Galvano Flower": 4,
+        "Gear": [
+            "Copper Dagger"
+        ],
+        "Potions": [
+            {
+                "Type": "Electric Resistance Potion"
+            }
+        ]
+    },
+    "Skill_Tree": {
+        "General": {
+            "Advanced Mind": {
+                "Status": "(Locked)"
+            },
+            "Bloodthirsty": {
+                "Status": "(Locked)"
+            },
+            "Momentum": {
+                "Status": "(Locked)"
+            },
+            "Arcane Echo": {
+                "Status": "(Locked)"
+            },
+            "Fast Recovery": {
+                "Status": "(Locked)"
+            },
+            "Meditative Mind": {
+                "Status": "(Locked)"
+            },
+            "Strong Body": {
+                "Status": "(Locked)"
+            }
+        },
+        "Training": {
+            "Lock": "(Locked)",
+            "Lightweight": {
+                "Status": "(Locked)"
+            },
+            "Running": {
+                "Status": "(Locked)"
+            },
+            "Sword Swing": {
+                "Status": "(Locked)"
+            },
+            "Weight Carry": {
+                "Status": "(Locked)"
+            },
+            "Dead Hang": {
+                "Status": "(Locked)"
+            },
+            "Neck Bridge": {
+                "Status": "(Locked)"
+            },
+            "Push Up": {
+                "Status": "(Locked)"
+            }
+        },
+        "Smithing": {
+            "Lock": "(Locked)",
+            "Apprenticeship": {
+                "Status": "(Locked)"
+            },
+            "Hit em": {
+                "Status": "(Locked)"
+            },
+            "Skill 3": {
+                "Status": "(Locked)"
+            }
+        },
+        "Alchemy": {
+            "Lock": "(Unlocked)",
+            "Scientific Cooking": {
+                "Status": "(Unlocked)"
+            },
+            "Skill 2": {
+                "Status": "(Locked)"
+            },
+            "Skill 3": {
+                "Status": "(Locked)"
+            }
+        }
+    },
+    "Unlocked_Functions": {
+        "Training": {
+            "Status": "(Locked)"
+        },
+        "Smithing": {
+            "Status": "(Locked)"
+        },
+        "Alchemy": {
+            "Status": "(Unlocked)"
+        }
+    },
+    "Skill_Points": 1,
+    "Name": "Henry",
+    "Skills": {
+        "Mana Blast": {
+            "Damage": 20,
+            "Cost": 35,
+            "Level": "Starter",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Fireball": {
+            "Damage": 55,
+            "Cost": 70,
+            "Level": "Not Learned",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Straight Punch": {
+            "Damage": 20,
+            "Cost": 25,
+            "Level": "Starter",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Headbutt": {
+            "Damage": 75,
+            "Cost": 60,
+            "Level": "Not Learned",
+            "Weight": "Heavy",
+            "Time": 1
+        },
+        "Axe Kick": {
+            "Damage": 90,
+            "Cost": 75,
+            "Level": "Not Learned",
+            "Weight": "Heavy",
+            "Time": 1
+        },
+        "Analyse": {
+            "Power": 30,
+            "Cost": 40,
+            "Level": "Not Learned",
+            "Time": 0.5
+        },
+        "Heal": {
+            "Power": 45,
+            "Cost": 80,
+            "Level": "Not Learned",
+            "Time": 0.5
+        },
+        "Spinning Back Kick": {
+            "Damage": 110,
+            "Cost": 90,
+            "Level": "Not Learned",
+            "Weight": "Heavy",
+            "Time": 1
+        },
+        "Ice Shard": {
+            "Damage": 50,
+            "Cost": 65,
+            "Level": "Not Learned",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Shock": {
+            "Damage": 45,
+            "Cost": 55,
+            "Level": "Not Learned",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "River Fist": {
+            "Damage": 60,
+            "Cost": 60,
+            "Level": "Not Learned",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Mud Shot": {
+            "Damage": 40,
+            "Cost": 45,
+            "Level": "Not Learned",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Life Drain": {
+            "Damage": 45,
+            "Cost": 75,
+            "Level": "Not Learned",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Purify": {
+            "Damage": 35,
+            "Cost": 50,
+            "Level": "Not Learned",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Domination": {
+            "Power": 0,
+            "Cost": 120,
+            "Level": "Not Learned",
+            "Weight": "Heavy",
+            "Time": 1
+        },
+        "Grappling Vines": {
+            "Damage": 0,
+            "Cost": 75,
+            "Level": "Not Learned",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Stone Slipstream": {
+            "Damage": 70,
+            "Cost": 80,
+            "Level": "Not Learned",
+            "Weight": "Heavy",
+            "Time": 1
+        },
+        "Corrupting Touch": {
+            "Damage": 65,
+            "Cost": 90,
+            "Level": "Not Learned",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Impulsive Swing": {
+            "Damage": 120,
+            "Cost": 100,
+            "Level": "Starter",
+            "Weight": "Heavy",
+            "Time": 1
+        },
+        "Jab": {
+            "Damage": 18,
+            "Cost": 5,
+            "Level": "Not Learned",
+            "Weight": "Light",
+            "Time": 0.1
+        },
+        "Bite": {
+            "Damage": 40,
+            "Cost": 20,
+            "Level": "Starter",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Devour Essence": {
+            "Power": 80,
+            "Cost": 120,
+            "Level": "Not Learned",
+            "Weight": "Heavy",
+            "Time": 0.5
+        },
+        "Front Kick": {
+            "Damage": 35,
+            "Cost": 20,
+            "Level": "Starter",
+            "Weight": "Heavy",
+            "Time": 0.5
+        },
+        "Aimed Shot": {
+            "Damage": 40,
+            "Cost": 25,
+            "Level": "Starter",
+            "Weight": "Heavy",
+            "Time": 0.5
+        },
+        "Tackle": {
+            "Damage": 35,
+            "Cost": 25,
+            "Level": "Starter",
+            "Weight": "Heavy",
+            "Time": 0.5
+        },
+        "Toxin Spray": {
+            "Damage": 30,
+            "Cost": 45,
+            "Level": "Not Learned",
+            "Weight": "Heavy",
+            "Time": 0.5
+        },
+        "Groundbreaker": {
+            "Damage": 75,
+            "Cost": 80,
+            "Level": "Not Learned",
+            "Weight": "Heavy",
+            "Time": 1
+        },
+        "Tremor": {
+            "Damage": 75,
+            "Cost": 80,
+            "Level": "Not Learned",
+            "Weight": "Heavy",
+            "Time": 1
+        },
+        "Empower": {
+            "Power": 45,
+            "Cost": 80,
+            "Level": "Starter",
+            "Time": 0.5
+        }
+    },
+    "Spell List": {
+        "Mana Blast": {
+            "Damage": 20,
+            "Cost": 35,
+            "Level": "Starter",
+            "Weight": "Medium",
+            "Time": 0.5
+        }
+    },
+    "Combat Skill List": {
+        "Straight Punch": {
+            "Damage": 20,
+            "Cost": 25,
+            "Level": "Starter",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Bite": {
+            "Damage": 40,
+            "Cost": 20,
+            "Level": "Starter",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Quick Stab": {
+            "Damage": 45,
+            "Cost": 40,
+            "Level": "Starter",
+            "Weight": "Heavy",
+            "Time": 0.5
+        },
+        "Slash": {
+            "Damage": 60,
+            "Cost": 55,
+            "Level": "Starter",
+            "Weight": "Heavy",
+            "Time": 1
+        },
+        "Front Kick": {
+            "Damage": 35,
+            "Cost": 20,
+            "Level": "Starter",
+            "Weight": "Heavy",
+            "Time": 0.5
+        },
+        "Aimed Shot": {
+            "Damage": 25,
+            "Cost": 50,
+            "Level": "Starter",
+            "Weight": "Heavy",
+            "Time": 0.5
+        },
+        "Tackle": {
+            "Damage": 25,
+            "Cost": 50,
+            "Level": "Tackle",
+            "Weight": "Medium",
+            "Time": 0.5
+        },
+        "Impulsive Swing": {
+            "Damage": 120,
+            "Cost": 100,
+            "Level": "Starter",
+            "Weight": "Heavy",
+            "Time": 1
+        }
+    },
+    "Move Set": [],
+    "Memory": 4,
+    "Max Limit": 25,
+    "Statistics": {
+        "Battles Fought": 0,
+        "Battles Won": 0,
+        "Battles Lost": 0,
+        "Enemies Killed": 0,
+        "Damageless Battles Won": 0,
+        "Bosses Killed": 0,
+        "Training Sessions": 0,
+        "Gold Earned": 0,
+        "Gold Spent": 0,
+        "Health Healed": 0,
+        "Gear Forged": 0,
+        "Potions Brewed": 1
+    },
+    "Skill Books": {
+        "Fireball": false,
+        "Headbutt": false,
+        "Axe Kick": false,
+        "Analysis": false,
+        "Heal": false,
+        "Grappling Vines": false,
+        "River Fist": false,
+        "Shock": false,
+        "Life Drain": false,
+        "Devour Essence": false,
+        "Purify": false,
+        "Spinning Back Kick": false,
+        "Ice Shard": false,
+        "Mud Shot": false,
+        "Tremor": false,
+        "Groundbreaker": false,
+        "Jab": false,
+        "Stone Slipstream": false,
+        "Domination": false,
+        "Corrupting Touch": false,
+        "Toxin Spray": false,
+        "Empower": false
+    },
+    "Amount Practiced": {
+        "Fireball": 0,
+        "Headbutt": 0,
+        "Axe Kick": 0,
+        "Analysis": 0,
+        "Heal": 0,
+        "Grappling Vines": 0,
+        "River Fist": 0,
+        "Shock": 0,
+        "Life Drain": 0,
+        "Devour Essence": 0,
+        "Purify": 0,
+        "Spinning Back Kick": 0,
+        "Ice Shard": 0,
+        "Mud Shot": 0,
+        "Tremor": 0,
+        "Groundbreaker": 0,
+        "Jab": 0,
+        "Stone Slipstream": 0,
+        "Domination": 0,
+        "Corrupting Touch": 0,
+        "Toxin Spray": 0,
+        "Empower": 0,
+        "Straight Punch": 0,
+        "Front Kick": 0,
+        "Bite": 0,
+        "Aimed Shot": 0,
+        "Slash": 0,
+        "Quick Stab": 0,
+        "Tackle": 0,
+        "Mana Blast": 0
+    },
+    "Weapon Name": "",
+    "Helmet Name": "",
+    "Shoulderwear Name": "",
+    "Armwear Name": "",
+    "Chestplate Name": "",
+    "Legwear Name": "",
+    "Footwear Name": "",
+    "Proficiency": {
+        "Sword": "Starter",
+        "Greatsword": "Starter",
+        "Dagger": "Starter",
+        "Spear": "Starter",
+        "Staff": "Starter",
+        "Wand": "Starter",
+        "Axe": "Starter",
+        "Mace": "Starter",
+        "Bow": "Starter"
+    },
+    "Amount Used": {
+        "Sword": 0,
+        "Greatsword": 0,
+        "Dagger": 0,
+        "Spear": 0,
+        "Staff": 0,
+        "Wand": 0,
+        "Axe": 0,
+        "Mace": 0,
+        "Bow": 0
+    },
+    "Quests": {
+        "Novice Slayer": "(Incomplete)",
+        "Veteran Slayer": "(Incomplete)",
+        "Legendary Slayer": "(Incomplete)",
+        "Well Built": "(Incomplete)",
+        "Peak Physique": "(Incomplete)",
+        "Recruit": "(Incomplete)",
+        "Fighter": "(Incomplete)",
+        "Veteran": "(Incomplete)",
+        "Battle-Hardened": "(Incomplete)",
+        "Seasoned Warrior": "(Incomplete)",
+        "Elite Combatant": "(Incomplete)",
+        "Champion": "(Incomplete)",
+        "Warlord": "(Incomplete)",
+        "Conqueror": "(Incomplete)",
+        "Living Legend": "(Incomplete)",
+        "Eternal Warrior": "(Incomplete)",
+        "Winner": "(Incomplete)",
+        "The Professional": "(Incomplete)",
+        "Indomitable": "(Incomplete)",
+        "Unstoppable Force": "(Incomplete)",
+        "The One Above All": "(Incomplete)",
+        "Loser": "(Incomplete)",
+        "Scarred": "(Incomplete)",
+        "Tenacious": "(Incomplete)",
+        "The Immovable": "(Incomplete)",
+        "The Ever Enduring": "(Incomplete)",
+        "Unscathed": "(Incomplete)",
+        "Flawless Victor": "(Incomplete)",
+        "Phantom Menace": "(Incomplete)",
+        "Untouchable Duelist": "(Incomplete)",
+        "The Peerless Champion": "(Incomplete)",
+        "Boss Demolisher": "(Incomplete)",
+        "Giant Annihilator": "(Incomplete)",
+        "The Bane Of Titans": "(Incomplete)",
+        "Legend Hunter": "(Incomplete)",
+        "One Of The Greats": "(Incomplete)",
+        "Penny Pincher": "(Incomplete)",
+        "Hoarder": "(Incomplete)",
+        "Noble": "(Incomplete)",
+        "Tycoon": "(Incomplete)",
+        "Midas": "(Incomplete)",
+        "Spender": "(Incomplete)",
+        "Big Spender": "(Incomplete)",
+        "High Roller": "(Incomplete)",
+        "Deep Pockets": "(Incomplete)",
+        "Patron Of Treasure": "(Incomplete)",
+        "Trainee": "(Incomplete",
+        "Dedicated": "(Incomplete)",
+        "Fanatic Trainer": "(Incomplete)",
+        "Tireless": "(Incomplete)",
+        "Pillar Of Discipline": "(Incomplete)",
+        "Virile": "(Incomplete)",
+        "Hearty": "(Incomplete)",
+        "Bulky": "(Incomplete)",
+        "Behemoth": "(Incomplete)",
+        "The Jade Emperor": "(Incomplete)",
+        "Forgehand": "(Incomplete)",
+        "Skilled Blacksmith": "(Incomplete)",
+        "Elite Craftsmen": "(Incomplete)",
+        "Master Of Metal": "(Incomplete)",
+        "Artificer Of Legend": "(Incomplete)",
+        "Herbalist": "(Incomplete)",
+        "Elixir Maker": "(Incomplete)",
+        "Skilled Alchemist": "(Incomplete)",
+        "Grandmaster Brewer": "(Incomplete)",
+        "The One Who Knocks": "(Incomplete)"
+    },
+    "Titles": [],
+    "Typewriter": false
+}
