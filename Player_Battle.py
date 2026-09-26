@@ -2508,6 +2508,7 @@ class Player_Battle:
                                             Target = "enemy1"
                                             if Target in ["enemy1","enemy 1","1"]:
                                                 Damage = int((Player_copy["Attack"] * 25 / Enemy1["Defense"]))
+                                                
                                                 Enemy1["Health"] -= Damage
                                                 Enemy1["Defense"] -= 10
                                                 break
@@ -2603,6 +2604,29 @@ class Player_Battle:
                                     n = random.randint(1,3)
                                     if n == 1:
                                         print(f"{name} taunt the crowd")
+                                        if Player_copy["Buff"]["Type"] == "Defense":
+                                            Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                        if Player_copy["Buff"]["Type"] == "Attack":
+                                            Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                        if Player_copy["Buff"]["Type"] == "Evasion":
+                                            Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                        if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                            Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                            Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                        if Player_copy["Buff"]["Type"] == "Magic Density":
+                                            Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                        if Player_copy["Buff"]["Type"] == "Defense M":
+                                            Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                        if Player_copy["Buff"]["Type"] == "Evasion M":
+                                            Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                        if Player_copy["Buff"]["Type"] == "Speed M":
+                                            Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                        if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                            Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                        if Player_copy["Buff"]["Type"] == "Attack M":
+                                            Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                        if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                            Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
                                         Player_copy["Buff"]["Value"] = 5
                                         Player_copy["Buff"]["Type"] = "Attack"
                                         Player_copy["Buff"]["Duration"] = 3
