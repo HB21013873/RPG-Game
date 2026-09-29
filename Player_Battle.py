@@ -75,7 +75,7 @@ class Player_Battle:
                         tw = TW(delay=0.02, jitter=True)
                         battle_choice = input("")
                         battle_choice = battle_choice.lower()
-                        if battle_choice not in ["melee","m","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","storage","s"]:
+                        if battle_choice not in ["melee","m","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","potions","p"]:
                             continue
                         if battle_choice in ["fight","f","1"]:
                             turn_over = True
@@ -1228,7 +1228,8 @@ class Player_Battle:
                             if Breaker == True:
                                 Breaker = False
                                 break
-                        if battle_choice in ["3","storage","s"]:
+                        if battle_choice in ["3","potions","p"]:
+                            print("\n\n\n")
                             if inventory["Potions"] != []:
                                 for i, potion in enumerate(inventory["Potions"], 1):
                                     if "Power" in potion:
@@ -1237,6 +1238,286 @@ class Player_Battle:
                                         print(f"{i}. {potion['Type']}")
                             else:
                                 print("\n You have no items to use \n")
+                            while True:
+                                try:
+                                    choice = int(input("\nChoose a potion: "))
+
+                                    if 1 <= choice <= len(inventory["Potions"]):
+                                        potion = inventory["Potions"][choice - 1]
+                                        break
+                                    else:
+                                        print("Invalid choice.")
+
+                                except ValueError:
+                                    print("Please enter a number.")
+                            potion = inventory["Potions"][choice - 1]
+                            if potion["Type"] == "Health Potion":
+                                Health_Gained = (round(Player_copy["Health"] * potion["Power"]))
+                                Player_copy["Health"] += Health_Gained
+                                if Player_copy["Max Health"] < Player_copy["Health"]:
+                                    Player_copy["Health"] = Player_copy["Max Health"]
+                                Statistics["Health Healed"] += Health_Gained
+                            elif potion["Type"] == "Mana Potion":
+                                Player_copy["Mana"] *= potion["Power"]
+                                Player_copy["Mana"] = round(Player_copy["Mana"])
+                            elif potion["Type"] == "Defense Potion":
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Defense M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Defense"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Defense"] = round(Player_copy["Defense"])
+                            elif potion["Type"] == "Stamina Potion":
+                                Player_copy["Stamina"] *= potion["Power"]
+                                Player_copy["Stamina"] = round(Player_copy["Stamina"])
+                            elif potion["Type"] == "Holy Potion":
+                                if Player_copy["Buff"]["Type"] == "Boost Holy":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Boost Holy"
+                                Player_copy["Buff"]["Duration"] += 3
+                            elif potion["Type"] == "Spell Potion":
+                                if Player_copy["Buff"]["Type"] == "Spell":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Spell"
+                                Player_copy["Buff"]["Duration"] += 3
+                            elif potion["Type"] == "Dense Potion":
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Magic Density M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Magic Density"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Magic Density"] = round(Player_copy["Magic Density"])
+                            elif potion["Type"] == "Hasty Potion":
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Speed M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Speed"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Speed"] = round(Player_copy["Speed"])
+                            elif potion["Type"] == "Battle Potion":
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Attack M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Attack"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Attack"] = round(Player_copy["Attack"])
+                            elif potion["Type"] == "Evasion Potion":
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Evasion M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Evasion"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Evasion"] = round(Player_copy["Evasion"])
+                            elif potion["Type"] == "Focus Potion":
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Accuracy M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Accuracy"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Accuracy"] = round(Player_copy["Accuracy"])
+                                
+                            inventory["Potions"].remove(potion)
 
 
 
@@ -1293,7 +1574,7 @@ class Player_Battle:
                         tw = TW(delay=0.02, jitter=True)
                         battle_choice = input("")
                         battle_choice = battle_choice.lower()
-                        if battle_choice not in ["melee","m","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","s","storage"]:
+                        if battle_choice not in ["melee","m","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","p","potions"]:
                             continue
                         if battle_choice in ["fight","f","1"]:
                             turn_over = True
@@ -2296,7 +2577,8 @@ class Player_Battle:
                             if Breaker == True:
                                 Breaker = False
                                 break
-                        if battle_choice in ["3","storage","s"]:
+                        if battle_choice in ["3","potions","p"]:
+                            print("\n\n\n")
                             if inventory["Potions"] != []:
                                 for i, potion in enumerate(inventory["Potions"], 1):
                                     if "Power" in potion:
@@ -2305,6 +2587,286 @@ class Player_Battle:
                                         print(f"{i}. {potion['Type']}")
                             else:
                                 print("\n You have no items to use \n")
+                            while True:
+                                try:
+                                    choice = int(input("\nChoose a potion: "))
+
+                                    if 1 <= choice <= len(inventory["Potions"]):
+                                        potion = inventory["Potions"][choice - 1]
+                                        break
+                                    else:
+                                        print("Invalid choice.")
+
+                                except ValueError:
+                                    print("Please enter a number.")
+                            potion = inventory["Potions"][choice - 1]
+                            if potion["Type"] == "Health Potion":
+                                Health_Gained = (round(Player_copy["Health"] * potion["Power"]))
+                                Player_copy["Health"] += Health_Gained
+                                if Player_copy["Max Health"] < Player_copy["Health"]:
+                                    Player_copy["Health"] = Player_copy["Max Health"]
+                                Statistics["Health Healed"] += Health_Gained
+                            elif potion["Type"] == "Mana Potion":
+                                Player_copy["Mana"] *= potion["Power"]
+                                Player_copy["Mana"] = round(Player_copy["Mana"])
+                            elif potion["Type"] == "Defense Potion":
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Defense M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Defense"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Defense"] = round(Player_copy["Defense"])
+                            elif potion["Type"] == "Stamina Potion":
+                                Player_copy["Stamina"] *= potion["Power"]
+                                Player_copy["Stamina"] = round(Player_copy["Stamina"])
+                            elif potion["Type"] == "Holy Potion":
+                                if Player_copy["Buff"]["Type"] == "Boost Holy":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Boost Holy"
+                                Player_copy["Buff"]["Duration"] += 3
+                            elif potion["Type"] == "Spell Potion":
+                                if Player_copy["Buff"]["Type"] == "Spell":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Spell"
+                                Player_copy["Buff"]["Duration"] += 3
+                            elif potion["Type"] == "Dense Potion":
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Magic Density M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Magic Density"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Magic Density"] = round(Player_copy["Magic Density"])
+                            elif potion["Type"] == "Hasty Potion":
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Speed M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Speed"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Speed"] = round(Player_copy["Speed"])
+                            elif potion["Type"] == "Battle Potion":
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Attack M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Attack"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Attack"] = round(Player_copy["Attack"])
+                            elif potion["Type"] == "Evasion Potion":
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    Player_copy["Accuracy"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Evasion M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Evasion"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Evasion"] = round(Player_copy["Evasion"])
+                            elif potion["Type"] == "Focus Potion":
+                                if Player_copy["Buff"]["Type"] == "Accuracy M":
+                                    pass
+                                else:     
+                                    Player_copy["Buff"]["Duration"] = 0
+                                
+                                if Player_copy["Buff"]["Type"] == "Defense":
+                                    Player_copy["Defense"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion":
+                                    Player_copy["Evasion"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack And Magic Attack":
+                                    Player_copy["Attack"] -= Player_copy["Buff"]["Value"]
+                                    Player_copy["Magic Damage"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density":
+                                    Player_copy["Magic Density"] -= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Defense M":
+                                    Player_copy["Defense"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Attack M":
+                                    Player_copy["Attack"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Evasion M":
+                                    Player_copy["Evasion"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Magic Density M":
+                                    Player_copy["Magic Density"] /= Player_copy["Buff"]["Value"]
+                                if Player_copy["Buff"]["Type"] == "Speed M":
+                                    Player_copy["Speed"] /= Player_copy["Buff"]["Value"]
+                                Player_copy["Buff"]["Value"] = potion["Power"]
+                                Player_copy["Buff"]["Type"] = "Accuracy M"
+                                Player_copy["Buff"]["Duration"] += 3
+                                Player_copy["Accuracy"] *= Player_copy["Buff"]["Value"]
+                                Player_copy["Accuracy"] = round(Player_copy["Accuracy"])
+                                
+                            inventory["Potions"].remove(potion)
 
 
                 return Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics
@@ -2353,7 +2915,7 @@ class Player_Battle:
                         tw = TW(delay=0.02, jitter=True)
                         battle_choice = input("")
                         battle_choice = battle_choice.lower()
-                        if battle_choice not in ["melee","m","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","storage","s"]:
+                        if battle_choice not in ["melee","m","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","potions","p"]:
                             continue
                         if battle_choice in ["fight","f","1"]:
                             Breaker = False
