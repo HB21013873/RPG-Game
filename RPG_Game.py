@@ -4990,25 +4990,27 @@ while leave == False:
                     Drop = input("").title()
                     Drop_Prop = Drop.lower()
                     Drop_Prop = "".join(Drop_Prop.split())
-                    if Drop_Prop in ["bones"] and Drop in inventory:
+                    if Drop_Prop in ["bones","wolfpelt","capecloth","goblinear","koboldfang"] and Drop in inventory: # 1 - 40
                         Power = random.uniform(1.01,1.05)
                         break
-                    elif Drop_Prop in ["rottingflesh"] and Drop in inventory:
+                    elif Drop_Prop in ["rottingflesh"] and Drop in inventory: #41 - 80
                         Power = random.uniform(1.05,1.1)
                         break
-                    elif Drop_Prop in ["orctusk"] and Drop in inventory:
+                    elif Drop_Prop in ["orctusk"] and Drop in inventory: #81 - 120 
                         Power = random.uniform(1.1,1.15)
                         break
-                    elif Drop_Prop in ["warbeastfang","beasthide"] and Drop in inventory:
+                    elif Drop_Prop in ["warbeastfang","beasthide"] and Drop in inventory: # 121 - 180
                         Power = random.uniform(1.15,1.2)
                         break
-                    elif Drop_Prop in ["bloodsword","knightsemblem"] and Drop in inventory:
+                    elif Drop_Prop in ["bloodsword","knightsemblem"] and Drop in inventory: # 181+
                         Power = random.uniform(1.2,1.25)
                         break
                     elif Drop == "":
                         break
                     else:
                         print("\n You do not have this drop\n")
+
+
                 if Power != 0 and potion_type != "None":
                     if potion_type in ["Electric Resistance"]:
                         inventory["Potions"].append({"Type": "Electric Resistance Potion"})
