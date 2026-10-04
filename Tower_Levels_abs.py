@@ -381,7 +381,10 @@ class Tower:
             
 
             return  Enemy1,Player_copy,Evasion1_Stopper,Defense1_Stopper,Turn_Time,Enemy1_Skip,Player_Skip,b,Enemy2,Enemy3
-        def Enemy2_Battle(Enemy2,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,typewriter):
+        def Enemy2_Battle(Enemy2,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,b,typewriter,**kwargs):
+
+            Enemy1 = kwargs.get("Enemy1",None)
+            Enemy3 = kwargs.get("Enemy3",None)
 
             if Evasion2_Stopper == True:
                 Enemy2["Evasion"] -= 10
@@ -391,15 +394,21 @@ class Tower:
                 Defense2_Stopper = False
 
             if Enemy2_Skip == False and (Enemy2["Status Effects"]["Status 1"]["Type"] != "Freeze" and Enemy2["Status Effects"]["Status 2"]["Type"] != "Freeze" and Enemy2["Status Effects"]["Status 3"]["Type"] != "Freeze"):
-                Enemy2,Player_copy,Evasion2_Stopper,Defense2_Stopper,Turn_Time,Player_Skip = E_Battle.Enemy2_Battle(Enemy2,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Player_Skip,typewriter,Enemy2=Enemy2)
+                Enemy1,Enemy2,Enemy3,Player_copy,Evasion2_Stopper,Defense2_Stopper,Turn_Time,Player_Skip,Move,b = E_Battle.Enemy2_Battle(Enemy2,b,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Player_Skip,typewriter,Enemy1=Enemy1,Enemy3=Enemy3)
+                if Move == "Blood Frenzy":
+                    Enemy2["Health"] = 0
             else:
                 print(Enemy2["Type"]," is stunned!")
                 Turn_Time = 0
                 Enemy2_Skip = False
             
 
-            return  Enemy2,Player_copy,Evasion2_Stopper,Defense2_Stopper,Turn_Time,Enemy2_Skip,Player_Skip
-        def Enemy3_Battle(Enemy3,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Enemy3_Skip,Player_Skip,typewriter):
+            return  Enemy2,Player_copy,Evasion2_Stopper,Defense2_Stopper,Turn_Time,Enemy2_Skip,Player_Skip,b,Enemy1,Enemy3
+        def Enemy3_Battle(Enemy3,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Enemy3_Skip,Player_Skip,b,typewriter,**kwargs):
+
+            Enemy1 = kwargs.get("Enemy1",None)
+            Enemy2 = kwargs.get("Enemy2",None)
+
 
             if Evasion3_Stopper == True:
                 Enemy3["Evasion"] -= 10
@@ -409,13 +418,15 @@ class Tower:
                 Defense3_Stopper = False
 
             if Enemy3_Skip == False and (Enemy3["Status Effects"]["Status 1"]["Type"] != "Freeze" and Enemy3["Status Effects"]["Status 2"]["Type"] != "Freeze" and Enemy3["Status Effects"]["Status 3"]["Type"] != "Freeze"):
-                Enemy3,Player_copy,Evasion3_Stopper,Defense3_Stopper,Turn_Time,Player_Skip = E_Battle.Enemy3_Battle(Enemy3,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Player_Skip,typewriter)
+                Enemy1,Enemy2,Enemy3,Player_copy,Evasion3_Stopper,Defense3_Stopper,Turn_Time,Player_Skip,Move,b = E_Battle.Enemy3_Battle(Enemy3,b,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Player_Skip,typewriter,Enemy1=Enemy1,Enemy2=Enemy2)
+                if Move == "Blood Frenzy":
+                    Enemy3["Health"] = 0
             else:
                 print(Enemy3["Type"]," is stunned!")
                 Turn_Time = 0
                 Enemy3_Skip = False
 
-            return  Enemy3,Player_copy,Evasion3_Stopper,Defense3_Stopper,Turn_Time,Enemy3_Skip,Player_Skip
+            return  Enemy3,Player_copy,Evasion3_Stopper,Defense3_Stopper,Turn_Time,Enemy3_Skip,Player_Skip,b,Enemy1,Enemy2
         
 
         Battle_End = False
@@ -1590,7 +1601,10 @@ class Tower:
                             Turn_Time = round(Turn_Time,2)
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy3["Health"] > 0:
-                                Enemy3, Player_copy, Evasion3_Stopper, Defense3_Stopper,Turn_Time,Enemy3_Skip,Player_Skip = Enemy3_Battle(Enemy3,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Enemy3_Skip,Player_Skip,typewriter)
+                                Enemy3, Player_copy, Evasion3_Stopper, Defense3_Stopper,Turn_Time,Enemy3_Skip,Player_Skip,b,Enemy1,Enemy2 = Enemy3_Battle(Enemy3,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Enemy3_Skip,Player_Skip,b,typewriter,Enemy1=Enemy1,Enemy2=Enemy2)
+
+
+
                         if "Traveler" in Enemy3["Type"]:
                             Enemy3["Stamina"] *= 1.5
                             Enemy3["Stamina"] = round(Enemy3["Stamina"])
@@ -1606,7 +1620,7 @@ class Tower:
                             Turn_Time = round(Turn_Time,2)
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy2["Health"] > 0:
-                                Enemy2, Player_copy, Evasion2_Stopper, Defense2_Stopper,Turn_Time,Enemy2_Skip,Player_Skip = Enemy2_Battle(Enemy2,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,typewriter)
+                                Enemy2, Player_copy, Evasion2_Stopper, Defense2_Stopper,Turn_Time,Enemy2_Skip,Player_Skip,b,Enemy1,Enemy3 = Enemy2_Battle(Enemy2,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,b,typewriter,Enemy1=Enemy1,Enemy3=Enemy3)
                         if "Traveler" in Enemy2["Type"]:
                             Enemy2["Stamina"] *= 1.5
                             Enemy2["Stamina"] = round(Enemy2["Stamina"])
@@ -1622,7 +1636,7 @@ class Tower:
                             Turn_Time = round(Turn_Time,2)
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy1["Health"] > 0:
-                                Enemy1,Player_copy, Evasion1_Stopper,Defense1_Stopper,Turn_Time,Enemy1_Skip,Player_Skip,b,Enemy2,Enemy3 = Enemy1_Battle(Enemy1,Player,Player_copy,Evasion1_Stopper,Defense1_Stopper,name,Game,Turn_Time,Enemy1_Skip,Player_Skip,b,typewriter,Enemy2=Enemy2,Enemy3=Enemy3)
+                                Enemy1, Player_copy, Evasion1_Stopper, Defense1_Stopper,Turn_Time,Enemy1_Skip,Player_Skip,b,Enemy2,Enemy3 = Enemy1_Battle(Enemy1,Player,Player_copy,Evasion1_Stopper,Defense1_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,b,typewriter,Enemy2=Enemy2,Enemy3=Enemy3)
                         if "Traveler" in Enemy1["Type"]:
                             Enemy1["Stamina"] *= 1.5
                             Enemy1["Stamina"] = round(Enemy1["Stamina"])
@@ -2820,7 +2834,10 @@ class Tower:
                             Turn_Time = round(Turn_Time,2)
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy3["Health"] > 0:
-                                Enemy3, Player_copy, Evasion3_Stopper, Defense3_Stopper,Turn_Time,Player_Skip = Enemy3_Battle(Enemy3,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Enemy3_Skip,Player_Skip,typewriter)
+                                Enemy3, Player_copy, Evasion3_Stopper, Defense3_Stopper,Turn_Time,Enemy3_Skip,Player_Skip,b,Enemy1,Enemy2 = Enemy3_Battle(Enemy3,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Enemy3_Skip,Player_Skip,b,typewriter,Enemy1=Enemy1,Enemy2=Enemy2)
+
+
+
                         if "Traveler" in Enemy3["Type"]:
                             Enemy3["Stamina"] *= 1.5
                             Enemy3["Stamina"] = round(Enemy3["Stamina"])
@@ -2836,7 +2853,7 @@ class Tower:
                             Turn_Time = round(Turn_Time,2)
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy2["Health"] > 0:
-                                Enemy2, Player_copy, Evasion2_Stopper, Defense2_Stopper,Turn_Time,Player_Skip = Enemy2_Battle(Enemy2,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,typewriter)
+                                Enemy2, Player_copy, Evasion2_Stopper, Defense2_Stopper,Turn_Time,Enemy2_Skip,Player_Skip,b,Enemy1,Enemy3 = Enemy2_Battle(Enemy2,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,b,typewriter,Enemy1=Enemy1,Enemy3=Enemy3)
                         if "Traveler" in Enemy2["Type"]:
                             Enemy2["Stamina"] *= 1.5
                             Enemy2["Stamina"] = round(Enemy2["Stamina"])
@@ -2852,7 +2869,7 @@ class Tower:
                             Turn_Time = round(Turn_Time,2)
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy1["Health"] > 0:
-                                Enemy1, Player_copy, Evasion1_Stopper, Defense1_Stopper,Turn_Time,Player_Skip,b,Enemy2,Enemy3 = Enemy1_Battle(Enemy1,Player,Player_copy,Evasion1_Stopper,Defense1_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,b,typewriter,Enemy2=Enemy2,Enemy3=Enemy3)
+                                Enemy1, Player_copy, Evasion1_Stopper, Defense1_Stopper,Turn_Time,Enemy1_Skip,Player_Skip,b,Enemy2,Enemy3 = Enemy1_Battle(Enemy1,Player,Player_copy,Evasion1_Stopper,Defense1_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,b,typewriter,Enemy2=Enemy2,Enemy3=Enemy3)
                         if "Traveler" in Enemy1["Type"]:
                             Enemy1["Stamina"] *= 1.5
                             Enemy1["Stamina"] = round(Enemy1["Stamina"])
@@ -2860,9 +2877,6 @@ class Tower:
                             Enemy1["Stamina"] *= 1.1
                             Enemy1["Stamina"] = round(Enemy1["Stamina"])
                         print(f"\n---------------\n Turn End\n---------------\n")
-
-
-
 
                     if fighter == fighters_sorted[-1]:
                         if b >= 3:
