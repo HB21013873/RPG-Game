@@ -1443,7 +1443,7 @@ class Enemy_Battle:
 
 
 
-        return  Enemy1,Enemy2,Enemy3,Player_copy,Evasion1_Stopper,Defense1_Stopper,Turn_Time,Player_Skip,Move,b
+        return  Enemy1,Enemy2,Enemy3,Player_copy,Evasion2_Stopper,Defense2_Stopper,Turn_Time,Player_Skip,Move,b
     
     def Enemy3_Battle(Enemy3,b,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Player_Skip,typewriters,**kwargs):
 
@@ -2155,4 +2155,4 @@ class Enemy_Battle:
 
 
 
-        return  Enemy1,Enemy2,Enemy3,Player_copy,Evasion1_Stopper,Defense1_Stopper,Turn_Time,Player_Skip,Move,b
+        return  Enemy1,Enemy2,Enemy3,Player_copy,Evasion3_Stopper,Defense3_Stopper,Turn_Time,Player_Skip,Move,b

@@ -95,6 +95,7 @@ class Player_Move:
                 Enemy1_Weakpoint = kwargs.get("Enemy1_Weakpoint", None)
                 Enemy2_Weakpoint = kwargs.get("Enemy2_Weakpoint", None)
                 Enemy3_Weakpoint = kwargs.get("Enemy3_Weakpoint", None)
+                Body_Condition = kwargs.get("Body_Condition",None)
                 Enemy1 = kwargs.get("Enemy1",None)
                 Enemy2 = kwargs.get("Enemy2",None)
                 Enemy3 = kwargs.get("Enemy3",None)
@@ -130,7 +131,7 @@ class Player_Move:
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
@@ -439,11 +440,10 @@ class Player_Move:
 
                         choice = "Groundbreaker"
                         Breaker = True
-                        if Mana_Amount < Player_copy["Stamina"]:
+                        if Combat_Skill_list < Player_copy["Stamina"]:
                             Player_copy["Stamina"] -= Combat_Skill_list["Groundbreaker"]["Cost"]
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                                Damage += Damage_Amount
                                 choice = "Groundbreaker"
                                 Breaker = True
                                 if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
@@ -554,6 +554,7 @@ class Player_Move:
                 Enemy1_Weakpoint = kwargs.get("Enemy1_Weakpoint", None)
                 Enemy2_Weakpoint = kwargs.get("Enemy2_Weakpoint", None)
                 Enemy3_Weakpoint = kwargs.get("Enemy3_Weakpoint", None)
+                Body_Condition = kwargs.get("Body_Condition",None)
                 Enemy1 = kwargs.get("Enemy1",None)
                 Enemy2 = kwargs.get("Enemy2",None)
                 Enemy3 = kwargs.get("Enemy3",None)
@@ -1476,6 +1477,7 @@ class Player_Move:
                     Enemy1_Weakpoint = kwargs.get("Enemy1_Weakpoint", None)
                     Enemy2_Weakpoint = kwargs.get("Enemy2_Weakpoint", None)
                     Enemy3_Weakpoint = kwargs.get("Enemy3_Weakpoint", None)
+                    Body_Condition = kwargs.get("Body_Condition",None)
                     Enemy1 = kwargs.get("Enemy1",None)
                     Enemy2 = kwargs.get("Enemy2",None)
                     Enemy3 = kwargs.get("Enemy3",None)
@@ -1490,12 +1492,12 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["River Fist"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100)/2)
-                            Damage += int( ((Combat_Skill_list["River Fist"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"])/2)
+                            Damage += int( ((Spell_list["River Fist"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"])/2)
                             Damage *= (1 + (Player_copy["Critical Damage"]/100))
                             print("\n\nCritical Hit!\n")
                         else:
                             Damage = int( Spell_list["River Fist"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage += int( ((Combat_Skill_list["River Fist"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"])/2)
+                            Damage += int( ((Spell_list["River Fist"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"])/2)
                         while True:
                             print("How much mana do you want to use?")
                             try:   
@@ -1614,7 +1616,7 @@ class Player_Move:
                                 if mud_chance == 1 and target == Enemy2:
                                     Enemy2["Accuracy"] -= (Enemy2["Accuracy"] * 0.1)
                                     print(Enemy2["Type"]," Accuracy has decreased by 10%")
-                                if burn_chance == 1 and target == Enemy3:
+                                if mud_chance == 1 and target == Enemy3:
                                     Enemy3["Accuracy"] -= (Enemy3["Accuracy"] * 0.1)
                                     print(Enemy3["Type"]," Accuracy has decreased by 10%")
                                 Damage = round(Damage)
@@ -1652,7 +1654,7 @@ class Player_Move:
                                             if mud_chance == 1 and target == Enemy2:
                                                 Enemy2["Accuracy"] -= (Enemy2["Accuracy"] * 0.1)
                                                 print(Enemy2["Type"]," Accuracy has decreased by 10%")
-                                            if burn_chance == 1 and target == Enemy3:
+                                            if mud_chance == 1 and target == Enemy3:
                                                 Enemy3["Accuracy"] -= (Enemy3["Accuracy"] * 0.1)
                                                 print(Enemy3["Type"]," Accuracy has decreased by 10%")
                                             Worked = True
@@ -2216,7 +2218,7 @@ class Player_Move:
                                             print("They have been Corrupted")
                                         elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                             target["Status Effects"]["Status 3"]["Type"] = "Poison"
-                                            taregt["Status Effects"]["Status 3"]["Duration"] = 2
+                                            target["Status Effects"]["Status 3"]["Duration"] = 2
                                             print("They have been Corrupted")
                                     
                                 Damage = Damage / 5
@@ -2253,7 +2255,7 @@ class Player_Move:
                                                         print("They have been Corrupted")
                                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                                         target["Status Effects"]["Status 3"]["Type"] = "Poison"
-                                                        taregt["Status Effects"]["Status 3"]["Duration"] = 2
+                                                        target["Status Effects"]["Status 3"]["Duration"] = 2
                                                         print("They have been Corrupted")
                                             Worked = True
                                         else:
@@ -2339,7 +2341,7 @@ class Player_Move:
                                             print("They have been Poisoned")
                                         elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                             target["Status Effects"]["Status 3"]["Type"] = "Poison"
-                                            taregt["Status Effects"]["Status 3"]["Duration"] = 2
+                                            target["Status Effects"]["Status 3"]["Duration"] = 2
                                             print("They have been Poisoned")
                                     
                                 Damage = round(Damage)
@@ -2375,7 +2377,7 @@ class Player_Move:
                                                         print("They have been Poisoned")
                                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                                         target["Status Effects"]["Status 3"]["Type"] = "Poison"
-                                                        taregt["Status Effects"]["Status 3"]["Duration"] = 2
+                                                        target["Status Effects"]["Status 3"]["Duration"] = 2
                                                         print("They have been Poisoned")
                                             Worked = True
                                         else:
@@ -2712,7 +2714,7 @@ class Player_Move:
                     return Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip
 
 
-            def Empower(Player_copy,Spell_list,typewriters,**kwargs):
+            def Empower(Player_copy,Spell_list,Skill_Tree,typewriters,**kwargs):
                 global typewriter
                 typewriter = typewriters
                 Breaker = True
@@ -2773,7 +2775,7 @@ class Player_Move:
 
                 
         class Support:
-            def Heal(Player_copy,Enemy,Spell_list,typewriters,Statistics,**kwargs):
+            def Heal(Player_copy,Enemy,Spell_list,Skill_Tree,typewriters,Statistics,**kwargs):
                 global typewriter
                 typewriter = typewriters
                 Breaker = True
