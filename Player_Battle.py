@@ -19,7 +19,7 @@ def print(*args, sep=" ", end="\n"):
 Moves = PM()
 class Player_Battle:
     class Overall_Player_Battle:
-            def Player3_Battle (self,Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier):
+            def Player3_Battle (self,Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier,Method_list):
                 global typewriter
                 typewriter = typewriters
                 Battle_End = False
@@ -1526,7 +1526,7 @@ class Player_Battle:
 
 
 
-            def Player2_Battle (self,Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier):
+            def Player2_Battle (self,Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier,Method_list):
                 global typewriter
                 typewriter = typewriters
                 battle_choice = ""
@@ -2871,7 +2871,7 @@ class Player_Battle:
 
                 return Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics
 
-            def Player1_Battle (self,Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier):
+            def Player1_Battle (self,Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier,Method_list):
                 global typewriter
                 typewriter = typewriters
                 Battle_End = False
