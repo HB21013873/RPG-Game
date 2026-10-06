@@ -2487,6 +2487,9 @@ class Player_Move:
                     typewriter = typewriters
                     Breaker = False
                     target = kwargs.get("target", None)
+                    dead_enemy1 = kwargs.get("dead_enemy1","")
+                    dead_enemy2 = kwargs.get("dead_enemy2","")
+                    dead_enemy3 = kwargs.get("dead_enemy3","")
                     Enemy1_Weakpoint = kwargs.get("Enemy1_Weakpoint", None)
                     Enemy2_Weakpoint = kwargs.get("Enemy2_Weakpoint", None)
                     Enemy3_Weakpoint = kwargs.get("Enemy3_Weakpoint", None)
@@ -2506,15 +2509,21 @@ class Player_Move:
                             Player_copy["Mana"] -= Spell_list["Dominate"]["Cost"]
                             if Player_copy["Level"] > target["Level"]:
                                 print(f"\n\n{choice} is used\n")
-                                print("Choose the enemy to attack:\n1. ","lvl",Enemy1["Level"],Enemy1["Type"],"( Health:",Enemy1["Health"],")",dead_enemy1,"\n2. ","lvl",Enemy2["Level"],Enemy2["Type"],"( Health:",Enemy2["Health"],")",dead_enemy2,"\n3. ","lvl",Enemy3["Level"],Enemy3["Type"],"( Health:",Enemy3["Health"],dead_enemy3,")","")
-                                enemy_choice = input("")
-                                enemy_choice = enemy_choice.lower()
-                                if enemy_choice in ["1","enemy1","enemy 1"]:
-                                        target2 = Enemy1
-                                elif enemy_choice in ["2","enemy2","enemy 2"]:
-                                        target2 = Enemy2
-                                elif enemy_choice in ["3","enemy3","enemy 3"]:
-                                        target2 = Enemy3
+                                while True:
+                                    if (Enemy1 != None and Enemy2 != None) and Enemy3 != None:
+                                        print("Choose the enemy to attack:\n1. ","lvl",Enemy1["Level"],Enemy1["Type"],"( Health:",Enemy1["Health"],")",dead_enemy1,"\n2. ","lvl",Enemy2["Level"],Enemy2["Type"],"( Health:",Enemy2["Health"],")",dead_enemy2,"\n3. ","lvl",Enemy3["Level"],Enemy3["Type"],"( Health:",Enemy3["Health"],dead_enemy3,")","")
+                                    elif Enemy1 != None and Enemy2 != None:
+                                        print("Choose the enemy to attack:\n1. ","lvl",Enemy1["Level"],Enemy1["Type"],"( Health:",Enemy1["Health"],")",dead_enemy1,"\n2. ","lvl",Enemy2["Level"],Enemy2["Type"],"( Health:",Enemy2["Health"],")",dead_enemy2,"\n")
+                                    else:
+                                        print("Choose the enemy to attack:\n1. ","lvl",Enemy1["Level"],Enemy1["Type"],"( Health:",Enemy1["Health"],")",dead_enemy1,"\n")                                    
+                                    enemy_choice = input("")
+                                    enemy_choice = enemy_choice.lower()
+                                    if enemy_choice in ["1","enemy1","enemy 1"]:
+                                            target2 = Enemy1
+                                    elif enemy_choice in ["2","enemy2","enemy 2"] and Enemy2 != None:
+                                            target2 = Enemy2
+                                    elif enemy_choice in ["3","enemy3","enemy 3"] and Enemy3 != None:
+                                            target2 = Enemy3
                                 if target["Spell Caster"] == True:
                                     target2["Health"] -= target["Magic Damage"]
                                     print(target["Type"],"uses mana blast on",target2["Type"])

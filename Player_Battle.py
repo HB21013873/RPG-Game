@@ -19,7 +19,7 @@ def print(*args, sep=" ", end="\n"):
 Moves = PM()
 class Player_Battle:
     class Overall_Player_Battle:
-            def Player3_Battle (self,Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier):
+            def Player3_Battle (self,Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier,Method_list):
                 global typewriter
                 typewriter = typewriters
                 Battle_End = False
@@ -263,7 +263,7 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Nature.Grappling_Vines(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)  
                             elif skill_choice in ["domination"] and "Domination" in Spell_list:
                                 POI = None
-                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,target2 = PM.Spell_Moves.Mind.Domination(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)  
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,target2 = PM.Spell_Moves.Mind.Domination(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip,dead_enemy1=dead_enemy1,dead_enemy2=dead_enemy2,dead_enemy3=dead_enemy3)  
                             elif skill_choice in ["stoneslipstream"] and "Stone Slipstream" in Spell_list:
                                 while True:
                                     print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
@@ -521,14 +521,14 @@ class Player_Battle:
                                                     print(Enemy1["Type"]," falls off the bridge")
                                                 break
                                             if Target in ["enemy2","2","enemy 2"]:
-                                                print(f"You charge at the {Enemy2_Type}")
+                                                print(f"You charge at the {Enemy2['Type']}")
                                                 percentage = random.random()
                                                 if percentage >= (Enemy2["Attack"] / Player_copy["Max Health"]):
                                                     Enemy2["Health"] = 0
                                                     print(Enemy2["Type"]," falls off the bridge")
                                                 break
                                             if Target in ["enemy3","3","enemy 3"]:
-                                                print(f"You charge at the {Enemy3_Type}")
+                                                print(f"You charge at the {Enemy3['Type']}")
                                                 percentage = random.random()
                                                 if percentage >= (Enemy3["Attack"] / Player_copy["Max Health"]):
                                                     Enemy3["Health"] = 0
@@ -1526,7 +1526,7 @@ class Player_Battle:
 
 
 
-            def Player2_Battle (self,Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier):
+            def Player2_Battle (self,Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier,Method_list):
                 global typewriter
                 typewriter = typewriters
                 battle_choice = ""
@@ -1764,7 +1764,7 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Nature.Grappling_Vines(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)  
                             elif skill_choice in ["domination"] and "Domination" in Spell_list:
                                 POI = None
-                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,target2 = PM.Spell_Moves.Mind.Domination(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)  
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,target2 = PM.Spell_Moves.Mind.Domination(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,dead_enemy1=dead_enemy1,dead_enemy2=dead_enemy2)  
                             elif skill_choice in ["stoneslipstream"] and "Stone Slipstream" in Spell_list:
                                 while True:
                                     print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
@@ -1989,7 +1989,7 @@ class Player_Battle:
                                                     print(Enemy1["Type"]," falls off the bridge")
                                                 break
                                             if Target in ["enemy2","2","enemy 2"]:
-                                                print(f"You charge at the {Enemy2_Type}")
+                                                print(f"You charge at the {Enemy2['Type']}")
                                                 percentage = random.random()
                                                 if percentage >= (Enemy2["Attack"] / Player_copy["Max Health"]):
                                                     Enemy2["Health"] = 0
@@ -2871,7 +2871,7 @@ class Player_Battle:
 
                 return Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics
 
-            def Player1_Battle (self,Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier):
+            def Player1_Battle (self,Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier,Method_list):
                 global typewriter
                 typewriter = typewriters
                 Battle_End = False
@@ -3056,7 +3056,7 @@ class Player_Battle:
                                         break
                                     else:
                                         print("Not an option.")
-                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Ice.Ice_Shard(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip)  
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Ice.Ice_Shard(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip)  
 
                             elif skill_choice in ["shock"] and "Shock" in Spell_list:
                                 while True:
@@ -3102,7 +3102,7 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Nature.Grappling_Vines(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip)  
                             elif skill_choice in ["domination"] and "Domination" in Spell_list:
                                 POI = None
-                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,target2 = PM.Spell_Moves.Mind.Domination(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip)  
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,target2 = PM.Spell_Moves.Mind.Domination(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,dead_enemy1=dead_enemy1,Enemy1_Skip=Enemy1_Skip)  
                             elif skill_choice in ["stoneslipstream"] and "Stone Slipstream" in Spell_list:
                                 while True:
                                     print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")

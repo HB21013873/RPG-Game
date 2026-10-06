@@ -20,7 +20,7 @@ def print(*args, sep=" ", end="\n"):
     else:
         builtins.print(*args, sep=sep, end=end)
 class Tower:
-    def Tower(Player,Player_copy,Enemy,Tower_Level_Choice,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,Move_Set,name,Statistics,Game,Body_Condition,Skill_Tree,Chest_items,Skill_Books,Proficiency,Amount_Used,typewriters):
+    def Tower(Player,Player_copy,Enemy,Tower_Level_Choice,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,Move_Set,name,Statistics,Game,Body_Condition,Skill_Tree,Chest_items,Skill_Books,Proficiency,Amount_Used,typewriters,Method_list):
         global typewriter
         typewriter = typewriters
         b = random.randint(1,3)
@@ -617,7 +617,7 @@ class Tower:
                         if (Enemy1["Health"] <= 0) and (Enemy2["Health"] <= 0) and (Enemy3["Health"] <= 0):
                             Battle_End = True
                             Outcome = "Player Win"
-                            if Player_Copy["Health"] == Player_copy["Max Health"]:
+                            if Player_copy["Health"] == Player_copy["Max Health"]:
                                 Statistics["Damageless Battles Won"] += 1
                             if "Greatsword" in Gear["Type"]:
                                 Amount_Used["Greatsword"] += 1
@@ -1582,11 +1582,11 @@ class Tower:
                             print(f"\n{Turn_Time}s remaining\n")
                     
                             if b >= 3:
-                                Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place, player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player3_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier)
+                                Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place, player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player3_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
                             elif b >= 2:
-                                Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player2_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier)
+                                Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player2_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
                             elif b >= 1:
-                                Player,Player_copy, Enemy1,n, place,player_shadows,x,Enemy1_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player1_Battle(Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier)
+                                Player,Player_copy, Enemy1,n, place,player_shadows,x,Enemy1_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player1_Battle(Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
                         if Skill_Tree["General"]["Fast Recovery"]["Status"] != "(Unlocked)":
                             Player_copy["Stamina"] += (Player["Stamina"] * 0.1)
                         else:
@@ -2816,11 +2816,11 @@ class Tower:
                             print(f"\n{Turn_Time}s remaining\n")
                     
                             if b >= 3:
-                                Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place, player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player3_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier)
+                                Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place, player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player3_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
                             elif b >= 2:
-                                Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player2_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier)
+                                Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player2_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
                             elif b >= 1:
-                                Player,Player_copy, Enemy1,n, place,player_shadows,x,Enemy1_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player1_Battle(Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier)
+                                Player,Player_copy, Enemy1,n, place,player_shadows,x,Enemy1_Skip,Player_Skip,Turn_Time,Statistics  = Player_Battle.Player1_Battle(Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
                         if Skill_Tree["General"]["Fast Recovery"]["Status"] != "(Unlocked)":
                             Player_copy["Stamina"] += (Player["Stamina"] * 0.1)
                         else:
