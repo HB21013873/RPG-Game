@@ -21,7 +21,7 @@ class Enemy_Battle:
 
     
     
-    def Enemy1_Battle(Enemy1,b,Player,Player_copy,Evasion1_Stopper,Defense1_Stopper,name,Game,Turn_Time,Player_Skip,typewriters,**kwargs):
+    def Enemy1_Battle(Enemy,Enemy1,b,Player,Player_copy,Evasion1_Stopper,Defense1_Stopper,name,Game,Turn_Time,Player_Skip,typewriters,**kwargs):
 
         global typewriter
         typewriter = typewriters
@@ -694,7 +694,7 @@ class Enemy_Battle:
                 elif Move in ["Aimed Shot"]:
                     Player_copy,Enemy1,Turn_Time = EM.Melee_Moves.Arms.Aimed_Shot(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
                 elif Move in ["Summon"]:
-                    target,Ally = EM.Spell_Moves.Arcane.Summon(target,typewriter)
+                    Result = EM.Spell_Moves.Arcane.Summon(target,typewriter,Enemy)
                     target = Result["Returning"][0]
                     if Enemy2 == None:
                         Enemy2 = Result["Returning"][1]
@@ -733,7 +733,7 @@ class Enemy_Battle:
 
         return  Enemy1,Enemy2,Enemy3,Player_copy,Evasion1_Stopper,Defense1_Stopper,Turn_Time,Player_Skip,Move,b
 
-    def Enemy2_Battle(Enemy2,b,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Player_Skip,typewriters,**kwargs):
+    def Enemy2_Battle(Enemy,Enemy2,b,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Player_Skip,typewriters,**kwargs):
 
         global typewriter
         typewriter = typewriters
@@ -1406,7 +1406,7 @@ class Enemy_Battle:
                 elif Move in ["Aimed Shot"]:
                     Player_copy,Enemy2,Turn_Time = EM.Melee_Moves.Arms.Aimed_Shot(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
                 elif Move in ["Summon"]:
-                    target,Ally = EM.Spell_Moves.Arcane.Summon(target,typewriter)
+                    Result = EM.Spell_Moves.Arcane.Summon(target,typewriter,Enemy)
                     target = Result["Returning"][0]
                     if Enemy2 == None:
                         Enemy2 = Result["Returning"][1]
@@ -1445,7 +1445,7 @@ class Enemy_Battle:
 
         return  Enemy1,Enemy2,Enemy3,Player_copy,Evasion2_Stopper,Defense2_Stopper,Turn_Time,Player_Skip,Move,b
     
-    def Enemy3_Battle(Enemy3,b,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Player_Skip,typewriters,**kwargs):
+    def Enemy3_Battle(Enemy,Enemy3,b,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Player_Skip,typewriters,**kwargs):
 
         global typewriter
         typewriter = typewriters
@@ -2118,7 +2118,7 @@ class Enemy_Battle:
                 elif Move in ["Aimed Shot"]:
                     Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Aimed_Shot(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
                 elif Move in ["Summon"]:
-                    target,Ally = EM.Spell_Moves.Arcane.Summon(target,typewriter)
+                    Result = EM.Spell_Moves.Arcane.Summon(target,typewriter,Enemy)
                     target = Result["Returning"][0]
                     if Enemy2 == None:
                         Enemy2 = Result["Returning"][1]
