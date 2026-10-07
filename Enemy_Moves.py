@@ -3,6 +3,7 @@ import time
 import sys
 from Text_Writing_Style import TypeWriter as TW
 import builtins
+import copy
 tw = TW(delay=0.02, jitter=True)
 typewriter = True
 def print(*args, sep=" ", end="\n"):
@@ -298,7 +299,6 @@ class Enemy_Move:
                             target["Stamina"] -= 50
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
-                                Damage += Damage_Amount
                                 choice = "Tremor"
                                 if (Player_copy["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
                                     chance = random.randint(1,5)
@@ -625,7 +625,7 @@ class Enemy_Move:
                 Turn_Time -= 0.5
                 return Player_copy,target,Turn_Time
 
-            def Impulsive_Swing(Player_copy,typewriters,**kwargs):
+            def Impulsive_Swing(Player_Skip,Player_copy,typewriters,**kwargs):
                 global typewriter
                 typewriter = typewriters
                 target = kwargs.get("target",None)
@@ -762,7 +762,7 @@ class Enemy_Move:
                     else:
                         print("It failed because there is not enough mana\n")
                     Turn_Time -= 0.5
-                    return Player_copy,target,Breaker,Turn_Time
+                    return Player_copy,target,Turn_Time
             class Ice:
                 def Ice_Shard(Player_copy,typewriters,**kwargs):
                     global typewriter
@@ -1218,7 +1218,7 @@ class Enemy_Move:
                         print("Not enough Time...")
                         
                     
-                    return Player_copy,target,Turn_Time,Breaker
+                    return Player_copy,target,Turn_Time
                 
                 def Corrupting_Touch(Player_copy,typewriters,**kwargs):
                     global typewriter
@@ -1562,7 +1562,7 @@ class Enemy_Move:
                     print("Not Enough Mana")
                 Turn_Time -= 0.5
                 return target,Turn_Time
-            def Summon(target,typewriters):
+            def Summon(target,typewriters,Enemy):
                 global typewriter
                 typewriter = typewriters
                 T = random.randint(1,3)
