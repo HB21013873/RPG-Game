@@ -1522,7 +1522,7 @@ class Player_Battle:
 
 
 
-                return Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics
+                return Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics,Battle_End
 
 
 
@@ -2871,7 +2871,7 @@ class Player_Battle:
                                 print("\n You have no items to use \n")
 
 
-                return Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics
+                return Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics,Battle_End
 
             def Player1_Battle (self,Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier,Method_list):
                 global typewriter
