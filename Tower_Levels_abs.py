@@ -79,15 +79,16 @@ class Tower:
 
         def Status_Effect3(Player_copy, Enemy3,n, place,Game):
 
-            if (Enemy3["Status Effects"]["Status 1"]["Type"] == "Burn" or  Enemy3["Status Effects"]["Status 2"]["Type"] == "Burn" or Enemy3["Status Effects"]["Status 3"]["Type"] == "Burn"  ) and Enemy3["Status Effects"]["Status 1"]["Duration"] != 0 and Enemy3["Status Effects"]["Status 2"]["Duration"] != 0 and Enemy3["Status Effects"]["Status 3"]["Duration"] != 0:
+            if (Enemy3["Status Effects"]["Status 1"]["Type"] == "Burn" and Enemy3["Status Effects"]["Status 1"]["Duration"] != 0) or  (Enemy3["Status Effects"]["Status 2"]["Type"] == "Burn" and Enemy3["Status Effects"]["Status 2"]["Duration"] != 0) or (Enemy3["Status Effects"]["Status 3"]["Type"] == "Burn" and Enemy3["Status Effects"]["Status 3"]["Duration"] != 0):
+                    
                     Enemy3["Health"] -= (Enemy3["Health"] *  0.05)
                     (Enemy3["Health"]) = int(Enemy3["Health"])
                     print(Enemy3["Type"], "takes burn damage")
-            if (Enemy3["Status Effects"]["Status 1"]["Type"] == "Poison" or  Enemy3["Status Effects"]["Status 2"]["Type"] == "Poison" or Enemy3["Status Effects"]["Status 3"]["Type"] == "Poison"  ) and Enemy3["Status Effects"]["Status 1"]["Duration"] != 0 and Enemy3["Status Effects"]["Status 2"]["Duration"] != 0 and Enemy3["Status Effects"]["Status 3"]["Duration"] != 0:
+            if (Enemy3["Status Effects"]["Status 1"]["Type"] == "Poison" and Enemy3["Status Effects"]["Status 1"]["Duration"] != 0) or  (Enemy3["Status Effects"]["Status 2"]["Type"] == "Poison" and Enemy3["Status Effects"]["Status 2"]["Duration"] != 0) or (Enemy3["Status Effects"]["Status 3"]["Type"] == "Poison" and Enemy3["Status Effects"]["Status 3"]["Duration"] != 0):
                 if Enemy3["Attribute"] != "Poison" and Enemy3["Buff"]["Type"] != "Poison Immunity":
-                    Enemy3["Health"] -= (Enemy3["Health"] * (random.randint(0.01,0.15)))
+                    Enemy3["Health"] -= (Enemy3["Health"] * (random.uniform(0.01,0.15)))
                     Enemy3["Health"] = round(Enemy3["Health"])
-            if (Enemy3["Status Effects"]["Status 1"]["Type"] == "Bleed" or  Enemy3["Status Effects"]["Status 2"]["Type"] == "Bleed" or Enemy3["Status Effects"]["Status 3"]["Type"] == "Bleed"  ) and Enemy3["Status Effects"]["Status 1"]["Duration"] != 0 and Enemy3["Status Effects"]["Status 2"]["Duration"] != 0 and Enemy3["Status Effects"]["Status 3"]["Duration"] != 0:
+            if (Enemy3["Status Effects"]["Status 1"]["Type"] == "Bleed" and Enemy3["Status Effects"]["Status 1"]["Duration"] != 0) or  (Enemy3["Status Effects"]["Status 2"]["Type"] == "Bleed" and Enemy3["Status Effects"]["Status 2"]["Duration"] != 0) or (Enemy3["Status Effects"]["Status 3"]["Type"] == "Bleed" and Enemy3["Status Effects"]["Status 3"]["Duration"] != 0):
                     Enemy3["Health"] -= (Enemy3["Max Health"] * (random.randint(2,5)/ 100))
                     (Enemy3["Health"]) = int(Enemy3["Health"])
                     print(Enemy3["Type"], "takes bleed damage")
@@ -143,19 +144,19 @@ class Tower:
 
         def Status_Effect2(Player_copy, Enemy2,n, place,Game):
 
-            if (Enemy2["Status Effects"]["Status 1"]["Type"] == "Burn" or  Enemy2["Status Effects"]["Status 2"]["Type"] == "Burn" or Enemy2["Status Effects"]["Status 3"]["Type"] == "Burn"  ) and (Enemy2["Status Effects"]["Status 1"]["Duration"] != 0 and Enemy2["Status Effects"]["Status 2"]["Duration"] != 0 and Enemy2["Status Effects"]["Status 3"]["Duration"] != 0):
+            if (Enemy2["Status Effects"]["Status 1"]["Type"] == "Burn" and Enemy2["Status Effects"]["Status 1"]["Duration"] != 0) or  (Enemy2["Status Effects"]["Status 2"]["Type"] == "Burn" and Enemy2["Status Effects"]["Status 2"]["Duration"] != 0) or (Enemy2["Status Effects"]["Status 3"]["Type"] == "Burn" and Enemy2["Status Effects"]["Status 3"]["Duration"] != 0):
                     Enemy2["Health"] -= (Enemy2["Health"] *  0.05)
                     (Enemy2["Health"]) = int(Enemy2["Health"])
                     print(Enemy2["Type"], " takes burn damage")
-            if (Enemy2["Status Effects"]["Status 1"]["Type"] == "Poison" or  Enemy2["Status Effects"]["Status 2"]["Type"] == "Poison" or Enemy2["Status Effects"]["Status 3"]["Type"] == "Poison"  ) and Enemy2["Status Effects"]["Status 1"]["Duration"] != 0 and Enemy2["Status Effects"]["Status 2"]["Duration"] != 0 and Enemy2["Status Effects"]["Status 3"]["Duration"] != 0:
+            if (Enemy2["Status Effects"]["Status 1"]["Type"] == "Poison" and Enemy2["Status Effects"]["Status 1"]["Duration"] != 0) or  (Enemy2["Status Effects"]["Status 2"]["Type"] == "Poison" and Enemy2["Status Effects"]["Status 2"]["Duration"] != 0) or (Enemy2["Status Effects"]["Status 3"]["Type"] == "Poison" and Enemy2["Status Effects"]["Status 3"]["Duration"] != 0):
                 if Enemy2["Attribute"] != "Poison" and Enemy2["Buff"]["Type"] != "Poison Immunity":
-                    Enemy2["Health"] -= (Enemy2["Health"] * (random.randint(0.01,0.15)))
+                    Enemy2["Health"] -= (Enemy2["Health"] * (random.uniform(0.01,0.15)))
                     Enemy2["Health"] = round(Enemy2["Health"])
             if Game["Current Effect"]["Type"] == "Poison":
                 if Enemy2["Buff"]["Type"] != "Poison Immunity":
                         Enemy2["Health"] -= 5
                         print(Enemy2["Type"], " takes poison damage")
-            if (Enemy2["Status Effects"]["Status 1"]["Type"] == "Bleed" or  Enemy2["Status Effects"]["Status 2"]["Type"] == "Bleed" or Enemy2["Status Effects"]["Status 3"]["Type"] == "Bleed"  ) and Enemy2["Status Effects"]["Status 1"]["Duration"] != 0 and Enemy2["Status Effects"]["Status 2"]["Duration"] != 0 and Enemy2["Status Effects"]["Status 3"]["Duration"] != 0:
+            if (Enemy2["Status Effects"]["Status 1"]["Type"] == "Bleed" and Enemy2["Status Effects"]["Status 1"]["Duration"] != 0) or  (Enemy2["Status Effects"]["Status 2"]["Type"] == "Bleed" and Enemy2["Status Effects"]["Status 2"]["Duration"] != 0) or (Enemy2["Status Effects"]["Status 3"]["Type"] == "Bleed" and Enemy2["Status Effects"]["Status 3"]["Duration"] != 0):
                     Enemy2["Health"] -= (Enemy2["Max Health"] * (random.randint(2,5)/ 100))
                     (Enemy2["Health"]) = int(Enemy2["Health"])
                     print(Enemy2["Type"], "takes bleed damage")
@@ -207,19 +208,19 @@ class Tower:
             return Player_copy,Enemy2,n,place,Game
         
         def Status_Effect1(Player_copy, Enemy1,n, place,Game):
-            if (Enemy1["Status Effects"]["Status 1"]["Type"] == "Burn" or  Enemy1["Status Effects"]["Status 2"]["Type"] == "Burn" or Enemy1["Status Effects"]["Status 3"]["Type"] == "Burn"  ) and (Enemy1["Status Effects"]["Status 1"]["Duration"] != 0 and Enemy1["Status Effects"]["Status 2"]["Duration"] != 0 and Enemy1["Status Effects"]["Status 3"]["Duration"] != 0):
+            if (Enemy1["Status Effects"]["Status 1"]["Type"] == "Burn" and Enemy1["Status Effects"]["Status 1"]["Duration"] != 0) or  (Enemy1["Status Effects"]["Status 2"]["Type"] == "Burn" and Enemy1["Status Effects"]["Status 2"]["Duration"] != 0) or (Enemy1["Status Effects"]["Status 3"]["Type"] == "Burn" and Enemy1["Status Effects"]["Status 3"]["Duration"] != 0):
                     Enemy1["Health"] -= (Enemy1["Health"] *  0.05)
                     (Enemy1["Health"]) = int(Enemy1["Health"])
                     print(Enemy1["Type"], " takes burn damage")
-            if (Enemy1["Status Effects"]["Status 1"]["Type"] == "Poison" or  Enemy1["Status Effects"]["Status 2"]["Type"] == "Poison" or Enemy1["Status Effects"]["Status 3"]["Type"] == "Poison"  ) and Enemy1["Status Effects"]["Status 1"]["Duration"] != 0 and Enemy1["Status Effects"]["Status 2"]["Duration"] != 0 and Enemy1["Status Effects"]["Status 3"]["Duration"] != 0:
+            if (Enemy1["Status Effects"]["Status 1"]["Type"] == "Poison" and Enemy1["Status Effects"]["Status 1"]["Duration"] != 0) or  (Enemy1["Status Effects"]["Status 2"]["Type"] == "Poison" and Enemy1["Status Effects"]["Status 2"]["Duration"] != 0) or (Enemy1["Status Effects"]["Status 3"]["Type"] == "Poison" and Enemy1["Status Effects"]["Status 3"]["Duration"] != 0):
                 if Enemy1["Attribute"] != "Poison" and Enemy1["Buff"]["Type"] != "Poison Immunity":
-                    Enemy1["Health"] -= (Enemy1["Health"] * (random.randint(0.01,0.15)))
+                    Enemy1["Health"] -= (Enemy1["Health"] * (random.uniform(0.01,0.15)))
                     Enemy1["Health"] = round(Enemy1["Health"])
             if Game["Current Effect"]["Type"] == "Poison":
                 if Enemy1["Buff"]["Type"] != "Poison Immunity":
                     Enemy1["Health"] -= 5
                     print(Enemy1["Type"], " takes poison damage")
-            if (Enemy1["Status Effects"]["Status 1"]["Type"] == "Bleed" or  Enemy1["Status Effects"]["Status 2"]["Type"] == "Bleed" or Enemy1["Status Effects"]["Status 3"]["Type"] == "Bleed"  ) and Enemy1["Status Effects"]["Status 1"]["Duration"] != 0 and Enemy1["Status Effects"]["Status 2"]["Duration"] != 0 and Enemy1["Status Effects"]["Status 3"]["Duration"] != 0:
+            if (Enemy1["Status Effects"]["Status 1"]["Type"] == "Bleed" and Enemy1["Status Effects"]["Status 1"]["Duration"] != 0) or  (Enemy1["Status Effects"]["Status 2"]["Type"] == "Bleed" and Enemy1["Status Effects"]["Status 2"]["Duration"] != 0) or (Enemy1["Status Effects"]["Status 3"]["Type"] == "Bleed" and Enemy1["Status Effects"]["Status 3"]["Duration"] != 0):
                     Enemy1["Health"] -= (Enemy1["Max Health"] * (random.randint(2,5)/ 100))
                     (Enemy1["Health"]) = int(Enemy1["Health"])
                     print(Enemy1["Type"], "takes bleed damage")
@@ -275,10 +276,10 @@ class Tower:
                     print(f"{name} takes burn damage")
             if (Player_copy["Status Effects"]["Status 1"]["Type"] == "Poison" or  Player_copy["Status Effects"]["Status 2"]["Type"] == "Poison" or Player_copy["Status Effects"]["Status 3"]["Type"] == "Poison"  ) and Player_copy["Status Effects"]["Status 1"]["Duration"] != 0 and Player_copy["Status Effects"]["Status 2"]["Duration"] != 0 and Player_copy["Status Effects"]["Status 3"]["Duration"] != 0:
                 if Player_copy["Attribute"] != "Poison" and Player_copy["Buff"]["Type"] != "Poison Immunity":
-                    Player_copy["Health"] -= (Player_copy["Health"] * (random.randint(0.01,0.15)))
+                    Player_copy["Health"] -= (Player_copy["Health"] * (random.uniform(0.01,0.15)))
                     Player_copy["Health"] = round(Player_copy["Health"])
             if Game["Current Effect"]["Type"] == "Poison":
-                if Player["Buff"]["Type"] != "Poison Immunity":
+                if Player_copy["Buff"]["Type"] != "Poison Immunity":
                     Player_copy["Health"] -= 5
                     print(f"{name} takes poison damage")
             if (Player_copy["Status Effects"]["Status 1"]["Type"] == "Bleed" or  Player_copy["Status Effects"]["Status 2"]["Type"] == "Bleed" or Player_copy["Status Effects"]["Status 3"]["Type"] == "Bleed"  ) and Player_copy["Status Effects"]["Status 1"]["Duration"] != 0 and Player_copy["Status Effects"]["Status 2"]["Duration"] != 0 and Player_copy["Status Effects"]["Status 3"]["Duration"] != 0:
@@ -286,13 +287,13 @@ class Tower:
                     (Player_copy["Health"]) = int(Player_copy["Health"])
                     print(f"{name} takes bleed damage")
             if Game["Current Effect"]["Type"] == "Falling Rubble":
-                if Player["Buff"]["Type"] != "Under Cover":
-                    Player_copy["Health"] -=15
+                if Player_copy["Buff"]["Type"] != "Under Cover":
+                    Player_copy["Health"] -= 15
             if Game["Current Effect"]["Duration"] == 0:
                 Game["Current Effect"]["Type"] = "None"
                 print("Rubble has stopped falling.")
             if Game["Current Effect"]["Type"] == "Thundering":
-                if  Player["Buff"]["Type"] != "Electricity Immunity":
+                if  Player_copy["Buff"]["Type"] != "Electricity Immunity":
                     chance = random.random()
                     if chance > 0.8:
                         Damage = int((200 / Player_copy["Defense"]))
@@ -301,13 +302,13 @@ class Tower:
                     
 
             if n == 3 and place == "Poison Swamp Chamber":
-                Player["Buff"]["Duration"] -= 1
+                Player_copy["Buff"]["Duration"] -= 1
                 print("You are no longer immune")
             if n == 3 and place == "Alchemist Lab":
                 Game["Current Effect"]["Duration"] -= Game["Current Effect"]["Duration"]
-                Player["Buff"]["Duration"] -= 1
+                Player_copy["Buff"]["Duration"] -= 1
             if n == 1 and place == "Collapsing Ruins":
-                Player["Buff"]["Duration"] -= 1
+                Player_copy["Buff"]["Duration"] -= 1
                 print("You move away from the pillar")
             Game["Current Effect"]["Duration"] -= 1
             if Player_copy["Status Effects"]["Status 1"]["Duration"] != 0:
@@ -318,8 +319,9 @@ class Tower:
                 Player_copy["Status Effects"]["Status 3"]["Duration"] -= 1
             if Player_copy["Buff"]["Duration"] != 0:
                 Player_copy["Buff"]["Duration"] -= 1
-            if Game["Current Effect"]["Duration"] == 0:
+            if Game["Current Effect"]["Duration"] <= 0:
                 Game["Current Effect"]["Type"] = "None"
+                Game["Current Effect"]["Duration"] = 0
             if Player_copy["Status Effects"]["Status 1"]["Duration"] == 0:
                 Player_copy["Status Effects"]["Status 1"]["Type"] = "None"
             if Player_copy["Status Effects"]["Status 2"]["Duration"] == 0:
@@ -521,7 +523,7 @@ class Tower:
                             gold_gained = round((random.randint((xp_gained //4),(xp_gained // 2))) * Gold_Multiplier)
                             Player["Gold"] += gold_gained
                             Statistics["Gold Earned"] += gold_gained
-                            print(f"\n",Enemy1["Type"],"has been killed\n\n")
+                            print(f"\n",Enemy3["Type"],"has been killed\n\n")
                             print(gold_gained ,"Gold has been gained\n\n")
                             percentage = random.random()
                             if percentage >= 0.7:
@@ -542,7 +544,7 @@ class Tower:
                                 Statistics["Health Healed"] += Health_Gained
                                 print("\n You activate the bloodthirsty skill\n\n You gain 25% of your max health")
                             if Skill_Tree["General"]["Momentum"]["Status"] == "(Unlocked)":
-                                Player_copy["Health"] * round(Player_copy["Speed"] * 0.1)
+                                Player_copy["Speed"] *= round(Player_copy["Speed"] * 0.1)
                                 print("\n You activate the momentum skill\n\n You gain 10% more speed")
 
                     if b >= 2:
@@ -575,7 +577,7 @@ class Tower:
                                 Statistics["Health Healed"] += Health_Gained
                                 print("\n You activate the bloodthirsty skill\n\n You gain 25% of your max health")
                             if Skill_Tree["General"]["Momentum"]["Status"] == "(Unlocked)":
-                                Player_copy["Health"] * round(Player_copy["Speed"] * 0.1)
+                                Player_copy["Speed"] *= round(Player_copy["Speed"] * 0.1)
                                 print("\n You activate the momentum skill\n\n You gain 10% more speed")
 
                     if b >= 1:
@@ -608,7 +610,7 @@ class Tower:
                                 Statistics["Health Healed"] += Health_Gained
                                 print("\n You activate the bloodthirsty skill\n\n You gain 25% of your max health")
                             if Skill_Tree["General"]["Momentum"]["Status"] == "(Unlocked)":
-                                Player_copy["Health"] * round(Player_copy["Speed"] * 0.1)
+                                Player_copy["Speed"] *= round(Player_copy["Speed"] * 0.1)
                                 print("\n You activate the momentum skill\n\n You gain 10% more speed")
                         
 
@@ -619,7 +621,7 @@ class Tower:
                             Outcome = "Player Win"
                             if Player_copy["Health"] == Player_copy["Max Health"]:
                                 Statistics["Damageless Battles Won"] += 1
-                            if "Greatsword" in Gear["Type"]:
+                            if "Greatsword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Greatsword"] += 1
                                 if Amount_Used["Greatsword"] == 100:
                                     Proficiency["Greatsword"] = "Rookie"
@@ -631,7 +633,7 @@ class Tower:
                                     Proficiency["Greatsword"] = "Expert"
                                 if Amount_Used["Greatsword"] == 10000:
                                     Proficiency["Greatsword"] = "Master"
-                            elif "Sword" in Gear["Type"]:
+                            elif "Sword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Sword"] += 1
                                 if Amount_Used["Sword"] == 100:
                                     Proficiency["Sword"] = "Rookie"
@@ -643,7 +645,7 @@ class Tower:
                                     Proficiency["Sword"] = "Expert"
                                 if Amount_Used["Sword"] == 10000:
                                     Proficiency["Sword"] = "Master"
-                            elif "Spear" in Gear["Type"]:
+                            elif "Spear" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Spear"] += 1
                                 if Amount_Used["Spear"] == 100:
                                     Proficiency["Spear"] = "Rookie"
@@ -655,7 +657,7 @@ class Tower:
                                     Proficiency["Spear"] = "Expert"
                                 if Amount_Used["Spear"] == 10000:
                                     Proficiency["Spear"] = "Master"
-                            elif "Mace" in Gear["Type"]:
+                            elif "Mace" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Mace"] += 1
                                 if Amount_Used["Mace"] == 100:
                                     Proficiency["Mace"] = "Rookie"
@@ -667,7 +669,7 @@ class Tower:
                                     Proficiency["Mace"] = "Expert"
                                 if Amount_Used["Mace"] == 10000:
                                     Proficiency["Mace"] = "Master"
-                            elif "Dagger" in Gear["Type"]:
+                            elif "Dagger" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Dagger"] += 1
                                 if Amount_Used["Dagger"] == 100:
                                     Proficiency["Dagger"] = "Rookie"
@@ -679,7 +681,7 @@ class Tower:
                                     Proficiency["Dagger"] = "Expert"
                                 if Amount_Used["Dagger"] == 10000:
                                     Proficiency["Dagger"] = "Master"
-                            elif "Axe" in Gear["Type"]:
+                            elif "Axe" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Axe"] += 1
                                 if Amount_Used["Axe"] == 100:
                                     Proficiency["Axe"] = "Rookie"
@@ -691,7 +693,7 @@ class Tower:
                                     Proficiency["Axe"] = "Expert"
                                 if Amount_Used["Axe"] == 10000:
                                     Proficiency["Axe"] = "Master"
-                            elif "Bow" in Gear["Type"]:
+                            elif "Bow" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Bow"] += 1
                                 if Amount_Used["Bow"] == 100:
                                     Proficiency["Bow"] = "Rookie"
@@ -703,7 +705,7 @@ class Tower:
                                     Proficiency["Bow"] = "Expert"
                                 if Amount_Used["Bow"] == 10000:
                                     Proficiency["Bow"] = "Master"
-                            elif "Wand" in Gear["Type"]:
+                            elif "Wand" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Wand"] += 1
                                 if Amount_Used["Wand"] == 100:
                                     Proficiency["Wand"] = "Rookie"
@@ -715,7 +717,7 @@ class Tower:
                                     Proficiency["Wand"] = "Expert"
                                 if Amount_Used["Wand"] == 10000:
                                     Proficiency["Wand"] = "Master"
-                            elif "Staff" in Gear["Type"]:
+                            elif "Staff" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Staff"] += 1
                                 if Amount_Used["Staff"] == 100:
                                     Proficiency["Staff"] = "Rookie"
@@ -937,7 +939,7 @@ class Tower:
                             Outcome = "Player Win"
                             if Player_copy["Health"] == Player_copy["Max Health"]:
                                 Statistics["Damageless Battles Won"] += 1
-                            if "Greatsword" in Gear["Type"]:
+                            if "Greatsword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Greatsword"] += 1
                                 if Amount_Used["Greatsword"] == 100:
                                     Proficiency["Greatsword"] = "Rookie"
@@ -949,7 +951,7 @@ class Tower:
                                     Proficiency["Greatsword"] = "Expert"
                                 if Amount_Used["Greatsword"] == 10000:
                                     Proficiency["Greatsword"] = "Master"
-                            elif "Sword" in Gear["Type"]:
+                            elif "Sword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Sword"] += 1
                                 if Amount_Used["Sword"] == 100:
                                     Proficiency["Sword"] = "Rookie"
@@ -961,7 +963,7 @@ class Tower:
                                     Proficiency["Sword"] = "Expert"
                                 if Amount_Used["Sword"] == 10000:
                                     Proficiency["Sword"] = "Master"
-                            elif "Spear" in Gear["Type"]:
+                            elif "Spear" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Spear"] += 1
                                 if Amount_Used["Spear"] == 100:
                                     Proficiency["Spear"] = "Rookie"
@@ -973,7 +975,7 @@ class Tower:
                                     Proficiency["Spear"] = "Expert"
                                 if Amount_Used["Spear"] == 10000:
                                     Proficiency["Spear"] = "Master"
-                            elif "Mace" in Gear["Type"]:
+                            elif "Mace" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Mace"] += 1
                                 if Amount_Used["Mace"] == 100:
                                     Proficiency["Mace"] = "Rookie"
@@ -985,7 +987,7 @@ class Tower:
                                     Proficiency["Mace"] = "Expert"
                                 if Amount_Used["Mace"] == 10000:
                                     Proficiency["Mace"] = "Master"
-                            elif "Dagger" in Gear["Type"]:
+                            elif "Dagger" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Dagger"] += 1
                                 if Amount_Used["Dagger"] == 100:
                                     Proficiency["Dagger"] = "Rookie"
@@ -997,7 +999,7 @@ class Tower:
                                     Proficiency["Dagger"] = "Expert"
                                 if Amount_Used["Dagger"] == 10000:
                                     Proficiency["Dagger"] = "Master"
-                            elif "Axe" in Gear["Type"]:
+                            elif "Axe" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Axe"] += 1
                                 if Amount_Used["Axe"] == 100:
                                     Proficiency["Axe"] = "Rookie"
@@ -1009,7 +1011,7 @@ class Tower:
                                     Proficiency["Axe"] = "Expert"
                                 if Amount_Used["Axe"] == 10000:
                                     Proficiency["Axe"] = "Master"
-                            elif "Bow" in Gear["Type"]:
+                            elif "Bow" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Bow"] += 1
                                 if Amount_Used["Bow"] == 100:
                                     Proficiency["Bow"] = "Rookie"
@@ -1021,7 +1023,7 @@ class Tower:
                                     Proficiency["Bow"] = "Expert"
                                 if Amount_Used["Bow"] == 10000:
                                     Proficiency["Bow"] = "Master"
-                            elif "Wand" in Gear["Type"]:
+                            elif "Wand" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Wand"] += 1
                                 if Amount_Used["Wand"] == 100:
                                     Proficiency["Wand"] = "Rookie"
@@ -1033,7 +1035,7 @@ class Tower:
                                     Proficiency["Wand"] = "Expert"
                                 if Amount_Used["Wand"] == 10000:
                                     Proficiency["Wand"] = "Master"
-                            elif "Staff" in Gear["Type"]:
+                            elif "Staff" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Staff"] += 1
                                 if Amount_Used["Staff"] == 100:
                                     Proficiency["Staff"] = "Rookie"
@@ -1256,7 +1258,7 @@ class Tower:
                             Outcome = "Player Win"
                             if Player_copy["Health"] == Player_copy["Max Health"]:
                                 Statistics["Damageless Battles Won"] += 1
-                            if "Greatsword" in Gear["Type"]:
+                            if "Greatsword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Greatsword"] += 1
                                 if Amount_Used["Greatsword"] == 100:
                                     Proficiency["Greatsword"] = "Rookie"
@@ -1268,7 +1270,7 @@ class Tower:
                                     Proficiency["Greatsword"] = "Expert"
                                 if Amount_Used["Greatsword"] == 10000:
                                     Proficiency["Greatsword"] = "Master"
-                            elif "Sword" in Gear["Type"]:
+                            elif "Sword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Sword"] += 1
                                 if Amount_Used["Sword"] == 100:
                                     Proficiency["Sword"] = "Rookie"
@@ -1280,7 +1282,7 @@ class Tower:
                                     Proficiency["Sword"] = "Expert"
                                 if Amount_Used["Sword"] == 10000:
                                     Proficiency["Sword"] = "Master"
-                            elif "Spear" in Gear["Type"]:
+                            elif "Spear" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Spear"] += 1
                                 if Amount_Used["Spear"] == 100:
                                     Proficiency["Spear"] = "Rookie"
@@ -1292,7 +1294,7 @@ class Tower:
                                     Proficiency["Spear"] = "Expert"
                                 if Amount_Used["Spear"] == 10000:
                                     Proficiency["Spear"] = "Master"
-                            elif "Mace" in Gear["Type"]:
+                            elif "Mace" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Mace"] += 1
                                 if Amount_Used["Mace"] == 100:
                                     Proficiency["Mace"] = "Rookie"
@@ -1304,7 +1306,7 @@ class Tower:
                                     Proficiency["Mace"] = "Expert"
                                 if Amount_Used["Mace"] == 10000:
                                     Proficiency["Mace"] = "Master"
-                            elif "Dagger" in Gear["Type"]:
+                            elif "Dagger" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Dagger"] += 1
                                 if Amount_Used["Dagger"] == 100:
                                     Proficiency["Dagger"] = "Rookie"
@@ -1316,7 +1318,7 @@ class Tower:
                                     Proficiency["Dagger"] = "Expert"
                                 if Amount_Used["Dagger"] == 10000:
                                     Proficiency["Dagger"] = "Master"
-                            elif "Axe" in Gear["Type"]:
+                            elif "Axe" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Axe"] += 1
                                 if Amount_Used["Axe"] == 100:
                                     Proficiency["Axe"] = "Rookie"
@@ -1328,7 +1330,7 @@ class Tower:
                                     Proficiency["Axe"] = "Expert"
                                 if Amount_Used["Axe"] == 10000:
                                     Proficiency["Axe"] = "Master"
-                            elif "Bow" in Gear["Type"]:
+                            elif "Bow" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Bow"] += 1
                                 if Amount_Used["Bow"] == 100:
                                     Proficiency["Bow"] = "Rookie"
@@ -1340,7 +1342,7 @@ class Tower:
                                     Proficiency["Bow"] = "Expert"
                                 if Amount_Used["Bow"] == 10000:
                                     Proficiency["Bow"] = "Master"
-                            elif "Wand" in Gear["Type"]:
+                            elif "Wand" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Wand"] += 1
                                 if Amount_Used["Wand"] == 100:
                                     Proficiency["Wand"] = "Rookie"
@@ -1352,7 +1354,7 @@ class Tower:
                                     Proficiency["Wand"] = "Expert"
                                 if Amount_Used["Wand"] == 10000:
                                     Proficiency["Wand"] = "Master"
-                            elif "Staff" in Gear["Type"]:
+                            elif "Staff" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Staff"] += 1
                                 if Amount_Used["Staff"] == 100:
                                     Proficiency["Staff"] = "Rookie"
@@ -1753,7 +1755,7 @@ class Tower:
                             Player["Gold"] += gold_gained
                             Statistics["Gold Earned"] += gold_gained
                             Player["XP"] += xp_gained
-                            print(f"\n",Enemy1["Type"],"has been killed\n\n")
+                            print(f"\n",Enemy3["Type"],"has been killed\n\n")
                             print(gold_gained ,"Gold has been gained\n\n")
                             percentage = random.random()
                             if percentage >= 0.7:
@@ -1774,7 +1776,7 @@ class Tower:
                                 Statistics["Health Healed"] += Health_Gained
                                 print("\n You activate the bloodthirsty skill\n\n You gain 25% of your max health")
                             if Skill_Tree["General"]["Momentum"]["Status"] == "(Unlocked)":
-                                Player_copy["Health"] * round(Player_copy["Speed"] * 0.1)
+                                Player_copy["Speed"] *= round(Player_copy["Speed"] * 0.1)
                                 print("\n You activate the momentum skill\n\n You gain 10% more speed")
                     
 
@@ -1808,7 +1810,7 @@ class Tower:
                                 Statistics["Health Healed"] += Health_Gained
                                 print("\n You activate the bloodthirsty skill\n\n You gain 25% of your max health")
                             if Skill_Tree["General"]["Momentum"]["Status"] == "(Unlocked)":
-                                Player_copy["Health"] * round(Player_copy["Speed"] * 0.1)
+                                Player_copy["Speed"] *= round(Player_copy["Speed"] * 0.1)
                                 print("\n You activate the momentum skill\n\n You gain 10% more speed")
 
 
@@ -1843,7 +1845,7 @@ class Tower:
                                 Statistics["Health Healed"] += Health_Gained
                                 print("\n You activate the bloodthirsty skill\n\n You gain 25% of your max health")
                             if Skill_Tree["General"]["Momentum"]["Status"] == "(Unlocked)":
-                                Player_copy["Health"] * round(Player_copy["Speed"] * 0.1)
+                                Player_copy["Speed"] *= round(Player_copy["Speed"] * 0.1)
                                 print("\n You activate the momentum skill\n\n You gain 10% more speed")
                         
 
@@ -1854,7 +1856,7 @@ class Tower:
                             Outcome = "Player Win"
                             if Player_copy["Health"] == Player_copy["Max Health"]:
                                 Statistics["Damageless Battles Won"] += 1
-                            if "Greatsword" in Gear["Type"]:
+                            if "Greatsword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Greatsword"] += 1
                                 if Amount_Used["Greatsword"] == 100:
                                     Proficiency["Greatsword"] = "Rookie"
@@ -1866,7 +1868,7 @@ class Tower:
                                     Proficiency["Greatsword"] = "Expert"
                                 if Amount_Used["Greatsword"] == 10000:
                                     Proficiency["Greatsword"] = "Master"
-                            elif "Sword" in Gear["Type"]:
+                            elif "Sword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Sword"] += 1
                                 if Amount_Used["Sword"] == 100:
                                     Proficiency["Sword"] = "Rookie"
@@ -1878,7 +1880,7 @@ class Tower:
                                     Proficiency["Sword"] = "Expert"
                                 if Amount_Used["Sword"] == 10000:
                                     Proficiency["Sword"] = "Master"
-                            elif "Spear" in Gear["Type"]:
+                            elif "Spear" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Spear"] += 1
                                 if Amount_Used["Spear"] == 100:
                                     Proficiency["Spear"] = "Rookie"
@@ -1890,7 +1892,7 @@ class Tower:
                                     Proficiency["Spear"] = "Expert"
                                 if Amount_Used["Spear"] == 10000:
                                     Proficiency["Spear"] = "Master"
-                            elif "Mace" in Gear["Type"]:
+                            elif "Mace" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Mace"] += 1
                                 if Amount_Used["Mace"] == 100:
                                     Proficiency["Mace"] = "Rookie"
@@ -1902,7 +1904,7 @@ class Tower:
                                     Proficiency["Mace"] = "Expert"
                                 if Amount_Used["Mace"] == 10000:
                                     Proficiency["Mace"] = "Master"
-                            elif "Dagger" in Gear["Type"]:
+                            elif "Dagger" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Dagger"] += 1
                                 if Amount_Used["Dagger"] == 100:
                                     Proficiency["Dagger"] = "Rookie"
@@ -1914,7 +1916,7 @@ class Tower:
                                     Proficiency["Dagger"] = "Expert"
                                 if Amount_Used["Dagger"] == 10000:
                                     Proficiency["Dagger"] = "Master"
-                            elif "Axe" in Gear["Type"]:
+                            elif "Axe" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Axe"] += 1
                                 if Amount_Used["Axe"] == 100:
                                     Proficiency["Axe"] = "Rookie"
@@ -1926,7 +1928,7 @@ class Tower:
                                     Proficiency["Axe"] = "Expert"
                                 if Amount_Used["Axe"] == 10000:
                                     Proficiency["Axe"] = "Master"
-                            elif "Bow" in Gear["Type"]:
+                            elif "Bow" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Bow"] += 1
                                 if Amount_Used["Bow"] == 100:
                                     Proficiency["Bow"] = "Rookie"
@@ -1938,7 +1940,7 @@ class Tower:
                                     Proficiency["Bow"] = "Expert"
                                 if Amount_Used["Bow"] == 10000:
                                     Proficiency["Bow"] = "Master"
-                            elif "Wand" in Gear["Type"]:
+                            elif "Wand" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Wand"] += 1
                                 if Amount_Used["Wand"] == 100:
                                     Proficiency["Wand"] = "Rookie"
@@ -1950,7 +1952,7 @@ class Tower:
                                     Proficiency["Wand"] = "Expert"
                                 if Amount_Used["Wand"] == 10000:
                                     Proficiency["Wand"] = "Master"
-                            elif "Staff" in Gear["Type"]:
+                            elif "Staff" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Staff"] += 1
                                 if Amount_Used["Staff"] == 100:
                                     Proficiency["Staff"] = "Rookie"
@@ -2172,7 +2174,7 @@ class Tower:
                             Outcome = "Player Win"
                             if Player_copy["Health"] == Player_copy["Max Health"]:
                                 Statistics["Damageless Battles Won"] += 1
-                            if "Greatsword" in Gear["Type"]:
+                            if "Greatsword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Greatsword"] += 1
                                 if Amount_Used["Greatsword"] == 100:
                                     Proficiency["Greatsword"] = "Rookie"
@@ -2184,7 +2186,7 @@ class Tower:
                                     Proficiency["Greatsword"] = "Expert"
                                 if Amount_Used["Greatsword"] == 10000:
                                     Proficiency["Greatsword"] = "Master"
-                            elif "Sword" in Gear["Type"]:
+                            elif "Sword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Sword"] += 1
                                 if Amount_Used["Sword"] == 100:
                                     Proficiency["Sword"] = "Rookie"
@@ -2196,7 +2198,7 @@ class Tower:
                                     Proficiency["Sword"] = "Expert"
                                 if Amount_Used["Sword"] == 10000:
                                     Proficiency["Sword"] = "Master"
-                            elif "Spear" in Gear["Type"]:
+                            elif "Spear" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Spear"] += 1
                                 if Amount_Used["Spear"] == 100:
                                     Proficiency["Spear"] = "Rookie"
@@ -2208,7 +2210,7 @@ class Tower:
                                     Proficiency["Spear"] = "Expert"
                                 if Amount_Used["Spear"] == 10000:
                                     Proficiency["Spear"] = "Master"
-                            elif "Mace" in Gear["Type"]:
+                            elif "Mace" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Mace"] += 1
                                 if Amount_Used["Mace"] == 100:
                                     Proficiency["Mace"] = "Rookie"
@@ -2220,7 +2222,7 @@ class Tower:
                                     Proficiency["Mace"] = "Expert"
                                 if Amount_Used["Mace"] == 10000:
                                     Proficiency["Mace"] = "Master"
-                            elif "Dagger" in Gear["Type"]:
+                            elif "Dagger" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Dagger"] += 1
                                 if Amount_Used["Dagger"] == 100:
                                     Proficiency["Dagger"] = "Rookie"
@@ -2232,7 +2234,7 @@ class Tower:
                                     Proficiency["Dagger"] = "Expert"
                                 if Amount_Used["Dagger"] == 10000:
                                     Proficiency["Dagger"] = "Master"
-                            elif "Axe" in Gear["Type"]:
+                            elif "Axe" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Axe"] += 1
                                 if Amount_Used["Axe"] == 100:
                                     Proficiency["Axe"] = "Rookie"
@@ -2244,7 +2246,7 @@ class Tower:
                                     Proficiency["Axe"] = "Expert"
                                 if Amount_Used["Axe"] == 10000:
                                     Proficiency["Axe"] = "Master"
-                            elif "Bow" in Gear["Type"]:
+                            elif "Bow" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Bow"] += 1
                                 if Amount_Used["Bow"] == 100:
                                     Proficiency["Bow"] = "Rookie"
@@ -2256,7 +2258,7 @@ class Tower:
                                     Proficiency["Bow"] = "Expert"
                                 if Amount_Used["Bow"] == 10000:
                                     Proficiency["Bow"] = "Master"
-                            elif "Wand" in Gear["Type"]:
+                            elif "Wand" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Wand"] += 1
                                 if Amount_Used["Wand"] == 100:
                                     Proficiency["Wand"] = "Rookie"
@@ -2268,7 +2270,7 @@ class Tower:
                                     Proficiency["Wand"] = "Expert"
                                 if Amount_Used["Wand"] == 10000:
                                     Proficiency["Wand"] = "Master"
-                            elif "Staff" in Gear["Type"]:
+                            elif "Staff" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Staff"] += 1
                                 if Amount_Used["Staff"] == 100:
                                     Proficiency["Staff"] = "Rookie"
@@ -2491,7 +2493,7 @@ class Tower:
                             Outcome = "Player Win"
                             if Player_copy["Health"] == Player_copy["Max Health"]:
                                 Statistics["Damageless Battles Won"] += 1
-                            if "Greatsword" in Gear["Type"]:
+                            if "Greatsword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Greatsword"] += 1
                                 if Amount_Used["Greatsword"] == 100:
                                     Proficiency["Greatsword"] = "Rookie"
@@ -2503,7 +2505,7 @@ class Tower:
                                     Proficiency["Greatsword"] = "Expert"
                                 if Amount_Used["Greatsword"] == 10000:
                                     Proficiency["Greatsword"] = "Master"
-                            elif "Sword" in Gear["Type"]:
+                            elif "Sword" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Sword"] += 1
                                 if Amount_Used["Sword"] == 100:
                                     Proficiency["Sword"] = "Rookie"
@@ -2515,7 +2517,7 @@ class Tower:
                                     Proficiency["Sword"] = "Expert"
                                 if Amount_Used["Sword"] == 10000:
                                     Proficiency["Sword"] = "Master"
-                            elif "Spear" in Gear["Type"]:
+                            elif "Spear" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Spear"] += 1
                                 if Amount_Used["Spear"] == 100:
                                     Proficiency["Spear"] = "Rookie"
@@ -2527,7 +2529,7 @@ class Tower:
                                     Proficiency["Spear"] = "Expert"
                                 if Amount_Used["Spear"] == 10000:
                                     Proficiency["Spear"] = "Master"
-                            elif "Mace" in Gear["Type"]:
+                            elif "Mace" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Mace"] += 1
                                 if Amount_Used["Mace"] == 100:
                                     Proficiency["Mace"] = "Rookie"
@@ -2539,7 +2541,7 @@ class Tower:
                                     Proficiency["Mace"] = "Expert"
                                 if Amount_Used["Mace"] == 10000:
                                     Proficiency["Mace"] = "Master"
-                            elif "Dagger" in Gear["Type"]:
+                            elif "Dagger" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Dagger"] += 1
                                 if Amount_Used["Dagger"] == 100:
                                     Proficiency["Dagger"] = "Rookie"
@@ -2551,7 +2553,7 @@ class Tower:
                                     Proficiency["Dagger"] = "Expert"
                                 if Amount_Used["Dagger"] == 10000:
                                     Proficiency["Dagger"] = "Master"
-                            elif "Axe" in Gear["Type"]:
+                            elif "Axe" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Axe"] += 1
                                 if Amount_Used["Axe"] == 100:
                                     Proficiency["Axe"] = "Rookie"
@@ -2563,7 +2565,7 @@ class Tower:
                                     Proficiency["Axe"] = "Expert"
                                 if Amount_Used["Axe"] == 10000:
                                     Proficiency["Axe"] = "Master"
-                            elif "Bow" in Gear["Type"]:
+                            elif "Bow" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Bow"] += 1
                                 if Amount_Used["Bow"] == 100:
                                     Proficiency["Bow"] = "Rookie"
@@ -2575,7 +2577,7 @@ class Tower:
                                     Proficiency["Bow"] = "Expert"
                                 if Amount_Used["Bow"] == 10000:
                                     Proficiency["Bow"] = "Master"
-                            elif "Wand" in Gear["Type"]:
+                            elif "Wand" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Wand"] += 1
                                 if Amount_Used["Wand"] == 100:
                                     Proficiency["Wand"] = "Rookie"
@@ -2587,7 +2589,7 @@ class Tower:
                                     Proficiency["Wand"] = "Expert"
                                 if Amount_Used["Wand"] == 10000:
                                     Proficiency["Wand"] = "Master"
-                            elif "Staff" in Gear["Type"]:
+                            elif "Staff" in Gear["Type"]["Weapon"]:
                                 Amount_Used["Staff"] += 1
                                 if Amount_Used["Staff"] == 100:
                                     Proficiency["Staff"] = "Rookie"

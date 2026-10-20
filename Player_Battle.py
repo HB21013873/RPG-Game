@@ -295,6 +295,17 @@ class Player_Battle:
                             elif skill_choice in ["empower"] and "Empower" in Spell_list:
                                 POI = None
                                 Player_copy,Turn_Time,Breaker = PM.Spell_Moves.Arcane.Empower(Player_copy,Spell_list,typewriter,Turn_Time=Turn_Time)
+                            elif (skill_choice in ["aimedshot"] and "Aimed Shot" in Combat_Skill_list) and "Bow" in Gear["Type"]["Weapon"]:
+                                while True:
+                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    POI = input("")
+                                    POI = POI.lower()
+                                    POI = "".join(POI.split())
+                                    if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
+                                        break
+                                    else:
+                                        print("Not an option.")
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Aimed_Shot(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)  
                             else:
                                 print("\n\nThis is not a skill you can use\n\n")
                                 
@@ -307,7 +318,7 @@ class Player_Battle:
                     
                         if battle_choice in ["avatar","a","2"]:
                             print("--------------\nGear\n---------------\nHead:",Gear["Type"]["Helmet"],"\nShoulder:",Gear["Type"]["Shoulderwear"],"\nArm:",Gear["Type"]["Armwear"],"\nChest:",Gear["Type"]["Chestplate"],"\nLeg:",Gear["Type"]["Legwear"],"\nFeet:",Gear["Type"]["Footwear"],"\nWeapon:",Gear["Type"]["Weapon"],"\n---------------\n")
-                            print("Statistics\n---------------","\nLevel:",Player_copy["Level"],"\nHealth:",Player_copy["Health"],"\nAttack:",Player_copy["Attack"],"\nDefense:",Player_copy["Defense"],"\nSpeed:",Player_copy["Speed"],"\nMagic Density:",Player_copy["Magic Density"],"\nStamina:",Player_copy["Stamina"],"\nCritical Chance:",Player_copy["Critical Chance"],"\nCritical Damage:",Player_copy["Critical Damage"],"\nEvasion:",Player_copy["Evasion"],"\nAccuracy:",Player_copy["Accuracy"],"\nMana:",Player_copy["Mana"],"\nTower Completion:",Player_copy["Tower Level"])
+                            print("Statistics\n---------------","\nLevel:",Player_copy["Level"],"\nHealth:",Player_copy["Health"],"/",Player["Max Health"],"\nAttack:",Player_copy["Attack"],"\nDefense:",Player_copy["Defense"],"\nSpeed:",Player_copy["Speed"],"\nMagic Density:",Player_copy["Magic Density"],"\nStamina:",Player_copy["Stamina"],"\nCritical Chance:",Player_copy["Critical Chance"],"\nCritical Damage:",Player_copy["Critical Damage"],"\nEvasion:",Player_copy["Evasion"],"\nAccuracy:",Player_copy["Accuracy"],"\nMana:",Player_copy["Mana"],"\nTower Completion:",Player_copy["Tower Level"])
                             print("\n\nInventory\n---------------")
                             for key,value in inventory.items():
                                 print(key,":",value,"\n")
@@ -1521,7 +1532,20 @@ class Player_Battle:
                                 print("\n You have no items to use \n")
 
 
+                Player["Attack"] = round(Player["Attack"])
+                Player["Defense"] = round(Player["Defense"])
+                Player["Health"] = round(Player["Health"])
+                Player["Stamina"] = round(Player["Stamina"])
+                Player["Speed"] = round(Player["Speed"])
+                Player["Accuracy"] = round(Player["Accuracy"])
+                Player["Critical Chance"] = round(Player["Critical Chance"])
+                Player["Magic Density"] = round(Player["Magic Density"])
+                Player["Magic Damage"] = round(Player["Magic Damage"])
+                Player["Critical Damage"] = round(Player["Critical Damage"])
+                Player["Evasion"] = round(Player["Evasion"])
+                Player["Mana"] = round(Player["Mana"])
 
+                
                 return Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics,Battle_End
 
 
@@ -1798,6 +1822,17 @@ class Player_Battle:
                             elif skill_choice in ["empower"] and "Empower" in Spell_list:
                                 POI = None
                                 Player_copy,Turn_Time,Breaker = PM.Spell_Moves.Arcane.Empower(Player_copy,Spell_list,typewriter,Turn_Time=Turn_Time)
+                            elif (skill_choice in ["aimedshot"] and "Aimed Shot" in Combat_Skill_list) and "Bow" in Gear["Type"]["Weapon"]:
+                                while True:
+                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    POI = input("")
+                                    POI = POI.lower()
+                                    POI = "".join(POI.split())
+                                    if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
+                                        break
+                                    else:
+                                        print("Not an option.")
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Aimed_Shot(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)  
                             else:
                                 print("\nThis is not a skill you can use\n\n")
         
@@ -1809,7 +1844,7 @@ class Player_Battle:
                     
                         if battle_choice in ["avatar","a","2"]:
                             print("--------------\nGear\n---------------\nHead:",Gear["Type"]["Helmet"],"\nShoulder:",Gear["Type"]["Shoulderwear"],"\nArm:",Gear["Type"]["Armwear"],"\nChest:",Gear["Type"]["Chestplate"],"\nLeg:",Gear["Type"]["Legwear"],"\nFeet:",Gear["Type"]["Footwear"],"\nWeapon:",Gear["Type"]["Weapon"],"\n---------------\n")
-                            print("Statistics\n---------------","\nLevel:",Player_copy["Level"],"\nHealth:",Player_copy["Health"],"\nAttack:",Player_copy["Attack"],"\nDefense:",Player_copy["Defense"],"\nSpeed:",Player_copy["Speed"],"\nMagic Density:",Player_copy["Magic Density"],"\nStamina:",Player_copy["Stamina"],"\nCritical Chance:",Player_copy["Critical Chance"],"\nCritical Damage:",Player_copy["Critical Damage"],"\nEvasion:",Player_copy["Evasion"],"\nAccuracy:",Player_copy["Accuracy"],"\nMana:",Player_copy["Mana"],"\nTower Completion:",Player_copy["Tower Level"])
+                            print("Statistics\n---------------","\nLevel:",Player_copy["Level"],"\nHealth:",Player_copy["Health"],"/",Player["Max Health"],"\nAttack:",Player_copy["Attack"],"\nDefense:",Player_copy["Defense"],"\nSpeed:",Player_copy["Speed"],"\nMagic Density:",Player_copy["Magic Density"],"\nStamina:",Player_copy["Stamina"],"\nCritical Chance:",Player_copy["Critical Chance"],"\nCritical Damage:",Player_copy["Critical Damage"],"\nEvasion:",Player_copy["Evasion"],"\nAccuracy:",Player_copy["Accuracy"],"\nMana:",Player_copy["Mana"],"\nTower Completion:",Player_copy["Tower Level"])
                             print("\n\nInventory\n---------------")
                             for key,value in inventory.items():
                                 print(key,":",value,"\n")
@@ -2870,6 +2905,19 @@ class Player_Battle:
                             else:
                                 print("\n You have no items to use \n")
 
+                Player["Attack"] = round(Player["Attack"])
+                Player["Defense"] = round(Player["Defense"])
+                Player["Health"] = round(Player["Health"])
+                Player["Stamina"] = round(Player["Stamina"])
+                Player["Speed"] = round(Player["Speed"])
+                Player["Accuracy"] = round(Player["Accuracy"])
+                Player["Critical Chance"] = round(Player["Critical Chance"])
+                Player["Magic Density"] = round(Player["Magic Density"])
+                Player["Magic Damage"] = round(Player["Magic Damage"])
+                Player["Critical Damage"] = round(Player["Critical Damage"])
+                Player["Evasion"] = round(Player["Evasion"])
+                Player["Mana"] = round(Player["Mana"])
+
 
                 return Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics,Battle_End
 
@@ -3137,6 +3185,17 @@ class Player_Battle:
                             elif skill_choice in ["empower"] and "Empower" in Spell_list:
                                 POI = None
                                 Player_copy,Turn_Time,Breaker = PM.Spell_Moves.Arcane.Empower(Player_copy,Spell_list,typewriter,Turn_Time=Turn_Time)
+                            elif (skill_choice in ["aimedshot"] and "Aimed Shot" in Combat_Skill_list) and "Bow" in Gear["Type"]["Weapon"]:
+                                while True:
+                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    POI = input("")
+                                    POI = POI.lower()
+                                    POI = "".join(POI.split())
+                                    if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
+                                        break
+                                    else:
+                                        print("Not an option.")
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Aimed_Shot(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip)  
                             else:
                                 print("\nThis is not a skill you can use\n\n")
 
@@ -3148,7 +3207,7 @@ class Player_Battle:
                     
                         if battle_choice in ["avatar","a","2"]:
                             print("--------------\nGear\n---------------\nHead:",Gear["Type"]["Helmet"],"\nShoulder:",Gear["Type"]["Shoulderwear"],"\nArm:",Gear["Type"]["Armwear"],"\nChest:",Gear["Type"]["Chestplate"],"\nLeg:",Gear["Type"]["Legwear"],"\nFeet:",Gear["Type"]["Footwear"],"\nWeapon:",Gear["Type"]["Weapon"],"\n---------------\n")
-                            print("Statistics\n---------------","\nLevel:",Player_copy["Level"],"\nHealth:",Player_copy["Health"],"\nAttack:",Player_copy["Attack"],"\nDefense:",Player_copy["Defense"],"\nSpeed:",Player_copy["Speed"],"\nMagic Density:",Player_copy["Magic Density"],"\nStamina:",Player_copy["Stamina"],"\nCritical Chance:",Player_copy["Critical Chance"],"\nCritical Damage:",Player_copy["Critical Damage"],"\nEvasion:",Player_copy["Evasion"],"\nAccuracy:",Player_copy["Accuracy"],"\nMana:",Player_copy["Mana"],"\nTower Completion:",Player_copy["Tower Level"])
+                            print("Statistics\n---------------","\nLevel:",Player_copy["Level"],"\nHealth:",Player_copy["Health"],"/",Player["Max Health"],"\nAttack:",Player_copy["Attack"],"\nDefense:",Player_copy["Defense"],"\nSpeed:",Player_copy["Speed"],"\nMagic Density:",Player_copy["Magic Density"],"\nStamina:",Player_copy["Stamina"],"\nCritical Chance:",Player_copy["Critical Chance"],"\nCritical Damage:",Player_copy["Critical Damage"],"\nEvasion:",Player_copy["Evasion"],"\nAccuracy:",Player_copy["Accuracy"],"\nMana:",Player_copy["Mana"],"\nTower Completion:",Player_copy["Tower Level"])
                             print("\n\nInventory\n---------------")
                             for key,value in inventory.items():
                                 print(key,":",value,"\n")
@@ -4031,6 +4090,19 @@ class Player_Battle:
                                 inventory["Potions"].remove(potion)
                             else:
                                 print("\n You have no items to use \n")
+
+                Player["Attack"] = round(Player["Attack"])
+                Player["Defense"] = round(Player["Defense"])
+                Player["Health"] = round(Player["Health"])
+                Player["Stamina"] = round(Player["Stamina"])
+                Player["Speed"] = round(Player["Speed"])
+                Player["Accuracy"] = round(Player["Accuracy"])
+                Player["Critical Chance"] = round(Player["Critical Chance"])
+                Player["Magic Density"] = round(Player["Magic Density"])
+                Player["Magic Damage"] = round(Player["Magic Damage"])
+                Player["Critical Damage"] = round(Player["Critical Damage"])
+                Player["Evasion"] = round(Player["Evasion"])
+                Player["Mana"] = round(Player["Mana"])
 
 
                 return Player,Player_copy, Enemy1,n, place, player_shadows,x,Enemy1_Skip,Player_Skip,Turn_Time,Statistics,Battle_End
