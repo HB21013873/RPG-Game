@@ -28,16 +28,18 @@ class Player_Battle:
                 n = 0
                 turn_over = False 
                 lever = False
-                Enemy1_Skip = False
-                Enemy2_Skip = False
-                Enemy3_Skip = False
                 Weapon_Held = False
                 Metal_Weapon = False
                 player_shadows = False
-                if Gear["Type"]["Weapon"] not in ["None"]:
+                if "None" not in Gear["Type"]["Weapon"]:
                     Weapon_Held = True
-                    if "Steel" in Gear["Type"]["Weapon"] or "Iron" in  Gear["Type"]["Weapon"] or "Metal" in Gear["Type"]["Weapon"]:
-                        Metal_Weapon = True
+                    Weapon_Names = Gear["Type"]["Weapon"].keys()
+                    Metal_Weapon = any(
+                        metal in Weapon_Name
+                        for Weapon_Name in Weapon_Names
+                        if Weapon_Name != "None"
+                        for metal in ("Steel", "Iron", "Copper")
+                    )
                 dead_enemy1 = ""
                 dead_enemy2 = ""
                 dead_enemy3 = ""
@@ -47,15 +49,6 @@ class Player_Battle:
                 if place == "Collapsing Ruins":
                     Game["Current Effect"]["Type"] = "Falling Rubble"
                     Game["Current Effect"]["Duration"] = 10
-                if place == "Dark Ritual Room":
-                    Player_copy["Mana"] *= 1.1
-                    Enemy1["Mana"] *= 1.1
-                    Enemy2["Mana"] *= 1.1
-                    Enemy3["Mana"] *= 1.1
-                    Enemy1["Mana"]  = round(Enemy1["Mana"] )
-                    Enemy2["Mana"]  = round(Enemy2["Mana"] )
-                    Enemy3["Mana"]  = round(Enemy3["Mana"] )
-                    Player_copy["Mana"]  = round(Player_copy["Mana"] )
                 if place == "Storm Tower Top":
                     Game["Current Effect"]["Type"] = "Thundering"
                     Game["Current Effect"]["Duration"] = 10
@@ -75,7 +68,7 @@ class Player_Battle:
                         tw = TW(delay=0.02, jitter=True)
                         battle_choice = input("")
                         battle_choice = battle_choice.lower()
-                        if battle_choice not in ["melee","m","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","potions","p"]:
+                        if battle_choice not in ["fight","f","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","potions","p"]:
                             continue
                         if battle_choice in ["fight","f","1"]:
                             turn_over = True
@@ -91,16 +84,21 @@ class Player_Battle:
                                         print(f"{i}. {item}")
                             except:
                                 print("\nNo moves set\n")
-                            print("")
-                            print("Choose the enemy to attack:\n1. ","lvl",Enemy1["Level"],Enemy1["Type"],"( Health:",Enemy1["Health"],")",dead_enemy1,"\n2. ","lvl",Enemy2["Level"],Enemy2["Type"],"( Health:",Enemy2["Health"],")",dead_enemy2,"\n3. ","lvl",Enemy3["Level"],Enemy3["Type"],"( Health:",Enemy3["Health"],dead_enemy3,")","\n")
-                            enemy_choice = input("")
-                            enemy_choice = enemy_choice.lower()
-                            if enemy_choice in ["1","enemy1","enemy 1"]:
-                                    target = Enemy1
-                            elif enemy_choice in ["2","enemy2","enemy 2"]:
-                                    target = Enemy2
-                            elif enemy_choice in ["3","enemy3","enemy 3"]:
-                                    target = Enemy3
+                            while True:
+                                print("\nChoose the enemy to attack:\n1. ","lvl",Enemy1["Level"],Enemy1["Type"],"( Health:",Enemy1["Health"],")",dead_enemy1,"\n2. ","lvl",Enemy2["Level"],Enemy2["Type"],"( Health:",Enemy2["Health"],")",dead_enemy2,"\n3. ","lvl",Enemy3["Level"],Enemy3["Type"],"( Health:",Enemy3["Health"],dead_enemy3,")","\n")
+                                enemy_choice = input("")
+                                enemy_choice = enemy_choice.lower()
+                                if enemy_choice in ["1","enemy1","enemy 1"]:
+                                        target = Enemy1
+                                        break
+                                elif enemy_choice in ["2","enemy2","enemy 2"]:
+                                        target = Enemy2
+                                        break
+                                elif enemy_choice in ["3","enemy3","enemy 3"]:
+                                        target = Enemy3
+                                        break
+                                else:
+                                    print("\nNot an option\n")
                             print("Choose what move to use.")
                             skill_choice = input("")
                             skill_choice = skill_choice.lower()
@@ -128,7 +126,7 @@ class Player_Battle:
                                         break
                                     else:
                                         print("Not an option.")
-                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Straight_Punch(Player_copy,Enemy,Combat_Skill_list,typewriter,typewriters,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,name = name,POI=POI,Enemy1 = Enemy1,Enemy2 = Enemy2,Enemy3=Enemy3,Body_Condition=Body_Condition,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Impulsive_Swing(Player_copy,Enemy,Combat_Skill_list,typewriter,typewriters,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,name = name,POI=POI,Enemy1 = Enemy1,Enemy2 = Enemy2,Enemy3=Enemy3,Body_Condition=Body_Condition,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)
 
                             if (skill_choice in ["slash"] and "Slash" in Combat_Skill_list):
                                 while True:
@@ -388,7 +386,7 @@ class Player_Battle:
                                             print(f"The mana overwhelms you and you take 10 damage")
                                             Player_copy["Health"] -= 10
                                     if n == 3:
-                                        print("{name} smashes a nearby crystal")
+                                        print(f"{name} smashes a nearby crystal")
                                         Damage = int((100 / Enemy1["Defense"]))
                                         Enemy1["Health"] -= Damage
                                         print(Enemy1["Type"],f" takes {Damage} damage ")
@@ -792,7 +790,7 @@ class Player_Battle:
                                                         percentage = random.randint(1,2)
                                                         if percentage == 1:
                                                             Damage = int((Player_copy["Attack"] * 200 / Enemy3["Defense"]))
-                                                            Enemy1["Health"] -= Damage
+                                                            Enemy3["Health"] -= Damage
                                                         elif Player_copy["Buff"]["Type"] != "Electrical Immunity":
                                                             print(f"{name} struck themself with lighting!")
                                                             Damage = int((200 / Player_copy["Defense"]))
@@ -931,25 +929,25 @@ class Player_Battle:
                                                     if potion == "Speed":
                                                         Enemy1["Speed"] -= 10
                                                         potion_type = "Speed"
-                                                    if potion == ["Magic Density"]:
+                                                    if potion == "Magic Density":
                                                         Enemy1["Magic Density"] -= 10
                                                         potion_type = "Magic Density"
-                                                    if potion == ["Stamina"]:
+                                                    if potion == "Stamina":
                                                         Enemy1["Stamina"] -= 10
                                                         potion_type = "Stamina"
-                                                    if potion == ["Critical Chance"]:
+                                                    if potion == "Critical Chance":
                                                         Enemy1["Critical Chance"] -= 10
                                                         potion_type = "Critical Chance"
-                                                    if potion == ["Critical Damage"]:
+                                                    if potion == "Critical Damage":
                                                         Enemy1["Critical Damage"] -= 10
                                                         potion_type = "Critical Damage"
-                                                    if potion == ["Evasion"]:
+                                                    if potion == "Evasion":
                                                         Enemy1["Evasion"] -= 10
                                                         potion_type = "Evasion"
-                                                    if potion == ["Accuracy"]:
+                                                    if potion == "Accuracy":
                                                         Enemy1["Accuracy"] -= 10
                                                         potion_type = "Accuracy"
-                                                    if potion == ["Mana"]:
+                                                    if potion == "Mana":
                                                         Enemy1["Mana"] -= 10
                                                         potion_type = "Mana"
                                                     print(f"{potion_type} is decreased by 10")
@@ -998,10 +996,13 @@ class Player_Battle:
                                                         potion_type = "Health"
                                                     if potion == "Attack":
                                                         Enemy3["Attack"] -= 10
-                                                        potion_type = "Health"
-                                                    if potion == ["Defense"]:
+                                                        potion_type = "Attack"
+                                                    if potion == "Defense":
+                                                        Enemy3["Defense"] -= 10
+                                                        potion_type = "Defense"
+                                                    if potion == "Speed":
                                                         Enemy3["Speed"] -= 10
-                                                        potion_type = ""
+                                                        potion_type = "Speed"
                                                     if potion == "Magic Density":
                                                         Enemy3["Magic Density"] -= 10
                                                         potion_type = "Magic Density"
@@ -1532,20 +1533,20 @@ class Player_Battle:
                                 print("\n You have no items to use \n")
 
 
-                Player["Attack"] = round(Player["Attack"])
-                Player["Defense"] = round(Player["Defense"])
+                Player["Attack"] = max(round(Player["Attack"]),1)
+                Player["Defense"] = max(round(Player["Defense"]),1)
                 Player["Health"] = round(Player["Health"])
-                Player["Stamina"] = round(Player["Stamina"])
-                Player["Speed"] = round(Player["Speed"])
-                Player["Accuracy"] = round(Player["Accuracy"])
-                Player["Critical Chance"] = round(Player["Critical Chance"])
-                Player["Magic Density"] = round(Player["Magic Density"])
-                Player["Magic Damage"] = round(Player["Magic Damage"])
-                Player["Critical Damage"] = round(Player["Critical Damage"])
-                Player["Evasion"] = round(Player["Evasion"])
+                Player["Stamina"] = max(round(Player["Stamina"]),1)
+                Player["Speed"] = max(round(Player["Speed"]),1)
+                Player["Accuracy"] = max(round(Player["Accuracy"]),1)
+                Player["Critical Chance"] = max(round(Player["Critical Chance"]),1)
+                Player["Magic Density"] = max(round(Player["Magic Density"]),1)
+                Player["Magic Damage"] = max(round(Player["Magic Damage"]),1)
+                Player["Critical Damage"] = max(round(Player["Critical Damage"]),1)
+                Player["Evasion"] = max(round(Player["Evasion"]),1)
                 Player["Mana"] = round(Player["Mana"])
 
-                
+
                 return Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics,Battle_End
 
 
@@ -1558,16 +1559,18 @@ class Player_Battle:
                 x = 0
                 n = 0
                 player_shadows = False
-                Player_Skip = False
-                Enemy1_Skip = False
-                Enemy2_Skip = False
                 lever = False
                 Weapon_Held = False
                 Metal_Weapon = False
-                if Gear["Type"]["Weapon"] not in ["None"]:
+                if "None" not in Gear["Type"]["Weapon"]:
                     Weapon_Held = True
-                    if "Steel" in Gear["Type"]["Weapon"] or "Iron" in  Gear["Type"]["Weapon"] or "Metal" in Gear["Type"]["Weapon"]:
-                        Metal_Weapon = True
+                    Weapon_Names = Gear["Type"]["Weapon"].keys()
+                    Metal_Weapon = any(
+                        metal in Weapon_Name
+                        for Weapon_Name in Weapon_Names
+                        if Weapon_Name != "None"
+                        for metal in ("Steel", "Iron", "Copper")
+                    )
                 dead_enemy1 = ""
                 dead_enemy2 = ""
                 if place == "Poison Swamp Chamber":
@@ -1576,13 +1579,6 @@ class Player_Battle:
                 if place == "Collapsing Ruins":
                     Game["Current Effect"]["Type"] = "Falling Rubble"
                     Game["Current Effect"]["Duration"] = 10
-                if place == "Dark Ritual Room":
-                    Player_copy["Mana"] *= 1.1
-                    Enemy1["Mana"] *= 1.1
-                    Enemy2["Mana"] *= 1.1
-                    Enemy1["Mana"]  = round(Enemy1["Mana"] )
-                    Enemy2["Mana"]  = round(Enemy2["Mana"] )
-                    Player_copy["Mana"]  = round(Player_copy["Mana"] )
                 if place == "Storm Tower Top":
                     Game["Current Effect"]["Type"] = "Thundering"
                     Game["Current Effect"]["Duration"] = 10
@@ -1599,7 +1595,7 @@ class Player_Battle:
                         tw = TW(delay=0.02, jitter=True)
                         battle_choice = input("")
                         battle_choice = battle_choice.lower()
-                        if battle_choice not in ["melee","m","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","p","potions"]:
+                        if battle_choice not in ["fight","f","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","p","potions"]:
                             continue
                         if battle_choice in ["fight","f","1"]:
                             turn_over = True
@@ -1615,14 +1611,16 @@ class Player_Battle:
                                         print(f"{i}. {item}")
                             except:
                                 print("\nNo moves set\n")
-                            print("")
-                            print("Choose the enemy to attack:\n1. ","lvl",Enemy1["Level"],Enemy1["Type"],"( Health:",Enemy1["Health"],")",dead_enemy1,"\n2. ","lvl",Enemy2["Level"],Enemy2["Type"],"( Health:",Enemy2["Health"],")",dead_enemy2,"\n")
-                            enemy_choice = input("")
-                            enemy_choice = enemy_choice.lower()
-                            if enemy_choice in ["1","enemy1","enemy 1"]:
-                                    target = Enemy1
-                            elif enemy_choice in ["2","enemy2","enemy 2"]:
-                                    target = Enemy2
+                            while True:
+                                print("\nChoose the enemy to attack:\n1. ","lvl",Enemy1["Level"],Enemy1["Type"],"( Health:",Enemy1["Health"],")",dead_enemy1,"\n2. ","lvl",Enemy2["Level"],Enemy2["Type"],"( Health:",Enemy2["Health"],")",dead_enemy2,"\n")
+                                enemy_choice = input("")
+                                enemy_choice = enemy_choice.lower()
+                                if enemy_choice in ["1","enemy1","enemy 1"]:
+                                        target = Enemy1
+                                elif enemy_choice in ["2","enemy2","enemy 2"]:
+                                        target = Enemy2
+                                else:
+                                    print("\nNot an option\n")
                             print("Choose what move to use.")
                             skill_choice = input("")
                             skill_choice = skill_choice.lower()
@@ -1690,7 +1688,7 @@ class Player_Battle:
                                         break
                                     else:
                                         print("Not an option.")
-                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Straight_Punch(Player_copy,Enemy,Combat_Skill_list,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,name = name,POI=POI,Enemy1 = Enemy1,Enemy2 = Enemy2,Turn_Time=Turn_Time,Body_Condition=Body_Condition,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Impulsive_Swing(Player_copy,Enemy,Combat_Skill_list,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,name = name,POI=POI,Enemy1 = Enemy1,Enemy2 = Enemy2,Turn_Time=Turn_Time,Body_Condition=Body_Condition,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)
                             
 
                             elif skill_choice in ["jab"] and "Jab" in Combat_Skill_list:
@@ -2905,17 +2903,17 @@ class Player_Battle:
                             else:
                                 print("\n You have no items to use \n")
 
-                Player["Attack"] = round(Player["Attack"])
-                Player["Defense"] = round(Player["Defense"])
+                Player["Attack"] = max(round(Player["Attack"]),1)
+                Player["Defense"] = max(round(Player["Defense"]),1)
                 Player["Health"] = round(Player["Health"])
-                Player["Stamina"] = round(Player["Stamina"])
-                Player["Speed"] = round(Player["Speed"])
-                Player["Accuracy"] = round(Player["Accuracy"])
-                Player["Critical Chance"] = round(Player["Critical Chance"])
-                Player["Magic Density"] = round(Player["Magic Density"])
-                Player["Magic Damage"] = round(Player["Magic Damage"])
-                Player["Critical Damage"] = round(Player["Critical Damage"])
-                Player["Evasion"] = round(Player["Evasion"])
+                Player["Stamina"] = max(round(Player["Stamina"]),1)
+                Player["Speed"] = max(round(Player["Speed"]),1)
+                Player["Accuracy"] = max(round(Player["Accuracy"]),1)
+                Player["Critical Chance"] = max(round(Player["Critical Chance"]),1)
+                Player["Magic Density"] = max(round(Player["Magic Density"]),1)
+                Player["Magic Damage"] = max(round(Player["Magic Damage"]),1)
+                Player["Critical Damage"] = max(round(Player["Critical Damage"]),1)
+                Player["Evasion"] = max(round(Player["Evasion"]),1)
                 Player["Mana"] = round(Player["Mana"])
 
 
@@ -2929,15 +2927,18 @@ class Player_Battle:
                 x = 0
                 n = 0
                 player_shadows = False
-                Player_Skip = False
-                Enemy1_Skip = False
                 lever = False
                 Weapon_Held = False
                 Metal_Weapon = False
-                if Gear["Type"]["Weapon"] not in ["None"]:
+                if "None" not in Gear["Type"]["Weapon"]:
                     Weapon_Held = True
-                    if "Steel" in Gear["Type"]["Weapon"] or "Iron" in  Gear["Type"]["Weapon"] or "Metal" in Gear["Type"]["Weapon"]:
-                        Metal_Weapon = True
+                    Weapon_Names = Gear["Type"]["Weapon"].keys()
+                    Metal_Weapon = any(
+                        metal in Weapon_Name
+                        for Weapon_Name in Weapon_Names
+                        if Weapon_Name != "None"
+                        for metal in ("Steel", "Iron", "Copper")
+                    )
                 dead_enemy1 = ""
                 if place == "Poison Swamp Chamber":
                     Game["Current Effect"]["Type"] = "Poison"
@@ -2945,11 +2946,6 @@ class Player_Battle:
                 if place == "Collapsing Ruins":
                     Game["Current Effect"]["Type"] = "Falling Rubble"
                     Game["Current Effect"]["Duration"] = 10
-                if place == "Dark Ritual Room":
-                    Player_copy["Mana"] *= 1.1
-                    Enemy1["Mana"] *= 1.1
-                    Enemy1["Mana"]  = round(Enemy1["Mana"] )
-                    Player_copy["Mana"]  = round(Player_copy["Mana"] )
                 if place == "Storm Tower Top":
                     Game["Current Effect"]["Type"] = "Thundering"
                     Game["Current Effect"]["Duration"] = 10
@@ -2965,7 +2961,7 @@ class Player_Battle:
                         tw = TW(delay=0.02, jitter=True)
                         battle_choice = input("")
                         battle_choice = battle_choice.lower()
-                        if battle_choice not in ["melee","m","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","potions","p"]:
+                        if battle_choice not in ["fight","f","1","avatar","a","2","i","interact","3","4","r","retreat","wait","w","5","6","potions","p"]:
                             continue
                         if battle_choice in ["fight","f","1"]:
                             Breaker = False
@@ -3049,7 +3045,7 @@ class Player_Battle:
                                         break
                                     else:
                                         print("Not an option.")
-                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Straight_Punch(Player_copy,Enemy,Combat_Skill_list,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,name = name,POI=POI,Enemy1 = Enemy1,Body_Condition=Body_Condition,Turn_Time=Turn_Time)
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Impulsive_Swing(Player_copy,Enemy,Combat_Skill_list,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,name = name,POI=POI,Enemy1 = Enemy1,Body_Condition=Body_Condition,Turn_Time=Turn_Time)
                             
 
 
@@ -4091,17 +4087,17 @@ class Player_Battle:
                             else:
                                 print("\n You have no items to use \n")
 
-                Player["Attack"] = round(Player["Attack"])
-                Player["Defense"] = round(Player["Defense"])
+                Player["Attack"] = max(round(Player["Attack"]),1)
+                Player["Defense"] = max(round(Player["Defense"]),1)
                 Player["Health"] = round(Player["Health"])
-                Player["Stamina"] = round(Player["Stamina"])
-                Player["Speed"] = round(Player["Speed"])
-                Player["Accuracy"] = round(Player["Accuracy"])
-                Player["Critical Chance"] = round(Player["Critical Chance"])
-                Player["Magic Density"] = round(Player["Magic Density"])
-                Player["Magic Damage"] = round(Player["Magic Damage"])
-                Player["Critical Damage"] = round(Player["Critical Damage"])
-                Player["Evasion"] = round(Player["Evasion"])
+                Player["Stamina"] = max(round(Player["Stamina"]),1)
+                Player["Speed"] = max(round(Player["Speed"]),1)
+                Player["Accuracy"] = max(round(Player["Accuracy"]),1)
+                Player["Critical Chance"] = max(round(Player["Critical Chance"]),1)
+                Player["Magic Density"] = max(round(Player["Magic Density"]),1)
+                Player["Magic Damage"] = max(round(Player["Magic Damage"]),1)
+                Player["Critical Damage"] = max(round(Player["Critical Damage"]),1)
+                Player["Evasion"] = max(round(Player["Evasion"]),1)
                 Player["Mana"] = round(Player["Mana"])
 
 

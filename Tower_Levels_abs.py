@@ -379,7 +379,8 @@ class Tower:
             else:
                 print(Enemy1["Type"]," is incapacitated!")
                 Turn_Time = 0
-                Enemy1_Skip = False
+                if Enemy1_Skip == True:
+                    Enemy1_Skip = False
             
 
             return  Enemy1,Player_copy,Evasion1_Stopper,Defense1_Stopper,Turn_Time,Enemy1_Skip,Player_Skip,b,Enemy2,Enemy3
@@ -402,7 +403,8 @@ class Tower:
             else:
                 print(Enemy2["Type"]," is incapacitated!")
                 Turn_Time = 0
-                Enemy2_Skip = False
+                if Enemy2_Skip == True:
+                    Enemy2_Skip = False
             
 
             return  Enemy2,Player_copy,Evasion2_Stopper,Defense2_Stopper,Turn_Time,Enemy2_Skip,Player_Skip,b,Enemy1,Enemy3
@@ -426,7 +428,8 @@ class Tower:
             else:
                 print(Enemy3["Type"]," is incapacitated!")
                 Turn_Time = 0
-                Enemy3_Skip = False
+                if Enemy3_Skip == True:
+                    Enemy3_Skip = False
 
             return  Enemy3,Player_copy,Evasion3_Stopper,Defense3_Stopper,Turn_Time,Enemy3_Skip,Player_Skip,b,Enemy1,Enemy2
         
@@ -1578,22 +1581,27 @@ class Tower:
                         else:
                             Fastest_Enemy = Fastest_Enemy[0]
 
-                        Turn_Time = Player_copy["Speed"] / Fastest_Enemy["Speed"]
-                        while Turn_Time > 0:
-                            Turn_Time = round(Turn_Time,2)
-                            print(f"\n{Turn_Time}s remaining\n")
-                    
-                            if b >= 3:
-                                Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place, player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player3_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier,Method_list)
-                            elif b >= 2:
-                                Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player2_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
-                            elif b >= 1:
-                                Player,Player_copy, Enemy1,n, place,player_shadows,x,Enemy1_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player1_Battle(Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
-                        if Skill_Tree["General"]["Fast Recovery"]["Status"] != "(Unlocked)":
-                            Player_copy["Stamina"] += (Player["Stamina"] * 0.1)
+                        if Player_Skip == False:
+
+                            Turn_Time = Player_copy["Speed"] / Fastest_Enemy["Speed"]
+                            while Turn_Time > 0:
+                                Turn_Time = round(Turn_Time,2)
+                                print(f"\n{Turn_Time}s remaining\n")
+                        
+                                if b >= 3:
+                                    Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place, player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player3_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriters,Gold_Multiplier,Method_list)
+                                elif b >= 2:
+                                    Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player2_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
+                                elif b >= 1:
+                                    Player,Player_copy, Enemy1,n, place,player_shadows,x,Enemy1_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player1_Battle(Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
+                            if Skill_Tree["General"]["Fast Recovery"]["Status"] != "(Unlocked)":
+                                Player_copy["Stamina"] += (Player["Stamina"] * 0.1)
+                            else:
+                                Player_copy["Stamina"] += (Player["Stamina"] * 0.25)
+                            Player_copy["Stamina"] = round(Player_copy["Stamina"])
                         else:
-                            Player_copy["Stamina"] += (Player["Stamina"] * 0.25)
-                        Player_copy["Stamina"] = round(Player_copy["Stamina"])
+                            Player_Skip = False
+                            Turn_Time = 0
                         
 
                     if fighter == Enemy3:
@@ -1692,6 +1700,28 @@ class Tower:
             print(f"\nYou have entered  a {place}\n")
             if place == "Dark Ritual Room":
                 print("\nthere is an exorbitant amount of mana eminating from the room \n you gain 10% more mana\n")
+                if b == 1:
+                    Player_copy["Mana"] *= 1.1
+                    Enemy1["Mana"] *= 1.1
+                    Enemy1["Mana"]  = round(Enemy1["Mana"] )
+                    Player_copy["Mana"]  = round(Player_copy["Mana"] )
+                if b == 2:
+                    Player_copy["Mana"] *= 1.1
+                    Enemy1["Mana"] *= 1.1
+                    Enemy2["Mana"] *= 1.1
+                    Enemy1["Mana"]  = round(Enemy1["Mana"] )
+                    Enemy2["Mana"]  = round(Enemy2["Mana"] )
+                    Player_copy["Mana"]  = round(Player_copy["Mana"] )
+                if b == 3:
+                    Player_copy["Mana"] *= 1.1
+                    Enemy1["Mana"] *= 1.1
+                    Enemy2["Mana"] *= 1.1
+                    Enemy3["Mana"] *= 1.1
+                    Enemy1["Mana"]  = round(Enemy1["Mana"] )
+                    Enemy2["Mana"]  = round(Enemy2["Mana"] )
+                    Enemy3["Mana"]  = round(Enemy3["Mana"] )
+                    Player_copy["Mana"]  = round(Player_copy["Mana"] )
+
             if place == "Burning Armory":
                 print("\nthe flames burn intensely\n")
             if place == "Crumbling Bridge":
@@ -2812,22 +2842,28 @@ class Tower:
                             Fastest_Enemy = Enemy1
                         else:
                             Fastest_Enemy = Fastest_Enemy[0]
-                        Turn_Time = Player_copy["Speed"] / Fastest_Enemy["Speed"]
-                        while Turn_Time > 0:
-                            Turn_Time = round(Turn_Time,2)
-                            print(f"\n{Turn_Time}s remaining\n")
-                    
-                            if b >= 3:
-                                Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place, player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player3_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
-                            elif b >= 2:
-                                Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player2_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
-                            elif b >= 1:
-                                Player,Player_copy, Enemy1,n, place,player_shadows,x,Enemy1_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player1_Battle(Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
-                        if Skill_Tree["General"]["Fast Recovery"]["Status"] != "(Unlocked)":
-                            Player_copy["Stamina"] += (Player["Stamina"] * 0.1)
+
+                        if Player_Skip == False:
+
+                            Turn_Time = Player_copy["Speed"] / Fastest_Enemy["Speed"]
+                            while Turn_Time > 0:
+                                Turn_Time = round(Turn_Time,2)
+                                print(f"\n{Turn_Time}s remaining\n")
+                        
+                                if b >= 3:
+                                    Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place, player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player3_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
+                                elif b >= 2:
+                                    Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player2_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
+                                elif b >= 1:
+                                    Player,Player_copy, Enemy1,n, place,player_shadows,x,Enemy1_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player1_Battle(Player,Player_copy,Enemy,Enemy1,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
+                            if Skill_Tree["General"]["Fast Recovery"]["Status"] != "(Unlocked)":
+                                Player_copy["Stamina"] += (Player["Stamina"] * 0.1)
+                            else:
+                                Player_copy["Stamina"] += (Player["Stamina"] * 0.25)
+                            Player_copy["Stamina"] = round(Player_copy["Stamina"])
                         else:
-                            Player_copy["Stamina"] += (Player["Stamina"] * 0.25)
-                        Player_copy["Stamina"] = round(Player_copy["Stamina"])
+                            Player_Skip = False
+                            Turn_Time = 0
 
                     if fighter == Enemy3:
                         Turn_Time = Enemy3["Speed"] / Player_copy["Speed"]
