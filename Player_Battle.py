@@ -128,7 +128,7 @@ class Player_Battle:
                                         print("Not an option.")
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Impulsive_Swing(Player_copy,Enemy,Combat_Skill_list,typewriter,typewriters,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,name = name,POI=POI,Enemy1 = Enemy1,Enemy2 = Enemy2,Enemy3=Enemy3,Body_Condition=Body_Condition,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)
 
-                            if (skill_choice in ["slash"] and "Slash" in Combat_Skill_list):
+                            elif (skill_choice in ["slash"] and "Slash" in Combat_Skill_list):
                                 while True:
                                     print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
                                     POI = input("")
@@ -1639,7 +1639,7 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Straight_Punch(Player_copy,Enemy,Combat_Skill_list,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,name = name,POI=POI,Enemy1 = Enemy1,Enemy2 = Enemy2,Turn_Time=Turn_Time,Body_Condition=Body_Condition,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)
 
                             
-                            if skill_choice in ["slash"] and "Slash" in Combat_Skill_list:
+                            elif skill_choice in ["slash"] and "Slash" in Combat_Skill_list:
                                 while True:
                                     print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
                                     POI = input("")
@@ -2996,7 +2996,7 @@ class Player_Battle:
                                         print("Not an option.")
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip  = PM.Melee_Moves.Arms.Straight_Punch(Player_copy,Enemy,Combat_Skill_list,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,name = name,POI=POI,Enemy1 = Enemy1,Body_Condition=Body_Condition,Turn_Time=Turn_Time)
 
-                            if skill_choice in ["slash"] and "Slash" in Combat_Skill_list:
+                            elif skill_choice in ["slash"] and "Slash" in Combat_Skill_list:
                                 while True:
                                     print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
                                     POI = input("")

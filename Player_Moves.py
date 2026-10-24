@@ -38,7 +38,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int(( Combat_Skill_list["Headbutt"]["Damage"] * Player_copy["Attack"]/  target["Defense"]) )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
                                 Damage = int( Combat_Skill_list["Headbutt"]["Damage"] * Player_copy["Attack"]/ ( target["Defense"]))
@@ -111,7 +111,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int(( Combat_Skill_list["Bite"]["Damage"] * Player_copy["Attack"]/  target["Defense"]) + (Body_Condition["Head"]["Strength"]) / target["Defense"] )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
                                 Damage = int(( Combat_Skill_list["Bite"]["Damage"] * Player_copy["Attack"]/  target["Defense"]) + (Body_Condition["Head"]["Strength"]) / target["Defense"] )
@@ -127,7 +127,7 @@ class Player_Move:
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
@@ -135,59 +135,59 @@ class Player_Move:
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                             if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                 print("You hit a weakpoint!\n")
                                 Damage = round(Damage* 1.5)
@@ -238,7 +238,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( (Combat_Skill_list["Straight Punch"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ( Body_Condition["Legs"]["Strength"]) / target["Defense"] )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
                                 Damage = int( (Combat_Skill_list["Straight Punch"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+( Body_Condition["Legs"]["Strength"]) / target["Defense"] )
@@ -293,7 +293,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( (Combat_Skill_list["Axe Kick"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ (Body_Condition["Legs"]["Strength"]) / target["Defense"] )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
                             Damage = int( (Combat_Skill_list["Axe Kick"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ (Body_Condition["Legs"]["Strength"]) / target["Defense"] )
@@ -366,7 +366,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( (Combat_Skill_list["Spinning Back Kick"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ (Body_Condition["Legs"]["Strength"]) / target["Defense"] )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
                                 Damage = int( (Combat_Skill_list["Spinning Back Kick"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ (Body_Condition["Legs"]["Strength"]) / target["Defense"] )
@@ -434,7 +434,7 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Combat_Skill_list["Groundbreaker"]["Damage"]    * Player_copy["Attack"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Combat_Skill_list["Groundbreaker"]["Damage"]    * Player_copy["Attack"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
 
@@ -452,22 +452,22 @@ class Player_Move:
                                         if chance == 1:
                                             Enemy1_Skip = True
                                             print("The enemy is inflicted with stagger!\n")
-                                            target["Speed"] -= (target["Speed"] * random.randint(0.1,0.2))
-                                            target["Evasion"] -= (target["Evasion"] * random.randint(0.1,0.2))
+                                            target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                            target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
                                     if target == Enemy2:
                                         chance = random.randint(1,5)
                                         if chance == 1:
                                             Enemy2_Skip = True
                                             print("The enemy is inflicted with stagger!\n")
-                                            target["Speed"] -= (target["Speed"] * random.randint(0.1,0.2))
-                                            target["Evasion"] -= (target["Evasion"] * random.randint(0.1,0.2))
+                                            target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                            target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
                                     if target == Enemy3:
                                         chance = random.randint(1,5)
                                         if chance == 3:
                                             Enemy3_Skip = True
                                             print("The enemy is inflicted with stagger!\n")
-                                            target["Speed"] -= (target["Speed"] * random.randint(0.1,0.2))
-                                            target["Evasion"] -= (target["Evasion"] * random.randint(0.1,0.2))
+                                            target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                            target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
                                     Damage = round(Damage* 1.5)
@@ -515,7 +515,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( (Combat_Skill_list["Straight Punch"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
                                 Damage = int( (Combat_Skill_list["Straight Punch"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
@@ -570,7 +570,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int(( Combat_Skill_list["Aimed Shot"]["Damage"] * Player_copy["Attack"]/  target["Defense"]) + (Body_Condition["Head"]["Strength"]) / target["Defense"] )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
                             Damage = int(( Combat_Skill_list["Aimed Shot"]["Damage"] * Player_copy["Attack"]/  target["Defense"]) + (Body_Condition["Head"]["Strength"]) / target["Defense"] )
@@ -586,67 +586,67 @@ class Player_Move:
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                             if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                 print("You hit a weakpoint!\n")
                                 Damage = round(Damage* 1.5)
@@ -695,7 +695,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( (Combat_Skill_list["Tackle"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Shoulder"]["Strength"] + Body_Condition["Legs"]["Strength"] + Body_Condition["Back"]["Strength"]) /3) / target["Defense"] )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
                                 Damage = int( (Combat_Skill_list["Tackle"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Shoulder"]["Strength"] + Body_Condition["Legs"]["Strength"] + Body_Condition["Back"]["Strength"]) /3) / target["Defense"] )
@@ -750,7 +750,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 50
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( (Combat_Skill_list["Slash"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/75))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/75)))
                             print("\n\nCritical Hit!\n")
                         else:
                                 Damage = int( (Combat_Skill_list["Slash"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
@@ -766,67 +766,67 @@ class Player_Move:
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                             Damage = round(Damage)
                             if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                 print("You hit a weakpoint!\n")
@@ -875,7 +875,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 50
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( (Combat_Skill_list["Slash"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/75))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/75)))
                             print("\n\nCritical Hit!\n")
                         else:
                                 Damage = int( (Combat_Skill_list["Slash"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
@@ -891,67 +891,67 @@ class Player_Move:
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                 if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
                                         target["Status Effects"]["Status 1"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 2"]["Type"] == "None":
                                         target["Status Effects"]["Status 2"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                                     elif target["Status Effects"]["Status 3"]["Type"] == "None":
                                         target["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                         target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target} is bleeding")
+                                        print(f"{target['Type']} is bleeding")
                             Damage = round(Damage)
                             if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                 print("You hit a weakpoint!\n")
@@ -998,7 +998,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( (Combat_Skill_list["Impulsive Swing"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ (Body_Condition["Legs"]["Strength"]) / target["Defense"] )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
                             Damage = int( (Combat_Skill_list["Impulsive Swing"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ (Body_Condition["Legs"]["Strength"]) / target["Defense"] )
@@ -1070,7 +1070,7 @@ class Player_Move:
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( (Combat_Skill_list["Jab"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
                                 Damage = int( (Combat_Skill_list["Jab"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
@@ -1128,7 +1128,7 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["Fireball"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Spell_list["Fireball"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         while True:
@@ -1246,7 +1246,7 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["Ice Shard"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Spell_list["Ice Shard"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         while True:
@@ -1367,19 +1367,19 @@ class Player_Move:
                         Percentage3 = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["Shock"]["Damage"]    * Player_copy["Magic Damage"]    / (Enemy1["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Spell_list["Shock"]["Damage"]    * Player_copy["Magic Damage"]    / (Enemy1["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         if Enemy2 != None:
                             if Percentage2 <= Player_copy_Critical_Chance:
                                 Damage2 = int( Spell_list["Shock"]["Damage"]    * Player_copy["Magic Damage"]    / (Enemy2["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                                Damage2 *= (1 + (Player_copy["Critical Damage"]/100))
+                                Damage2 = round(Damage2 * (1 + (Player_copy["Critical Damage"]/100)))
                             else:
                                 Damage2 = int( Spell_list["Shock"]["Damage"]    * Player_copy["Magic Damage"]    / (Enemy2["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         if Enemy3 != None:
                             if Percentage3 <= Player_copy_Critical_Chance:
                                 Damage3 = int( Spell_list["Shock"]["Damage"]    * Player_copy["Magic Damage"]    / (Enemy3["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                                Damage3 *= (1 + (Player_copy["Critical Damage"]/100))
+                                Damage3 = round(Damage3 * (1 + (Player_copy["Critical Damage"]/100)))
                             else:
                                 Damage3 = int( Spell_list["Shock"]["Damage"]    * Player_copy["Magic Damage"]    / (Enemy3["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
 
@@ -1493,7 +1493,7 @@ class Player_Move:
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["River Fist"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100)/2)
                             Damage += int( ((Spell_list["River Fist"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"])/2)
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
                             Damage = int( Spell_list["River Fist"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
@@ -1585,7 +1585,7 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["Mud Shot"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Spell_list["Mud Shot"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         while True:
@@ -1691,7 +1691,7 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["Tremor"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Spell_list["Tremor"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         while True:
@@ -1820,7 +1820,7 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["Stone Slipstream"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Spell_list["Stone Slipstream"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         while True:
@@ -1931,7 +1931,7 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["Life Drain"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Spell_list["Life Drain"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         while True:
@@ -2168,7 +2168,7 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["Corrupting Touch"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Spell_list["Corrupting Touch"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         while True:
@@ -2291,7 +2291,7 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["Toxin Spray"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Spell_list["Toxin Spray"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         while True:
@@ -2415,7 +2415,7 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["Purify"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Spell_list["Purify"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         while True:
@@ -2660,7 +2660,7 @@ class Player_Move:
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( Spell_list["Mana Blast"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                         else:
                             Damage = int( Spell_list["Mana Blast"]["Damage"]    * Player_copy["Magic Damage"]    / (target["Defense"])    * (1 + Player_copy["Magic Density"] / 100))
                         while True:

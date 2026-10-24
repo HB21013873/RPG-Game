@@ -184,15 +184,11 @@
     },
     "Inventory": {
         "Orc Tusk": 5,
-        "Galvano Flower": 4,
+        "Galvano Flower": 5,
         "Gear": [
             "Copper Dagger"
         ],
-        "Potions": [
-            {
-                "Type": "Electric Resistance Potion"
-            }
-        ]
+        "Potions": []
     },
     "Skill_Tree": {
         "General": {
@@ -255,9 +251,9 @@
             }
         },
         "Alchemy": {
-            "Lock": "(Unlocked)",
+            "Lock": "(Locked)",
             "Scientific Cooking": {
-                "Status": "(Unlocked)"
+                "Status": "(Locked)"
             },
             "Skill 2": {
                 "Status": "(Locked)"
@@ -275,11 +271,11 @@
             "Status": "(Locked)"
         },
         "Alchemy": {
-            "Status": "(Unlocked)"
+            "Status": "(Locked)"
         }
     },
-    "Skill_Points": 1,
-    "Name": "Henry",
+    "Skill_Points": 2,
+    "Name": "a man who has seen a man before and definatly is not an alien. he is a real human man who does real human man things all the time like, skateboard and sport. you who doubt his manly man self are wrong and you should be ashamed of who you are as a person for he is john from acounting",
     "Skills": {
         "Mana Blast": {
             "Damage": 20,
@@ -553,9 +549,9 @@
     "Memory": 4,
     "Max Limit": 25,
     "Statistics": {
-        "Battles Fought": 0,
+        "Battles Fought": 2,
         "Battles Won": 0,
-        "Battles Lost": 0,
+        "Battles Lost": 2,
         "Enemies Killed": 0,
         "Damageless Battles Won": 0,
         "Bosses Killed": 0,
@@ -564,7 +560,7 @@
         "Gold Spent": 0,
         "Health Healed": 0,
         "Gear Forged": 0,
-        "Potions Brewed": 1
+        "Potions Brewed": 0
     },
     "Skill Books": {
         "Fireball": false,
@@ -720,5 +716,5 @@
         "The One Who Knocks": "(Incomplete)"
     },
     "Titles": [],
-    "Typewriter": false
+    "Typewriter": true
 }
