@@ -232,17 +232,17 @@ class Player_Move:
                 Enemy1_Skip = kwargs.get("Enemy1_Skip",False)
                 Enemy2_Skip = kwargs.get("Enemy2_Skip",False)
                 Enemy3_Skip = kwargs.get("Enemy3_Skip",False)
-                if Turn_Time >= Combat_Skill_list["Straight Punch"]["Time"]:
-                    if Combat_Skill_list["Straight Punch"]["Cost"] < Player_copy["Stamina"]:
+                if Turn_Time >= Combat_Skill_list["Front Kick"]["Time"]:
+                    if Combat_Skill_list["Front Kick"]["Cost"] < Player_copy["Stamina"]:
                         Percentage = random.random()
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
-                            Damage = int( (Combat_Skill_list["Straight Punch"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ( Body_Condition["Legs"]["Strength"]) / target["Defense"] )
+                            Damage = int( (Combat_Skill_list["Front Kick"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ( Body_Condition["Legs"]["Strength"]) / target["Defense"] )
                             Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/100)))
                             print("\n\nCritical Hit!\n")
                         else:
-                                Damage = int( (Combat_Skill_list["Straight Punch"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+( Body_Condition["Legs"]["Strength"]) / target["Defense"] )
-                        Combat_cost = Combat_Skill_list["Straight Punch"]["Cost"] * ( 1 - Player_copy["Magic Density"] /  500 )
+                                Damage = int( (Combat_Skill_list["Front Kick"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+( Body_Condition["Legs"]["Strength"]) / target["Defense"] )
+                        Combat_cost = Combat_Skill_list["Front Kick"]["Cost"] * ( 1 - Player_copy["Magic Density"] /  500 )
                         Player_copy["Stamina"] -= Combat_cost
                         Evasion_Chance = random.randint(1,100)
                         choice = "Front Kick"
@@ -264,7 +264,7 @@ class Player_Move:
                             print("They avoided the attack!")
                     else:
                         print("Not enough Stamina\n")
-                    Turn_Time -= Combat_Skill_list["Straight Punch"]["Time"]
+                    Turn_Time -= Combat_Skill_list["Front Kick"]["Time"]
                 else:
                     print("\nNot enough Time\n")
                 return Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip
@@ -564,7 +564,7 @@ class Player_Move:
                 Enemy1_Skip = kwargs.get("Enemy1_Skip",False)
                 Enemy2_Skip = kwargs.get("Enemy2_Skip",False)
                 Enemy3_Skip = kwargs.get("Enemy3_Skip",False)
-                if Turn_Time >= Combat_Skill_list["Bite"]["Time"]:
+                if Turn_Time >= Combat_Skill_list["Aimed Shot"]["Time"]:
                     if Combat_Skill_list["Aimed Shot"]["Cost"] < Player_copy["Stamina"]:
                         Percentage = random.random()
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
@@ -760,7 +760,7 @@ class Player_Move:
                         choice = "Slash"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (Player_copy["Max Health"] * 0.05) <= Damage:
+                            if (target["Max Health"] * 0.05) <= Damage:
                                 bleed_chance = random.random()
                                 if bleed_chance < 0.15 and (Damage >= (target["Max Health"] * 0.05) and Damage <= (target["Max Health"] * 0.1) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
@@ -869,23 +869,23 @@ class Player_Move:
                 Enemy1_Skip = kwargs.get("Enemy1_Skip",False)
                 Enemy2_Skip = kwargs.get("Enemy2_Skip",False)
                 Enemy3_Skip = kwargs.get("Enemy3_Skip",False)
-                if Turn_Time >= Combat_Skill_list["Slash"]["Time"]:
-                    if Combat_Skill_list["Slash"]["Cost"] < Player_copy["Stamina"]:
+                if Turn_Time >= Combat_Skill_list["Quick Stab"]["Time"]:
+                    if Combat_Skill_list["Quick Stab"]["Cost"] < Player_copy["Stamina"]:
                         Percentage = random.random()
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 50
                         if Percentage <= Player_copy_Critical_Chance:
-                            Damage = int( (Combat_Skill_list["Slash"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
+                            Damage = int( (Combat_Skill_list["Quick Stab"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
                             Damage = round(Damage * (1 + (Player_copy["Critical Damage"]/75)))
                             print("\n\nCritical Hit!\n")
                         else:
-                                Damage = int( (Combat_Skill_list["Slash"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
-                        Combat_cost = Combat_Skill_list["Slash"]["Cost"] * ( 1 - Player_copy["Magic Density"] /  500 )
+                                Damage = int( (Combat_Skill_list["Quick Stab"]["Damage"] * Player_copy["Attack"]/  target["Defense"])+ ((Body_Condition["Biceps"]["Strength"] + Body_Condition["Triceps"]["Strength"] + Body_Condition["Hands"]["Strength"]) /3) / target["Defense"] )
+                        Combat_cost = Combat_Skill_list["Quick Stab"]["Cost"] * ( 1 - Player_copy["Magic Density"] /  500 )
                         Player_copy["Stamina"] -= Combat_cost
                         Evasion_Chance = random.randint(1,100)
                         choice = "Quick Stab"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (Player_copy["Max Health"] * 0.05) <= Damage:
+                            if (target["Max Health"] * 0.05) <= Damage:
                                 bleed_chance = random.random()
                                 if bleed_chance < 0.15 and (Damage >= (target["Max Health"] * 0.05) and Damage <= (target["Max Health"] * 0.1) ):
                                     if target["Status Effects"]["Status 1"]["Type"] == "None":
@@ -969,7 +969,7 @@ class Player_Move:
                             print("They avoided the attack!")
                     else:
                         print("Not enough Stamina\n")
-                    Turn_Time -= Combat_Skill_list["Slash"]["Time"]
+                    Turn_Time -= Combat_Skill_list["Quick Stab"]["Time"]
                 else:
                     print("\nNot enough Time\n")
                 return Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip
@@ -992,7 +992,7 @@ class Player_Move:
                 Enemy1_Skip = kwargs.get("Enemy1_Skip",False)
                 Enemy2_Skip = kwargs.get("Enemy2_Skip",False)
                 Enemy3_Skip = kwargs.get("Enemy3_Skip",False)
-                if Turn_Time >= Combat_Skill_list["Axe Kick"]["Time"]:
+                if Turn_Time >= Combat_Skill_list["Impulsive Swing"]["Time"]:
                     if Combat_Skill_list["Impulsive Swing"]["Cost"] < Player_copy["Stamina"]:
                         Percentage = random.random()
                         Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
@@ -2002,7 +2002,7 @@ class Player_Move:
                                 print("They avoided the attack!")
                         else:
                             print("It failed because there is not enough mana\n")
-                        Turn_Time -= Spell_list["Corrupting Touch"]["Time"]
+                        Turn_Time -= Spell_list["Life Drain"]["Time"]
                     else:
                         print("\nNot enough Time\n")
                     return Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip
@@ -2036,9 +2036,6 @@ class Player_Move:
                                 if stat == "Max Health":
                                     Player_copy["Max Health"] += Power_Amount
                                     target["Max Health"] -= Power_Amount
-                                if stat == "Health":
-                                    Player_copy["Health"] += Power_Amount
-                                    target["Health"] -= Power_Amount
                                 if stat == "Health":
                                     Player_copy["Health"] += Power_Amount
                                     target["Health"] -= Power_Amount
@@ -2092,9 +2089,6 @@ class Player_Move:
                                             if stat == "Max Health":
                                                 Player_copy["Max Health"] += Power_Amount
                                                 target["Max Health"] -= Power_Amount
-                                            if stat == "Health":
-                                                Player_copy["Health"] += Power_Amount
-                                                target["Health"] -= Power_Amount
                                             if stat == "Health":
                                                 Player_copy["Health"] += Power_Amount
                                                 target["Health"] -= Power_Amount
