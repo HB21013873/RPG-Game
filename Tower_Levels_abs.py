@@ -381,7 +381,7 @@ class Tower:
                 Turn_Time = 0
                 if Enemy1_Skip == True:
                     Enemy1_Skip = False
-            
+            stop = input("\n\nPress enter to continue\n")
 
             return  Enemy1,Player_copy,Evasion1_Stopper,Defense1_Stopper,Turn_Time,Enemy1_Skip,Player_Skip,b,Enemy2,Enemy3
         def Enemy2_Battle(Enemy,Enemy2,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,b,typewriter,**kwargs):
@@ -405,7 +405,7 @@ class Tower:
                 Turn_Time = 0
                 if Enemy2_Skip == True:
                     Enemy2_Skip = False
-            
+            stop = input("\n\nPress enter to continue\n")
 
             return  Enemy2,Player_copy,Evasion2_Stopper,Defense2_Stopper,Turn_Time,Enemy2_Skip,Player_Skip,b,Enemy1,Enemy3
         def Enemy3_Battle(Enemy,Enemy3,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Enemy3_Skip,Player_Skip,b,typewriter,**kwargs):
@@ -430,6 +430,7 @@ class Tower:
                 Turn_Time = 0
                 if Enemy3_Skip == True:
                     Enemy3_Skip = False
+            stop = input("\n\nPress enter to continue\n")
 
             return  Enemy3,Player_copy,Evasion3_Stopper,Defense3_Stopper,Turn_Time,Enemy3_Skip,Player_Skip,b,Enemy1,Enemy2
         
@@ -2848,8 +2849,7 @@ class Tower:
                             Turn_Time = Player_copy["Speed"] / Fastest_Enemy["Speed"]
                             while Turn_Time > 0:
                                 Turn_Time = round(Turn_Time,2)
-                                print(f"\n{Turn_Time}s remaining\n")
-                        
+                                print(f"\n{Turn_Time}s remaining\n")                        
                                 if b >= 3:
                                     Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place, player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics,Battle_End  = Player_Battle.Player3_Battle(Player,Player_copy,Enemy,Enemy1,Enemy2,Enemy3,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,place,Player_Skip,Move_Set,b,name,Game,Enemy1_Weakpoint,Enemy2_Weakpoint,Enemy3_Weakpoint,Body_Condition,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Skill_Tree,Statistics,typewriter,Gold_Multiplier,Method_list)
                                 elif b >= 2:

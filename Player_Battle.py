@@ -1546,7 +1546,8 @@ class Player_Battle:
                 Player["Evasion"] = max(round(Player["Evasion"]),1)
                 Player["Mana"] = round(Player["Mana"])
 
-
+                stop = input("\n\nPress enter to continue\n")
+                
                 return Player,Player_copy, Enemy1, Enemy2, Enemy3,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,Player_Skip,Turn_Time,Statistics,Battle_End
 
 
@@ -2916,6 +2917,7 @@ class Player_Battle:
                 Player["Evasion"] = max(round(Player["Evasion"]),1)
                 Player["Mana"] = round(Player["Mana"])
 
+                stop = input("\n\nPress enter to continue\n")
 
                 return Player,Player_copy, Enemy1, Enemy2,n, place,player_shadows,x,Enemy1_Skip,Enemy2_Skip,Player_Skip,Turn_Time,Statistics,Battle_End
 
@@ -4100,5 +4102,6 @@ class Player_Battle:
                 Player["Evasion"] = max(round(Player["Evasion"]),1)
                 Player["Mana"] = round(Player["Mana"])
 
+                stop = input("\n\nPress enter to continue\n")
 
                 return Player,Player_copy, Enemy1,n, place, player_shadows,x,Enemy1_Skip,Player_Skip,Turn_Time,Statistics,Battle_End

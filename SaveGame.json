@@ -275,7 +275,7 @@
         }
     },
     "Skill_Points": 2,
-    "Name": "a man who has seen a man before and definatly is not an alien. he is a real human man who does real human man things all the time like, skateboard and sport. you who doubt his manly man self are wrong and you should be ashamed of who you are as a person for he is john from acounting",
+    "Name": "Henry",
     "Skills": {
         "Mana Blast": {
             "Damage": 20,
@@ -549,9 +549,9 @@
     "Memory": 4,
     "Max Limit": 25,
     "Statistics": {
-        "Battles Fought": 2,
+        "Battles Fought": 0,
         "Battles Won": 0,
-        "Battles Lost": 2,
+        "Battles Lost": 0,
         "Enemies Killed": 0,
         "Damageless Battles Won": 0,
         "Bosses Killed": 0,
@@ -694,7 +694,7 @@
         "High Roller": "(Incomplete)",
         "Deep Pockets": "(Incomplete)",
         "Patron Of Treasure": "(Incomplete)",
-        "Trainee": "(Incomplete",
+        "Trainee": "(Incomplete)",
         "Dedicated": "(Incomplete)",
         "Fanatic Trainer": "(Incomplete)",
         "Tireless": "(Incomplete)",
@@ -716,5 +716,5 @@
         "The One Who Knocks": "(Incomplete)"
     },
     "Titles": [],
-    "Typewriter": true
+    "Typewriter": false
 }

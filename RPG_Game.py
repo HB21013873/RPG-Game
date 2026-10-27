@@ -54,7 +54,7 @@ Statistics = {"Battles Fought": 0,"Battles Won":0,"Battles Lost":0,"Enemies Kill
 Amount_Practiced = {"Fireball":0,"Headbutt":0,"Axe Kick":0,"Analysis":0,"Heal":0,"Grappling Vines":0,"River Fist":0,"Shock":0,"Life Drain":0,"Devour Essence":0,"Purify":0,"Spinning Back Kick":0,"Ice Shard":0,"Mud Shot":0,"Tremor":0,"Groundbreaker":0,"Jab":0,"Stone Slipstream":0,"Domination":0,"Corrupting Touch":0,"Toxin Spray":0,"Empower":0,"Straight Punch":0,"Front Kick":0,"Bite":0,"Aimed Shot":0,"Slash":0,"Quick Stab":0,"Tackle":0,"Mana Blast":0}
 Proficiency = {"Sword":"Starter","Greatsword":"Starter","Dagger":"Starter","Spear":"Starter","Staff":"Starter","Wand":"Starter","Axe":"Starter","Mace":"Starter","Bow":"Starter"}
 Amount_Used = {"Sword":0,"Greatsword":0,"Dagger":0,"Spear":0,"Staff":0,"Wand":0,"Axe":0,"Mace":0,"Bow":0}
-Quests = {"Novice Slayer":"(Incomplete)","Veteran Slayer":"(Incomplete)","Legendary Slayer":"(Incomplete)","Well Built":"(Incomplete)","Peak Physique":"(Incomplete)","Recruit":"(Incomplete)","Fighter":"(Incomplete)","Veteran":"(Incomplete)","Battle-Hardened":"(Incomplete)","Seasoned Warrior":"(Incomplete)","Elite Combatant":"(Incomplete)","Champion":"(Incomplete)","Warlord":"(Incomplete)","Conqueror":"(Incomplete)","Living Legend":"(Incomplete)","Eternal Warrior":"(Incomplete)","Winner":"(Incomplete)","The Professional":"(Incomplete)","Indomitable":"(Incomplete)","Unstoppable Force":"(Incomplete)","The One Above All":"(Incomplete)","Loser":"(Incomplete)","Scarred":"(Incomplete)","Tenacious":"(Incomplete)","The Immovable":"(Incomplete)","The Ever Enduring":"(Incomplete)","Unscathed":"(Incomplete)","Flawless Victor":"(Incomplete)","Phantom Menace":"(Incomplete)","Untouchable Duelist":"(Incomplete)","The Peerless Champion":"(Incomplete)","Boss Demolisher":"(Incomplete)","Giant Annihilator":"(Incomplete)","The Bane Of Titans":"(Incomplete)","Legend Hunter":"(Incomplete)","One Of The Greats":"(Incomplete)","Penny Pincher":"(Incomplete)","Hoarder":"(Incomplete)","Noble":"(Incomplete)","Tycoon":"(Incomplete)","Midas":"(Incomplete)","Spender":"(Incomplete)","Big Spender":"(Incomplete)","High Roller":"(Incomplete)","Deep Pockets":"(Incomplete)","Patron Of Treasure":"(Incomplete)","Trainee":"(Incomplete","Dedicated":"(Incomplete)","Fanatic Trainer":"(Incomplete)","Tireless":"(Incomplete)","Pillar Of Discipline":"(Incomplete)","Virile":"(Incomplete)","Hearty":"(Incomplete)","Bulky":"(Incomplete)","Behemoth":"(Incomplete)","The Jade Emperor":"(Incomplete)","Forgehand":"(Incomplete)","Skilled Blacksmith":"(Incomplete)","Elite Craftsmen":"(Incomplete)","Master Of Metal":"(Incomplete)","Artificer Of Legend":"(Incomplete)","Herbalist":"(Incomplete)","Elixir Maker":"(Incomplete)","Skilled Alchemist":"(Incomplete)","Grandmaster Brewer":"(Incomplete)","The One Who Knocks":"(Incomplete)"}
+Quests = {"Novice Slayer":"(Incomplete)","Veteran Slayer":"(Incomplete)","Legendary Slayer":"(Incomplete)","Well Built":"(Incomplete)","Peak Physique":"(Incomplete)","Recruit":"(Incomplete)","Fighter":"(Incomplete)","Veteran":"(Incomplete)","Battle-Hardened":"(Incomplete)","Seasoned Warrior":"(Incomplete)","Elite Combatant":"(Incomplete)","Champion":"(Incomplete)","Warlord":"(Incomplete)","Conqueror":"(Incomplete)","Living Legend":"(Incomplete)","Eternal Warrior":"(Incomplete)","Winner":"(Incomplete)","The Professional":"(Incomplete)","Indomitable":"(Incomplete)","Unstoppable Force":"(Incomplete)","The One Above All":"(Incomplete)","Loser":"(Incomplete)","Scarred":"(Incomplete)","Tenacious":"(Incomplete)","The Immovable":"(Incomplete)","The Ever Enduring":"(Incomplete)","Unscathed":"(Incomplete)","Flawless Victor":"(Incomplete)","Phantom Menace":"(Incomplete)","Untouchable Duelist":"(Incomplete)","The Peerless Champion":"(Incomplete)","Boss Demolisher":"(Incomplete)","Giant Annihilator":"(Incomplete)","The Bane Of Titans":"(Incomplete)","Legend Hunter":"(Incomplete)","One Of The Greats":"(Incomplete)","Penny Pincher":"(Incomplete)","Hoarder":"(Incomplete)","Noble":"(Incomplete)","Tycoon":"(Incomplete)","Midas":"(Incomplete)","Spender":"(Incomplete)","Big Spender":"(Incomplete)","High Roller":"(Incomplete)","Deep Pockets":"(Incomplete)","Patron Of Treasure":"(Incomplete)","Trainee":"(Incomplete)","Dedicated":"(Incomplete)","Fanatic Trainer":"(Incomplete)","Tireless":"(Incomplete)","Pillar Of Discipline":"(Incomplete)","Virile":"(Incomplete)","Hearty":"(Incomplete)","Bulky":"(Incomplete)","Behemoth":"(Incomplete)","The Jade Emperor":"(Incomplete)","Forgehand":"(Incomplete)","Skilled Blacksmith":"(Incomplete)","Elite Craftsmen":"(Incomplete)","Master Of Metal":"(Incomplete)","Artificer Of Legend":"(Incomplete)","Herbalist":"(Incomplete)","Elixir Maker":"(Incomplete)","Skilled Alchemist":"(Incomplete)","Grandmaster Brewer":"(Incomplete)","The One Who Knocks":"(Incomplete)"}
 Titles = []
 
 def save_game(Say):
@@ -298,6 +298,7 @@ while leave == False:
             "Demon Imp":{"XP":45,"Max Health":random.randint(70,90),"Health":75,"Attack":random.randint(12,18),"Defense":random.randint(9,13),"Speed":random.randint(16,17),"Magic Density":random.randint(12,14),"Magic Damage":random.randint(12,14),"Level":1,"Stamina":random.randint(600,775),"Critical Chance":random.randint(6,8),"Critical Damage":random.randint(145,155),"Evasion":random.randint(7,8),"Accuracy":random.randint(82,90),"Mana":random.randint(25,40),"Buff":{"Type":"None","Value":0,"Duration":0},"Drop":["Imp Core"],"Category":"Demon","Behaviour":"Aggressive","Spell Caster":True,"Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0}},"Type":"Demon Imp","Ability":"None","Attribute":"None"},
             "Demon Warrior":{"XP":90,"Max Health":random.randint(120,135),"Health":210,"Attack":random.randint(18,20),"Defense":random.randint(11,14),"Speed":random.randint(11,15),"Magic Density":random.randint(12,14),"Magic Damage":random.randint(12,14),"Level":1,"Stamina":random.randint(550,650),"Critical Chance":random.randint(6,8),"Critical Damage":random.randint(150,165),"Evasion":random.randint(3,7),"Accuracy":random.randint(85,90),"Mana":random.randint(30,45),"Buff":{"Type":"None","Value":0,"Duration":0},"Drop":["Demon Blade","Burning Core"],"Category":"Demon","Behaviour":"Aggressive","Spell Caster":True,"Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0}},"Type":"Demon Warrior","Ability":"None","Attribute":"None"},
             "Ash Soldier":{"XP":55,"Max Health":random.randint(130,140),"Health":130,"Attack":random.randint(17,21),"Defense":random.randint(14,15),"Speed":random.randint(12,15),"Magic Density":random.randint(12,14),"Magic Damage":random.randint(12,14),"Level":1,"Stamina":random.randint(550,650),"Critical Chance":random.randint(3,5),"Critical Damage":random.randint(135,145),"Evasion":random.randint(4,6),"Accuracy":random.randint(80,90),"Mana":random.randint(35,45),"Buff":{"Type":"None","Value":0,"Duration":0},"Drop":["Experiment Core","Broken Blade"],"Category":"Humanoid","Behaviour":"Aggressive","Spell Caster":False,"Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0}},"Type":"Ash Soldier","Ability":"None","Attribute":"None"},
+            "Ash Golem":{"XP":95,"Max Health":random.randint(140,155),"Health":240,"Attack":random.randint(14,17),"Defense":random.randint(13,14),"Speed":random.randint(8,10),"Magic Density":random.randint(12,16),"Magic Damage":random.randint(11,15),"Level":1,"Stamina":random.randint(600,775),"Critical Chance":random.randint(3,4),"Critical Damage":random.randint(120,130),"Evasion":random.randint(2,3),"Accuracy":random.randint(75,80),"Mana":random.randint(35,50),"Buff":{"Type":"None","Value":0,"Duration":0},"Drop":["Ash Core","Burnt Metal"],"Category":"Construct","Behaviour":"Defender","Spell Caster":False,"Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0}},"Type":"Ash Golem","Ability":"None","Attribute":"None"},
 
             
             "Armory Guard":{"XP":50,"Max Health":random.randint(100,125),"Health":120,"Attack":random.randint(13,17),"Defense":random.randint(14,16),"Speed":random.randint(10,13),"Magic Density":random.randint(7,10),"Magic Damage":random.randint(7,9),"Level":1,"Stamina":random.randint(550,650),"Critical Chance":random.randint(6,8),"Critical Damage":random.randint(125,155),"Evasion":random.randint(2,5),"Accuracy":random.randint(82,88),"Mana":random.randint(10,20),"Buff":{"Type":"None","Value":0,"Duration":0},"Drop":["Guard Armor"],"Category":"Humanoid","Behaviour":"Defensive","Spell Caster":False,"Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0}},"Type":"Armory Guard","Ability":"None","Attribute":"None"},
@@ -707,7 +708,10 @@ while leave == False:
             while True:
                 try:
                     print("What Floor do you want to go to?")
-                    Tower_Level_Choice = int(input(""))
+                    Tower_Level_Choice = input("")
+                    if Tower_Level_Choice == "":
+                        break
+                    Tower_Level_Choice = int(Tower_Level_Choice)
                     if 0 < Tower_Level_Choice <= 100:
                         if Tower_Level_Choice > Player["Tower Level"]:
                             print("You have not reached this floor before")
@@ -717,25 +721,26 @@ while leave == False:
                         print("Enter a number between 1 and and 100")
                 except ValueError:
                     print("Not a Number between 1 and 100")
-            Player_copy = copy.deepcopy(Player)
-            result = T.Tower(Player,Player_copy,Enemy,Tower_Level_Choice,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,Move_Set,name,Statistics,Game,Body_Condition,Skill_Tree,Chest_items,Skill_Books,Proficiency,Amount_Used,typewriter,Method_list)
-            Outcome = result[0]
-            Player["XP"] = result[1]
-            Statistics = result[2]
-            Player["Gold"] = result[3]
-            Skill_Books = result[4]
-            inventory = result[5]
-            Amount_Used = result[6]
-            Proficiency = result[7]
-            Statistics["Battles Fought"] += 1
-            if Outcome == "Enemy Win":
-                print("\nYou lost... \n")
-                Statistics["Battles Lost"] += 1
-            if Outcome == "Player Win":
-                if Tower_Level_Choice == Player["Tower Level"]:
-                    Player["Tower Level"] += 1
-                    print("\nYou unlocked the next floor\n")
-                    Statistics["Battles Won"] += 1
+            if Tower_Level_Choice != "":
+                Player_copy = copy.deepcopy(Player)
+                result = T.Tower(Player,Player_copy,Enemy,Tower_Level_Choice,Combat_Skill_list,Spell_list,Gear,inventory,treasure_list,Move_Set,name,Statistics,Game,Body_Condition,Skill_Tree,Chest_items,Skill_Books,Proficiency,Amount_Used,typewriter,Method_list)
+                Outcome = result[0]
+                Player["XP"] = result[1]
+                Statistics = result[2]
+                Player["Gold"] = result[3]
+                Skill_Books = result[4]
+                inventory = result[5]
+                Amount_Used = result[6]
+                Proficiency = result[7]
+                Statistics["Battles Fought"] += 1
+                if Outcome == "Enemy Win":
+                    print("\nYou lost... \n")
+                    Statistics["Battles Lost"] += 1
+                if Outcome == "Player Win":
+                    if Tower_Level_Choice == Player["Tower Level"]:
+                        Player["Tower Level"] += 1
+                        print("\nYou unlocked the next floor\n")
+                        Statistics["Battles Won"] += 1
                     
         elif Choice in ["arena","a","2"]:
             print("Do you want to fight a Monster or a Player?")
@@ -2328,6 +2333,7 @@ while leave == False:
             if Titles == []:
                 print("\nYou have no titles\n")
             print("---------------\n\n")
+            stop = input("\nPress enter to continue\n")
             if Titles != []:
                 print("What Title you would you like to equip?")
                 equipped = input("")
@@ -2541,6 +2547,8 @@ while leave == False:
             print(f"Gold Earned: ",Statistics["Gold Earned"],"")
             print(f"Gold Spent: ",Statistics["Gold Spent"],"")
             print(f"Potions Brewed",Statistics["Potions Brewed"])
+            stop = input("\n\nPress enter to continue\n")
+
         elif Choice in ["textspeed","6","ts","text","speed","t"]:
             print("\nChoose what speed you want the text to move at:\n\n1. Instantaneous\n\n2. Typewriting")
             Choice = input("")
@@ -4998,7 +5006,7 @@ while leave == False:
                     elif Drop_Prop in ["rottingflesh","darkrobefabric","souls","executionaxe","homonculuscore","ironspear","traveler'sremains","etherealdust","summoningtome","manacrystal","houndfang","houndfur","dagger","smokebomb","coinpouch","rustydagger","travelercloak","steeldagger","lightarmor","rogueemblem","windessence","dustessence","swamphide","acidcore","corrosiveslime","wraithflame","rotcore","plagueessence","bonesword","boneshield","icearrow","frostcore","icecore","frozenshard","frozenarmor","iceblade","frostclaw","snowpelt","stormtome","lightningcrystal","lightningcore","stormessence","shadowblade","nightfur","darktome","manacrystal","darkrobe","shadowtome","darkcrystal","darkessence","bonestaff","blacksmithhammer","cursedmetalshard","cursedessence","spiritshard","experimentcore","brokenblade","impash","magerobe","flamecore","spiritessence","impcore","wraithflame","guardarmor","ancientrelic","goldenbar","goldengoblet","trollhide","ancientarrow","ritualsword","darkarmorfragment","ritualspear","guardarmorfragment","shieldfragment","golemcore","rustcore","steelcore"] and Drop in inventory: #41 - 80
                         Power = random.uniform(1.05,1.1)
                         break
-                    elif Drop_Prop in ["orctusk","arenablade","berserkerclaw","bloodtome","crimsoncrystal","trainingtoken","worngloves","dogfang","tornhide","brokenarcanecore","roguearrow","lightbow","toxiccore","elementalresidue","nightfang","shadowhide","demoncore","ruincore","shatteredmetal","ruinessence","brokenrelic","bonefragment","golemcore","frostblade","stormblade","thunderbow","tempestblade","stormcore","thunderfang","thunderessence","chargedcore","voidcore","shadowfang","phantomsword","ectoplasmshard","abysscore","abyssblade","voidessence","wraithcore","abyssorb","summoner'srobe","alchemicalcore","experimentcore","mutatedtissue","ogrecore","alchemicalessence","spiritflask","plaguecore","toxicflesh","moltenarmor","infernocore","demonblade","burningcore","tombsword","ancientshield","wraithessence","etherealcloth","ancientcore","championblade","arenamedal","ritualbone","beastheart","stonecore"] and Drop in inventory: #81 - 120 
+                    elif Drop_Prop in ["orctusk","arenablade","berserkerclaw","bloodtome","crimsoncrystal","trainingtoken","worngloves","dogfang","tornhide","brokenarcanecore","roguearrow","lightbow","toxiccore","elementalresidue","nightfang","shadowhide","demoncore","ruincore","shatteredmetal","ruinessence","brokenrelic","bonefragment","golemcore","frostblade","stormblade","thunderbow","tempestblade","stormcore","thunderfang","thunderessence","chargedcore","voidcore","shadowfang","phantomsword","ectoplasmshard","abysscore","abyssblade","voidessence","wraithcore","abyssorb","summoner'srobe","alchemicalcore","experimentcore","mutatedtissue","ogrecore","alchemicalessence","spiritflask","plaguecore","toxicflesh","moltenarmor","infernocore","demonblade","burningcore","tombsword","ancientshield","wraithessence","etherealcloth","ancientcore","championblade","arenamedal","ritualbone","beastheart","stonecore","ashcore","meltedmetal"] and Drop in inventory: #81 - 120 
                         Power = random.uniform(1.1,1.15)
                         break
                     elif Drop_Prop in ["warbeastfang","beasthide","demonessence","summoningsigil","warbeastfang","beasthide","apprenticerobe","magictome","brokensword","brokenhelmet","chargedcore","golemstone","shadowcore","nightmarefang","shadowessence","demoncore","cursedarmorfragment","demonclaw","ancientstaff","demonicsigil","ritualcore","knightarmor","greatsword","icedemonessence"] and Drop in inventory: # 121 - 180
