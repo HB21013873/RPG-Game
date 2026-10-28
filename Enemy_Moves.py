@@ -190,7 +190,7 @@ class Enemy_Move:
                     Evasion_Chance = random.randint(1,100)
                     choice = "Front Kick"
                     if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
-                        target["Health"] -= Damage
+                        Player_copy["Health"] -= Damage
                         print(f"{choice} is used")
                         print(target["Type"], f" does {Damage} damage")
                     else:
@@ -346,7 +346,7 @@ class Enemy_Move:
                     Evasion_Chance = random.randint(1,100)
                     choice = "Aimed Shot"
                     if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/20))))):
-                        target["Health"] -= Damage
+                        Player_copy["Health"] -= Damage
                         print(f"{choice} is used")
                         print(target["Type"], f" does {Damage} damage")
                     else:
@@ -379,7 +379,7 @@ class Enemy_Move:
                     Evasion_Chance = random.randint(1,100)
                     choice = "Straight Punch"
                     if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
-                        target["Health"] -= Damage
+                        Player_copy["Health"] -= Damage
                         print(f"{choice} is used")
                         print(target["Type"], f" does {Damage} damage")
                     else:
@@ -412,7 +412,7 @@ class Enemy_Move:
                     Evasion_Chance = random.randint(1,100)
                     choice = "Tackle"
                     if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
-                        target["Health"] -= Damage
+                        Player_copy["Health"] -= Damage
                         print(f"{choice} is used")
                         print(target["Type"], f" does {Damage} damage")
                     else:
@@ -513,7 +513,7 @@ class Enemy_Move:
                                     Player_copy["Status Effects"]["Status 3"]["Type"] = "Bleed"
                                     Player_copy["Status Effects"]["Status 3"]["Duration"] = 3
                                     print("You are bleeding")
-                        target["Health"] -= Damage
+                        Player_copy["Health"] -= Damage
                         print(f"{choice} is used")
                         print(target["Type"], f" does {Damage} damage")
                     else:
@@ -684,7 +684,7 @@ class Enemy_Move:
                     Combat_cost = 25 * ( 1 - target["Magic Density"] /  500 )
                     target["Stamina"] -= Combat_cost
                     Evasion_Chance = random.randint(1,100)
-                    choice = "Straight Punch"
+                    choice = "Jab"
                     if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                         Player_copy["Health"] -= Damage
                         print(f"{choice} is used")
@@ -1077,11 +1077,11 @@ class Enemy_Move:
                             Damage *= num_Moves
                             Damage = round(Damage)
                             print(f"\n{choice} is used\n")
-                            print(f"\nYou hit {num_Moves} times")
+                            print(f"\nThey hit {num_Moves} times")
                             print(target["Type"], f" does {Damage} damage")
                             
                         else:
-                            print("They avoided the attack!")
+                            print("You avoided the attack!")
                     else:
                         print("It failed because there is not enough mana\n")
                     Turn_Time -= 0.5

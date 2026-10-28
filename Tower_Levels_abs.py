@@ -485,6 +485,7 @@ class Tower:
                 print("\nCritters scamper around in the tall grass\n\n")
             if place == "Shadow Realm Floor":
                 print("\nThe atmostphere is heavy with a looming sense of despair enveloping the space\n\n")
+            stop = input("\nPress enter to continue\n")
             print("\nWoah!...\n")
             time.sleep(2)
             print("Wait Nevermind..")
@@ -1613,7 +1614,8 @@ class Tower:
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy3["Health"] > 0:
                                 Enemy3, Player_copy, Evasion3_Stopper, Defense3_Stopper,Turn_Time,Enemy3_Skip,Player_Skip,b,Enemy1,Enemy2 = Enemy3_Battle(Enemy,Enemy3,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Enemy3_Skip,Player_Skip,b,typewriter,Enemy1=Enemy1,Enemy2=Enemy2)
-
+                            else:
+                                Turn_Time = 0
 
 
                         if "Traveler" in Enemy3["Type"]:
@@ -1632,6 +1634,8 @@ class Tower:
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy2["Health"] > 0:
                                 Enemy2, Player_copy, Evasion2_Stopper, Defense2_Stopper,Turn_Time,Enemy2_Skip,Player_Skip,b,Enemy1,Enemy3 = Enemy2_Battle(Enemy,Enemy2,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,b,typewriter,Enemy1=Enemy1,Enemy3=Enemy3)
+                            else:
+                                Turn_Time = 0
                         if "Traveler" in Enemy2["Type"]:
                             Enemy2["Stamina"] *= 1.5
                             Enemy2["Stamina"] = round(Enemy2["Stamina"])
@@ -1648,6 +1652,8 @@ class Tower:
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy1["Health"] > 0:
                                 Enemy1, Player_copy, Evasion1_Stopper, Defense1_Stopper,Turn_Time,Enemy1_Skip,Player_Skip,b,Enemy2,Enemy3 = Enemy1_Battle(Enemy,Enemy1,Player,Player_copy,Evasion1_Stopper,Defense1_Stopper,name,Game,Turn_Time,Enemy1_Skip,Player_Skip,b,typewriters,Enemy2=Enemy2,Enemy3=Enemy3)
+                            else:
+                                Turn_Time = 0
                         if "Traveler" in Enemy1["Type"]:
                             Enemy1["Stamina"] *= 1.5
                             Enemy1["Stamina"] = round(Enemy1["Stamina"])
@@ -1743,6 +1749,7 @@ class Tower:
                 print("\nCritters scamper around in the tall grass\n")
             if place == "Shadow Realm Floor":
                 print("\nThe atmostphere is heavy with a looming sense of despair enveloping the space\n")
+            stop = input("\nPress enter to continue\n")
 
             print("Woah!...\n")
             time.sleep(2)
@@ -2873,6 +2880,8 @@ class Tower:
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy3["Health"] > 0:
                                 Enemy3, Player_copy, Evasion3_Stopper, Defense3_Stopper,Turn_Time,Enemy3_Skip,Player_Skip,b,Enemy1,Enemy2 = Enemy3_Battle(Enemy,Enemy3,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Enemy3_Skip,Player_Skip,b,typewriter,Enemy1=Enemy1,Enemy2=Enemy2)
+                            else:
+                                Turn_Time = 0
 
 
 
@@ -2892,6 +2901,8 @@ class Tower:
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy2["Health"] > 0:
                                 Enemy2, Player_copy, Evasion2_Stopper, Defense2_Stopper,Turn_Time,Enemy2_Skip,Player_Skip,b,Enemy1,Enemy3 = Enemy2_Battle(Enemy,Enemy2,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,b,typewriter,Enemy1=Enemy1,Enemy3=Enemy3)
+                            else:
+                                Turn_Time = 0
                         if "Traveler" in Enemy2["Type"]:
                             Enemy2["Stamina"] *= 1.5
                             Enemy2["Stamina"] = round(Enemy2["Stamina"])
@@ -2908,6 +2919,8 @@ class Tower:
                             print(f"\n{Turn_Time}s remaining\n")
                             if Enemy1["Health"] > 0:
                                 Enemy1, Player_copy, Evasion1_Stopper, Defense1_Stopper,Turn_Time,Enemy1_Skip,Player_Skip,b,Enemy2,Enemy3 = Enemy1_Battle(Enemy,Enemy1,Player,Player_copy,Evasion1_Stopper,Defense1_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,b,typewriter,Enemy2=Enemy2,Enemy3=Enemy3)
+                            else:
+                                Turn_Time = 0
                         if "Traveler" in Enemy1["Type"]:
                             Enemy1["Stamina"] *= 1.5
                             Enemy1["Stamina"] = round(Enemy1["Stamina"])

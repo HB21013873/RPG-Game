@@ -88,13 +88,13 @@ class Player_Battle:
                                 print("\nChoose the enemy to attack:\n1. ","lvl",Enemy1["Level"],Enemy1["Type"],"( Health:",Enemy1["Health"],")",dead_enemy1,"\n2. ","lvl",Enemy2["Level"],Enemy2["Type"],"( Health:",Enemy2["Health"],")",dead_enemy2,"\n3. ","lvl",Enemy3["Level"],Enemy3["Type"],"( Health:",Enemy3["Health"],dead_enemy3,")","\n")
                                 enemy_choice = input("")
                                 enemy_choice = enemy_choice.lower()
-                                if enemy_choice in ["1","enemy1","enemy 1"]:
+                                if enemy_choice in ["1","enemy1","enemy 1"] and Enemy1["Health"] > 0:
                                         target = Enemy1
                                         break
-                                elif enemy_choice in ["2","enemy2","enemy 2"]:
+                                elif enemy_choice in ["2","enemy2","enemy 2"] and Enemy2["Health"] > 0:
                                         target = Enemy2
                                         break
-                                elif enemy_choice in ["3","enemy3","enemy 3"]:
+                                elif enemy_choice in ["3","enemy3","enemy 3"] and Enemy3["Health"] > 0:
                                         target = Enemy3
                                         break
                                 else:
@@ -1563,6 +1563,7 @@ class Player_Battle:
                 lever = False
                 Weapon_Held = False
                 Metal_Weapon = False
+                Battle_End = False
                 if "None" not in Gear["Type"]["Weapon"]:
                     Weapon_Held = True
                     Weapon_Names = Gear["Type"]["Weapon"].keys()
@@ -1616,10 +1617,12 @@ class Player_Battle:
                                 print("\nChoose the enemy to attack:\n1. ","lvl",Enemy1["Level"],Enemy1["Type"],"( Health:",Enemy1["Health"],")",dead_enemy1,"\n2. ","lvl",Enemy2["Level"],Enemy2["Type"],"( Health:",Enemy2["Health"],")",dead_enemy2,"\n")
                                 enemy_choice = input("")
                                 enemy_choice = enemy_choice.lower()
-                                if enemy_choice in ["1","enemy1","enemy 1"]:
+                                if enemy_choice in ["1","enemy1","enemy 1"] and Enemy1["Health"] > 0:
                                         target = Enemy1
-                                elif enemy_choice in ["2","enemy2","enemy 2"]:
+                                        break
+                                elif enemy_choice in ["2","enemy2","enemy 2"] and Enemy2["Health"] > 0:
                                         target = Enemy2
+                                        break
                                 else:
                                     print("\nNot an option\n")
                             print("Choose what move to use.")
