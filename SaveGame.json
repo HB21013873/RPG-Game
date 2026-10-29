@@ -275,7 +275,7 @@
         }
     },
     "Skill_Points": 2,
-    "Name": "Henry Bradshaw",
+    "Name": "",
     "Skills": {
         "Mana Blast": {
             "Damage": 20,
@@ -549,14 +549,14 @@
     "Memory": 4,
     "Max Limit": 25,
     "Statistics": {
-        "Battles Fought": 1,
-        "Battles Won": 1,
+        "Battles Fought": 0,
+        "Battles Won": 0,
         "Battles Lost": 0,
-        "Enemies Killed": 1,
+        "Enemies Killed": 0,
         "Damageless Battles Won": 0,
         "Bosses Killed": 0,
         "Training Sessions": 0,
-        "Gold Earned": 3,
+        "Gold Earned": 0,
         "Gold Spent": 0,
         "Health Healed": 0,
         "Gear Forged": 0,

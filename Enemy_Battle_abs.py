@@ -650,18 +650,20 @@ class Enemy_Battle:
         ratio = random.random()
         if ratio <= Attack_Chance:
                 if Enemy1["Mana"] <= 0:
-                    if Move in ["Mana Blast"]:
+                    if Move in ["Mana Blast"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Arcane.Mana_Blast(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Fireball"]:
+                    if Move in ["Tremor"] and Turn_Time >= 1:
+                        Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Ground.Tremor(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)            
+                    elif Move in ["Fireball"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Fire.Fireball(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Ice Shard"]:
+                    elif Move in ["Ice Shard"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Ice.Ice_Shard(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Shock"]:
+                    elif Move in ["Shock"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Lightning.Shock(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Life Drain"]:
+                    elif Move in ["Life Drain"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Dark.Life_Drain(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Summon"]:
-                                        Result = EM.Spell_Moves.Arcane.Summon(target,typewriter,Enemy)
+                    elif Move in ["Summon"] and Turn_Time >= 1:
+                                        Result = EM.Spell_Moves.Arcane.Summon(target,typewriter,Enemy,Turn_Time)
                                         target = Result["Returning"][0]
                                         if Enemy2 == None:
                                             Enemy2 = Result["Returning"][1]
@@ -669,54 +671,57 @@ class Enemy_Battle:
                                         elif Enemy3 == None:
                                             Enemy3 = Result["Returning"][1]
                                             b = 3
-                    elif Move in ["Empower"]:
+                                        target = Result["Returning"][2]
+                    elif Move in ["Empower"] and Turn_Time >= 0.5:
                         target = EM.Spell_Moves.Arcane.Empower(target,typewriter)
-                    elif Move in ["Devour Essence"]:
+                    elif Move in ["Devour Essence"] and Turn_Time >= 0.25:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Dark.Devour_Essence(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Corrupting Touch"]:
+                    elif Move in ["Corrupting Touch"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Dark.Corrupting_Touch(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Purify"]:
+                    elif Move in ["Purify"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Light.Purify(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Grappling Vines"]:
+                    elif Move in ["Grappling Vines"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Nature.Grappling_Vines(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["River Fist"]:
+                    elif Move in ["River Fist"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Water.River_Fist(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Mud Shot"]:
+                    elif Move in ["Mud Shot"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Earth.Mud_Shot(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Stone Slipstream"]:
+                    elif Move in ["Stone Slipstream"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Wind.Stone_Slipstream(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Dominate"]:
+                    elif Move in ["Dominate"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Mind.Dominate(Player_copy,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Heal"]:
+                    elif Move in ["Heal"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Support.Heal(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Toxin Spray"]:
+                    elif Move in ["Toxin Spray"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Dark.Toxin_Spray(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Straight Punch"]:
+                elif Move in ["Straight Punch"] and Turn_Time >= 0.5:
                     Player_copy,Enemy1,Turn_Time = EM.Melee_Moves.Arms.Straight_Punch(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Impulsive Swing"]:
+                elif Move in ["Impulsive Swing"] and Turn_Time >= 1:
                     Player_copy,Enemy1,Turn_Time,Player_Skip = EM.Melee_Moves.Arms.Impulsive_Swing(Player_Skip,Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Front Kick"]:
+                elif Move in ["Front Kick"] and Turn_Time >= 0.5:
                     Player_copy,Enemy1,Turn_Time = EM.Melee_Moves.Legs.Front_Kick(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Headbutt"]:
+                elif Move in ["Headbutt"] and Turn_Time >= 1:
                     Player_copy,Enemy1,Turn_Time,Player_Skip = EM.Melee_Moves.Head.Headbutt(Player_Skip,Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Bite"]:
+                elif Move in ["Bite"] and Turn_Time >= 0.5:
                     Player_copy,Enemy1,Turn_Time = EM.Melee_Moves.Arms.Straight_Punch(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Slash"]:
+                elif Move in ["Slash"] and Turn_Time >= 0.5:
                     Player_copy,Enemy1,Turn_Time = EM.Melee_Moves.Arms.Slash(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Quick Stab"]:
+                elif Move in ["Quick Stab"] and Turn_Time >= 0.5:
                     Player_copy,Enemy1,Turn_Time = EM.Melee_Moves.Arms.Quick_Stab(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Tackle"]:
+                elif Move in ["Tackle"] and Turn_Time >= 0.5:
                     Player_copy,Enemy1,Turn_Time = EM.Melee_Moves.Arms.Tackle(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Spinning Back Kick"]:
+                elif Move in ["Spinning Back Kick"] and Turn_Time >= 1:
                     Player_copy,Enemy1,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Spinning_Back_Kick(Player_Skip,Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Axe Kick"]:
+                elif Move in ["Axe Kick"] and Turn_Time >= 1:
                     Player_copy,Enemy1,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Axe_Kick(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
                 elif Move in ["Blood Offering"]:
                     target = EM.Methods.Blood_Offering(target,typewriter)
                 elif Move in ["Blood Frenzy"]:
                     target = EM.Methods.Blood_Frenzy(target,typewriter)
-                elif Move in ["Aimed Shot"]:
+                elif Move in ["Aimed Shot"] and Turn_Time >= 0.5:
                     Player_copy,Enemy1,Turn_Time = EM.Melee_Moves.Arms.Aimed_Shot(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
+                elif Move in ["Groundbreaker"] and Turn_Time >= 1:
+                    Player_copy,Enemy1,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Groundbreaker(Player_Skip,Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
         elif ratio > Attack_Chance and ratio <= Defense_Chance:                    
             Turn_Time -= Turn_Time
             if Enemy1["Mana"] > 10:
@@ -1379,6 +1384,8 @@ class Enemy_Battle:
                 if Enemy2["Mana"] <= 0:
                     if Move in ["Mana Blast"]:
                         Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Arcane.Mana_Blast(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
+                    if Move in ["Tremor"]:
+                        Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Elemental.Ground.Tremor(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
                     elif Move in ["Fireball"]:
                         Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Elemental.Fire.Fireball(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
                     elif Move in ["Ice Shard"]:
@@ -1444,6 +1451,8 @@ class Enemy_Battle:
                     target = EM.Methods.Blood_Frenzy(target,typewriter)
                 elif Move in ["Aimed Shot"]:
                     Player_copy,Enemy2,Turn_Time = EM.Melee_Moves.Arms.Aimed_Shot(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
+                elif Move in ["Groundbreaker"]:
+                    Player_copy,Enemy2,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Groundbreaker(Player_Skip,Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
         elif ratio > Attack_Chance and ratio <= Defense_Chance:                    
             Turn_Time -= Turn_Time
             if Enemy2["Mana"] > 10:
@@ -2097,104 +2106,111 @@ class Enemy_Battle:
             else:
                 Attack_Chance = 0
                 Defense_Chance = 0
-            
-        Move = random.choice(Move)
-            
-                
-        ratio = random.random()
-        if ratio <= Attack_Chance:
-                if Enemy3["Health"] <= 0:
-                    if Move in ["Mana Blast"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Arcane.Mana_Blast(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Fireball"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Fire.Fireball(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Ice Shard"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Ice.Ice_Shard(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Shock"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Lightning.Shock(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Life Drain"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Life_Drain(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Empower"]:
-                        target = EM.Spell_Moves.Arcane.Empower(target,typewriter)
-                    elif Move in ["Devour Essence"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Devour_Essence(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Corrupting Touch"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Corrupting_Touch(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Purify"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Light.Purify(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Grappling Vines"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Nature.Grappling_Vines(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["River Fist"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Water.River_Fist(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Mud Shot"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Earth.Mud_Shot(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Stone Slipstream"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Wind.Stone_Slipstream(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Dominate"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Mind.Dominate(Player_copy,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Heal"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Support.Heal(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                    elif Move in ["Summon"]:
-                        Result = EM.Spell_Moves.Arcane.Summon(target,typewriter,Enemy)
-                        target = Result["Returning"][0]
-                        if Enemy2 == None:
-                            Enemy2 = Result["Returning"][1]
-                            b = 2
-                        elif Enemy3 == None:
-                            Enemy3 = Result["Returning"][1]
-                            b = 3
-                    elif Move in ["Toxin Spray"]:
-                        Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Toxin_Spray(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Straight Punch"]:
-                    Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Straight_Punch(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Impulsive Swing"]:
-                    Player_copy,Enemy3,Turn_Time,Player_Skip = EM.Melee_Moves.Arms.Impulsive_Swing(Player_Skip,Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Front Kick"]:
-                    Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Legs.Front_Kick(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Headbutt"]:
-                    Player_copy,Enemy3,Turn_Time,Player_Skip = EM.Melee_Moves.Head.Headbutt(Player_Skip,Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Bite"]:
-                    Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Head.Bite(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Slash"]:
-                    Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Slash(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Quick Stab"]:
-                    Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Quick_Stab(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Tackle"]:
-                    Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Tackle(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Spinning Back Kick"]:
-                    Player_copy,Enemy3,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Spinning_Back_Kick(Player_Skip,Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Axe Kick"]:
-                    Player_copy,Enemy3,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Axe_Kick(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-                elif Move in ["Blood Offering"]:
-                    target = EM.Methods.Blood_Offering(target,typewriter)
-                elif Move in ["Blood Frenzy"]:
-                    target = EM.Methods.Blood_Frenzy(target,typewriter)
-                elif Move in ["Aimed Shot"]:
-                    Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Aimed_Shot(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
-        elif ratio > Attack_Chance and ratio <= Defense_Chance:                    
-            Turn_Time -= Turn_Time
-            if Enemy3["Mana"] > 10:
-                Heal = (1+ (Enemy3["Max Health"]* 0.05))
-                Heal = round(Heal)
-                Enemy3["Mana"] -= (Enemy3["Mana"] * 0.1)
-                Enemy3["Mana"] = round(Enemy3["Mana"])
-                Enemy3["Health"] += Heal
-                print(f"\n",Enemy3["Type"]," casts a heal spell\n")
-                print(f"\n+ {Heal} health\n")
-            else:
-                print(f"\n",Enemy3["Type"]," does not have enough mana to cast a heal spell\n")
-                print(f"\n",Enemy3["Type"]," braces to withstand your next attack\n")
-                Enemy3["Defense"] += 10
-                Defense3_Stopper = True
 
+        while True:
+            Move = random.choice(Move)
                 
-        elif ratio > Defense_Chance:
-            Turn_Time -= Turn_Time
-            Enemy3["Evasion"] += (Enemy3["Evasion"] * 0.1)
-            Enemy3["Evasion"] = round(Enemy3["Evasion"])
-            print(f"\n",Enemy3["Type"]," moves away growing wary\n")
-            print("+ 10 Evasion")
-            Evasion3_Stopper = True
+                    
+            ratio = random.random()
+            if ratio <= Attack_Chance:
+                    if Enemy3["Mana"] <= 0:
+                        if Move in ["Mana Blast"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Arcane.Mana_Blast(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        if Move in ["Tremor"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Ground.Tremor(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Fireball"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Fire.Fireball(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Ice Shard"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Ice.Ice_Shard(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Shock"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Lightning.Shock(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Life Drain"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Life_Drain(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Empower"]:
+                            target = EM.Spell_Moves.Arcane.Empower(target,typewriter)
+                        elif Move in ["Devour Essence"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Devour_Essence(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Corrupting Touch"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Corrupting_Touch(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Purify"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Light.Purify(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Grappling Vines"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Nature.Grappling_Vines(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["River Fist"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Water.River_Fist(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Mud Shot"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Earth.Mud_Shot(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Stone Slipstream"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Wind.Stone_Slipstream(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Dominate"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Mind.Dominate(Player_copy,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Heal"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Support.Heal(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        elif Move in ["Summon"]:
+                            Result = EM.Spell_Moves.Arcane.Summon(target,typewriter,Enemy)
+                            target = Result["Returning"][0]
+                            if Enemy2 == None:
+                                Enemy2 = Result["Returning"][1]
+                                b = 2
+                            elif Enemy3 == None:
+                                Enemy3 = Result["Returning"][1]
+                                b = 3
+                        elif Move in ["Toxin Spray"]:
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Toxin_Spray(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Straight Punch"]:
+                        Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Straight_Punch(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Impulsive Swing"]:
+                        Player_copy,Enemy3,Turn_Time,Player_Skip = EM.Melee_Moves.Arms.Impulsive_Swing(Player_Skip,Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Front Kick"]:
+                        Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Legs.Front_Kick(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Headbutt"]:
+                        Player_copy,Enemy3,Turn_Time,Player_Skip = EM.Melee_Moves.Head.Headbutt(Player_Skip,Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Bite"]:
+                        Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Head.Bite(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Slash"]:
+                        Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Slash(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Quick Stab"]:
+                        Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Quick_Stab(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Tackle"]:
+                        Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Tackle(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Spinning Back Kick"]:
+                        Player_copy,Enemy3,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Spinning_Back_Kick(Player_Skip,Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Axe Kick"]:
+                        Player_copy,Enemy3,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Axe_Kick(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Blood Offering"]:
+                        target = EM.Methods.Blood_Offering(target,typewriter)
+                    elif Move in ["Blood Frenzy"]:
+                        target = EM.Methods.Blood_Frenzy(target,typewriter)
+                    elif Move in ["Aimed Shot"]:
+                        Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Aimed_Shot(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                    elif Move in ["Groundbreaker"]:
+                        Player_copy,Enemy3,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Groundbreaker(Player_Skip,Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+            elif ratio > Attack_Chance and ratio <= Defense_Chance:                    
+                Turn_Time -= Turn_Time
+                if Enemy3["Mana"] > 10:
+                    Heal = (1+ (Enemy3["Max Health"]* 0.05))
+                    Heal = round(Heal)
+                    Enemy3["Mana"] -= (Enemy3["Mana"] * 0.1)
+                    Enemy3["Mana"] = round(Enemy3["Mana"])
+                    Enemy3["Health"] += Heal
+                    print(f"\n",Enemy3["Type"]," casts a heal spell\n")
+                    print(f"\n+ {Heal} health\n")
+                else:
+                    print(f"\n",Enemy3["Type"]," does not have enough mana to cast a heal spell\n")
+                    print(f"\n",Enemy3["Type"]," braces to withstand your next attack\n")
+                    Enemy3["Defense"] += 10
+                    Defense3_Stopper = True
+                break
+
+                    
+            elif ratio > Defense_Chance:
+                Turn_Time -= Turn_Time
+                Enemy3["Evasion"] += (Enemy3["Evasion"] * 0.1)
+                Enemy3["Evasion"] = round(Enemy3["Evasion"])
+                print(f"\n",Enemy3["Type"]," moves away growing wary\n")
+                print("+ 10 Evasion")
+                Evasion3_Stopper = True
+                break
 
 
 

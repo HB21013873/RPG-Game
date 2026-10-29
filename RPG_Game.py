@@ -362,7 +362,7 @@ while leave == False:
 
     }}
 
-    print("\n---------------\n\n""     Menu\n\n""---------------\n"f"Adventure\n""---------------\n"f"Character\n""---------------\nFacilities""\n---------------\nSystem\n---------------\n")
+    print("\n---------------------------------------------\n\n""                    Menu\n\n""---------------------------------------------\n"f"                  Adventure\n""---------------------------------------------\n"f"                  Character\n""---------------------------------------------\n                  Facilities""\n---------------------------------------------\n                  System\n---------------------------------------------\n")
     if Player["XP Needed"] <= Player["XP"]:
         Player["XP"] = Player["XP"] - Player["XP Needed"]
         Player["XP Needed"] = Player["XP Needed"] * 2
@@ -702,14 +702,15 @@ while leave == False:
 
     if Choice in ["adventure","a","1"]:
 
-        print("\n""---------------\n"f"Climb The Tower\n""---------------\n"f"Arena\n""---------------\n"f"Quests\n""---------------\n")
+        print("\n---------------------------------------------\n"f"               Climb The Tower\n---------------------------------------------\n"f"                    Arena\n""---------------------------------------------\n"f"                    Quests\n""---------------------------------------------\n")
         Choice = (input(""))
             
         if Choice in ["t","tower","ctt","play","p","1","climbthetower"]:
             while True:
                 try:
-                    print("What Floor do you want to go to?")
+                    print("What Floor do you want to go to?\n")
                     Tower_Level_Choice = input("")
+                    print("\n\n")
                     if Tower_Level_Choice == "":
                         break
                     Tower_Level_Choice = int(Tower_Level_Choice)
@@ -766,7 +767,7 @@ while leave == False:
             else:
                 print("Then go away!")
         elif Choice in ["quests","quest","q","3"]:
-            print("----------------------------------------\n"f"                  Quests\n""----------------------------------------\n")
+            print("---------------------------------------------\n"f"                  Quests\n""---------------------------------------------\n")
             decide = input("What method would you prefer?\n\n\n1. Show All\n\n2. Choose Specific Quest Categories\n").lower()
             decide = "".join(decide.split())
             if decide in ["1","showall","sa","s"]:
@@ -1135,40 +1136,86 @@ while leave == False:
             back = input("\n\nPress enter to go back")
 
 
-
-
-
-
         
     elif Choice in ["Character","2","c"]:
-        print("\n---------------\n"f"Avatar\n""---------------\n"f"Skill Tree""\n---------------\n"f"Combatives\n---------------\n"f"Move Memory\n---------------\nUse Skill Book\n---------------\nTitles\n---------------\n\n")
+        print("\n---------------------------------------------\n"f"                  Avatar\n---------------------------------------------\n"f"                  Skill Tree""\n---------------------------------------------\n"f"                  Combatives\n---------------------------------------------\n"f"                  Move Memory\n---------------------------------------------\n                  Use Skill Book\n---------------------------------------------\n                  Titles\n---------------------------------------------\n\n")
         Choice = input("")
         if Choice in ["avatar","a","1"]:
+            Width = 45
 
+            print("\n" + "-" * Width)
+            print(f"{"Character Profile":^45}")
+            print("-" * Width)
+            print(f"\nName: {name}")
 
-        
-            print(f"--------------\n\n   Name\n\n--------------\n   {name}\n--------------\nGear\n---------------\nHead:",Gear["Type"]["Helmet"],"\nShoulder:",Gear["Type"]["Shoulderwear"],"\nArm:",Gear["Type"]["Armwear"],"\nChest:",Gear["Type"]["Chestplate"],"\nLeg:",Gear["Type"]["Legwear"],"\nFeet:",Gear["Type"]["Footwear"],"\n---------------")
-            if Gear["Type"]["Weapon"] != {"None":{"Attack":0,"Magic Damage":0,"Critical Chance":0,"Speed":0,"Defense":0,"Max Health":0}}:
-                print("Weapon:", Gear["Type"]["Weapon"])
-                print("---------------")
-            if any(Gear.values()) or (inventory.get("Gear") and len(inventory["Gear"]) > 0):
-                print("\nDo you want to equip or unequip  something?\n")
-                confirmation = input("")
-                confirmation = confirmation.lower()
-                if "ye" in confirmation:
+            print("\n" + "-" * Width)
+            print(f"{"Equipped Gear":^45}")
+            print("-" * Width)
+
+            Gear_Slots = {
+                "Helmet": "Head",
+                "Shoulderwear": "Shoulders",
+                "Armwear": "Arms",
+                "Chestplate": "Chest",
+                "Legwear": "Legs",
+                "Footwear": "Feet"
+            }
+
+            for Slot, Display_Name in Gear_Slots.items():
+                print(f"\n{Display_Name}:")
+                Items = Gear["Type"][Slot]
+
+                if isinstance(Items, dict):
+                    for Item, Stats in Items.items():
+                        if Item != "None":
+                            print(f"  {Item}")
+                            if isinstance(Stats, dict):
+                                for Stat, Value in Stats.items():
+                                    print(f"    {Stat}: {Value}")
+                elif Items != "None":
+                    print(f"  {Items}")
+                else:
+                    print("  None")
+
+            print("\n" + "-" * Width)
+            print(f"{"Weaponry":^45}")
+            print("-" * Width)
+
+            for Weapon, Stats in Gear["Type"]["Weapon"].items():
+                if Weapon != "None":
+                    print(f"\n  {Weapon}")
+                    for Stat, Value in Stats.items():
+                        print(f"    {Stat}: {Value}")
+
+            print("\n" + "-" * Width)
+            print(f"{"Offhand":^45}")
+            print("-" * Width)
+
+            for Offhand, Stats in Gear["Type"]["Offhand"].items():
+                if Offhand != "None":
+                    print(f"\n  {Offhand}")
+                    for Stat, Value in Stats.items():
+                        print(f"    {Stat}: {Value}")
+
+            print("\n" + "-" * Width)
+            back = input("\nPress enter to go back")
+            print("\nDo you want to equip or unequip  something?\n")
+            confirmation = input("")
+            confirmation = confirmation.lower()
+            if "ye" in confirmation:
                     def normalize_input(text):
                         return "".join(text.lower().split())
 
 
                     def display_gear():
-                        print("--------------\nGear\n---------------\nHead:",Gear["Type"]["Helmet"],"\nShoulder:",Gear["Type"]["Shoulderwear"],"\nArm:",Gear["Type"]["Armwear"],"\nChest:",Gear["Type"]["Chestplate"],"\nLeg:",Gear["Type"]["Legwear"],"\nFeet:",Gear["Type"]["Footwear"],"\n---------------")
+                        print("--------------\nGear\n---------------------------------------------\nHead:",Gear["Type"]["Helmet"],"\nShoulder:",Gear["Type"]["Shoulderwear"],"\nArm:",Gear["Type"]["Armwear"],"\nChest:",Gear["Type"]["Chestplate"],"\nLeg:",Gear["Type"]["Legwear"],"\nFeet:",Gear["Type"]["Footwear"],"\n---------------------------------------------")
                         if Gear["Type"]["Weapon"] != {"None":{"Attack":0,"Magic Damage":0,"Critical Chance":0,"Speed":0,"Defense":0,"Max Health":0}}:
                             print("Weapon:", Gear["Type"]["Weapon"])
-                            print("---------------")
-                        print("\n\nInventory\n---------------")
+                            print("---------------------------------------------")
+                        print("\n\nInventory\n---------------------------------------------")
                         for key,value in inventory.items():
                             print(key,":",value,"\n")
-                        print("---------------")
+                        print("---------------------------------------------")
                         
                         
 
@@ -1965,17 +2012,17 @@ while leave == False:
 
                     gear_menu()
                                 
-            print("Attributes\n---------------","\nLevel:",Player["Level"],"\nXP:(",Player["XP"],"/",Player["XP Needed"],")","\nHealth:",Player["Health"],"/",Player["Max Health"],"\nAttack:",Player["Attack"],"\nDefense:",Player["Defense"],"\nSpeed:",Player["Speed"],"\nMagic Density:",Player["Magic Density"],"\nStamina:",Player["Stamina"],"\nCritical Chance:",Player["Critical Chance"],"\nCritical Damage:",Player["Critical Damage"],"\nEvasion:",Player["Evasion"],"\nAccuracy:",Player["Accuracy"],"\nMana:",Player["Mana"],"\nTower Completion:",Player["Tower Level"])
-            print("\n\nInventory\n---------------")
+            print("Attributes\n---------------------------------------------","\nLevel:",Player["Level"],"\nXP:(",Player["XP"],"/",Player["XP Needed"],")","\nHealth:",Player["Health"],"/",Player["Max Health"],"\nAttack:",Player["Attack"],"\nDefense:",Player["Defense"],"\nSpeed:",Player["Speed"],"\nMagic Density:",Player["Magic Density"],"\nStamina:",Player["Stamina"],"\nCritical Chance:",Player["Critical Chance"],"\nCritical Damage:",Player["Critical Damage"],"\nEvasion:",Player["Evasion"],"\nAccuracy:",Player["Accuracy"],"\nMana:",Player["Mana"],"\nTower Completion:",Player["Tower Level"])
+            print("\n\nInventory\n---------------------------------------------")
             for key,value in inventory.items():
                 print(key,":",value,"\n")
-            print("---------------")
-            print("\n\nBody Condition\n---------------")
+            print("---------------------------------------------")
+            print("\n\nBody Condition\n---------------------------------------------")
             for key,value in Body_Condition.items():
                 print(key,":",value)
-            print("\n\nTitle\n---------------")
+            print("\n\nTitle\n---------------------------------------------")
             print(Player["Title"])
-            back = input("---------------\n\nPress enter to return\n\n")
+            back = input("---------------------------------------------\n\nPress enter to return\n\n")
 
                 
         elif Choice in ["skilltree","st","skill","tree","2"]:
@@ -1984,7 +2031,7 @@ while leave == False:
 
 
                 print("\nType the name of the skill you want to unlock.\n")
-                print("Skill Points:",skill_points,"\n\nPress enter to return\n\n\n---------------\nGeneral\n---------------")
+                print("Skill Points:",skill_points,"\n\nPress enter to return\n\n\n---------------------------------------------\nGeneral\n---------------------------------------------")
                 print(f"Advanced Mind: {Skill_Tree['General']['Advanced Mind']['Status']}     [ Memory Capacity becomes 8 ]")
                 print(f"Bloodthirsty: {Skill_Tree['General']['Bloodthirsty']['Status']}      [ 25% of Max Health gained each kill ]")
                 print(f"Momentum: {Skill_Tree['General']['Momentum']['Status']}          [ 10% Speed gained each kill ]")
@@ -1992,7 +2039,7 @@ while leave == False:
                 print(f"Fast Recovery: {Skill_Tree['General']['Fast Recovery']['Status']}     [ 25% Stamina recovered each turn instead of 10% ]")
                 print(f"Meditative Mind: {Skill_Tree['General']['Meditative Mind']['Status']}   [ Waiting restores Mana ]")
                 print(f"Strong Body: {Skill_Tree['General']['Strong Body']['Status']}       [ Max Limit for body upgrades to 50 ]")
-                print(f"\n---------------\nTraining\n---------------\nLightweight: {Skill_Tree['Training']['Lightweight']['Status']}")
+                print(f"\n---------------------------------------------\nTraining\n---------------------------------------------\nLightweight: {Skill_Tree['Training']['Lightweight']['Status']}")
                 if Skill_Tree["Training"]["Lock"] == "(Unlocked)":
                     print(f"Run! : {Skill_Tree['Training']['Running']['Status']}")
                     print(f"Sword Swing: {Skill_Tree['Training']['Sword Swing']['Status']}")
@@ -2001,12 +2048,12 @@ while leave == False:
                     print(f"Neck Bridge: {Skill_Tree['Training']['Neck Bridge']['Status']}")
                     print(f"Push Up: {Skill_Tree['Training']['Push Up']['Status']}")
 
-                print("\n---------------\nSmithing\n---------------")
+                print("\n---------------------------------------------\nSmithing\n---------------------------------------------")
                 print(f"Apprenticeship: {Skill_Tree['Smithing']['Apprenticeship']['Status']}")
                 if Skill_Tree["Smithing"]["Lock"] == "(Unlocked)":
                     print(f"Hit em! :{Skill_Tree['Smithing']['Hit em']['Status']}")
 
-                print("\n---------------\nAlchemy\n---------------")
+                print("\n---------------------------------------------\nAlchemy\n---------------------------------------------")
                 print(f"Scientific Cooking: {Skill_Tree['Alchemy']['Scientific Cooking']['Status']}")
                 if Skill_Tree["Alchemy"]["Lock"] == "(Unlocked)":
                     print(f"Skill 2: {Skill_Tree['Alchemy']['Skill 2']['Status']}")
@@ -2102,13 +2149,13 @@ while leave == False:
             method = "".join(method.split())
             
             if method in ["2","showall"]:
-                print("\n\nSpells\n---------------")
+                print("\n\nSpells\n---------------------------------------------")
                 for key,value in Spell_list.items():
                     print(key,":",value)
-                print("\n\nCombat Moves\n---------------")
+                print("\n\nCombat Moves\n---------------------------------------------")
                 for key,value in Combat_Skill_list.items():
                     print(key,":",value)
-                back = input("\n---------------\n\nPress enter to return\n\n")
+                back = input("\n---------------------------------------------\n\nPress enter to return\n\n")
             elif method in ["1","search"]:
                 choice = input("\n Enter the name of the move\n")
                 choice = choice.lower()
@@ -2328,12 +2375,12 @@ while leave == False:
                 Skills["Empower"]["Level"] = "Starter"
 
         elif Choice in ["6","titles","title","t"]:
-            print("\nCurrent Title: ",Player["Title"],"\n\n---------------")
+            print("\nCurrent Title: ",Player["Title"],"\n\n---------------------------------------------")
             for x in Titles:
                 print(x)
             if Titles == []:
                 print("\nYou have no titles\n")
-            print("---------------\n\n")
+            print("---------------------------------------------\n\n")
             stop = input("\nPress enter to continue\n")
             if Titles != []:
                 print("What Title you would you like to equip?")
@@ -2512,7 +2559,7 @@ while leave == False:
                 
         
     elif Choice in ["system","s","4"]:
-        print("\n---------------\n""Save\n""---------------\n""Load\n---------------\nExit\n---------------\nSet Name\n---------------\nStatistics\n---------------\nText Speed\n---------------\n\n")
+        print("\n---------------------------------------------\n""                  Save\n""---------------------------------------------\n""                  Load\n---------------------------------------------\n                  Exit\n---------------------------------------------\n                  Set Name\n---------------------------------------------\n                  Statistics\n---------------------------------------------\n                  Text Speed\n---------------------------------------------\n\n")
         Choice = input("")
         Choice = Choice.lower()
         Choice = "".join(Choice.split())
@@ -2564,7 +2611,7 @@ while leave == False:
     elif Choice in ["facilities","f","fc","3"]:
 
         
-        print("\n---------------\nSimulation\n---------------\nMarket\n---------------\nMine\n---------------\nForest\n---------------\n"f"Training {Unlocked_Functions['Training']['Status']}\n""---------------\n"f"Smithing {Unlocked_Functions['Smithing']['Status']}\n""---------------\n"f"Alchemy {Unlocked_Functions['Alchemy']['Status']}\n---------------")
+        print("\n---------------------------------------------\n                  Simulation\n---------------------------------------------\n                  Market\n---------------------------------------------\n                  Mine\n---------------------------------------------\n                  Forest\n---------------------------------------------\n                  "f"Training {Unlocked_Functions['Training']['Status']}\n""---------------------------------------------\n                  "f"Smithing {Unlocked_Functions['Smithing']['Status']}\n""---------------------------------------------\n                  "f"Alchemy {Unlocked_Functions['Alchemy']['Status']}\n---------------------------------------------")
         Choice = input("")
         Choice = Choice.lower()
         
@@ -4512,7 +4559,7 @@ while leave == False:
                     print("\nYou are tired")
                     print("\nWait a minute")
                     time.sleep(60)
-                    back = input("\n---------------\n\nPress enter to return\n\n")
+                    back = input("\n---------------------------------------------\n\nPress enter to return\n\n")
                     
 
 
@@ -4604,7 +4651,7 @@ while leave == False:
                     print("\nYou are tired")
                     print("\nWait a minute")
                     time.sleep(60)
-                    back = input("\n---------------\n\nPress enter to return\n\n")
+                    back = input("\n---------------------------------------------\n\nPress enter to return\n\n")
 
                 if training in ["4","deadhang","dh","d"]:
                     if Skill_Tree["Training"]["Dead Hang"]["Status"] == "(Unlocked)":
@@ -4686,7 +4733,7 @@ while leave == False:
                     print("\nYou are tired")
                     print("\nWait a minute")
                     time.sleep(60)
-                    back = input("\n---------------\n\nPress enter to return\n\n")
+                    back = input("\n---------------------------------------------\n\nPress enter to return\n\n")
 
                 if training in ["5","neckbridge","nb","n"]:
                     if Skill_Tree["Training"]["Neck Bridge"]["Status"] == "(Unlocked)":
@@ -4766,7 +4813,7 @@ while leave == False:
                     print("\nYou are tired")
                     print("\nWait a minute")
                     time.sleep(60)
-                    back = input("\n---------------\n\nPress enter to return\n\n")
+                    back = input("\n---------------------------------------------\n\nPress enter to return\n\n")
                 if training in ["6","pushup","p","pu"]:
                     if Skill_Tree["Training"]["Push Up"]["Status"] == "(Unlocked)":
                         amount = (Body_Condition["Chest"]["Strength"]* 1.2) + (Body_Condition["Triceps"]["Strength"] * 0.8) + (Body_Condition["Shoulders"]["Strength"]* 0.5)

@@ -294,12 +294,12 @@ class Enemy_Move:
                         else:
                             Damage = int( 25    * target["Attack"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
 
-                        choice = "Tremor"
+                        choice = "Groundbreaker"
                         if 50 < target["Stamina"]:
                             target["Stamina"] -= 50
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
-                                choice = "Tremor"
+                                choice = "Groundbreaker"
                                 if (Player_copy["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
                                     chance = random.randint(1,5)
                                     if chance == 1:
@@ -1562,7 +1562,7 @@ class Enemy_Move:
                     print("Not Enough Mana")
                 Turn_Time -= 0.5
                 return target,Turn_Time
-            def Summon(target,typewriters,Enemy):
+            def Summon(target,typewriters,Enemy,Turn_Time):
                 global typewriter
                 typewriter = typewriters
                 T = random.randint(1,3)
@@ -1579,8 +1579,8 @@ class Enemy_Move:
                     if target["Mana"] >= 70:
                         Ally = copy.deepcopy(Enemy["Tier 1"]["Skeleton"])
                         target["Mana"] -= 65
-                
-                return {"Returning":[target,Ally]}
+                Turn_Time -= 1
+                return {"Returning":[target,Ally,Turn_Time]}
         class Detection:
             def Analyse(Player_copy,typewriters,**kwargs):
                 global typewriter

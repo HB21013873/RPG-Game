@@ -1973,6 +1973,7 @@ class Player_Move:
                                 Health_Gained = round(Damage/2)
                                 Player_copy["Health"] += Health_Gained
                                 Player_copy["Health"] = round(Player_copy["Health"])
+                                Player_copy["Health"] = min(Player_copy["Health"],Player_copy["Max Health"])
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
                                 print("Health is now ",Player_copy["Health"])
@@ -1992,6 +1993,7 @@ class Player_Move:
                                             target["Health"] -= Damage
                                             Player_copy["Health"] += Health_Gained
                                             Player_copy["Health"] = round(Player_copy["Health"])
+                                            Player_copy["Health"] = min(Player_copy["Health"],Player_copy["Max Health"])
                                             print(f"{name} does {Damage} damage")
                                             print("Health is now ",Player_copy["Health"])
                                             Worked = True
