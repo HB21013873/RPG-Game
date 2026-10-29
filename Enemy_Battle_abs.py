@@ -35,7 +35,7 @@ class Enemy_Battle:
         target = Enemy1
 
         
-        if Enemy1["Spell Caster"] == True or Enemy1["Mana"] > 0:
+        if Enemy1["Mana"] > 0:
             Spell_Caster = random.choice([False,True])
             
 
@@ -501,6 +501,20 @@ class Enemy_Battle:
                 Move += ["Mana Blast","Empower"]
             elif Spell_Caster == False:
                 Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+        elif "Zombie" in Enemy1["Type"]:
+            Attack_Chance = 0.8
+            Defense_Chance = 0.95
+            if Spell_Caster == True:
+                Move+= ["Empower"]
+            elif Spell_Caster == False:
+                Move += ["Impulsive Swing","Tackle","Bite","Headbutt"]
+        elif "Phantom" in Enemy3["Type"]:
+            Attack_Chance = 0.7
+            Defense_Chance = 0.75
+            if Spell_Caster == True:
+                Move += ["Mana Blast","Life Drain","Devour Essence","Empower"]
+            elif Spell_Caster == False:
+                Move += ["Tackle"]
 
 
 
@@ -748,7 +762,7 @@ class Enemy_Battle:
         target = Enemy2
 
         
-        if Enemy2["Spell Caster"] == True or Enemy2["Mana"] > 0:
+        if Enemy2["Mana"] > 0:
             Spell_Caster = random.choice([False,True])
             
 
@@ -1214,6 +1228,20 @@ class Enemy_Battle:
                 Move += ["Mana Blast","Empower"]
             elif Spell_Caster == False:
                 Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+        elif "Zombie" in Enemy2["Type"]:
+            Attack_Chance = 0.8
+            Defense_Chance = 0.95
+            if Spell_Caster == True:
+                Move+= ["Empower"]
+            elif Spell_Caster == False:
+                Move += ["Impulsive Swing","Tackle","Bite","Headbutt"]
+        elif "Phantom" in Enemy3["Type"]:
+            Attack_Chance = 0.7
+            Defense_Chance = 0.75
+            if Spell_Caster == True:
+                Move += ["Mana Blast","Life Drain","Devour Essence","Empower"]
+            elif Spell_Caster == False:
+                Move += ["Tackle"]
 
 
 
@@ -1461,7 +1489,7 @@ class Enemy_Battle:
         target = Enemy3
 
         
-        if Enemy3["Spell Caster"] == True or Enemy3["Mana"] > 0:
+        if Enemy3["Mana"] > 0:
             Spell_Caster = random.choice([False,True])
             
 
@@ -1927,6 +1955,20 @@ class Enemy_Battle:
                 Move += ["Mana Blast","Empower"]
             elif Spell_Caster == False:
                 Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+        elif "Zombie" in Enemy3["Type"]:
+            Attack_Chance = 0.8
+            Defense_Chance = 0.95
+            if Spell_Caster == True:
+                Move+= ["Empower"]
+            elif Spell_Caster == False:
+                Move += ["Impulsive Swing","Tackle","Bite","Headbutt"]
+        elif "Phantom" in Enemy3["Type"]:
+            Attack_Chance = 0.7
+            Defense_Chance = 0.75
+            if Spell_Caster == True:
+                Move += ["Mana Blast","Life Drain","Devour Essence","Empower"]
+            elif Spell_Caster == False:
+                Move += ["Tackle"]
 
 
 
