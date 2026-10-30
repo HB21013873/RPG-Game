@@ -682,7 +682,7 @@ class Enemy_Battle:
                                             target = Result["Returning"][2]
                                             break
                         elif Move_Selected in ["Empower"] and Turn_Time >= 0.5:
-                            target = EM.Spell_Moves.Arcane.Empower(target,typewriter)
+                            target,Turn_Time = EM.Spell_Moves.Arcane.Empower(target,typewriter,Turn_Time)
                             break
                         elif Move_Selected in ["Devour Essence"] and Turn_Time >= 0.25:
                             Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Dark.Devour_Essence(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
@@ -1450,7 +1450,7 @@ class Enemy_Battle:
                                             target = Result["Returning"][2]
                                             break
                         elif Move_Selected in ["Empower"] and Turn_Time >= 0.5:
-                            target = EM.Spell_Moves.Arcane.Empower(target,typewriter)
+                            target,Turn_Time = EM.Spell_Moves.Arcane.Empower(target,typewriter,Turn_Time)
                             break
                         elif Move_Selected in ["Devour Essence"] and Turn_Time >= 0.25:
                             Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Elemental.Dark.Devour_Essence(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
@@ -2218,7 +2218,7 @@ class Enemy_Battle:
                                             target = Result["Returning"][2]
                                             break
                         elif Move_Selected in ["Empower"] and Turn_Time >= 0.5:
-                            target = EM.Spell_Moves.Arcane.Empower(target,typewriter)
+                            target,Turn_Time = EM.Spell_Moves.Arcane.Empower(target,typewriter,Turn_Time)
                             break
                         elif Move_Selected in ["Devour Essence"] and Turn_Time >= 0.25:
                             Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Devour_Essence(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)

@@ -1519,7 +1519,7 @@ class Enemy_Move:
                     Turn_Time -= 0.5
                     return Player_copy,target,Turn_Time
 
-            def Empower(target,typewriters):
+            def Empower(target,typewriters,Turn_Time):
                 global typewriter
                 typewriter = typewriters
                 while True:
@@ -1537,8 +1537,9 @@ class Enemy_Move:
                 target["Buff"]["Type"] = "Attack"
                 target["Buff"]["Duration"] = 3
                 target["Attack"] += target["Buff"]["Value"]
+                Turn_Time -= 0.5
 
-                return target
+                return target,Turn_Time
             
         class Support:
             def Heal(Player_copy,typewriters,**kwargs):
