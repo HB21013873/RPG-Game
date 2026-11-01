@@ -68,21 +68,21 @@ class Enemy_Move:
                 Enemy3 = kwargs.get("Enemy3",None)
 
                 if Turn_Time >= 0.5:
-                    if 10 < Player_copy["Stamina"]:
+                    if 10 < target["Stamina"]:
                         Percentage = random.random()
-                        Player_copy_Critical_Chance = Player_copy["Critical Chance"] / 100
+                        Player_copy_Critical_Chance = target["Critical Chance"] / 100
                         if Percentage <= Player_copy_Critical_Chance:
-                            Damage = int(( 50 * Player_copy["Attack"]/  Player_copy["Defense"]) )
-                            Damage *= (1 + (Player_copy["Critical Damage"]/100))
+                            Damage = int(( 50 * target["Attack"]/  Player_copy["Defense"]) )
+                            Damage *= (1 + (target["Critical Damage"]/100))
                             print("\n\nCritical Hit!\n")
                         else:
-                                Damage = int(( 50 * Player_copy["Attack"]/  Player_copy["Defense"]) )
-                        Combat_cost = 10 * ( 1 - Player_copy["Magic Density"] /  500 )
-                        Player_copy["Stamina"] -= Combat_cost
+                                Damage = int(( 50 * target["Attack"]/  Player_copy["Defense"]) )
+                        Combat_cost = 10 * ( 1 - target["Magic Density"] /  500 )
+                        target["Stamina"] -= Combat_cost
                         Evasion_Chance = random.randint(1,100)
                         choice = "Bite"
                         Breaker = True
-                        if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
+                        if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                             if (Player_copy["Max Health"] * 0.05) <= Damage:
                                 bleed_chance = random.random()
                                 
@@ -267,8 +267,8 @@ class Enemy_Move:
                         if (Player_copy["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
                             chance = random.randint(1,5)
                             if chance == 1:
-                                Enemy1_Skip = True
-                                print("The Enemy is stunned!\n")
+                                Player_Skip = True
+                                print("You are stunned!\n")
 
                         print(f"{choice} is used")
                         print(target["Type"],f"does {Damage} damage")
@@ -305,8 +305,8 @@ class Enemy_Move:
                                     if chance == 1:
                                         Player_Skip = True 
                                         print("You are inflicted with stagger!\n")
-                                        Player_copy["Speed"] -= (Player_copy["Speed"] * random.randint(0.1,0.2))
-                                        Player_copy["Evasion"] -= (Player_copy["Evasion"] * random.randint(0.1,0.2))
+                                        Player_copy["Speed"] -= (Player_copy["Speed"] * random.uniform(0.1,0.2))
+                                        Player_copy["Evasion"] -= (Player_copy["Evasion"] * random.uniform(0.1,0.2))
                             
 
                                 Player_copy["Health"] -= Damage
@@ -986,9 +986,8 @@ class Enemy_Move:
                         else:
                             Damage = int( 25    * target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
                         while True:
-                            print("How much mana do you want to use?")
                             try:   
-                                    Mana_Amount = int(input(""))
+                                    Mana_Amount = random.randint(1,target["Mana"])
                                     Damage_Amount = Mana_Amount * (25 / 50)
                                     Damage_Amount = round(Damage_Amount)
                                     Mana_Amount = Mana_Amount * (1 + target["Magic Density"] /  500 )
@@ -1152,15 +1151,14 @@ class Enemy_Move:
 
                     if Turn_Time >= 0.25:
                         while True:
-                            print("How much mana do you want to use?")
                             try:   
-                                Mana_Amount = random.randint(1,target["Mana"])
-                                Power_Amount = Mana_Amount * (25 / 50)
-                                Power_Amount = round(Power_Amount)
-                                Mana_Amount = Mana_Amount * (1 + target["Magic Density"] /  500 )
-                                Mana_Amount = round(Mana_Amount)
-                                if Mana_Amount > 0:
-                                    break
+                                    Mana_Amount = random.randint(1,target["Mana"])
+                                    Power_Amount = Mana_Amount * (25 / 50)
+                                    Power_Amount = round(Power_Amount)
+                                    Mana_Amount = Mana_Amount * (1 + target["Magic Density"] /  500 )
+                                    Mana_Amount = round(Mana_Amount)
+                                    if Mana_Amount > 0:
+                                        break
                             except Exception as e:
                                 print("Error:", e)
                         if Mana_Amount < target["Mana"]:
@@ -1537,6 +1535,8 @@ class Enemy_Move:
                 target["Buff"]["Type"] = "Attack"
                 target["Buff"]["Duration"] = 3
                 target["Attack"] += target["Buff"]["Value"]
+                print(f"\n{target['Type']} Feels their body surge with power\n")
+                print(f" {Power_Amount} Attack is gained for 3 turns\n")
                 Turn_Time -= 0.5
 
                 return target,Turn_Time
@@ -1548,12 +1548,16 @@ class Enemy_Move:
                 Turn_Time = kwargs.get("Turn_Time",None)
                 target = kwargs.get("target",None)
                 while True:
-                    try:
-                        print("How much mana do you want to use?")
+                    try:   
                         Mana_Amount = random.randint(1,target["Mana"])
-                        break
+                        Damage_Amount = Mana_Amount * (25 / 50)
+                        Damage_Amount = round(Damage_Amount)
+                        Mana_Amount = Mana_Amount * (1 + target["Magic Density"] /  500 )
+                        Mana_Amount = round(Mana_Amount)
+                        if Mana_Amount > 0:
+                            break
                     except Exception as e:
-                        print("Error:",e)
+                        print("Error:", e)
                 if Mana_Amount < target["Mana"]:
                     Power =  target["Magic Density"] *  (Mana_Amount /100)
                     Power = round(Power)
@@ -1571,15 +1575,20 @@ class Enemy_Move:
                 if T == 1:
                     if target["Mana"] >= 70:
                         Ally = copy.deepcopy(Enemy["Tier 1"]["Wolf"])
-                        target["Mana"] -= 55
-                if T == 2:
-                    if target["Mana"] >= 70:
+                        target["Mana"] -= 70
+                        print("\n A Wolf is Summoned\n")
+                elif T == 2:
+                    if target["Mana"] >= 50:
                         Ally = copy.deepcopy(Enemy["Tier 1"]["Goblin"])
                         target["Mana"] -= 50
-                if T == 3:
-                    if target["Mana"] >= 70:
+                        print("\n A Goblin is Summoned\n")
+                elif T == 3:
+                    if target["Mana"] >= 65:
                         Ally = copy.deepcopy(Enemy["Tier 1"]["Skeleton"])
                         target["Mana"] -= 65
+                        print("\n A Skeleton is Summoned\n")
+                else:
+                    Ally = None
                 Turn_Time -= 1
                 return {"Returning":[target,Ally,Turn_Time]}
         class Detection:
@@ -1614,25 +1623,25 @@ class Enemy_Move:
 
             if health_lost == 0.05:
                 target["Health"] -= (target["Max Health"] * health_lost)
-                target["Buff"]["Value"] = ( (target["Damage"] * 0.1) + (target["Magic Damage"] * 0.1))  // 2
+                target["Buff"]["Value"] = ( (target["Attack"] * 0.1) + (target["Magic Damage"] * 0.1))  // 2
                 target["Buff"]["Type"] = "Attack And Magic Attack"
                 target["Buff"]["Duration"] = 3
                 print("They offer thier blood to the Gods \n\n gain 10% more attack and magic attack\n\nLose 5% of max health")
             if health_lost == 0.1:
                 target["Health"] -= (target["Max Health"] * health_lost)
-                target["Buff"]["Value"] = ( (target["Damage"] * 0.25) + (target["Magic Damage"] * 0.25))  // 2
+                target["Buff"]["Value"] = ( (target["Attack"] * 0.25) + (target["Magic Damage"] * 0.25))  // 2
                 target["Buff"]["Type"] = "Attack And Magic Attack"
                 target["Buff"]["Duration"] = 3
                 print("They offer thier blood to the Gods \n\n gain 25% more attack and magic attack\n\nLose 10% of max health")
             if health_lost == 0.15:
                 target["Health"] -= (target["Max Health"] * health_lost)
-                target["Buff"]["Value"] = ( (target["Damage"] * 0.4) + (target["Magic Damage"] * 0.4))  // 2
+                target["Buff"]["Value"] = ( (target["Attack"] * 0.4) + (target["Magic Damage"] * 0.4))  // 2
                 target["Buff"]["Type"] = "Attack And Magic Attack"
                 target["Buff"]["Duration"] = 3
                 print("They offer thier blood to the Gods \n\n gain 40% more attack and magic attack\n\nLose 15% of max health")
             if health_lost == 0.2:
                 target["Health"] -= (target["Max Health"] * health_lost)
-                target["Buff"]["Value"] = ( (target["Damage"] * 0.6) + (target["Magic Damage"] * 0.6))  // 2
+                target["Buff"]["Value"] = ( (target["Attack"] * 0.6) + (target["Magic Damage"] * 0.6))  // 2
                 target["Buff"]["Type"] = "Attack And Magic Attack"
                 target["Buff"]["Duration"] = 3
                 print("They offer thier blood to the Gods \n\n gain 60% more attack and magic attack\n\nLose 20% of max health")

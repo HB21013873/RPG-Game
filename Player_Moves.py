@@ -1721,22 +1721,22 @@ class Player_Move:
                                         if chance == 1:
                                             Enemy1_Skip = True
                                             print("The enemy is inflicted with stagger!\n")
-                                            target["Speed"] -= (target["Speed"] * random.randint(0.1,0.2))
-                                            target["Evasion"] -= (target["Evasion"] * random.randint(0.1,0.2))
+                                            target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                            target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
                                     if target == Enemy2:
                                         chance = random.randint(1,5)
                                         if chance == 1:
                                             Enemy2_Skip = True
                                             print("The enemy is inflicted with stagger!\n")
-                                            target["Speed"] -= (target["Speed"] * random.randint(0.1,0.2))
-                                            target["Evasion"] -= (target["Evasion"] * random.randint(0.1,0.2))
+                                            target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                            target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
                                     if target == Enemy3:
                                         chance = random.randint(1,5)
                                         if chance == 3:
                                             Enemy3_Skip = True
                                             print("The enemy is inflicted with stagger!\n")
-                                            target["Speed"] -= (target["Speed"] * random.randint(0.1,0.2))
-                                            target["Evasion"] -= (target["Evasion"] * random.randint(0.1,0.2))
+                                            target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                            target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
                                     Damage = round(Damage* 1.5)
@@ -1770,22 +1770,22 @@ class Player_Move:
                                                     if chance == 1:
                                                         Enemy1_Skip = True
                                                         print("The enemy is inflicted with stagger!\n")
-                                                        target["Speed"] -= (target["Speed"] * random.randint(0.1,0.2))
-                                                        target["Evasion"] -= (target["Evasion"] * random.randint(0.1,0.2))
+                                                        target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                                        target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
                                                 if target == Enemy2:
                                                     chance = random.randint(1,5)
                                                     if chance == 1:
                                                         Enemy2_Skip = True
                                                         print("The enemy is inflicted with stagger!\n")
-                                                        target["Speed"] -= (target["Speed"] * random.randint(0.1,0.2))
-                                                        target["Evasion"] -= (target["Evasion"] * random.randint(0.1,0.2))
+                                                        target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                                        target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
                                                 if target == Enemy3:
                                                     chance = random.randint(1,5)
                                                     if chance == 3:
                                                         Enemy3_Skip = True
                                                         print("The enemy is inflicted with stagger!\n")
-                                                        target["Speed"] -= (target["Speed"] * random.randint(0.1,0.2))
-                                                        target["Evasion"] -= (target["Evasion"] * random.randint(0.1,0.2))
+                                                        target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                                        target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
                                             Worked = True
                                         else:
                                             chance = False
@@ -2744,6 +2744,7 @@ class Player_Move:
                         Player_copy["Attack"] += Player_copy["Buff"]["Value"]
                         Player_copy["Mana"] -= Mana_Amount
                         print("\n Empower is used\n")
+                        print(f"You feel their body surge with power\n")
                         print(f" {Power_Amount} Attack is gained for 3 turns\n")
                         if Skill_Tree["General"]["Arcane Echo"]["Status"] == "(Unlocked)":
                             chance = True
@@ -2878,25 +2879,25 @@ class Player_Move:
 
             if health_lost == 0.05:
                 Player_copy["Health"] -= (Player_copy["Max Health"] * health_lost)
-                Player_copy["Buff"]["Value"] = ( (Player_copy["Damage"] * 0.1) + (Player_copy["Magic Damage"] * 0.1))  // 2
+                Player_copy["Buff"]["Value"] = ( (Player_copy["Attack"] * 0.1) + (Player_copy["Magic Damage"] * 0.1))  // 2
                 Player_copy["Buff"]["Type"] = "Attack And Magic Attack"
                 Player_copy["Buff"]["Duration"] = 3
                 print("You offer thier blood to the Gods \n\n gain 10% more attack and magic attack\n\nLose 5% of max health")
             if health_lost == 0.1:
                 Player_copy["Health"] -= (Player_copy["Max Health"] * health_lost)
-                Player_copy["Buff"]["Value"] = ( (Player_copy["Damage"] * 0.25) + (Player_copy["Magic Damage"] * 0.25))  // 2
+                Player_copy["Buff"]["Value"] = ( (Player_copy["Attack"] * 0.25) + (Player_copy["Magic Damage"] * 0.25))  // 2
                 Player_copy["Buff"]["Type"] = "Attack And Magic Attack"
                 Player_copy["Buff"]["Duration"] = 3
                 print("You offer thier blood to the Gods \n\n gain 25% more attack and magic attack\n\nLose 10% of max health")
             if health_lost == 0.15:
                 Player_copy["Health"] -= (Player_copy["Max Health"] * health_lost)
-                Player_copy["Buff"]["Value"] = ( (Player_copy["Damage"] * 0.4) + (Player_copy["Magic Damage"] * 0.4))  // 2
+                Player_copy["Buff"]["Value"] = ( (Player_copy["Attack"] * 0.4) + (Player_copy["Magic Damage"] * 0.4))  // 2
                 Player_copy["Buff"]["Type"] = "Attack And Magic Attack"
                 Player_copy["Buff"]["Duration"] = 3
                 print("You offer thier blood to the Gods \n\n gain 40% more attack and magic attack\n\nLose 15% of max health")
             if health_lost == 0.2:
                 Player_copy["Health"] -= (Player_copy["Max Health"] * health_lost)
-                Player_copy["Buff"]["Value"] = ( (Player_copy["Damage"] * 0.6) + (Player_copy["Magic Damage"] * 0.6))  // 2
+                Player_copy["Buff"]["Value"] = ( (Player_copy["Attack"] * 0.6) + (Player_copy["Magic Damage"] * 0.6))  // 2
                 Player_copy["Buff"]["Type"] = "Attack And Magic Attack"
                 Player_copy["Buff"]["Duration"] = 3
                 print("You offer thier blood to the Gods \n\n gain 60% more attack and magic attack\n\nLose 20% of max health")

@@ -34,620 +34,619 @@ class Enemy_Battle:
         Spell_Caster = False
         target = Enemy1
 
-        
-        if Enemy1["Mana"] > 0:
-            Spell_Caster = random.choice([False,True])
+        while True:
+            if Enemy1["Mana"] > 0:
+                Spell_Caster = random.choice([False,True])                
+
             
 
-        
-
-        if "Cultist" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Life Drain","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Quick Stab","Blood Offering"]
-        elif "Berserker" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Ice Shard","Empower"]                       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Bite","Slash","Quick Stab","Blood Frenzy"]
-        elif "Rat" in Enemy1["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Golem" in Enemy1["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Tremor"]                      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Tackle","Groundbreaker"]
-        elif "Skeleton" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain"]               
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Warrior" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard"] 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Slash","Quick Stab","Axe Kick","Front Kick"]
-        elif "Apprentice" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                        
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Wolf" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Slash","Tackle"]
-        elif "Bandit" in Enemy1["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Fireball","Empower"]                      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Slash","Quick Stab"]
-        elif "Kobold" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
-        elif "Goblin" in Enemy1["Type"]and "Fighter" not in Enemy1["Type"] and "Archer" not in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Empower"]    
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Ghost" in Enemy1["Type"]:
-            Spell_Caster = True
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Life Drain","Devour Essence"]
-        elif "Imp" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Life Drain","Mana Blast"]                 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Gladiator" in Enemy1["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Empower"] 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Spinning Back Kick","Headbutt","Slash","Quick Stab"]
-        elif "Executioner" in Enemy1["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Slash","Front Kick"]
-        elif "Scavenger" in Enemy1["Type"]:
-            Attack_Chance = 0.3
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Quick Stab","Front Kick"]
-        elif "Homunculus" in Enemy1["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Life Drain","Devour Essence"]                    
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick"]
-        elif "Archer" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Aimed Shot"]
-        elif "Spearman" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball"]                     
-            elif Spell_Caster == False:
-                Move += ["Front Kick","Slash","Quick Stab"]
-        elif "Spirit" in Enemy1["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Life Drain"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing"]
-        elif "Summoner" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower","Summon"]      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Demon" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Fireball","Devour Essence","Life Drain"]                        
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
-        elif "Hound" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Fighter" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick","Spinning Back Kick"]
-        elif "Rogue" in Enemy1["Type"] and ("Archer" or "Fighter")not in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                     
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick","Slash","Quick Stab"]
-        elif "Knight" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Duelist" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]           
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Beast" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Slash","Tackle"]
-        elif "Mage" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Ice Shard","Shock","Fireball","Life Drain","Purify","Grappling Vines","River Fist","Mud Shot","Stone Slipstream","Dominate","Heal"]                
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick"]
-        elif "Slime" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]                    
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Tackle"]
-        elif "Trainee" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Axe Kick","Spinning Back Kick","Slash","Quick Stab","Front Kick"]
-        elif "Dog" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]                    
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Artificer" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                     
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Axe Kick","Front Kick"]
-        elif "Spider" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]                
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Snake" in Enemy1["Type"] or "Serpent" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.55
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Crawler" in Enemy1["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite"]
-        elif "Elemental" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast"] 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick"]
-        elif "Horror" in Enemy1["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]     
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
-        elif "Crow" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.55
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Walker" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Front Kick","Straight Punch"]
-        elif "Wraith" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch"]
-        elif "Warrior" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Servant" in Enemy1["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Bat" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Stalker" in Enemy1["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Life Drain","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Front Kick","Straight Punch"]
-        elif "Sprite" in Enemy1["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast"]                       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Front Kick"]
-        elif "Lord" in Enemy1["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]                       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Assassin" in Enemy1["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Quick Stab","Front Kick"]
-        elif "Spawn" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Slash","Front Kick"]
-        elif "Acolyte" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Devour Essence"]                            
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Blacksmith" in Enemy1["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Empower"]          
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Soldier" in Enemy1["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Experiment" in Enemy1["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Front Kick","Tackle"]
-        elif "Ogre" in Enemy1["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Bite","Front Kick"]
-        elif "Potion" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Toxin Spray"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Tackle"]
-        elif "Ooze" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Toxin Spray"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Tackle"]
-        elif "Warden" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Shock","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Guard" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Raider" in Enemy1["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Robber" in Enemy1["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Front Kick"]
-        elif "Troll" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]                        
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Front Kick"]
-        elif "Thief" in Enemy1["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]    
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Quick Stab","Front Kick"]
-        elif "Guardian" in Enemy1["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Front Kick"]
-        elif "Lich" in Enemy1["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Champion" in Enemy1["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Automaton" in Enemy1["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Zombie" in Enemy1["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move+= ["Empower"]
-            elif Spell_Caster == False:
-                Move += ["Impulsive Swing","Tackle","Bite","Headbutt"]
-        elif "Phantom" in Enemy1["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.75
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Devour Essence","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Tackle"]
+            if "Cultist" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Quick Stab","Blood Offering"]
+            elif "Berserker" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Ice Shard","Empower"]                       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Bite","Slash","Quick Stab","Blood Frenzy"]
+            elif "Rat" in Enemy1["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Golem" in Enemy1["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Tremor"]                      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Tackle","Groundbreaker"]
+            elif "Skeleton" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain"]               
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Warrior" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard"] 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Slash","Quick Stab","Axe Kick","Front Kick"]
+            elif "Apprentice" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                        
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Wolf" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Slash","Tackle"]
+            elif "Bandit" in Enemy1["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Fireball","Empower"]                      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Slash","Quick Stab"]
+            elif "Kobold" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
+            elif "Goblin" in Enemy1["Type"]and "Fighter" not in Enemy1["Type"] and "Archer" not in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Empower"]    
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Ghost" in Enemy1["Type"]:
+                Spell_Caster = True
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Devour Essence"]
+            elif "Imp" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Mana Blast"]                 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Gladiator" in Enemy1["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Empower"] 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Spinning Back Kick","Headbutt","Slash","Quick Stab"]
+            elif "Executioner" in Enemy1["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Slash","Front Kick"]
+            elif "Scavenger" in Enemy1["Type"]:
+                Attack_Chance = 0.3
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Quick Stab","Front Kick"]
+            elif "Homunculus" in Enemy1["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Devour Essence"]                    
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick"]
+            elif "Archer" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Aimed Shot"]
+            elif "Spearman" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball"]                     
+                elif Spell_Caster == False:
+                    Move += ["Front Kick","Slash","Quick Stab"]
+            elif "Spirit" in Enemy1["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Life Drain"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing"]
+            elif "Summoner" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower","Summon"]      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Demon" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Fireball","Devour Essence","Life Drain"]                        
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
+            elif "Hound" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Fighter" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick","Spinning Back Kick"]
+            elif "Rogue" in Enemy1["Type"] and ("Archer" or "Fighter")not in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                     
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick","Slash","Quick Stab"]
+            elif "Knight" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Duelist" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]           
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Beast" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Slash","Tackle"]
+            elif "Mage" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Ice Shard","Shock","Fireball","Life Drain","Purify","Grappling Vines","River Fist","Mud Shot","Stone Slipstream","Dominate","Heal"]                
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick"]
+            elif "Slime" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]                    
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Tackle"]
+            elif "Trainee" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Axe Kick","Spinning Back Kick","Slash","Quick Stab","Front Kick"]
+            elif "Dog" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]                    
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Artificer" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                     
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Axe Kick","Front Kick"]
+            elif "Spider" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]                
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Snake" in Enemy1["Type"] or "Serpent" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.55
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Crawler" in Enemy1["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite"]
+            elif "Elemental" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast"] 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick"]
+            elif "Horror" in Enemy1["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]     
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
+            elif "Crow" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.55
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Walker" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Front Kick","Straight Punch"]
+            elif "Wraith" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch"]
+            elif "Warrior" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Servant" in Enemy1["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Bat" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Stalker" in Enemy1["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Life Drain","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Front Kick","Straight Punch"]
+            elif "Sprite" in Enemy1["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast"]                       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Front Kick"]
+            elif "Lord" in Enemy1["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]                       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Assassin" in Enemy1["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Quick Stab","Front Kick"]
+            elif "Spawn" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Slash","Front Kick"]
+            elif "Acolyte" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Devour Essence"]                            
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Blacksmith" in Enemy1["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Empower"]          
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Soldier" in Enemy1["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Experiment" in Enemy1["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Front Kick","Tackle"]
+            elif "Ogre" in Enemy1["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Bite","Front Kick"]
+            elif "Potion" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Toxin Spray"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Tackle"]
+            elif "Ooze" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Toxin Spray"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Tackle"]
+            elif "Warden" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Shock","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Guard" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Raider" in Enemy1["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Robber" in Enemy1["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Front Kick"]
+            elif "Troll" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]                        
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Front Kick"]
+            elif "Thief" in Enemy1["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]    
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Quick Stab","Front Kick"]
+            elif "Guardian" in Enemy1["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Front Kick"]
+            elif "Lich" in Enemy1["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Champion" in Enemy1["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Automaton" in Enemy1["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Zombie" in Enemy1["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move+= ["Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Impulsive Swing","Tackle","Bite","Headbutt"]
+            elif "Phantom" in Enemy1["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.75
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Devour Essence","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Tackle"]
 
 
 
 
-        if "Venom" in Enemy1["Type"] or "Swamp" in Enemy1["Type"] or "Bog" in Enemy1["Type"] or "Acid" in Enemy1["Type"] or "Toxic" in Enemy1["Type"] or "Venom" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Poison"
-            Move += ["Toxic Spray"]
-        if "Rot" in Enemy1["Type"] or "Plague" in Enemy1["Type"] or "Disease" in Enemy1["Type"] or "Ruin" in Enemy1["Type"] or "Bone" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Decay"
-            Move += ["Corrupting Touch"]
-        if "Ice" in Enemy1["Type"] or "Frost" in Enemy1["Type"] or "Frozen" in Enemy1["Type"] or "Snow" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Ice"
-            Move += ["Ice Shard"]
-        if "Lightning" in Enemy1["Type"] or "Storm" in Enemy1["Type"] or "Tempest" in Enemy1["Type"] or "Thunder" in Enemy1["Type"] or "Charged" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Lightning"
-            Move += ["Shock"]
-        if "Shadow" in Enemy1["Type"] or "Void" in Enemy1["Type"] or "Dark" in Enemy1["Type"] or "Night" in Enemy1["Type"] or "Phantom" in Enemy1["Type"] or "Lich" in Enemy1["Type"] or "Abyss" in Enemy1["Type"] or "Nightmare" in Enemy1["Type"] or "Demon Lord" in Enemy1["Type"] or "Cursed" in Enemy1["Type"] or "Eclipsed" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Dark"
-            Move += ["Corrupting Touch","Life Drain"]
-        if "Alchemical" in Enemy1["Type"] or "Mutant" in Enemy1["Type"] or "Experiment" in Enemy1["Type"] or "Potion" in Enemy1["Type"] or "Mutation" in Enemy1["Type"] or "Living" in Enemy1["Type"] or "Mad Alchemist" in Enemy1["Type"] or "Tiny" in Enemy1["Type"] or "Chemical" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Chemical"
-            Move += ["Toxin Spray"]
-        if "Fire" in Enemy1["Type"] or "Flame" in Enemy1["Type"] or "Burning" in Enemy1["Type"] or "Molten" in Enemy1["Type"] or "Inferno" in Enemy1["Type"] or  "Demon" in Enemy1["Type"] or "Ash" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Fire"
-            Move += ["Fireball"]
-        if "Shield" in Enemy1["Type"] or "Stone" in Enemy1["Type"] or "Heavy" in Enemy1["Type"] or "Rust" in Enemy1["Type"] or "Steel" in Enemy1["Type"]:
-            Enemy1["Defense"] += round(Enemy1["Defense"] * 0.01)
-            Move += ["Groundbreaker"]
-        if "Ritual" in Enemy1["Type"] or "Ancient" in Enemy1["Type"] or "Tomb" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Cursed"
-            Move += ["Devour Essence"]
-        if "Bridge" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Bridge"
-        if "Armory" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Armory"
-        if "Arena" in Enemy1["Type"] or "Pit" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Crowd"
-            Move += ["Empower"]
-        if "Rogue" in Enemy1["Type"] or "Wind" in Enemy1["Type"] or "Dust" in Enemy1["Type"]:
-            Enemy1["Attribute "] = "Agile"
-            Enemy1["Speed"] += round(Enemy1["Speed"] * 0.01)
-            Move += ["Stone Slipstream"]
-        if "War" in Enemy1["Type"]:
-            Enemy1["Attribute"] = "Aggressive"
-            Enemy1["Attack"] += round(Enemy1["Attack"] * 0.05)
-            Move += ["Empower"]
+            if "Venom" in Enemy1["Type"] or "Swamp" in Enemy1["Type"] or "Bog" in Enemy1["Type"] or "Acid" in Enemy1["Type"] or "Toxic" in Enemy1["Type"] or "Venom" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Poison"
+                Move += ["Toxic Spray"]
+            if "Rot" in Enemy1["Type"] or "Plague" in Enemy1["Type"] or "Disease" in Enemy1["Type"] or "Ruin" in Enemy1["Type"] or "Bone" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Decay"
+                Move += ["Corrupting Touch"]
+            if "Ice" in Enemy1["Type"] or "Frost" in Enemy1["Type"] or "Frozen" in Enemy1["Type"] or "Snow" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Ice"
+                Move += ["Ice Shard"]
+            if "Lightning" in Enemy1["Type"] or "Storm" in Enemy1["Type"] or "Tempest" in Enemy1["Type"] or "Thunder" in Enemy1["Type"] or "Charged" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Lightning"
+                Move += ["Shock"]
+            if "Shadow" in Enemy1["Type"] or "Void" in Enemy1["Type"] or "Dark" in Enemy1["Type"] or "Night" in Enemy1["Type"] or "Phantom" in Enemy1["Type"] or "Lich" in Enemy1["Type"] or "Abyss" in Enemy1["Type"] or "Nightmare" in Enemy1["Type"] or "Demon Lord" in Enemy1["Type"] or "Cursed" in Enemy1["Type"] or "Eclipsed" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Dark"
+                Move += ["Corrupting Touch","Life Drain"]
+            if "Alchemical" in Enemy1["Type"] or "Mutant" in Enemy1["Type"] or "Experiment" in Enemy1["Type"] or "Potion" in Enemy1["Type"] or "Mutation" in Enemy1["Type"] or "Living" in Enemy1["Type"] or "Mad Alchemist" in Enemy1["Type"] or "Tiny" in Enemy1["Type"] or "Chemical" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Chemical"
+                Move += ["Toxin Spray"]
+            if "Fire" in Enemy1["Type"] or "Flame" in Enemy1["Type"] or "Burning" in Enemy1["Type"] or "Molten" in Enemy1["Type"] or "Inferno" in Enemy1["Type"] or  "Demon" in Enemy1["Type"] or "Ash" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Fire"
+                Move += ["Fireball"]
+            if "Shield" in Enemy1["Type"] or "Stone" in Enemy1["Type"] or "Heavy" in Enemy1["Type"] or "Rust" in Enemy1["Type"] or "Steel" in Enemy1["Type"]:
+                Enemy1["Defense"] += round(Enemy1["Defense"] * 0.01)
+                Move += ["Groundbreaker"]
+            if "Ritual" in Enemy1["Type"] or "Ancient" in Enemy1["Type"] or "Tomb" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Cursed"
+                Move += ["Devour Essence"]
+            if "Bridge" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Bridge"
+            if "Armory" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Armory"
+            if "Arena" in Enemy1["Type"] or "Pit" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Crowd"
+                Move += ["Empower"]
+            if "Rogue" in Enemy1["Type"] or "Wind" in Enemy1["Type"] or "Dust" in Enemy1["Type"]:
+                Enemy1["Attribute "] = "Agile"
+                Enemy1["Speed"] += round(Enemy1["Speed"] * 0.01)
+                Move += ["Stone Slipstream"]
+            if "War" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Aggressive"
+                Enemy1["Attack"] += round(Enemy1["Attack"] * 0.05)
+                Move += ["Empower"]
 
-        if Enemy1["Category"] == "Undead":
-            Move += ["Corrupting Touch"]
-            if Attack_Chance <= 0.9 and Defense_Chance <= 0.9:
-                Attack_Chance += 0.1
-                Defense_Chance += 0.1
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
+            if Enemy1["Category"] == "Undead":
+                Move += ["Corrupting Touch"]
+                if Attack_Chance <= 0.9 and Defense_Chance <= 0.9:
+                    Attack_Chance += 0.1
+                    Defense_Chance += 0.1
+                else:
+                    Attack_Chance = 1
+                    Defense_Chance = 0
 
-        if Enemy1["Category"] == "Humanoid":
-            Move += ["Mana Blast"]
-            if Attack_Chance >= 0.1:
-                Attack_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-                
-        if Enemy1["Category"] == "Demon":
-            Move += ["Fireball"]
-            if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
-                Attack_Chance += 0.2
-                Defense_Chance += 0.2
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
-        if Enemy1["Category"] == "Beast":
-            Move += ["Empower"]
-            if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
-                Attack_Chance += 0.2
-                Defense_Chance += 0.2
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
-                
-        if Enemy1["Category"] == "Abberation":
-            m = random.randint(1,3)
-            if m == 1:
+            if Enemy1["Category"] == "Humanoid":
+                Move += ["Mana Blast"]
+                if Attack_Chance >= 0.1:
+                    Attack_Chance -= 0.1
+                else:
+                    Attack_Chance = 0
+                    
+            if Enemy1["Category"] == "Demon":
+                Move += ["Fireball"]
                 if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
                     Attack_Chance += 0.2
                     Defense_Chance += 0.2
                 else:
                     Attack_Chance = 1
                     Defense_Chance = 0
-            if m == 2:
-                if Attack_Chance >= 0.2:
-                    Attack_Chance -= 0.2
+            if Enemy1["Category"] == "Beast":
+                Move += ["Empower"]
+                if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
+                    Attack_Chance += 0.2
+                    Defense_Chance += 0.2
+                else:
+                    Attack_Chance = 1
+                    Defense_Chance = 0
+                    
+            if Enemy1["Category"] == "Abberation":
+                m = random.randint(1,3)
+                if m == 1:
+                    if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
+                        Attack_Chance += 0.2
+                        Defense_Chance += 0.2
+                    else:
+                        Attack_Chance = 1
+                        Defense_Chance = 0
+                if m == 2:
+                    if Attack_Chance >= 0.2:
+                        Attack_Chance -= 0.2
+                    else:
+                        Attack_Chance = 0
+                if m == 3:
+                    if Attack_Chance >= 0.2 and Defense_Chance >= 0.2:
+                        Attack_Chance -= 0.2
+                        Defense_Chance -= 0.2
+                    else:
+                        Attack_Chance = 0
+                        Defense_Chance = 0
+            if Enemy1["Category"] == "Construct":
+                if Attack_Chance >= 0.1:
+                    Attack_Chance -= 0.1
                 else:
                     Attack_Chance = 0
-            if m == 3:
-                if Attack_Chance >= 0.2 and Defense_Chance >= 0.2:
-                    Attack_Chance -= 0.2
-                    Defense_Chance -= 0.2
+            if Enemy1["Category"] == "Elemental":
+                Enemy1["Magic Density"] *= 1.01
+                Enemy1["Magic Density"] = round(Enemy1["Magic Density"])
+            if Enemy1["Behaviour"] == "Aggressive":
+                if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
+                    Attack_Chance += 0.2
+                    Defense_Chance += 0.2
+                else:
+                    Attack_Chance = 1
+                    Defense_Chance = 0
+            if Enemy1["Behaviour"] == "Defensive":
+                if Attack_Chance >= 0.1:
+                    Attack_Chance -= 0.1
+                else:
+                    Attack_Chance = 0
+            if Enemy1["Behaviour"] == "Evasive":
+                if Attack_Chance >= 0.1 and Defense_Chance >= 0.1:
+                    Attack_Chance -= 0.1
+                    Defense_Chance -= 0.1
                 else:
                     Attack_Chance = 0
                     Defense_Chance = 0
-        if Enemy1["Category"] == "Construct":
-            if Attack_Chance >= 0.1:
-                Attack_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-        if Enemy1["Category"] == "Elemental":
-            Enemy1["Magic Density"] *= 1.01
-            Enemy1["Magic Density"] = round(Enemy1["Magic Density"])
-        if Enemy1["Behaviour"] == "Aggressive":
-            if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
-                Attack_Chance += 0.2
-                Defense_Chance += 0.2
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
-        if Enemy1["Behaviour"] == "Defensive":
-            if Attack_Chance >= 0.1:
-                Attack_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-        if Enemy1["Behaviour"] == "Evasive":
-            if Attack_Chance >= 0.1 and Defense_Chance >= 0.1:
-                Attack_Chance -= 0.1
-                Defense_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-                Defense_Chance = 0
 
-        while True:
             Move_Selected = random.choice(Move)
-                
+
+
                     
             ratio = random.random()
             if ratio <= Attack_Chance:
@@ -714,7 +713,7 @@ class Enemy_Battle:
                         elif Move_Selected in ["Toxin Spray"] and Turn_Time >= 0.5:
                             Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Dark.Toxin_Spray(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
                             break
-                    elif Move_Selected in ["Straight Punch"] and Turn_Time >= 0.5:
+                    if Move_Selected in ["Straight Punch"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Melee_Moves.Arms.Straight_Punch(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
                         break
                     elif Move_Selected in ["Impulsive Swing"] and Turn_Time >= 1:
@@ -755,6 +754,9 @@ class Enemy_Battle:
                         break
                     elif Move_Selected in ["Groundbreaker"] and Turn_Time >= 1:
                         Player_copy,Enemy1,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Groundbreaker(Player_Skip,Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
+                        break
+                    else:
+                        Turn_Time -= Turn_Time
                         break
             elif ratio > Attack_Chance and ratio <= Defense_Chance:                    
                 Turn_Time -= Turn_Time
@@ -802,620 +804,618 @@ class Enemy_Battle:
         Spell_Caster = False
         target = Enemy2
 
-        
-        if Enemy2["Mana"] > 0:
-            Spell_Caster = random.choice([False,True])
+        while True:
+            if Enemy2["Mana"] > 0:
+                Spell_Caster = random.choice([False,True])           
+
             
 
-        
-
-        if "Cultist" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Life Drain","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Quick Stab","Blood Offering"]
-        elif "Berserker" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Ice Shard","Empower"]                       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Bite","Slash","Quick Stab","Blood Frenzy"]
-        elif "Rat" in Enemy2["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Golem" in Enemy2["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Tremor"]                      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Tackle","Groundbreaker"]
-        elif "Skeleton" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain"]               
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Warrior" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard"] 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Slash","Quick Stab","Axe Kick","Front Kick"]
-        elif "Apprentice" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                        
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Wolf" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Slash","Tackle"]
-        elif "Bandit" in Enemy2["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Fireball","Empower"]                      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Slash","Quick Stab"]
-        elif "Kobold" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
-        elif "Goblin" in Enemy2["Type"]and "Fighter" not in Enemy2["Type"] and "Archer" not in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Empower"]    
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Ghost" in Enemy2["Type"]:
-            Spell_Caster = True
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Life Drain","Devour Essence"]
-        elif "Imp" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Life Drain","Mana Blast"]                 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Gladiator" in Enemy2["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Empower"] 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Spinning Back Kick","Headbutt","Slash","Quick Stab"]
-        elif "Executioner" in Enemy2["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Slash","Front Kick"]
-        elif "Scavenger" in Enemy2["Type"]:
-            Attack_Chance = 0.3
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Quick Stab","Front Kick"]
-        elif "Homunculus" in Enemy2["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Life Drain","Devour Essence"]                    
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick"]
-        elif "Archer" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Aimed Shot"]
-        elif "Spearman" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball"]                     
-            elif Spell_Caster == False:
-                Move += ["Front Kick","Slash","Quick Stab"]
-        elif "Spirit" in Enemy2["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Life Drain"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing"]
-        elif "Summoner" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower","Summon"]      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Demon" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Fireball","Devour Essence","Life Drain"]                        
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
-        elif "Hound" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Fighter" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick","Spinning Back Kick"]
-        elif "Rogue" in Enemy2["Type"] and ("Archer" or "Fighter")not in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                     
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick","Slash","Quick Stab"]
-        elif "Knight" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Duelist" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]           
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Beast" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Slash","Tackle"]
-        elif "Mage" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Ice Shard","Shock","Fireball","Life Drain","Purify","Grappling Vines","River Fist","Mud Shot","Stone Slipstream","Dominate","Heal"]                
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick"]
-        elif "Slime" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]                    
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Tackle"]
-        elif "Trainee" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Axe Kick","Spinning Back Kick","Slash","Quick Stab","Front Kick"]
-        elif "Dog" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]                    
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Artificer" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                     
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Axe Kick","Front Kick"]
-        elif "Spider" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]                
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Snake" in Enemy2["Type"] or "Serpent" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.55
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Crawler" in Enemy2["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite"]
-        elif "Elemental" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast"] 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick"]
-        elif "Horror" in Enemy2["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]     
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
-        elif "Crow" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.55
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Walker" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Front Kick","Straight Punch"]
-        elif "Wraith" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch"]
-        elif "Warrior" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Servant" in Enemy2["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Bat" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Stalker" in Enemy2["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Life Drain","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Front Kick","Straight Punch"]
-        elif "Sprite" in Enemy2["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast"]                       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Front Kick"]
-        elif "Lord" in Enemy2["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]                       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Assassin" in Enemy2["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Quick Stab","Front Kick"]
-        elif "Spawn" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Slash","Front Kick"]
-        elif "Acolyte" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Devour Essence"]                            
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Blacksmith" in Enemy2["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Empower"]          
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Soldier" in Enemy2["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Experiment" in Enemy2["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Front Kick","Tackle"]
-        elif "Ogre" in Enemy2["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Bite","Front Kick"]
-        elif "Potion" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Toxin Spray"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Tackle"]
-        elif "Ooze" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Toxin Spray"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Tackle"]
-        elif "Warden" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Shock","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Guard" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Raider" in Enemy2["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Robber" in Enemy2["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Front Kick"]
-        elif "Troll" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]                        
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Front Kick"]
-        elif "Thief" in Enemy2["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]    
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Quick Stab","Front Kick"]
-        elif "Guardian" in Enemy2["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Front Kick"]
-        elif "Lich" in Enemy2["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Champion" in Enemy2["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Automaton" in Enemy2["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Zombie" in Enemy2["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move+= ["Empower"]
-            elif Spell_Caster == False:
-                Move += ["Impulsive Swing","Tackle","Bite","Headbutt"]
-        elif "Phantom" in Enemy2["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.75
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Devour Essence","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Tackle"]
+            if "Cultist" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Quick Stab","Blood Offering"]
+            elif "Berserker" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Ice Shard","Empower"]                       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Bite","Slash","Quick Stab","Blood Frenzy"]
+            elif "Rat" in Enemy2["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Golem" in Enemy2["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Tremor"]                      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Tackle","Groundbreaker"]
+            elif "Skeleton" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain"]               
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Warrior" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard"] 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Slash","Quick Stab","Axe Kick","Front Kick"]
+            elif "Apprentice" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                        
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Wolf" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Slash","Tackle"]
+            elif "Bandit" in Enemy2["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Fireball","Empower"]                      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Slash","Quick Stab"]
+            elif "Kobold" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
+            elif "Goblin" in Enemy2["Type"]and "Fighter" not in Enemy2["Type"] and "Archer" not in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Empower"]    
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Ghost" in Enemy2["Type"]:
+                Spell_Caster = True
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Devour Essence"]
+            elif "Imp" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Mana Blast"]                 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Gladiator" in Enemy2["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Empower"] 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Spinning Back Kick","Headbutt","Slash","Quick Stab"]
+            elif "Executioner" in Enemy2["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Slash","Front Kick"]
+            elif "Scavenger" in Enemy2["Type"]:
+                Attack_Chance = 0.3
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Quick Stab","Front Kick"]
+            elif "Homunculus" in Enemy2["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Devour Essence"]                    
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick"]
+            elif "Archer" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Aimed Shot"]
+            elif "Spearman" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball"]                     
+                elif Spell_Caster == False:
+                    Move += ["Front Kick","Slash","Quick Stab"]
+            elif "Spirit" in Enemy2["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Life Drain"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing"]
+            elif "Summoner" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower","Summon"]      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Demon" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Fireball","Devour Essence","Life Drain"]                        
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
+            elif "Hound" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Fighter" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick","Spinning Back Kick"]
+            elif "Rogue" in Enemy2["Type"] and ("Archer" or "Fighter")not in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                     
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick","Slash","Quick Stab"]
+            elif "Knight" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Duelist" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]           
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Beast" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Slash","Tackle"]
+            elif "Mage" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Ice Shard","Shock","Fireball","Life Drain","Purify","Grappling Vines","River Fist","Mud Shot","Stone Slipstream","Dominate","Heal"]                
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick"]
+            elif "Slime" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]                    
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Tackle"]
+            elif "Trainee" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Axe Kick","Spinning Back Kick","Slash","Quick Stab","Front Kick"]
+            elif "Dog" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]                    
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Artificer" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                     
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Axe Kick","Front Kick"]
+            elif "Spider" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]                
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Snake" in Enemy2["Type"] or "Serpent" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.55
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Crawler" in Enemy2["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite"]
+            elif "Elemental" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast"] 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick"]
+            elif "Horror" in Enemy2["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]     
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
+            elif "Crow" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.55
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Walker" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Front Kick","Straight Punch"]
+            elif "Wraith" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch"]
+            elif "Warrior" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Servant" in Enemy2["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Bat" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Stalker" in Enemy2["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Life Drain","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Front Kick","Straight Punch"]
+            elif "Sprite" in Enemy2["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast"]                       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Front Kick"]
+            elif "Lord" in Enemy2["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]                       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Assassin" in Enemy2["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Quick Stab","Front Kick"]
+            elif "Spawn" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Slash","Front Kick"]
+            elif "Acolyte" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Devour Essence"]                            
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Blacksmith" in Enemy2["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Empower"]          
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Soldier" in Enemy2["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Experiment" in Enemy2["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Front Kick","Tackle"]
+            elif "Ogre" in Enemy2["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Bite","Front Kick"]
+            elif "Potion" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Toxin Spray"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Tackle"]
+            elif "Ooze" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Toxin Spray"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Tackle"]
+            elif "Warden" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Shock","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Guard" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Raider" in Enemy2["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Robber" in Enemy2["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Front Kick"]
+            elif "Troll" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]                        
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Front Kick"]
+            elif "Thief" in Enemy2["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]    
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Quick Stab","Front Kick"]
+            elif "Guardian" in Enemy2["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Front Kick"]
+            elif "Lich" in Enemy2["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Champion" in Enemy2["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Automaton" in Enemy2["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Zombie" in Enemy2["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move+= ["Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Impulsive Swing","Tackle","Bite","Headbutt"]
+            elif "Phantom" in Enemy2["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.75
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Devour Essence","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Tackle"]
 
 
 
 
-        if "Venom" in Enemy2["Type"] or "Swamp" in Enemy2["Type"] or "Bog" in Enemy2["Type"] or "Acid" in Enemy2["Type"] or "Toxic" in Enemy2["Type"] or "Venom" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Poison"
-            Move += ["Toxic Spray"]
-        if "Rot" in Enemy2["Type"] or "Plague" in Enemy2["Type"] or "Disease" in Enemy2["Type"] or "Ruin" in Enemy2["Type"] or "Bone" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Decay"
-            Move += ["Corrupting Touch"]
-        if "Ice" in Enemy2["Type"] or "Frost" in Enemy2["Type"] or "Frozen" in Enemy2["Type"] or "Snow" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Ice"
-            Move += ["Ice Shard"]
-        if "Lightning" in Enemy2["Type"] or "Storm" in Enemy2["Type"] or "Tempest" in Enemy2["Type"] or "Thunder" in Enemy2["Type"] or "Charged" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Lightning"
-            Move += ["Shock"]
-        if "Shadow" in Enemy2["Type"] or "Void" in Enemy2["Type"] or "Dark" in Enemy2["Type"] or "Night" in Enemy2["Type"] or "Phantom" in Enemy2["Type"] or "Lich" in Enemy2["Type"] or "Abyss" in Enemy2["Type"] or "Nightmare" in Enemy2["Type"] or "Demon Lord" in Enemy2["Type"] or "Cursed" in Enemy2["Type"] or "Eclipsed" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Dark"
-            Move += ["Corrupting Touch","Life Drain"]
-        if "Alchemical" in Enemy2["Type"] or "Mutant" in Enemy2["Type"] or "Experiment" in Enemy2["Type"] or "Potion" in Enemy2["Type"] or "Mutation" in Enemy2["Type"] or "Living" in Enemy2["Type"] or "Mad Alchemist" in Enemy2["Type"] or "Tiny" in Enemy2["Type"] or "Chemical" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Chemical"
-            Move += ["Toxin Spray"]
-        if "Fire" in Enemy2["Type"] or "Flame" in Enemy2["Type"] or "Burning" in Enemy2["Type"] or "Molten" in Enemy2["Type"] or "Inferno" in Enemy2["Type"] or  "Demon" in Enemy2["Type"] or "Ash" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Fire"
-            Move += ["Fireball"]
-        if "Shield" in Enemy2["Type"] or "Stone" in Enemy2["Type"] or "Heavy" in Enemy2["Type"] or "Rust" in Enemy2["Type"] or "Steel" in Enemy2["Type"]:
-            Enemy2["Defense"] += round(Enemy2["Defense"] * 0.01)
-            Move += ["Groundbreaker"]
-        if "Ritual" in Enemy2["Type"] or "Ancient" in Enemy2["Type"] or "Tomb" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Cursed"
-            Move += ["Devour Essence"]
-        if "Bridge" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Bridge"
-        if "Armory" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Armory"
-        if "Arena" in Enemy2["Type"] or "Pit" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Crowd"
-            Move += ["Empower"]
-        if "Rogue" in Enemy2["Type"] or "Wind" in Enemy2["Type"] or "Dust" in Enemy2["Type"]:
-            Enemy2["Attribute "] = "Agile"
-            Enemy2["Speed"] += round(Enemy2["Speed"] * 0.01)
-            Move += ["Stone Slipstream"]
-        if "War" in Enemy2["Type"]:
-            Enemy2["Attribute"] = "Aggressive"
-            Enemy2["Attack"] += round(Enemy2["Attack"] * 0.05)
-            Move += ["Empower"]
+            if "Venom" in Enemy2["Type"] or "Swamp" in Enemy2["Type"] or "Bog" in Enemy2["Type"] or "Acid" in Enemy2["Type"] or "Toxic" in Enemy2["Type"] or "Venom" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Poison"
+                Move += ["Toxic Spray"]
+            if "Rot" in Enemy2["Type"] or "Plague" in Enemy2["Type"] or "Disease" in Enemy2["Type"] or "Ruin" in Enemy2["Type"] or "Bone" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Decay"
+                Move += ["Corrupting Touch"]
+            if "Ice" in Enemy2["Type"] or "Frost" in Enemy2["Type"] or "Frozen" in Enemy2["Type"] or "Snow" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Ice"
+                Move += ["Ice Shard"]
+            if "Lightning" in Enemy2["Type"] or "Storm" in Enemy2["Type"] or "Tempest" in Enemy2["Type"] or "Thunder" in Enemy2["Type"] or "Charged" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Lightning"
+                Move += ["Shock"]
+            if "Shadow" in Enemy2["Type"] or "Void" in Enemy2["Type"] or "Dark" in Enemy2["Type"] or "Night" in Enemy2["Type"] or "Phantom" in Enemy2["Type"] or "Lich" in Enemy2["Type"] or "Abyss" in Enemy2["Type"] or "Nightmare" in Enemy2["Type"] or "Demon Lord" in Enemy2["Type"] or "Cursed" in Enemy2["Type"] or "Eclipsed" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Dark"
+                Move += ["Corrupting Touch","Life Drain"]
+            if "Alchemical" in Enemy2["Type"] or "Mutant" in Enemy2["Type"] or "Experiment" in Enemy2["Type"] or "Potion" in Enemy2["Type"] or "Mutation" in Enemy2["Type"] or "Living" in Enemy2["Type"] or "Mad Alchemist" in Enemy2["Type"] or "Tiny" in Enemy2["Type"] or "Chemical" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Chemical"
+                Move += ["Toxin Spray"]
+            if "Fire" in Enemy2["Type"] or "Flame" in Enemy2["Type"] or "Burning" in Enemy2["Type"] or "Molten" in Enemy2["Type"] or "Inferno" in Enemy2["Type"] or  "Demon" in Enemy2["Type"] or "Ash" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Fire"
+                Move += ["Fireball"]
+            if "Shield" in Enemy2["Type"] or "Stone" in Enemy2["Type"] or "Heavy" in Enemy2["Type"] or "Rust" in Enemy2["Type"] or "Steel" in Enemy2["Type"]:
+                Enemy2["Defense"] += round(Enemy2["Defense"] * 0.01)
+                Move += ["Groundbreaker"]
+            if "Ritual" in Enemy2["Type"] or "Ancient" in Enemy2["Type"] or "Tomb" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Cursed"
+                Move += ["Devour Essence"]
+            if "Bridge" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Bridge"
+            if "Armory" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Armory"
+            if "Arena" in Enemy2["Type"] or "Pit" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Crowd"
+                Move += ["Empower"]
+            if "Rogue" in Enemy2["Type"] or "Wind" in Enemy2["Type"] or "Dust" in Enemy2["Type"]:
+                Enemy2["Attribute "] = "Agile"
+                Enemy2["Speed"] += round(Enemy2["Speed"] * 0.01)
+                Move += ["Stone Slipstream"]
+            if "War" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Aggressive"
+                Enemy2["Attack"] += round(Enemy2["Attack"] * 0.05)
+                Move += ["Empower"]
 
-        if Enemy2["Category"] == "Undead":
-            Move += ["Corrupting Touch"]
-            if Attack_Chance <= 0.9 and Defense_Chance <= 0.9:
-                Attack_Chance += 0.1
-                Defense_Chance += 0.1
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
+            if Enemy2["Category"] == "Undead":
+                Move += ["Corrupting Touch"]
+                if Attack_Chance <= 0.9 and Defense_Chance <= 0.9:
+                    Attack_Chance += 0.1
+                    Defense_Chance += 0.1
+                else:
+                    Attack_Chance = 1
+                    Defense_Chance = 0
 
-        if Enemy2["Category"] == "Humanoid":
-            Move += ["Mana Blast"]
-            if Attack_Chance >= 0.1:
-                Attack_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-                
-        if Enemy2["Category"] == "Demon":
-            Move += ["Fireball"]
-            if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
-                Attack_Chance += 0.2
-                Defense_Chance += 0.2
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
-        if Enemy2["Category"] == "Beast":
-            Move += ["Empower"]
-            if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
-                Attack_Chance += 0.2
-                Defense_Chance += 0.2
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
-                
-        if Enemy2["Category"] == "Abberation":
-            m = random.randint(1,3)
-            if m == 1:
+            if Enemy2["Category"] == "Humanoid":
+                Move += ["Mana Blast"]
+                if Attack_Chance >= 0.1:
+                    Attack_Chance -= 0.1
+                else:
+                    Attack_Chance = 0
+                    
+            if Enemy2["Category"] == "Demon":
+                Move += ["Fireball"]
                 if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
                     Attack_Chance += 0.2
                     Defense_Chance += 0.2
                 else:
                     Attack_Chance = 1
                     Defense_Chance = 0
-            if m == 2:
-                if Attack_Chance >= 0.2:
-                    Attack_Chance -= 0.2
+            if Enemy2["Category"] == "Beast":
+                Move += ["Empower"]
+                if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
+                    Attack_Chance += 0.2
+                    Defense_Chance += 0.2
+                else:
+                    Attack_Chance = 1
+                    Defense_Chance = 0
+                    
+            if Enemy2["Category"] == "Abberation":
+                m = random.randint(1,3)
+                if m == 1:
+                    if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
+                        Attack_Chance += 0.2
+                        Defense_Chance += 0.2
+                    else:
+                        Attack_Chance = 1
+                        Defense_Chance = 0
+                if m == 2:
+                    if Attack_Chance >= 0.2:
+                        Attack_Chance -= 0.2
+                    else:
+                        Attack_Chance = 0
+                if m == 3:
+                    if Attack_Chance >= 0.2 and Defense_Chance >= 0.2:
+                        Attack_Chance -= 0.2
+                        Defense_Chance -= 0.2
+                    else:
+                        Attack_Chance = 0
+                        Defense_Chance = 0
+            if Enemy2["Category"] == "Construct":
+                if Attack_Chance >= 0.1:
+                    Attack_Chance -= 0.1
                 else:
                     Attack_Chance = 0
-            if m == 3:
-                if Attack_Chance >= 0.2 and Defense_Chance >= 0.2:
-                    Attack_Chance -= 0.2
-                    Defense_Chance -= 0.2
+            if Enemy2["Category"] == "Elemental":
+                Enemy2["Magic Density"] *= 1.01
+                Enemy2["Magic Density"] = round(Enemy2["Magic Density"])
+            if Enemy2["Behaviour"] == "Aggressive":
+                if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
+                    Attack_Chance += 0.2
+                    Defense_Chance += 0.2
+                else:
+                    Attack_Chance = 1
+                    Defense_Chance = 0
+            if Enemy2["Behaviour"] == "Defensive":
+                if Attack_Chance >= 0.1:
+                    Attack_Chance -= 0.1
+                else:
+                    Attack_Chance = 0
+            if Enemy2["Behaviour"] == "Evasive":
+                if Attack_Chance >= 0.1 and Defense_Chance >= 0.1:
+                    Attack_Chance -= 0.1
+                    Defense_Chance -= 0.1
                 else:
                     Attack_Chance = 0
                     Defense_Chance = 0
-        if Enemy2["Category"] == "Construct":
-            if Attack_Chance >= 0.1:
-                Attack_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-        if Enemy2["Category"] == "Elemental":
-            Enemy2["Magic Density"] *= 1.01
-            Enemy2["Magic Density"] = round(Enemy2["Magic Density"])
-        if Enemy2["Behaviour"] == "Aggressive":
-            if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
-                Attack_Chance += 0.2
-                Defense_Chance += 0.2
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
-        if Enemy2["Behaviour"] == "Defensive":
-            if Attack_Chance >= 0.1:
-                Attack_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-        if Enemy2["Behaviour"] == "Evasive":
-            if Attack_Chance >= 0.1 and Defense_Chance >= 0.1:
-                Attack_Chance -= 0.1
-                Defense_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-                Defense_Chance = 0
-            
-        while True:
-            Move_Selected = random.choice(Move)
                 
+            Move_Selected = random.choice(Move)
+
                     
             ratio = random.random()
             if ratio <= Attack_Chance:
@@ -1482,7 +1482,7 @@ class Enemy_Battle:
                         elif Move_Selected in ["Toxin Spray"] and Turn_Time >= 0.5:
                             Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Elemental.Dark.Toxin_Spray(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
                             break
-                    elif Move_Selected in ["Straight Punch"] and Turn_Time >= 0.5:
+                    if Move_Selected in ["Straight Punch"] and Turn_Time >= 0.5:
                         Player_copy,Enemy2,Turn_Time = EM.Melee_Moves.Arms.Straight_Punch(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
                         break
                     elif Move_Selected in ["Impulsive Swing"] and Turn_Time >= 1:
@@ -1523,6 +1523,9 @@ class Enemy_Battle:
                         break
                     elif Move_Selected in ["Groundbreaker"] and Turn_Time >= 1:
                         Player_copy,Enemy2,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Groundbreaker(Player_Skip,Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
+                        break
+                    else:
+                        Turn_Time -= Turn_Time
                         break
             elif ratio > Attack_Chance and ratio <= Defense_Chance:
                 Turn_Time -= Turn_Time
@@ -1570,620 +1573,618 @@ class Enemy_Battle:
         Spell_Caster = False
         target = Enemy3
 
-        
-        if Enemy3["Mana"] > 0:
-            Spell_Caster = random.choice([False,True])
+        while True:
+            
+            if Enemy3["Mana"] > 0:
+                Spell_Caster = random.choice([False,True])
             
 
-        
-
-        if "Cultist" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Life Drain","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Quick Stab","Blood Offering"]
-        elif "Berserker" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Ice Shard","Empower"]                       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Bite","Slash","Quick Stab","Blood Frenzy"]
-        elif "Rat" in Enemy3["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Golem" in Enemy3["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Tremor"]                      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Tackle","Groundbreaker"]
-        elif "Skeleton" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain"]               
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Warrior" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard"] 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Slash","Quick Stab","Axe Kick","Front Kick"]
-        elif "Apprentice" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                        
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Wolf" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Slash","Tackle"]
-        elif "Bandit" in Enemy3["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Fireball","Empower"]                      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Slash","Quick Stab"]
-        elif "Kobold" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
-        elif "Goblin" in Enemy3["Type"]and "Fighter" not in Enemy3["Type"] and "Archer" not in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Empower"]    
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Ghost" in Enemy3["Type"]:
-            Spell_Caster = True
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Life Drain","Devour Essence"]
-        elif "Imp" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Life Drain","Mana Blast"]                 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Gladiator" in Enemy3["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Empower"] 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Spinning Back Kick","Headbutt","Slash","Quick Stab"]
-        elif "Executioner" in Enemy3["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Slash","Front Kick"]
-        elif "Scavenger" in Enemy3["Type"]:
-            Attack_Chance = 0.3
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Quick Stab","Front Kick"]
-        elif "Homunculus" in Enemy3["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Life Drain","Devour Essence"]                    
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick"]
-        elif "Archer" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Aimed Shot"]
-        elif "Spearman" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball"]                     
-            elif Spell_Caster == False:
-                Move += ["Front Kick","Slash","Quick Stab"]
-        elif "Spirit" in Enemy3["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Life Drain"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing"]
-        elif "Summoner" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower","Summon"]      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Front Kick"]
-        elif "Demon" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Fireball","Devour Essence","Life Drain"]                        
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
-        elif "Hound" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Fighter" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick","Spinning Back Kick"]
-        elif "Rogue" in Enemy3["Type"] and ("Archer" or "Fighter")not in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                     
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick","Slash","Quick Stab"]
-        elif "Knight" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Duelist" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]           
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Beast" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Slash","Tackle"]
-        elif "Mage" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Ice Shard","Shock","Fireball","Life Drain","Purify","Grappling Vines","River Fist","Mud Shot","Stone Slipstream","Dominate","Heal"]                
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick"]
-        elif "Slime" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]                    
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Tackle"]
-        elif "Trainee" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Axe Kick","Spinning Back Kick","Slash","Quick Stab","Front Kick"]
-        elif "Dog" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]                    
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Artificer" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                     
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Axe Kick","Front Kick"]
-        elif "Spider" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]                
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Snake" in Enemy3["Type"] or "Serpent" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.55
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Crawler" in Enemy3["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite"]
-        elif "Elemental" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast"] 
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Front Kick"]
-        elif "Horror" in Enemy3["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]     
-            elif Spell_Caster == False:
-                Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
-        elif "Crow" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.55
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Walker" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Front Kick","Straight Punch"]
-        elif "Wraith" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch"]
-        elif "Warrior" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Servant" in Enemy3["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Bat" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Bite","Tackle"]
-        elif "Stalker" in Enemy3["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Life Drain","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Front Kick","Straight Punch"]
-        elif "Sprite" in Enemy3["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast"]                       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Front Kick"]
-        elif "Lord" in Enemy3["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]                       
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Assassin" in Enemy3["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Quick Stab","Front Kick"]
-        elif "Spawn" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Slash","Front Kick"]
-        elif "Acolyte" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Devour Essence"]                            
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Blacksmith" in Enemy3["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Empower"]          
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Soldier" in Enemy3["Type"]:
-            Attack_Chance = 0.9
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Experiment" in Enemy3["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Front Kick","Tackle"]
-        elif "Ogre" in Enemy3["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Bite","Front Kick"]
-        elif "Potion" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Toxin Spray"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Tackle"]
-        elif "Ooze" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Toxin Spray"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Tackle"]
-        elif "Warden" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Shock","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Guard" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Raider" in Enemy3["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.85
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Robber" in Enemy3["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.7
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Front Kick"]
-        elif "Troll" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]                        
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Front Kick"]
-        elif "Thief" in Enemy3["Type"]:
-            Attack_Chance = 0.4
-            Defense_Chance = 0.6
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]    
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Quick Stab","Front Kick"]
-        elif "Guardian" in Enemy3["Type"]:
-            Attack_Chance = 0.5
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Front Kick"]
-        elif "Lich" in Enemy3["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Corrupting Touch","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Champion" in Enemy3["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.9
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
-        elif "Automaton" in Enemy3["Type"]:
-            Attack_Chance = 0.6
-            Defense_Chance = 0.8
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
-        elif "Zombie" in Enemy3["Type"]:
-            Attack_Chance = 0.8
-            Defense_Chance = 0.95
-            if Spell_Caster == True:
-                Move+= ["Empower"]
-            elif Spell_Caster == False:
-                Move += ["Impulsive Swing","Tackle","Bite","Headbutt"]
-        elif "Phantom" in Enemy3["Type"]:
-            Attack_Chance = 0.7
-            Defense_Chance = 0.75
-            if Spell_Caster == True:
-                Move += ["Mana Blast","Life Drain","Devour Essence","Empower"]
-            elif Spell_Caster == False:
-                Move += ["Tackle"]
+            if "Cultist" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Quick Stab","Blood Offering"]
+            elif "Berserker" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Ice Shard","Empower"]                       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Bite","Slash","Quick Stab","Blood Frenzy"]
+            elif "Rat" in Enemy3["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Golem" in Enemy3["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Tremor"]                      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Tackle","Groundbreaker"]
+            elif "Skeleton" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain"]               
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Warrior" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard"] 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Slash","Quick Stab","Axe Kick","Front Kick"]
+            elif "Apprentice" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                        
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Wolf" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Slash","Tackle"]
+            elif "Bandit" in Enemy3["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Fireball","Empower"]                      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Slash","Quick Stab"]
+            elif "Kobold" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
+            elif "Goblin" in Enemy3["Type"]and "Fighter" not in Enemy3["Type"] and "Archer" not in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Empower"]    
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Ghost" in Enemy3["Type"]:
+                Spell_Caster = True
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Devour Essence"]
+            elif "Imp" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Mana Blast"]                 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Gladiator" in Enemy3["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Empower"] 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Spinning Back Kick","Headbutt","Slash","Quick Stab"]
+            elif "Executioner" in Enemy3["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Slash","Front Kick"]
+            elif "Scavenger" in Enemy3["Type"]:
+                Attack_Chance = 0.3
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Quick Stab","Front Kick"]
+            elif "Homunculus" in Enemy3["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Life Drain","Devour Essence"]                    
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick"]
+            elif "Archer" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Aimed Shot"]
+            elif "Spearman" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball"]                     
+                elif Spell_Caster == False:
+                    Move += ["Front Kick","Slash","Quick Stab"]
+            elif "Spirit" in Enemy3["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Life Drain"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing"]
+            elif "Summoner" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower","Summon"]      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Front Kick"]
+            elif "Demon" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Fireball","Devour Essence","Life Drain"]                        
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
+            elif "Hound" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Fighter" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick","Spinning Back Kick"]
+            elif "Rogue" in Enemy3["Type"] and ("Archer" or "Fighter")not in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                     
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick","Slash","Quick Stab"]
+            elif "Knight" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Duelist" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]           
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Beast" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Slash","Tackle"]
+            elif "Mage" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Ice Shard","Shock","Fireball","Life Drain","Purify","Grappling Vines","River Fist","Mud Shot","Stone Slipstream","Dominate","Heal"]                
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick"]
+            elif "Slime" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]                    
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Tackle"]
+            elif "Trainee" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]                      
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Axe Kick","Spinning Back Kick","Slash","Quick Stab","Front Kick"]
+            elif "Dog" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]                    
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Artificer" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Life Drain"]                     
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Axe Kick","Front Kick"]
+            elif "Spider" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]                
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Snake" in Enemy3["Type"] or "Serpent" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.55
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Crawler" in Enemy3["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite"]
+            elif "Elemental" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast"] 
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Front Kick"]
+            elif "Horror" in Enemy3["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]     
+                elif Spell_Caster == False:
+                    Move += ["Straight Punch","Impulsive Swing","Bite","Front Kick"]
+            elif "Crow" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.55
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Walker" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Front Kick","Straight Punch"]
+            elif "Wraith" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch","Devour Essence"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch"]
+            elif "Warrior" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Servant" in Enemy3["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Bat" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Bite","Tackle"]
+            elif "Stalker" in Enemy3["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Life Drain","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Front Kick","Straight Punch"]
+            elif "Sprite" in Enemy3["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast"]                       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Front Kick"]
+            elif "Lord" in Enemy3["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]                       
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Assassin" in Enemy3["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Quick Stab","Front Kick"]
+            elif "Spawn" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Slash","Front Kick"]
+            elif "Acolyte" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Devour Essence"]                            
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Blacksmith" in Enemy3["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Empower"]          
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Soldier" in Enemy3["Type"]:
+                Attack_Chance = 0.9
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Experiment" in Enemy3["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Front Kick","Tackle"]
+            elif "Ogre" in Enemy3["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Bite","Front Kick"]
+            elif "Potion" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Toxin Spray"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Tackle"]
+            elif "Ooze" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Toxin Spray"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Tackle"]
+            elif "Warden" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Shock","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Guard" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Raider" in Enemy3["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.85
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Robber" in Enemy3["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.7
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Front Kick"]
+            elif "Troll" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]                        
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Front Kick"]
+            elif "Thief" in Enemy3["Type"]:
+                Attack_Chance = 0.4
+                Defense_Chance = 0.6
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]    
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Quick Stab","Front Kick"]
+            elif "Guardian" in Enemy3["Type"]:
+                Attack_Chance = 0.5
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Front Kick"]
+            elif "Lich" in Enemy3["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Corrupting Touch","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Champion" in Enemy3["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.9
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Fireball","Ice Shard","Shock","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Straight Punch","Slash","Quick Stab","Front Kick"]
+            elif "Automaton" in Enemy3["Type"]:
+                Attack_Chance = 0.6
+                Defense_Chance = 0.8
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Headbutt","Impulsive Swing","Straight Punch","Front Kick"]
+            elif "Zombie" in Enemy3["Type"]:
+                Attack_Chance = 0.8
+                Defense_Chance = 0.95
+                if Spell_Caster == True:
+                    Move+= ["Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Impulsive Swing","Tackle","Bite","Headbutt"]
+            elif "Phantom" in Enemy3["Type"]:
+                Attack_Chance = 0.7
+                Defense_Chance = 0.75
+                if Spell_Caster == True:
+                    Move += ["Mana Blast","Life Drain","Devour Essence","Empower"]
+                elif Spell_Caster == False:
+                    Move += ["Tackle"]
 
 
 
 
-        if "Venom" in Enemy3["Type"] or "Swamp" in Enemy3["Type"] or "Bog" in Enemy3["Type"] or "Acid" in Enemy3["Type"] or "Toxic" in Enemy3["Type"] or "Venom" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Poison"
-            Move += ["Toxic Spray"]
-        if "Rot" in Enemy3["Type"] or "Plague" in Enemy3["Type"] or "Disease" in Enemy3["Type"] or "Ruin" in Enemy3["Type"] or "Bone" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Decay"
-            Move += ["Corrupting Touch"]
-        if "Ice" in Enemy3["Type"] or "Frost" in Enemy3["Type"] or "Frozen" in Enemy3["Type"] or "Snow" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Ice"
-            Move += ["Ice Shard"]
-        if "Lightning" in Enemy3["Type"] or "Storm" in Enemy3["Type"] or "Tempest" in Enemy3["Type"] or "Thunder" in Enemy3["Type"] or "Charged" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Lightning"
-            Move += ["Shock"]
-        if "Shadow" in Enemy3["Type"] or "Void" in Enemy3["Type"] or "Dark" in Enemy3["Type"] or "Night" in Enemy3["Type"] or "Phantom" in Enemy3["Type"] or "Lich" in Enemy3["Type"] or "Abyss" in Enemy3["Type"] or "Nightmare" in Enemy3["Type"] or "Demon Lord" in Enemy3["Type"] or "Cursed" in Enemy3["Type"] or "Eclipsed" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Dark"
-            Move += ["Corrupting Touch","Life Drain"]
-        if "Alchemical" in Enemy3["Type"] or "Mutant" in Enemy3["Type"] or "Experiment" in Enemy3["Type"] or "Potion" in Enemy3["Type"] or "Mutation" in Enemy3["Type"] or "Living" in Enemy3["Type"] or "Mad Alchemist" in Enemy3["Type"] or "Tiny" in Enemy3["Type"] or "Chemical" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Chemical"
-            Move += ["Toxin Spray"]
-        if "Fire" in Enemy3["Type"] or "Flame" in Enemy3["Type"] or "Burning" in Enemy3["Type"] or "Molten" in Enemy3["Type"] or "Inferno" in Enemy3["Type"] or  "Demon" in Enemy3["Type"] or "Ash" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Fire"
-            Move += ["Fireball"]
-        if "Shield" in Enemy3["Type"] or "Stone" in Enemy3["Type"] or "Heavy" in Enemy3["Type"] or "Rust" in Enemy3["Type"] or "Steel" in Enemy3["Type"]:
-            Enemy3["Defense"] += round(Enemy3["Defense"] * 0.01)
-            Move += ["Groundbreaker"]
-        if "Ritual" in Enemy3["Type"] or "Ancient" in Enemy3["Type"] or "Tomb" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Cursed"
-            Move += ["Devour Essence"]
-        if "Bridge" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Bridge"
-        if "Armory" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Armory"
-        if "Arena" in Enemy3["Type"] or "Pit" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Crowd"
-            Move += ["Empower"]
-        if "Rogue" in Enemy3["Type"] or "Wind" in Enemy3["Type"] or "Dust" in Enemy3["Type"]:
-            Enemy3["Attribute "] = "Agile"
-            Enemy3["Speed"] += round(Enemy3["Speed"] * 0.01)
-            Move += ["Stone Slipstream"]
-        if "War" in Enemy3["Type"]:
-            Enemy3["Attribute"] = "Aggressive"
-            Enemy3["Attack"] += round(Enemy3["Attack"] * 0.05)
-            Move += ["Empower"]
+            if "Venom" in Enemy3["Type"] or "Swamp" in Enemy3["Type"] or "Bog" in Enemy3["Type"] or "Acid" in Enemy3["Type"] or "Toxic" in Enemy3["Type"] or "Venom" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Poison"
+                Move += ["Toxic Spray"]
+            if "Rot" in Enemy3["Type"] or "Plague" in Enemy3["Type"] or "Disease" in Enemy3["Type"] or "Ruin" in Enemy3["Type"] or "Bone" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Decay"
+                Move += ["Corrupting Touch"]
+            if "Ice" in Enemy3["Type"] or "Frost" in Enemy3["Type"] or "Frozen" in Enemy3["Type"] or "Snow" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Ice"
+                Move += ["Ice Shard"]
+            if "Lightning" in Enemy3["Type"] or "Storm" in Enemy3["Type"] or "Tempest" in Enemy3["Type"] or "Thunder" in Enemy3["Type"] or "Charged" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Lightning"
+                Move += ["Shock"]
+            if "Shadow" in Enemy3["Type"] or "Void" in Enemy3["Type"] or "Dark" in Enemy3["Type"] or "Night" in Enemy3["Type"] or "Phantom" in Enemy3["Type"] or "Lich" in Enemy3["Type"] or "Abyss" in Enemy3["Type"] or "Nightmare" in Enemy3["Type"] or "Demon Lord" in Enemy3["Type"] or "Cursed" in Enemy3["Type"] or "Eclipsed" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Dark"
+                Move += ["Corrupting Touch","Life Drain"]
+            if "Alchemical" in Enemy3["Type"] or "Mutant" in Enemy3["Type"] or "Experiment" in Enemy3["Type"] or "Potion" in Enemy3["Type"] or "Mutation" in Enemy3["Type"] or "Living" in Enemy3["Type"] or "Mad Alchemist" in Enemy3["Type"] or "Tiny" in Enemy3["Type"] or "Chemical" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Chemical"
+                Move += ["Toxin Spray"]
+            if "Fire" in Enemy3["Type"] or "Flame" in Enemy3["Type"] or "Burning" in Enemy3["Type"] or "Molten" in Enemy3["Type"] or "Inferno" in Enemy3["Type"] or  "Demon" in Enemy3["Type"] or "Ash" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Fire"
+                Move += ["Fireball"]
+            if "Shield" in Enemy3["Type"] or "Stone" in Enemy3["Type"] or "Heavy" in Enemy3["Type"] or "Rust" in Enemy3["Type"] or "Steel" in Enemy3["Type"]:
+                Enemy3["Defense"] += round(Enemy3["Defense"] * 0.01)
+                Move += ["Groundbreaker"]
+            if "Ritual" in Enemy3["Type"] or "Ancient" in Enemy3["Type"] or "Tomb" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Cursed"
+                Move += ["Devour Essence"]
+            if "Bridge" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Bridge"
+            if "Armory" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Armory"
+            if "Arena" in Enemy3["Type"] or "Pit" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Crowd"
+                Move += ["Empower"]
+            if "Rogue" in Enemy3["Type"] or "Wind" in Enemy3["Type"] or "Dust" in Enemy3["Type"]:
+                Enemy3["Attribute "] = "Agile"
+                Enemy3["Speed"] += round(Enemy3["Speed"] * 0.01)
+                Move += ["Stone Slipstream"]
+            if "War" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Aggressive"
+                Enemy3["Attack"] += round(Enemy3["Attack"] * 0.05)
+                Move += ["Empower"]
 
-        if Enemy3["Category"] == "Undead":
-            Move += ["Corrupting Touch"]
-            if Attack_Chance <= 0.9 and Defense_Chance <= 0.9:
-                Attack_Chance += 0.1
-                Defense_Chance += 0.1
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
+            if Enemy3["Category"] == "Undead":
+                Move += ["Corrupting Touch"]
+                if Attack_Chance <= 0.9 and Defense_Chance <= 0.9:
+                    Attack_Chance += 0.1
+                    Defense_Chance += 0.1
+                else:
+                    Attack_Chance = 1
+                    Defense_Chance = 0
 
-        if Enemy3["Category"] == "Humanoid":
-            Move += ["Mana Blast"]
-            if Attack_Chance >= 0.1:
-                Attack_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-                
-        if Enemy3["Category"] == "Demon":
-            Move += ["Fireball"]
-            if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
-                Attack_Chance += 0.2
-                Defense_Chance += 0.2
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
-        if Enemy3["Category"] == "Beast":
-            Move += ["Empower"]
-            if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
-                Attack_Chance += 0.2
-                Defense_Chance += 0.2
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
-                
-        if Enemy3["Category"] == "Abberation":
-            m = random.randint(1,3)
-            if m == 1:
+            if Enemy3["Category"] == "Humanoid":
+                Move += ["Mana Blast"]
+                if Attack_Chance >= 0.1:
+                    Attack_Chance -= 0.1
+                else:
+                    Attack_Chance = 0
+                    
+            if Enemy3["Category"] == "Demon":
+                Move += ["Fireball"]
                 if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
                     Attack_Chance += 0.2
                     Defense_Chance += 0.2
                 else:
                     Attack_Chance = 1
                     Defense_Chance = 0
-            if m == 2:
-                if Attack_Chance >= 0.2:
-                    Attack_Chance -= 0.2
+            if Enemy3["Category"] == "Beast":
+                Move += ["Empower"]
+                if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
+                    Attack_Chance += 0.2
+                    Defense_Chance += 0.2
+                else:
+                    Attack_Chance = 1
+                    Defense_Chance = 0
+                    
+            if Enemy3["Category"] == "Abberation":
+                m = random.randint(1,3)
+                if m == 1:
+                    if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
+                        Attack_Chance += 0.2
+                        Defense_Chance += 0.2
+                    else:
+                        Attack_Chance = 1
+                        Defense_Chance = 0
+                if m == 2:
+                    if Attack_Chance >= 0.2:
+                        Attack_Chance -= 0.2
+                    else:
+                        Attack_Chance = 0
+                if m == 3:
+                    if Attack_Chance >= 0.2 and Defense_Chance >= 0.2:
+                        Attack_Chance -= 0.2
+                        Defense_Chance -= 0.2
+                    else:
+                        Attack_Chance = 0
+                        Defense_Chance = 0
+            if Enemy3["Category"] == "Construct":
+                if Attack_Chance >= 0.1:
+                    Attack_Chance -= 0.1
                 else:
                     Attack_Chance = 0
-            if m == 3:
-                if Attack_Chance >= 0.2 and Defense_Chance >= 0.2:
-                    Attack_Chance -= 0.2
-                    Defense_Chance -= 0.2
+            if Enemy3["Category"] == "Elemental":
+                Enemy3["Magic Density"] *= 1.01
+                Enemy3["Magic Density"] = round(Enemy3["Magic Density"])
+            if Enemy3["Behaviour"] == "Aggressive":
+                if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
+                    Attack_Chance += 0.2
+                    Defense_Chance += 0.2
+                else:
+                    Attack_Chance = 1
+                    Defense_Chance = 0
+            if Enemy3["Behaviour"] == "Defensive":
+                if Attack_Chance >= 0.1:
+                    Attack_Chance -= 0.1
+                else:
+                    Attack_Chance = 0
+            if Enemy3["Behaviour"] == "Evasive":
+                if Attack_Chance >= 0.1 and Defense_Chance >= 0.1:
+                    Attack_Chance -= 0.1
+                    Defense_Chance -= 0.1
                 else:
                     Attack_Chance = 0
                     Defense_Chance = 0
-        if Enemy3["Category"] == "Construct":
-            if Attack_Chance >= 0.1:
-                Attack_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-        if Enemy3["Category"] == "Elemental":
-            Enemy3["Magic Density"] *= 1.01
-            Enemy3["Magic Density"] = round(Enemy3["Magic Density"])
-        if Enemy3["Behaviour"] == "Aggressive":
-            if Attack_Chance <= 0.8 and Defense_Chance <= 0.8:
-                Attack_Chance += 0.2
-                Defense_Chance += 0.2
-            else:
-                Attack_Chance = 1
-                Defense_Chance = 0
-        if Enemy3["Behaviour"] == "Defensive":
-            if Attack_Chance >= 0.1:
-                Attack_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-        if Enemy3["Behaviour"] == "Evasive":
-            if Attack_Chance >= 0.1 and Defense_Chance >= 0.1:
-                Attack_Chance -= 0.1
-                Defense_Chance -= 0.1
-            else:
-                Attack_Chance = 0
-                Defense_Chance = 0
 
-        while True:
             Move_Selected = random.choice(Move)
-                
+
                     
             ratio = random.random()
             if ratio <= Attack_Chance:
@@ -2250,7 +2251,7 @@ class Enemy_Battle:
                         elif Move_Selected in ["Toxin Spray"] and Turn_Time >= 0.5:
                             Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Toxin_Spray(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
                             break
-                    elif Move_Selected in ["Straight Punch"] and Turn_Time >= 0.5:
+                    if Move_Selected in ["Straight Punch"] and Turn_Time >= 0.5:
                         Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Straight_Punch(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
                         break
                     elif Move_Selected in ["Impulsive Swing"] and Turn_Time >= 1:
@@ -2291,6 +2292,9 @@ class Enemy_Battle:
                         break
                     elif Move_Selected in ["Groundbreaker"] and Turn_Time >= 1:
                         Player_copy,Enemy3,Turn_Time,Player_Skip = EM.Melee_Moves.Legs.Groundbreaker(Player_Skip,Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                        break
+                    else:
+                        Turn_Time -= Turn_Time
                         break
             elif ratio > Attack_Chance and ratio <= Defense_Chance:
                 Turn_Time -= Turn_Time
