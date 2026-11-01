@@ -33,7 +33,7 @@ Combat_Skill_list = {"Straight Punch":{"Damage":20,"Cost":25,"Level":"Starter","
 Body_Condition = {"Biceps":{"Strength":5},"Triceps":{"Strength":5},"Hands":{"Strength":5},"Shoulders":{"Strength":5},"Chest":{"Strength":5},"Trapezius":{"Strength":5},"Abdomen":{"Strength":5},"Back":{"Strength":5},"Legs":{"Strength":5},"Head":{"Strength":5}}
 Base_Stats = {"XP":0,"XP Needed":100,"Max Health":100,"Health":100,"Attack":10,"Defense":10,"Speed":10,"Magic Density":10,"Magic Damage":10,"Level":1,"Stamina":500,"Critical Chance":5,"Critical Damage":125,"Evasion":2,"Accuracy":75,"Mana":0,"Tower Level":1,"Buff":{"Type":"None","Value":5,"Duration":3}}
 treasure_list = ["Wood","Stone","Cloth","Glass","Spirit Essence","String","Healing Herb","Mana Herb","Bitter Herb","Coal"]
-inventory = {"Orc Tusk":5,"Galvano Flower":5,"Gear":["Copper Dagger"],"Potions":[]}
+inventory = {"Orc Tusk":5,"Galvano Flower":5,"Copper":100,"Wood":100,"Orb":100,"Gear":["Copper Dagger"],"Potions":[]}
 Skill_Tree = {"General": {"Advanced Mind":{"Status":"(Locked)"},"Bloodthirsty":{"Status":"(Locked)"},"Momentum":{"Status":"(Locked)"},"Arcane Echo":{"Status":"(Locked)"},"Fast Recovery":{"Status":"(Locked)"},"Meditative Mind":{"Status":"(Locked)"},"Strong Body":{"Status":"(Locked)"}},"Training": { "Lock": "(Locked)","Lightweight": {"Status": "(Locked)"},"Running": {"Status": "(Locked)"}, "Sword Swing": {"Status": "(Locked)"}, "Weight Carry": {"Status": "(Locked)"}, "Dead Hang": {"Status": "(Locked)"}, "Neck Bridge": {"Status": "(Locked)"}, "Push Up": {"Status": "(Locked)"}} ,"Smithing": { "Lock": "(Locked)","Apprenticeship": {"Status": "(Locked)"},"Hit em": {"Status": "(Locked)"}, "Skill 3": {"Status": "(Locked)"}} ,"Alchemy": { "Lock": "(Locked)","Scientific Cooking": {"Status": "(Locked)"},"Skill 2": {"Status": "(Locked)"}, "Skill 3": {"Status": "(Locked)"}}}
 Unlocked_Functions = {"Training":{"Status": "(Locked)"},"Smithing":{"Status":"(Locked)"},"Alchemy":{"Status":"(Locked)"}}
 name = "player"
@@ -1198,7 +1198,6 @@ while leave == False:
                         print(f"    {Stat}: {Value}")
 
             print("\n" + "-" * Width)
-            back = input("\nPress enter to go back")
             print("\nDo you want to equip or unequip  something?\n")
             confirmation = input("")
             confirmation = confirmation.lower()
@@ -1208,14 +1207,63 @@ while leave == False:
 
 
                     def display_gear():
-                        print("--------------\nGear\n---------------------------------------------\nHead:",Gear["Type"]["Helmet"],"\nShoulder:",Gear["Type"]["Shoulderwear"],"\nArm:",Gear["Type"]["Armwear"],"\nChest:",Gear["Type"]["Chestplate"],"\nLeg:",Gear["Type"]["Legwear"],"\nFeet:",Gear["Type"]["Footwear"],"\n---------------------------------------------")
-                        if Gear["Type"]["Weapon"] != {"None":{"Attack":0,"Magic Damage":0,"Critical Chance":0,"Speed":0,"Defense":0,"Max Health":0}}:
-                            print("Weapon:", Gear["Type"]["Weapon"])
-                            print("---------------------------------------------")
-                        print("\n\nInventory\n---------------------------------------------")
-                        for key,value in inventory.items():
-                            print(key,":",value,"\n")
-                        print("---------------------------------------------")
+                        Width = 45
+            
+                        print("\n" + "-" * Width)
+                        print(f"{"Character Profile":^45}")
+                        print("-" * Width)
+                        print(f"\nName: {name}")
+            
+                        print("\n" + "-" * Width)
+                        print(f"{"Equipped Gear":^45}")
+                        print("-" * Width)
+            
+                        Gear_Slots = {
+                            "Helmet": "Head",
+                            "Shoulderwear": "Shoulders",
+                            "Armwear": "Arms",
+                            "Chestplate": "Chest",
+                            "Legwear": "Legs",
+                            "Footwear": "Feet"
+                        }
+            
+                        for Slot, Display_Name in Gear_Slots.items():
+                            print(f"\n{Display_Name}:")
+                            Items = Gear["Type"][Slot]
+            
+                            if isinstance(Items, dict):
+                                for Item, Stats in Items.items():
+                                    if Item != "None":
+                                        print(f"  {Item}")
+                                        if isinstance(Stats, dict):
+                                            for Stat, Value in Stats.items():
+                                                print(f"    {Stat}: {Value}")
+                            elif Items != "None":
+                                print(f"  {Items}")
+                            else:
+                                print("  None")
+            
+                        print("\n" + "-" * Width)
+                        print(f"{"Weaponry":^45}")
+                        print("-" * Width)
+            
+                        for Weapon, Stats in Gear["Type"]["Weapon"].items():
+                            if Weapon != "None":
+                                print(f"\n  {Weapon}")
+                                for Stat, Value in Stats.items():
+                                    print(f"    {Stat}: {Value}")
+            
+                        print("\n" + "-" * Width)
+                        print(f"{"Offhand":^45}")
+                        print("-" * Width)
+            
+                        for Offhand, Stats in Gear["Type"]["Offhand"].items():
+                            if Offhand != "None":
+                                print(f"\n  {Offhand}")
+                                for Stat, Value in Stats.items():
+                                    print(f"    {Stat}: {Value}")
+            
+                        print("\n" + "-" * Width)
                         
                         
 
@@ -2017,11 +2065,11 @@ while leave == False:
             for key,value in inventory.items():
                 print(key,":",value,"\n")
             print("---------------------------------------------")
-            print("\n\nBody Condition\n---------------------------------------------")
+            print("Body Condition\n---------------------------------------------")
             for key,value in Body_Condition.items():
-                print(key,":",value)
+                print(key,":",value["Strength"])
             print("\n\nTitle\n---------------------------------------------")
-            print(Player["Title"])
+            print(" ",Player["Title"])
             back = input("---------------------------------------------\n\nPress enter to return\n\n")
 
                 
@@ -4927,7 +4975,7 @@ while leave == False:
                 time.sleep(1)
                 s = random.randint(1,100)
                 if s <= 3:
-                    drop = random.choice(["Mana Herb","Healing Herb","Bitter Herb","IronStem Herb","Sweet Herb","Sunleaf","Frostleaf","Emberleaf","Spirit Bloom","Crystal Bloom","Shock Moss","Battle Bloom","Cloud Flower","Focus Flower"])
+                    drop = random.choice(["Wood","Mana Herb","Healing Herb","Bitter Herb","IronStem Herb","Sweet Herb","Sunleaf","Frostleaf","Emberleaf","Spirit Bloom","Crystal Bloom","Shock Moss","Battle Bloom","Cloud Flower","Focus Flower"])
                     print(f"\n{drop} Found!\n")
                     if drop in inventory:
                         inventory[drop] += 1
@@ -4948,7 +4996,162 @@ while leave == False:
                     time.sleep(time_to_wait)
         elif Choice in ["6","smithing","smith"]:
             if Skill_Tree["Smithing"]["Lock"] == "(Unlocked)":
-                pass
+                Smithing_Choice = ""
+                print("\n What do you want to do?\n\n Press Enter to cancel\n1. Craft Gear\n\n2. Smelt down Gear\n")
+                chosen = input("").lower()
+                chosen = "".join(chosen.split())
+                if chosen in  ["1","craftgear","c","cg","craft"]:
+                    print("\n What Gear do you want to create?\n\n")
+                    award = input("").lower()
+                    award = "".join(award.split())
+                    if ("Copper Dagger" not in inventory["Gear"] and inventory.get("Copper") >= 5) and award == "copperdagger":
+                        inventory["Gear"].append("Copper Dagger")
+                        print("Copper Dagger Acquired!")
+                    elif ("Crude Staff" not in inventory["Gear"] and inventory.get("Wood") >= 5) and award == "crudestaff":
+                        inventory["Gear"].append("Crude Staff")
+                        print("Crude Staff Acquired!")
+                    elif ("Copper Helmet" not in inventory["Gear"] and inventory.get("Copper") >= 10) and award == "copperhelmet":
+                        inventory["Gear"].append("Copper Helmet")
+                        print("Copper Helmet Acquired!")
+                    elif ("Copper Chestplate" not in inventory["Gear"] and inventory.get("Copper") >= 20) and award == "copperchestplate":
+                        inventory["Gear"].append("Copper Chestplate")
+                        print("Copper Chestplate Acquired!")
+                    elif ("Copper Sword" not in inventory["Gear"] and inventory.get("Copper") >= 10) and award == "coppersword":
+                        inventory["Gear"].append("Copper Sword")
+                        print("Copper Sword Acquired!")
+                    elif ("Copper Axe" not in inventory["Gear"] and inventory.get("Copper") >= 10) and award == "copperaxe":
+                        inventory["Gear"].append("Copper Axe")
+                        print("Copper Axe Acquired!")
+                    elif ("Copper Mace" not in inventory["Gear"] and inventory.get("Copper") >= 10) and award == "coppermace":
+                        inventory["Gear"].append("Copper Mace")
+                        print("Copper Mace Acquired!")
+                    elif ("Copper Spear" not in inventory["Gear"] and inventory.get("Copper") >= 10) and award == "copperspear":
+                        inventory["Gear"].append("Copper Spear")
+                        print("Copper Spear Acquired!")
+                    elif ("Copper Greatsword" not in inventory["Gear"] and award == "coppergreatsword") and inventory.get("Copper") >= 12:
+                        inventory["Gear"].append("Copper Greatsword")
+                        print("Copper Greatsword Acquired!")
+                    elif ("Copper Bow" not in inventory["Gear"] and award == "copperbow") and inventory.get("Copper") >= 10:
+                        inventory["Gear"].append("Copper Bow")
+                        print("Copper Bow Acquired!")
+                    elif ("Copper Shield" not in inventory["Gear"] and award == "coppershield") and inventory.get("Copper") >= 10:
+                        inventory["Gear"].append("Copper Shield")
+                        print("Copper Shield Acquired!")
+                    elif ("Twig Wand" not in inventory["Gear"] and award == "twigwand") and (inventory.get("Wood") >= 5 and inventory.get("Orb") >= 1):
+                        inventory["Gear"].append("Twig Wand")
+                        print("Twig Wand Acquired!")
+                    elif ("Copper Shoulder Guards" not in inventory["Gear"] and award == "coppershoulderguards") and inventory.get("Copper") >= 10:
+                        inventory["Gear"].append("Copper Shoulder Guards")
+                        print("Copper Shoulder Guards Acquired!")
+                    elif ("Copper Gardbrace" not in inventory["Gear"] and award == "coppergardbrace") and inventory.get("Copper") >= 5:
+                        inventory["Gear"].append("Copper Gardbrace")
+                        print("Copper Gardbrace Acquired!")
+                    elif ("Copper Greaves" not in inventory["Gear"] and award == "coppergreaves") and inventory.get("Copper") >= 15:
+                        inventory["Gear"].append("Copper Greaves")
+                        print("Copper Greaves Acquired!")
+                    elif ("Copper Boots" not in inventory["Gear"] and award == "copperboots") and inventory.get("Copper") >= 10:
+                        inventory["Gear"].append("Copper Boots")
+                        print("Copper Boots Acquired!")
+                    elif ("Bronze Dagger" not in inventory["Gear"] and award == "bronzedagger") and inventory.get("Bronze") >= 5:
+                        inventory["Gear"].append("Bronze Dagger")
+                        print("Bronze Dagger Acquired!")
+                    elif ("Carved Staff" not in inventory["Gear"] and award == "carvedstaff") and (inventory.get("Wood") >= 5 and inventory.get("Orb") >= 2):
+                        inventory["Gear"].append("Carved Staff")
+                        print("Carved Staff Acquired!")
+                    elif ("Bronze Helmet" not in inventory["Gear"] and award == "bronzehelmet") and inventory.get("Bronze") >= 10:
+                        inventory["Gear"].append("Bronze Helmet")
+                        print("Bronze Helmet Acquired!")
+                    elif ("Bronze Chestplate" not in inventory["Gear"] and award == "bronzechestplate") and inventory.get("Bronze") >= 20:
+                        inventory["Gear"].append("Bronze Chestplate")
+                        print("Bronze Chestplate Acquired!")
+                    elif ("Bronze Sword" not in inventory["Gear"] and award == "bronzesword") and inventory.get("Bronze") >= 10:
+                        inventory["Gear"].append("Bronze Sword")
+                        print("Bronze Sword Acquired!")
+                    elif ("Bronze Axe" not in inventory["Gear"] and award == "bronzeaxe") and inventory.get("Bronze") >= 10:
+                        inventory["Gear"].append("Bronze Axe")
+                        print("Bronze Axe Acquired!")
+                    elif ("Bronze Mace" not in inventory["Gear"] and award == "bronzemace") and inventory.get("Bronze") >= 10:
+                        inventory["Gear"].append("Bronze Mace")
+                        print("Bronze Mace Acquired!")
+                    elif ("Bronze Spear" not in inventory["Gear"] and award == "bronzespear") and inventory.get("Bronze") >= 10:
+                        inventory["Gear"].append("Bronze Spear")
+                        print("Bronze Spear Acquired!")
+                    elif ("Bronze Greatsword" not in inventory["Gear"] and award == "bronzegreatsword") and inventory.get("Bronze") >= 12:
+                        inventory["Gear"].append("Bronze Greatsword")
+                        print("Bronze Greatsword Acquired!")
+                    elif ("Bronze Bow" not in inventory["Gear"] and award == "bronzebow") and inventory.get("Bronze") >= 10:
+                        inventory["Gear"].append("Bronze Bow")
+                        print("Bronze Bow Acquired!")
+                    elif ("Bronze Shield" not in inventory["Gear"] and award == "bronzeshield") and inventory.get("Bronze") >= 10:
+                        inventory["Gear"].append("Bronze Shield")
+                        print("Bronze Shield Acquired!")
+                    elif ("Carved Wand" not in inventory["Gear"] and award == "carvedwand") and (inventory.get("Wood") >= 5 and inventory.get("Orb") >= 2):
+                        inventory["Gear"].append("Carved Wand")
+                        print("Carved Wand Acquired!")
+                    elif ("Bronze Shoulder Guards" not in inventory["Gear"] and award == "bronzeshoulderguards") and inventory.get("Bronze") >= 10:
+                        inventory["Gear"].append("Bronze Shoulder Guards")
+                        print("Bronze Shoulder Guards Acquired!")
+                    elif ("Bronze Gardbrace" not in inventory["Gear"] and award == "bronzegardbrace") and inventory.get("Bronze") >= 5:
+                        inventory["Gear"].append("Bronze Gardbrace")
+                        print("Bronze Gardbrace Acquired!")
+                    elif ("Bronze Greaves" not in inventory["Gear"] and award == "bronzegreaves") and inventory.get("Bronze") >= 15:
+                        inventory["Gear"].append("Bronze Greaves")
+                        print("Bronze Greaves Acquired!")
+                    elif ("Bronze Boots" not in inventory["Gear"] and award == "bronzeboots") and inventory.get("Bronze") >= 10:
+                        inventory["Gear"].append("Bronze Boots")
+                        print("Bronze Boots Acquired!")
+                    elif ("Iron Dagger" not in inventory["Gear"] and award == "irondagger") and inventory.get("Iron") >= 5:
+                        inventory["Gear"].append("Iron Dagger")
+                        print("Iron Dagger Acquired!")
+                    elif ("Runed Staff" not in inventory["Gear"] and award == "runedstaff") and (inventory.get("Wood") >= 5 and inventory.get("Orb") >= 3):
+                        inventory["Gear"].append("Runed Staff")
+                        print("Runed Staff Acquired!")
+                    elif ("Iron Helmet" not in inventory["Gear"] and award == "ironhelmet") and inventory.get("Iron") >= 10:
+                        inventory["Gear"].append("Iron Helmet")
+                        print("Iron Helmet Acquired!")
+                    elif ("Iron Chestplate" not in inventory["Gear"] and award == "ironchestplate") and inventory.get("Iron") >= 20:
+                        inventory["Gear"].append("Iron Chestplate")
+                        print("Iron Chestplate Acquired!")
+                    elif ("Iron Sword" not in inventory["Gear"] and award == "ironsword") and inventory.get("Iron") >= 10:
+                        inventory["Gear"].append("Iron Sword")
+                        print("Iron Sword Acquired!")
+                    elif ("Iron Axe" not in inventory["Gear"] and award == "ironaxe") and inventory.get("Iron") >= 10:
+                        inventory["Gear"].append("Iron Axe")
+                        print("Iron Axe Acquired!")
+                    elif ("Iron Mace" not in inventory["Gear"] and award == "ironmace") and inventory.get("Iron") >= 10:
+                        inventory["Gear"].append("Iron Mace")
+                        print("Iron Mace Acquired!")
+                    elif ("Iron Spear" not in inventory["Gear"] and award == "ironspear") and inventory.get("Iron") >= 10:
+                        inventory["Gear"].append("Iron Spear")
+                        print("Iron Spear Acquired!")
+                    elif ("Iron Greatsword" not in inventory["Gear"] and award == "irongreatsword") and inventory.get("Iron") >= 12:
+                        inventory["Gear"].append("Iron Greatsword")
+                        print("Iron Greatsword Acquired!")
+                    elif ("Iron Bow" not in inventory["Gear"] and award == "ironbow") and inventory.get("Iron") >= 10:
+                        inventory["Gear"].append("Iron Bow")
+                        print("Iron Bow Acquired!")
+                    elif ("Iron Shield" not in inventory["Gear"] and award == "ironshield") and inventory.get("Iron") >= 10:
+                        inventory["Gear"].append("Iron Shield")
+                        print("Iron Shield Acquired!")
+                    elif ("Crystal Wand" not in inventory["Gear"] and award == "crystalwand") and (inventory.get("Wood") >= 5 and inventory.get("Orb") >= 3):
+                        inventory["Gear"].append("Crystal Wand")
+                        print("Crystal Wand Acquired!")
+                    elif ("Iron Shoulder Guards" not in inventory["Gear"] and award == "ironshoulderguards") and inventory.get("Iron") >= 10:
+                        inventory["Gear"].append("Iron Shoulder Guards")
+                        print("Iron Shoulder Guards Acquired!")
+                    elif ("Iron Gardbrace" not in inventory["Gear"] and award == "irongardbrace") and inventory.get("Iron") >= 5:
+                        inventory["Gear"].append("Iron Gardbrace")
+                        print("Iron Gardbrace Acquired!")
+                    elif ("Iron Greaves" not in inventory["Gear"] and award == "irongreaves") and inventory.get("Iron") >= 15:
+                        inventory["Gear"].append("Iron Greaves")
+                        print("Iron Greaves Acquired!")
+                    elif ("Iron Boots" not in inventory["Gear"] and award == "ironboots") and inventory.get("Iron") >= 10:
+                        inventory["Gear"].append("Iron Boots")
+                        print("Iron Boots Acquired!")
+                    else:
+                        print("\n\nItem Already Owned or you do not have the required resources\n")
+                elif chosen in ["2","smeltdowngear","s","sdg","smelt"]:
+                    pass
             else:
                 print("\n\nThis is Locked\n\n\n\n\n")
         elif Choice in ["7","alchemy","a"]:

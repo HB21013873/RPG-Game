@@ -106,10 +106,24 @@ class Player_Battle:
                             
                             if (skill_choice in ["straightpunch"] and "Straight Punch" in Combat_Skill_list):
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI= POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -118,10 +132,24 @@ class Player_Battle:
 
                             elif (skill_choice in ["impulsiveswing"] and "Impulsive Swing" in Combat_Skill_list):
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI= POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -130,10 +158,24 @@ class Player_Battle:
 
                             elif (skill_choice in ["slash"] and "Slash" in Combat_Skill_list):
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI= POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -143,10 +185,24 @@ class Player_Battle:
                         
                             elif (skill_choice in ["jab"] and "Jab" in Combat_Skill_list):
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI= POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -169,10 +225,16 @@ class Player_Battle:
                             
                             elif skill_choice in ["axekick","axe kick"] and "Axe Kick" in Combat_Skill_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
                                     if POI in["head","leftarm","rightarm"]:
                                         break
                                     else:
@@ -181,10 +243,24 @@ class Player_Battle:
                                 
                             elif skill_choice in ["manablast"] and "Mana Blast" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -193,10 +269,24 @@ class Player_Battle:
  
                             elif skill_choice in ["fireball"] and "Fireball" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -208,10 +298,24 @@ class Player_Battle:
                                 Player_copy,Breaker,Turn_Time = PM.Spell_Moves.Detection.Analyse(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)
                             elif skill_choice in ["iceshard"] and "Ice Shard" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -219,10 +323,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Ice.Ice_Shard(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)
                             elif skill_choice in ["shock"] and "Shock" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -230,10 +348,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Lightning.Shock(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)  
                             elif skill_choice in ["riverfist"] and "River Fist" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -241,10 +373,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Water.River_Fist(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)  
                             elif skill_choice in ["mudshot"] and "Mud Shot" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -264,10 +410,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,target2 = PM.Spell_Moves.Mind.Domination(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip,dead_enemy1=dead_enemy1,dead_enemy2=dead_enemy2,dead_enemy3=dead_enemy3)  
                             elif skill_choice in ["stoneslipstream"] and "Stone Slipstream" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -275,10 +435,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Wind.Stone_Slipstream(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)  
                             elif skill_choice in ["corruptingtouch"] and "Corrupting Touch" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -295,10 +469,24 @@ class Player_Battle:
                                 Player_copy,Turn_Time,Breaker = PM.Spell_Moves.Arcane.Empower(Player_copy,Spell_list,typewriter,Turn_Time=Turn_Time)
                             elif (skill_choice in ["aimedshot"] and "Aimed Shot" in Combat_Skill_list) and "Bow" in Gear["Type"]["Weapon"]:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1632,10 +1820,24 @@ class Player_Battle:
                             
                             if skill_choice in ["straightpunch"] and "Straight Punch" in Combat_Skill_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1645,10 +1847,24 @@ class Player_Battle:
                             
                             elif skill_choice in ["slash"] and "Slash" in Combat_Skill_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1671,10 +1887,16 @@ class Player_Battle:
                         
                             elif skill_choice in ["axekick","axe kick"] and "Axe Kick" in Combat_Skill_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
                                     if POI in["head","leftarm","rightarm"]:
                                         break
                                     else:
@@ -1684,10 +1906,24 @@ class Player_Battle:
 
                             elif skill_choice in ["impulsiveswing"] and "Impulsive Swing" in Combat_Skill_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1697,10 +1933,24 @@ class Player_Battle:
 
                             elif skill_choice in ["jab"] and "Jab" in Combat_Skill_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1711,10 +1961,24 @@ class Player_Battle:
                                 
                             elif skill_choice in ["mana blast","manablast"] and "Mana Blast" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1723,10 +1987,24 @@ class Player_Battle:
 
                             elif skill_choice in ["fireball"] and "Fireball" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1738,10 +2016,24 @@ class Player_Battle:
                                 Player_copy,Breaker,Turn_Time = PM.Spell_Moves.Detection.Analyse(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)
                             elif skill_choice in ["iceshard"] and "Ice Shard" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1749,10 +2041,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Ice.Ice_Shard(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)  
                             elif skill_choice in ["shock"] and "Shock" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1760,10 +2066,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Lightning.Shock(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)  
                             elif skill_choice in ["riverfist"] and "River Fist" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1771,10 +2091,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Water.River_Fist(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)  
                             elif skill_choice in ["mudshot"] and "Mud Shot" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1794,10 +2128,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,target2 = PM.Spell_Moves.Mind.Domination(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,dead_enemy1=dead_enemy1,dead_enemy2=dead_enemy2)  
                             elif skill_choice in ["stoneslipstream"] and "Stone Slipstream" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1805,10 +2153,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Wind.Stone_Slipstream(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)  
                             elif skill_choice in ["corruptingtouch"] and "Corrupting Touch" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -1826,10 +2188,24 @@ class Player_Battle:
                                 Player_copy,Turn_Time,Breaker = PM.Spell_Moves.Arcane.Empower(Player_copy,Spell_list,typewriter,Turn_Time=Turn_Time)
                             elif (skill_choice in ["aimedshot"] and "Aimed Shot" in Combat_Skill_list) and "Bow" in Gear["Type"]["Weapon"]:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -2991,10 +3367,24 @@ class Player_Battle:
                             
                             if skill_choice in ["straight punch","straightpunch"] and "Straight Punch" in Combat_Skill_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3003,10 +3393,24 @@ class Player_Battle:
 
                             elif skill_choice in ["slash"] and "Slash" in Combat_Skill_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3028,10 +3432,16 @@ class Player_Battle:
                                 
                             elif skill_choice in ["axekick","axe kick"] and "Axe Kick" in Combat_Skill_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
                                     if POI in["head","leftarm","rightarm"]:
                                         break
                                     else:
@@ -3042,10 +3452,24 @@ class Player_Battle:
 
                             elif skill_choice in ["impulsiveswing"] and "Impulsive Swing" in Combat_Skill_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3056,10 +3480,24 @@ class Player_Battle:
 
                             elif skill_choice in ["jab"] and "Jab" in Combat_Skill_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3070,10 +3508,24 @@ class Player_Battle:
                             elif skill_choice in ["mana blast","manablast"] and "Mana Blast" in Spell_list:
 
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3082,10 +3534,24 @@ class Player_Battle:
 
                             elif skill_choice in ["fireball"] and "Fireball" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3099,10 +3565,24 @@ class Player_Battle:
                                 Player_copy,Breaker,Turn_Time = PM.Spell_Moves.Detection.Analyse(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip)
                             elif skill_choice in ["iceshard"] and "Ice Shard" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3111,10 +3591,24 @@ class Player_Battle:
 
                             elif skill_choice in ["shock"] and "Shock" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3122,10 +3616,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Lightning.Shock(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip)  
                             elif skill_choice in ["riverfist"] and "River Fist" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3133,10 +3641,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Water.River_Fist(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip)  
                             elif skill_choice in ["mudshot"] and "Mud Shot" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3156,10 +3678,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip,target2 = PM.Spell_Moves.Mind.Domination(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,dead_enemy1=dead_enemy1,Enemy1_Skip=Enemy1_Skip)  
                             elif skill_choice in ["stoneslipstream"] and "Stone Slipstream" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3167,10 +3703,24 @@ class Player_Battle:
                                 Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Wind.Stone_Slipstream(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip)  
                             elif skill_choice in ["corruptingtouch"] and "Corrupting Touch" in Spell_list:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
@@ -3188,10 +3738,24 @@ class Player_Battle:
                                 Player_copy,Turn_Time,Breaker = PM.Spell_Moves.Arcane.Empower(Player_copy,Spell_list,typewriter,Turn_Time=Turn_Time)
                             elif (skill_choice in ["aimedshot"] and "Aimed Shot" in Combat_Skill_list) and "Bow" in Gear["Type"]["Weapon"]:
                                 while True:
-                                    print("\nWhere do you want to hit:\n\nHead\n\nLeft Arm\n\nRight Arm\n\nChest\n\nBack\n\nLeft Leg\n\nRight Leg\n")
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
                                     POI = input("")
                                     POI = POI.lower()
                                     POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
                                     if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
                                         break
                                     else:
