@@ -381,7 +381,8 @@ class Tower:
                 Turn_Time = 0
                 if Enemy1_Skip == True:
                     Enemy1_Skip = False
-            stop = input("\n\nPress enter to continue\n")
+            if Turn_Time != 0:
+             stop = input("\n\nPress enter to continue\n")
 
             return  Enemy1,Player_copy,Evasion1_Stopper,Defense1_Stopper,Turn_Time,Enemy1_Skip,Player_Skip,b,Enemy2,Enemy3
         def Enemy2_Battle(Enemy,Enemy2,Player,Player_copy,Evasion2_Stopper,Defense2_Stopper,name,Game,Turn_Time,Enemy2_Skip,Player_Skip,b,typewriter,**kwargs):
@@ -405,7 +406,8 @@ class Tower:
                 Turn_Time = 0
                 if Enemy2_Skip == True:
                     Enemy2_Skip = False
-            stop = input("\n\nPress enter to continue\n")
+            if Turn_Time != 0:
+                stop = input("\n\nPress enter to continue\n")
 
             return  Enemy2,Player_copy,Evasion2_Stopper,Defense2_Stopper,Turn_Time,Enemy2_Skip,Player_Skip,b,Enemy1,Enemy3
         def Enemy3_Battle(Enemy,Enemy3,Player,Player_copy,Evasion3_Stopper,Defense3_Stopper,name,Game,Turn_Time,Enemy3_Skip,Player_Skip,b,typewriter,**kwargs):
@@ -430,7 +432,8 @@ class Tower:
                 Turn_Time = 0
                 if Enemy3_Skip == True:
                     Enemy3_Skip = False
-            stop = input("\n\nPress enter to continue\n")
+            if Turn_Time != 0:
+                stop = input("\n\nPress enter to continue\n")
 
             return  Enemy3,Player_copy,Evasion3_Stopper,Defense3_Stopper,Turn_Time,Enemy3_Skip,Player_Skip,b,Enemy1,Enemy2
         

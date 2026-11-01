@@ -79,7 +79,7 @@ class Enemy_Battle:
                 Attack_Chance = 0.7
                 Defense_Chance = 0.9
                 if Spell_Caster == True:
-                    Move += ["Mana Blast","Fireball","Ice Shard"] 
+                    Move += ["Mana Blast","Fireball","Ice Shard","Empower"] 
                 elif Spell_Caster == False:
                     Move += ["Straight Punch","Slash","Quick Stab","Axe Kick","Front Kick"]
             elif "Apprentice" in Enemy1["Type"]:
