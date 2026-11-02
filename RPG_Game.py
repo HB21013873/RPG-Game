@@ -21,7 +21,7 @@ def print(*args, sep=" ", end="\n"):
         builtins.print(*args, sep=sep, end=end)
         
 
-Player = {"XP":0,"XP Needed":100,"Max Health":100,"Health":100,"Attack":10,"Defense":10,"Speed":10,"Magic Density":10,"Magic Damage":10,"Level":1,"Stamina":500,"Critical Chance":5,"Critical Damage":125,"Evasion":2,"Accuracy":75,"Mana":0,"Tower Level":1,"Buff":{"Type":"None","Value":5,"Duration":3},"Title":"None","Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0} },"Gold":0,"Title":"None"}
+Player = {"XP":0,"XP Needed":100,"Max Health":100,"Health":100,"Attack":10,"Defense":10,"Speed":10,"Magic Density":10,"Magic Damage":10,"Level":1,"Stamina":500,"Critical Chance":5,"Critical Damage":125,"Evasion":2,"Accuracy":75,"Mana":0,"Tower Level":1,"Buff":{"Type":"None","Value":5,"Duration":3},"Title":"None","Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0} },"Gold":1000000000000,"Title":"None"}
     
 
 Game = {"Current Effect":{"Type":"None","Value":5,"Duration":3}}
