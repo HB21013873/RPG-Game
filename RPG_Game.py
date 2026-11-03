@@ -21,7 +21,7 @@ def print(*args, sep=" ", end="\n"):
         builtins.print(*args, sep=sep, end=end)
         
 
-Player = {"XP":0,"XP Needed":100,"Max Health":100,"Health":100,"Attack":10,"Defense":10,"Speed":10,"Magic Density":10,"Magic Damage":10,"Level":1,"Stamina":500,"Critical Chance":5,"Critical Damage":125,"Evasion":2,"Accuracy":75,"Mana":0,"Tower Level":1,"Buff":{"Type":"None","Value":5,"Duration":3},"Title":"None","Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0} },"Gold":0,"Title":"None"}
+Player = {"XP":0,"XP Needed":100,"Max Health":100,"Health":100,"Attack":10,"Defense":10,"Speed":10,"Magic Density":10,"Magic Damage":10,"Level":1,"Stamina":500,"Critical Chance":5,"Critical Damage":125,"Evasion":2,"Accuracy":75,"Mana":0,"Tower Level":1,"Buff":{"Type":"None","Value":5,"Duration":3},"Title":"None","Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0} },"Gold":100000,"Title":"None"}
     
 
 Game = {"Current Effect":{"Type":"None","Value":5,"Duration":3}}
@@ -237,6 +237,7 @@ while leave == False:
             "Frozen Rat":{"XP":30,"Max Health":random.randint(40,60),"Health":60,"Attack":random.randint(12,14),"Defense":random.randint(7,9),"Speed":random.randint(11,13),"Magic Density":random.randint(7,9),"Magic Damage":random.randint(7,9),"Level":1,"Stamina":random.randint(400,550),"Critical Chance":random.randint(5,7),"Critical Damage":random.randint(120,140),"Evasion":random.randint(6,8),"Accuracy":random.randint(82,85),"Mana":random.randint(20,25),"Buff":{"Type":"None","Value":0,"Duration":0},"Drop":["Frozen Tail"],"Category":"Beast","Behaviour":"Evasive","Spell Caster":False,"Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0}},"Type":"Frozen Rat","Ability":"None","Attribute":"None"},
             "Snow Spider":{"XP":35,"Max Health":random.randint(80,105),"Health":65,"Attack":random.randint(11,15),"Defense":random.randint(7,10),"Speed":random.randint(11,14),"Magic Density":random.randint(10,15),"Magic Damage":random.randint(10,15),"Level":1,"Stamina":random.randint(350,400),"Critical Chance":random.randint(5,7),"Critical Damage":random.randint(130,145),"Evasion":random.randint(7,8),"Accuracy":random.randint(85,90),"Mana":random.randint(25,35),"Buff":{"Type":"None","Value":0,"Duration":0},"Drop":["Frozen Silk","Ice Venom"],"Category":"Beast","Behaviour":"Evasive","Spell Caster":False,"Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0}},"Type":"Snow Spider","Ability":"None","Attribute":"None"},
             "Ice Demon":{"XP":150,"Max Health":random.randint(130,140),"Health":200,"Attack":random.randint(16,18),"Defense":random.randint(15,18),"Speed":random.randint(10,14),"Magic Density":random.randint(14,16),"Magic Damage":random.randint(13,15),"Level":1,"Stamina":random.randint(400,775),"Critical Chance":random.randint(6,8),"Critical Damage":random.randint(130,155),"Evasion":random.randint(5,8),"Accuracy":random.randint(80,90),"Mana":random.randint(30,60),"Buff":{"Type":"None","Value":0,"Duration":0},"Drop":["Ice Demon Essence"],"Category":"Demon","Behaviour":"Aggressive","Spell Caster":True,"Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0}},"Type":"Ice Demon","Ability":"None","Attribute":"None"},
+            "Ancient Ice Beast":{"XP":155,"Max Health":random.randint(125,155),"Health":135,"Attack":random.randint(16,20),"Defense":random.randint(15,16),"Speed":random.randint(8,12),"Magic Density":random.randint(11,14),"Magic Damage":random.randint(11,14),"Level":1,"Stamina":random.randint(800,1000),"Critical Chance":random.randint(5,7),"Critical Damage":random.randint(145,155),"Evasion":random.randint(4,6),"Accuracy":random.randint(80,82),"Mana":random.randint(25,50),"Buff":{"Type":"None","Value":0,"Duration":0},"Drop":["Ancient Ice Core"],"Category":"Beast","Behaviour":"Aggressive","Spell Caster":False,"Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0}},"Type":"Ancient Ice Beast","Ability":"None","Attribute":"None"},
 
 
             "Lightning Phantom":{"XP":28,"Max Health":random.randint(75,90),"Health":60,"Attack":random.randint(12,15),"Defense":random.randint(9,12),"Speed":random.randint(13,15),"Magic Density":random.randint(12,15),"Magic Damage":random.randint(15,16),"Level":1,"Stamina":random.randint(450,550),"Critical Chance":random.randint(4,9),"Critical Damage":random.randint(135,155),"Evasion":random.randint(4,7),"Accuracy":random.randint(88,90),"Mana":random.randint(35,50),"Buff":{"Type":"None","Value":0,"Duration":0},"Drop":["Spark Core"],"Category":"Elemental","Behaviour":"Evasive","Spell Caster":True,"Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0}},"Type":"Lightning Phantom","Ability":"None","Attribute":"None"},     
@@ -704,7 +705,9 @@ while leave == False:
 
         print("\n---------------------------------------------\n"f"               Climb The Tower\n---------------------------------------------\n"f"                    Arena\n""---------------------------------------------\n"f"                    Quests\n""---------------------------------------------\n")
         Choice = (input(""))
-            
+        Choice = Choice.lower()
+        Choice = "".join(Choice.split())
+
         if Choice in ["t","tower","ctt","play","p","1","climbthetower"]:
             while True:
                 try:
@@ -1137,7 +1140,7 @@ while leave == False:
 
 
         
-    elif Choice in ["Character","2","c"]:
+    elif Choice in ["character","2","c"]:
         print("\n---------------------------------------------\n"f"                  Avatar\n---------------------------------------------\n"f"                  Skill Tree""\n---------------------------------------------\n"f"                  Combatives\n---------------------------------------------\n"f"                  Move Memory\n---------------------------------------------\n                  Use Skill Book\n---------------------------------------------\n                  Titles\n---------------------------------------------\n\n")
         Choice = input("")
         if Choice in ["avatar","a","1"]:
@@ -2292,8 +2295,8 @@ while leave == False:
                print("\nLearn Headbutt\n")
             if Skill_Books["Axe Kick"] == True:
                print("\nLearn Axe Kick\n")
-            if Skill_Books["Analysis"] == True:
-               print("\nLearn Analysis\n")
+            if Skill_Books["Analyse"] == True:
+               print("\nLearn Analyse\n")
             if Skill_Books["Heal"] == True:
                print("\nLearn Heal\n")
             if Skill_Books["Grappling Vines"] == True:
@@ -2332,6 +2335,7 @@ while leave == False:
                print("\nLearn Empower\n")
 
             chosen = input("")
+            chosen_normal = chosen
             chosen = chosen.lower()
             chosen = "".join(chosen.split())
             if chosen in ["fireball"] and Skill_Books["Fireball"] == True:
@@ -2346,9 +2350,9 @@ while leave == False:
                 Spell_list["Axe Kick"] = {"Damage":90,"Cost":75,"Level":"Starter","Weight":"Heavy","Time":1}
                 Skills["Axe Kick"]["Level"] = "Starter"
                 
-            elif chosen in ["analysis"] and Skill_Books["Analysis"] == True:
-                Spell_list["Analysis"] = {"Power":30,"Cost":40,"Level":"Starter","Time":0.5}
-                Skills["Analysis"]["Level"] = "Starter"
+            elif chosen in ["analyse"] and Skill_Books["Analysis"] == True:
+                Spell_list["Analyse"] = {"Power":30,"Cost":40,"Level":"Starter","Time":0.5}
+                Skills["Analyse"]["Level"] = "Starter"
                 
             elif chosen in ["heal"] and Skill_Books["Heal"] == True:
                 Spell_list["Heal"] = {"Power":45,"Cost":80,"Level":"Starter","Time":0.5}
@@ -2403,7 +2407,7 @@ while leave == False:
                 Skills["Jab"]["Level"] = "Starter"
 
             elif chosen in ["stoneslipstream"] and Skill_Books["Stone Slipstream"] == True:
-                Spell_list["Stone Slipstream"] = {"Damage":55,"Cost":60,"Level":"Starter","Weight":"Heavy","Time":1}
+                Spell_list["Stone Slipstream"] = {"Damage":55,"Cost":60,"Level":"Starter","Weight":"Medium","Time":0.5}
                 Skills["Stone Slipstream"]["Level"] = "Starter"
 
             elif chosen in ["domination"] and Skill_Books["Domination"] == True:
@@ -2421,6 +2425,8 @@ while leave == False:
             elif chosen in ["empower"] and Skill_Books["Empower"] == True:
                 Spell_list["Empower"] = {"Power":45,"Cost":80,"Level":"Starter","Time":0.5}
                 Skills["Empower"]["Level"] = "Starter"
+
+            print(f"\nYou have learned {chosen_normal}!\n")
 
         elif Choice in ["6","titles","title","t"]:
             print("\nCurrent Title: ",Player["Title"],"\n\n---------------------------------------------")
@@ -3973,7 +3979,9 @@ while leave == False:
 
             if option in ["bookmerchant","bm","b","1"]:
                 print("Do you want to purchase a chest for 1000 Gold?\n\n * This will give you a random skill book")
-                if Player["Gold"] >= 1000:
+                option = input("").lower()
+                option = "".join(option.split())
+                if Player["Gold"] >= 1000 and option in ["yes","y","yeah","yep","1"]:
                     Player["Gold"] -= 1000
                     Statistics["Gold Spent"] += 1000
                     award = random.choice(Chest_items["Skill Books"])
@@ -4019,7 +4027,9 @@ while leave == False:
                         Skill_Books["Axe Kick"] = True
                     elif award == "Headbutt":
                         Skill_Books["Headbutt"] = True
-
+                    print(f"\nYou got the {award} Book!\n")
+                else:
+                    print("\n\nOk\n")
 
             if option in ["gearmerchant","2","gm","g"]:
                 found = False
@@ -5260,7 +5270,7 @@ while leave == False:
                     elif Drop_Prop in ["orctusk","arenablade","berserkerclaw","bloodtome","crimsoncrystal","trainingtoken","worngloves","dogfang","tornhide","brokenarcanecore","roguearrow","lightbow","toxiccore","elementalresidue","nightfang","shadowhide","demoncore","ruincore","shatteredmetal","ruinessence","brokenrelic","bonefragment","golemcore","frostblade","stormblade","thunderbow","tempestblade","stormcore","thunderfang","thunderessence","chargedcore","voidcore","shadowfang","phantomsword","ectoplasmshard","abysscore","abyssblade","voidessence","wraithcore","abyssorb","summoner'srobe","alchemicalcore","experimentcore","mutatedtissue","ogrecore","alchemicalessence","spiritflask","plaguecore","toxicflesh","moltenarmor","infernocore","demonblade","burningcore","tombsword","ancientshield","wraithessence","etherealcloth","ancientcore","championblade","arenamedal","ritualbone","beastheart","stonecore","ashcore","meltedmetal","championspiritessence"] and Drop in inventory: #81 - 120 
                         Power = random.uniform(1.1,1.15)
                         break
-                    elif Drop_Prop in ["warbeastfang","beasthide","demonessence","summoningsigil","warbeastfang","beasthide","apprenticerobe","magictome","brokensword","brokenhelmet","chargedcore","golemstone","shadowcore","nightmarefang","shadowessence","demoncore","cursedarmorfragment","demonclaw","ancientstaff","demonicsigil","ritualcore","knightarmor","greatsword","icedemonessence"] and Drop in inventory: # 121 - 180
+                    elif Drop_Prop in ["warbeastfang","beasthide","demonessence","summoningsigil","warbeastfang","beasthide","apprenticerobe","magictome","brokensword","brokenhelmet","chargedcore","golemstone","shadowcore","nightmarefang","shadowessence","demoncore","cursedarmorfragment","demonclaw","ancientstaff","demonicsigil","ritualcore","knightarmor","greatsword","icedemonessence","ancienticecore"] and Drop in inventory: # 121 - 180
                         Power = random.uniform(1.15,1.2)
                         break
                     elif Drop_Prop in ["bloodsword","knightsemblem","rapier","duelistemblem","roguesword","rustyarmorfragment"] and Drop in inventory: # 181+

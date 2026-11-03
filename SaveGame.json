@@ -40,7 +40,7 @@
                 "Duration": 0
             }
         },
-        "Gold": 0
+        "Gold": 99000
     },
     "Base_Stats": {
         "XP": 0,
@@ -185,6 +185,9 @@
     "Inventory": {
         "Orc Tusk": 5,
         "Galvano Flower": 5,
+        "Copper": 100,
+        "Wood": 100,
+        "Orb": 100,
         "Gear": [
             "Copper Dagger"
         ],
@@ -275,7 +278,7 @@
         }
     },
     "Skill_Points": 2,
-    "Name": "",
+    "Name": "it self",
     "Skills": {
         "Mana Blast": {
             "Damage": 20,
@@ -549,21 +552,21 @@
     "Memory": 4,
     "Max Limit": 25,
     "Statistics": {
-        "Battles Fought": 0,
+        "Battles Fought": 1,
         "Battles Won": 0,
-        "Battles Lost": 0,
+        "Battles Lost": 1,
         "Enemies Killed": 0,
         "Damageless Battles Won": 0,
         "Bosses Killed": 0,
         "Training Sessions": 0,
         "Gold Earned": 0,
-        "Gold Spent": 0,
+        "Gold Spent": 1000,
         "Health Healed": 0,
         "Gear Forged": 0,
         "Potions Brewed": 0
     },
     "Skill Books": {
-        "Fireball": false,
+        "Fireball": true,
         "Headbutt": false,
         "Axe Kick": false,
         "Analysis": false,
