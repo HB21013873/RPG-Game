@@ -2746,7 +2746,7 @@ while leave == False:
             Choice = "".join(Choice.split())
             Player_copy = copy.deepcopy(Player)
             if Choice in ["spinningbackkick"] and Skills["Spinning Back Kick"]["Level"] != "Not Learned":
-                while "Spinning Back Kick" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Spinning Back Kick" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Spinning Back Kick to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -2787,7 +2787,7 @@ while leave == False:
                     
 
             elif Choice in ["axekick"] and Skills["Axe Kick"]["Level"] != "Not Learned":
-                while "Axe Kick" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Axe Kick" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Axe Kick to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -2827,7 +2827,7 @@ while leave == False:
                         break
 
             elif Choice in ["headbutt"] and Skills["Headbutt"]["Level"] != "Not Learned":
-                while "Headbutt" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Headbutt" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Headbutt to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -2868,7 +2868,7 @@ while leave == False:
 
 
             elif Choice in ["fireball"] and Skills["Fireball"]["Level"] != "Not Learned":
-                while "Fireball" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Fireball" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Fireball to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -2909,7 +2909,7 @@ while leave == False:
 
 
             elif Choice in ["heal"] and Skills["Heal"]["Level"] != "Not Learned":
-                while "Heal" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Heal" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Heal to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -2949,7 +2949,7 @@ while leave == False:
                         break
                         
             elif Choice in ["analyse"] and Skills["Analyse"]["Level"] != "Not Learned":
-                while "Analyse" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Analyse" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Analyse to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -2989,7 +2989,7 @@ while leave == False:
                         break
 
             elif Choice in ["iceshard"] and Skills["Ice Shard"]["Level"] != "Not Learned":
-                while "Ice Shard" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Ice Shard" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Ice Shard to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3028,7 +3028,7 @@ while leave == False:
                         break
 
             elif Choice in ["shock"] and Skills["Shock"]["Level"] != "Not Learned":
-                while "Shock" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Shock" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Shock to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3068,7 +3068,7 @@ while leave == False:
                         break
 
             elif Choice in ["riverfist"] and Skills["River Fist"]["Level"] != "Not Learned":
-                while "River Fist" not in Spell_list and Player_copy["Mana"] > 0:
+                while "River Fist" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter River Fist to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3108,7 +3108,7 @@ while leave == False:
                         break
 
             elif Choice in ["mudshot"] and Skills["Mud Shot"]["Level"] != "Not Learned":
-                while "Mud Shot" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Mud Shot" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Mud Shot to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3149,7 +3149,7 @@ while leave == False:
 
 
             elif Choice in ["lifedrain"] and Skills["Life Drain"]["Level"] != "Not Learned":
-                while "Life Drain" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Life Drain" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Life Drain to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3191,7 +3191,7 @@ while leave == False:
 
 
             elif Choice in ["purify"] and Skills["Purify"]["Level"] != "Not Learned":
-                while "Purify" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Purify" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Purify to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3232,7 +3232,7 @@ while leave == False:
 
 
             elif Choice in ["grapplingvines"] and Skills["Grappling Vines"]["Level"] != "Not Learned":
-                while "Grappling Vines" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Grappling Vines" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Grappling Vines to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3274,7 +3274,7 @@ while leave == False:
 
 
             elif Choice in ["domination"] and Skills["Domination"]["Level"] != "Not Learned":
-                while "Domination" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Domination" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Domination to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3315,7 +3315,7 @@ while leave == False:
 
 
             elif Choice in ["stoneslipstream"] and Skills["Stone Slipstream"]["Level"] != "Not Learned":
-                while "Stone Slipstream" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Stone Slipstream" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Stone Slipstream to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3355,7 +3355,7 @@ while leave == False:
                         break
 
             elif Choice in ["corruptingtouch"] and Skills["Corrupting Touch"]["Level"] != "Not Learned":
-                while "Corrupting Touch" not in Spell_list and Player_copy["Mana"] > 0:
+                while "Corrupting Touch" in Spell_list and Player_copy["Mana"] > 0:
                     print("\nEnter Corrupting Touch to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3395,7 +3395,7 @@ while leave == False:
                         break
 
             elif Choice in ["impulsiveswing"] and Skills["Impulsive Swing"]["Level"] != "Not Learned":
-                while "Impulsive Swing" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Impulsive Swing" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Impulsive Swing to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3435,7 +3435,7 @@ while leave == False:
                         break
                         
             elif Choice in ["jab"] and Skills["Jab"]["Level"] != "Not Learned":
-                while "Jab" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Jab" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Jab to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3477,7 +3477,7 @@ while leave == False:
 
 
             elif Choice in ["tremor"] and Skills["Tremor"]["Level"] != "Not Learned":
-                while "Tremor" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Tremor" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Tremor to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3517,7 +3517,7 @@ while leave == False:
                         break
             
             elif Choice in ["groundbreaker"] and Skills["Groundbreaker"]["Level"] != "Not Learned":
-                while "Groundbreaker" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Groundbreaker" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Groundbreaker to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3557,7 +3557,7 @@ while leave == False:
                         break
 
             elif Choice in ["devouressence"] and Skills["Devour Essence"]["Level"] != "Not Learned":
-                while "Devour Essence" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Devour Essence" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Devour Essence to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3597,7 +3597,7 @@ while leave == False:
                         break
                         
             elif Choice in ["empower"] and Skills["Empower"]["Level"] != "Not Learned":
-                while "Empower" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Empower" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Empower to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3637,7 +3637,7 @@ while leave == False:
                         break
                         
             elif Choice in ["toxinspray"] and Skills["Toxin Spray"]["Level"] != "Not Learned":
-                while "Toxin Spray" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Toxin Spray" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Toxin Spray to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3678,7 +3678,7 @@ while leave == False:
 
 
             elif Choice in ["straightpunch"] and Skills["Straight Punch"]["Level"] != "Not Learned":
-                while "Straight Punch" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Straight Punch" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Straight Punch to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3719,7 +3719,7 @@ while leave == False:
 
 
             elif Choice in ["frontkick"] and Skills["Front Kick"]["Level"] != "Not Learned":
-                while "Front Kick" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Front Kick" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Front Kick to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3760,7 +3760,7 @@ while leave == False:
 
 
             elif Choice in ["quickstab"] and Skills["Quick Stab"]["Level"] != "Not Learned":
-                while "Quick Stab" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Quick Stab" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Quick Stab to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3800,7 +3800,7 @@ while leave == False:
                         break
 
             elif Choice in ["slash"] and Skills["Slash"]["Level"] != "Not Learned":
-                while "Slash" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Slash" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Slash to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3840,7 +3840,7 @@ while leave == False:
                         break
                         
             elif Choice in ["bite"] and Skills["Bite"]["Level"] != "Not Learned":
-                while "Bite" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Bite" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Bite to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3880,7 +3880,7 @@ while leave == False:
                         break
                         
             elif Choice in ["manablast"] and Skills["Mana Blast"]["Level"] != "Not Learned":
-                while "Mana Blast" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Mana Blast" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Mana Blast to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3921,7 +3921,7 @@ while leave == False:
 
 
             elif Choice in ["tackle"] and Skills["Tackle"]["Level"] != "Not Learned":
-                while "Tackle" not in Combat_Skill_list and Player_copy["Stamina"] > 0:
+                while "Tackle" in Combat_Skill_list and Player_copy["Stamina"] > 0:
                     print("\nEnter Tackle to practice the move\n\nPress enter to go back\n")
                     action = input("").lower()
                     action = "".join(action.split())
@@ -3961,7 +3961,7 @@ while leave == False:
                         break
                 
             else:
-                print("You have already learnt this skill")
+                print("You don't have this skill!")
 
             if Player_copy["Mana"] < 0 or Player_copy["Stamina"] < 0:
                 print("\nYou are Exhausted.\n\n")
