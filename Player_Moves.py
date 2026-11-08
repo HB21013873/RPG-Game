@@ -48,35 +48,38 @@ class Player_Move:
                         choice = "Headbutt"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
-                                if target == Enemy1:
-                                    chance = random.randint(1,5)
-                                    if chance == 1:
-                                        Enemy1_Skip = True
-                                        print("The Enemy is stunned!\n")
-                                if target == Enemy2:
-                                    chance = random.randint(1,5)
-                                    if chance == 1:
-                                        Enemy2_Skip = True
-                                        print("The Enemy is stunned!\n")
-                                if target == Enemy3:
-                                    chance = random.randint(1,5)
-                                    if chance == 3:
-                                        Enemy3_Skip = True
-                                        print("The Enemy is stunned!\n")
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
+                                    if target == Enemy1:
+                                        chance = random.randint(1,5)
+                                        if chance == 1:
+                                            Enemy1_Skip = True
+                                            print("The Enemy is stunned!\n")
+                                    if target == Enemy2:
+                                        chance = random.randint(1,5)
+                                        if chance == 1:
+                                            Enemy2_Skip = True
+                                            print("The Enemy is stunned!\n")
+                                    if target == Enemy3:
+                                        chance = random.randint(1,5)
+                                        if chance == 3:
+                                            Enemy3_Skip = True
+                                            print("The Enemy is stunned!\n")
 
-                            target["Health"] -= Damage
-                            print(f"{choice} is used")
-                            print(f"{name} does {Damage} damage")
+                                target["Health"] -= Damage
+                                print(f"{choice} is used")
+                                print(f"{name} does {Damage} damage")
+                            else:
+                                print("\nThe attack goes though!\n")
                         else:
                             print("They avoided the attack!")
 
@@ -121,86 +124,89 @@ class Player_Move:
                         choice = "Bite"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (target["Max Health"] * 0.05) <= Damage:
-                                bleed_chance = random.random()
-                                if bleed_chance < 0.15 and (Damage >= (target["Max Health"] * 0.05) and Damage <= (target["Max Health"] * 0.1) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (target["Max Health"] * 0.05) <= Damage:
+                                    bleed_chance = random.random()
+                                    if bleed_chance < 0.15 and (Damage >= (target["Max Health"] * 0.05) and Damage <= (target["Max Health"] * 0.1) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
 
-                            target["Health"] -= Damage
-                            print(f"{choice} is used")
-                            print(f"{name} does {Damage} damage")
+                                target["Health"] -= Damage
+                                print(f"{choice} is used")
+                                print(f"{name} does {Damage} damage")
+                            else:
+                                print("\n The attack goes through!\n")
                         else:
                             print("They avoided the attack!")
 
@@ -248,18 +254,21 @@ class Player_Move:
                         choice = "Front Kick"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            target["Health"] -= Damage
-                            print(f"{choice} is used")
-                            print(f"{name} does {Damage} damage")
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                target["Health"] -= Damage
+                                print(f"{choice} is used")
+                                print(f"{name} does {Damage} damage")
+                            else:
+                                print("\n The attack goes through!\n")
                         else:
                             print("They avoided the attack!")
                     else:
@@ -303,35 +312,38 @@ class Player_Move:
                         choice = "Axe Kick"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
-                                if target == Enemy1:
-                                    chance = random.randint(1,5)
-                                    if chance == 1:
-                                        Enemy1_Skip = True
-                                        print("The Enemy is stunned!\n")
-                                if target == Enemy2:
-                                    chance = random.randint(1,5)
-                                    if chance == 1:
-                                        Enemy2_Skip = True
-                                        print("The Enemy is stunned!\n")
-                                if target == Enemy3:
-                                    chance = random.randint(1,5)
-                                    if chance == 3:
-                                        Enemy3_Skip = True
-                                        print("The Enemy is stunned!\n")
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
+                                    if target == Enemy1:
+                                        chance = random.randint(1,5)
+                                        if chance == 1:
+                                            Enemy1_Skip = True
+                                            print("The Enemy is stunned!\n")
+                                    if target == Enemy2:
+                                        chance = random.randint(1,5)
+                                        if chance == 1:
+                                            Enemy2_Skip = True
+                                            print("The Enemy is stunned!\n")
+                                    if target == Enemy3:
+                                        chance = random.randint(1,5)
+                                        if chance == 3:
+                                            Enemy3_Skip = True
+                                            print("The Enemy is stunned!\n")
 
-                            print(f"{choice} is used")
-                            print(f"{name} does {Damage} damage")
-                            target["Health"] -= Damage
+                                print(f"{choice} is used")
+                                print(f"{name} does {Damage} damage")
+                                target["Health"] -= Damage
+                            else:
+                                print("\n The attack goes through!\n")
                         else:
                             print("They avoided the attack!")
                     else:
@@ -376,34 +388,37 @@ class Player_Move:
                         choice = "Spinning Back Kick"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
-                                if target == Enemy1:
-                                    chance = random.randint(1,5)
-                                    if chance == 1:
-                                        Enemy1_Skip = True
-                                        print("The Enemy is stunned!\n")
-                                if target == Enemy2:
-                                    chance = random.randint(1,5)
-                                    if chance == 1:
-                                        Enemy2_Skip = True
-                                        print("The Enemy is stunned!\n")
-                                if target == Enemy3:
-                                    chance = random.randint(1,5)
-                                    if chance == 3:
-                                        Enemy3_Skip = True
-                                        print("The Enemy is stunned!\n")
-                            print(f"{choice} is used")
-                            print(f"{name} does {Damage} damage")
-                            target["Health"] -= Damage
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
+                                    if target == Enemy1:
+                                        chance = random.randint(1,5)
+                                        if chance == 1:
+                                            Enemy1_Skip = True
+                                            print("The Enemy is stunned!\n")
+                                    if target == Enemy2:
+                                        chance = random.randint(1,5)
+                                        if chance == 1:
+                                            Enemy2_Skip = True
+                                            print("The Enemy is stunned!\n")
+                                    if target == Enemy3:
+                                        chance = random.randint(1,5)
+                                        if chance == 3:
+                                            Enemy3_Skip = True
+                                            print("The Enemy is stunned!\n")
+                                print(f"{choice} is used")
+                                print(f"{name} does {Damage} damage")
+                                target["Health"] -= Damage
+                            else:
+                                print("\n The attack goes through!\n")
                         else:
                             print("They avoided the attack!")
                     else:
@@ -444,43 +459,45 @@ class Player_Move:
                             Player_copy["Stamina"] -= Combat_Skill_list["Groundbreaker"]["Cost"]
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                                choice = "Groundbreaker"
-                                Breaker = True
-                                if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
-                                    if target == Enemy1:
-                                        chance = random.randint(1,5)
-                                        if chance == 1:
-                                            Enemy1_Skip = True
-                                            print("The enemy is inflicted with stagger!\n")
-                                            target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
-                                            target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
-                                    if target == Enemy2:
-                                        chance = random.randint(1,5)
-                                        if chance == 1:
-                                            Enemy2_Skip = True
-                                            print("The enemy is inflicted with stagger!\n")
-                                            target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
-                                            target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
-                                    if target == Enemy3:
-                                        chance = random.randint(1,5)
-                                        if chance == 3:
-                                            Enemy3_Skip = True
-                                            print("The enemy is inflicted with stagger!\n")
-                                            target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
-                                            target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
-                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                    print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
-                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                    print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
-                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                    print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
-                                target["Health"] -= Damage
-                                print(f"{choice} is used")
-                                print(f"{name} does {Damage} damage")
-                                
+                                if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                    choice = "Groundbreaker"
+                                    Breaker = True
+                                    if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
+                                        if target == Enemy1:
+                                            chance = random.randint(1,5)
+                                            if chance == 1:
+                                                Enemy1_Skip = True
+                                                print("The enemy is inflicted with stagger!\n")
+                                                target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                                target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
+                                        if target == Enemy2:
+                                            chance = random.randint(1,5)
+                                            if chance == 1:
+                                                Enemy2_Skip = True
+                                                print("The enemy is inflicted with stagger!\n")
+                                                target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                                target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
+                                        if target == Enemy3:
+                                            chance = random.randint(1,5)
+                                            if chance == 3:
+                                                Enemy3_Skip = True
+                                                print("The enemy is inflicted with stagger!\n")
+                                                target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
+                                                target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
+                                    if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                        print("You hit a weakpoint!\n")
+                                        Damage = round(Damage* 1.5)
+                                    if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                        print("You hit a weakpoint!\n")
+                                        Damage = round(Damage* 1.5)
+                                    if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                        print("You hit a weakpoint!\n")
+                                        Damage = round(Damage* 1.5)
+                                    target["Health"] -= Damage
+                                    print(f"{choice} is used")
+                                    print(f"{name} does {Damage} damage")
+                                else:
+                                    print("\n The attack goes through!\n")
                             else:
                                 print("They avoided the attack!")
                         else:
@@ -525,18 +542,21 @@ class Player_Move:
                         choice = "Straight Punch"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            target["Health"] -= Damage
-                            print(f"\n{choice} is used\n")
-                            print(f"{name} does {Damage} damage")
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                target["Health"] -= Damage
+                                print(f"\n{choice} is used\n")
+                                print(f"{name} does {Damage} damage")
+                            else:
+                                print("\n The attack goes through!\n")
                         else:
                             print("They avoided the attack!")
                     else:
@@ -580,86 +600,89 @@ class Player_Move:
                         choice = "Aimed Shot"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/20))))):
-                            if (target["Max Health"] * 0.05) <= Damage:
-                                bleed_chance = random.random()
-                                if bleed_chance < 0.15 and (Damage >= (target["Max Health"] * 0.05) and Damage <= (target["Max Health"] * 0.1) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (target["Max Health"] * 0.05) <= Damage:
+                                    bleed_chance = random.random()
+                                    if bleed_chance < 0.15 and (Damage >= (target["Max Health"] * 0.05) and Damage <= (target["Max Health"] * 0.1) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
 
-                            target["Health"] -= Damage
-                            print(f"{choice} is used")
-                            print(f"{name} does {Damage} damage")
+                                target["Health"] -= Damage
+                                print(f"{choice} is used")
+                                print(f"{name} does {Damage} damage")
+                            else:
+                                print("\n The attack goes through!\n")
                         else:
                             print("They avoided the attack!")
 
@@ -705,18 +728,21 @@ class Player_Move:
                         choice = "Tackle"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            target["Health"] -= Damage
-                            print(f"{choice} is used")
-                            print(f"{name} does {Damage} damage")
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                target["Health"] -= Damage
+                                print(f"{choice} is used")
+                                print(f"{name} does {Damage} damage")
+                            else:
+                                print("\n The attack goes through!\n")
                         else:
                             print("They avoided the attack!")
                     else:
@@ -760,86 +786,89 @@ class Player_Move:
                         choice = "Slash"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (target["Max Health"] * 0.05) <= Damage:
-                                bleed_chance = random.random()
-                                if bleed_chance < 0.15 and (Damage >= (target["Max Health"] * 0.05) and Damage <= (target["Max Health"] * 0.1) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                            Damage = round(Damage)
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            target["Health"] -= Damage
-                            print(f"{choice} is used")
-                            print(f"{name} does {Damage} damage")
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (target["Max Health"] * 0.05) <= Damage:
+                                    bleed_chance = random.random()
+                                    if bleed_chance < 0.15 and (Damage >= (target["Max Health"] * 0.05) and Damage <= (target["Max Health"] * 0.1) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                Damage = round(Damage)
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                target["Health"] -= Damage
+                                print(f"{choice} is used")
+                                print(f"{name} does {Damage} damage")
+                            else:
+                                print("\n The attack goes through!\n")
                         else:
                             print("They avoided the attack!")
                     else:
@@ -885,86 +914,89 @@ class Player_Move:
                         choice = "Quick Stab"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (target["Max Health"] * 0.05) <= Damage:
-                                bleed_chance = random.random()
-                                if bleed_chance < 0.15 and (Damage >= (target["Max Health"] * 0.05) and Damage <= (target["Max Health"] * 0.1) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
-                                    if target["Status Effects"]["Status 1"]["Type"] == "None":
-                                        target["Status Effects"]["Status 1"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 1"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 2"]["Type"] == "None":
-                                        target["Status Effects"]["Status 2"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 2"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                                    elif target["Status Effects"]["Status 3"]["Type"] == "None":
-                                        target["Status Effects"]["Status 3"]["Type"] = "Bleed"
-                                        target["Status Effects"]["Status 3"]["Duration"] = 3
-                                        print(f"{target['Type']} is bleeding")
-                            Damage = round(Damage)
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            target["Health"] -= Damage
-                            print(f"{choice} is used")
-                            print(f"{name} does {Damage} damage")
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (target["Max Health"] * 0.05) <= Damage:
+                                    bleed_chance = random.random()
+                                    if bleed_chance < 0.15 and (Damage >= (target["Max Health"] * 0.05) and Damage <= (target["Max Health"] * 0.1) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.35 and (Damage >= (target["Max Health"] * 0.1) and Damage <= (target["Max Health"] * 0.15) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.6 and (Damage >= (target["Max Health"] * 0.15) and Damage <= (target["Max Health"] * 0.2) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 0.85 and (Damage >= (target["Max Health"] * 0.2) and Damage <= (target["Max Health"] * 0.3) ):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                    if bleed_chance < 1 and (Damage >= target["Max Health"] * 0.3):
+                                        if target["Status Effects"]["Status 1"]["Type"] == "None":
+                                            target["Status Effects"]["Status 1"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 1"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 2"]["Type"] == "None":
+                                            target["Status Effects"]["Status 2"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 2"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                        elif target["Status Effects"]["Status 3"]["Type"] == "None":
+                                            target["Status Effects"]["Status 3"]["Type"] = "Bleed"
+                                            target["Status Effects"]["Status 3"]["Duration"] = 3
+                                            print(f"{target['Type']} is bleeding")
+                                Damage = round(Damage)
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                target["Health"] -= Damage
+                                print(f"{choice} is used")
+                                print(f"{name} does {Damage} damage")
+                            else:
+                                print("\n The attack goes through!\n")
                         else:
                             print("They avoided the attack!")
                     else:
@@ -1008,35 +1040,38 @@ class Player_Move:
                         choice = "Impulsive Swing"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * 3))):
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
-                                if target == Enemy1:
-                                    chance = random.randint(1,5)
-                                    if chance == 1:
-                                        Enemy1_Skip = True
-                                        print("The Enemy is stunned!\n")
-                                if target == Enemy2:
-                                    chance = random.randint(1,5)
-                                    if chance == 1:
-                                        Enemy2_Skip = True
-                                        print("The Enemy is stunned!\n")
-                                if target == Enemy3:
-                                    chance = random.randint(1,5)
-                                    if chance == 3:
-                                        Enemy3_Skip = True
-                                        print("The Enemy is stunned!\n")
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
+                                    if target == Enemy1:
+                                        chance = random.randint(1,5)
+                                        if chance == 1:
+                                            Enemy1_Skip = True
+                                            print("The Enemy is stunned!\n")
+                                    if target == Enemy2:
+                                        chance = random.randint(1,5)
+                                        if chance == 1:
+                                            Enemy2_Skip = True
+                                            print("The Enemy is stunned!\n")
+                                    if target == Enemy3:
+                                        chance = random.randint(1,5)
+                                        if chance == 3:
+                                            Enemy3_Skip = True
+                                            print("The Enemy is stunned!\n")
 
-                            print(f"{choice} is used")
-                            print(f"{name} does {Damage} damage")
-                            target["Health"] -= Damage
+                                print(f"{choice} is used")
+                                print(f"{name} does {Damage} damage")
+                                target["Health"] -= Damage
+                            else:
+                                print("\n The attack goes through!\n")
                         else:
                             print("They avoided the attack!")
                     else:
@@ -1080,18 +1115,21 @@ class Player_Move:
                         choice = "Jab"
                         Breaker = True
                         if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
-                            if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                print("You hit a weakpoint!\n")
-                                Damage = round(Damage* 1.5)
-                            target["Health"] -= Damage
-                            print(f"{choice} is used")
-                            print(f"{name} does {Damage} damage")
+                            if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    Damage = round(Damage* 1.5)
+                                target["Health"] -= Damage
+                                print(f"{choice} is used")
+                                print(f"{name} does {Damage} damage")
+                            else:
+                                print("\n The attack goes through!\n")
                         else:
                             print("They avoided the attack!")
                     else:
@@ -2503,7 +2541,7 @@ class Player_Move:
                         Breaker = True
                         if Spell_list["Dominate"]["Cost"] < Player_copy["Mana"]:
                             Player_copy["Mana"] -= Spell_list["Dominate"]["Cost"]
-                            if Player_copy["Level"] > target["Level"]:
+                            if Player_copy["Level"] > target["Level"] and target["Category"] != "Undead":
                                 print(f"\n\n{choice} is used\n")
                                 while True:
                                     if (Enemy1 != None and Enemy2 != None) and Enemy3 != None:
