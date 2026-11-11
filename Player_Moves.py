@@ -51,13 +51,22 @@ class Player_Move:
                             if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
                                     if target == Enemy1:
                                         chance = random.randint(1,5)
@@ -194,13 +203,22 @@ class Player_Move:
                                             print(f"{target['Type']} is bleeding")
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
 
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
@@ -257,13 +275,22 @@ class Player_Move:
                             if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
@@ -315,13 +342,22 @@ class Player_Move:
                             if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
                                     if target == Enemy1:
                                         chance = random.randint(1,5)
@@ -391,13 +427,22 @@ class Player_Move:
                             if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
                                     if target == Enemy1:
                                         chance = random.randint(1,5)
@@ -484,14 +529,23 @@ class Player_Move:
                                                 print("The enemy is inflicted with stagger!\n")
                                                 target["Speed"] -= (target["Speed"] * random.uniform(0.1,0.2))
                                                 target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
-                                    if (POI == Enemy1_Weakpoint) and target == Enemy1:
-                                        print("You hit a weakpoint!\n")
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
+                                    print("You hit a weakpoint!\n")
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
                                         Damage = round(Damage* 1.5)
-                                    if (POI == Enemy2_Weakpoint) and target == Enemy2:
-                                        print("You hit a weakpoint!\n")
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
+                                    print("You hit a weakpoint!\n")
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
                                         Damage = round(Damage* 1.5)
-                                    if (POI == Enemy3_Weakpoint) and target == Enemy3:
-                                        print("You hit a weakpoint!\n")
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
+                                    print("You hit a weakpoint!\n")
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
                                         Damage = round(Damage* 1.5)
                                     target["Health"] -= Damage
                                     print(f"{choice} is used")
@@ -545,13 +599,22 @@ class Player_Move:
                             if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"\n{choice} is used\n")
                                 print(f"{name} does {Damage} damage")
@@ -670,13 +733,22 @@ class Player_Move:
                                             print(f"{target['Type']} is bleeding")
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
 
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
@@ -731,13 +803,22 @@ class Player_Move:
                             if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
@@ -857,13 +938,22 @@ class Player_Move:
                                 Damage = round(Damage)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
@@ -985,13 +1075,22 @@ class Player_Move:
                                 Damage = round(Damage)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
@@ -1043,13 +1142,22 @@ class Player_Move:
                             if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
                                     if target == Enemy1:
                                         chance = random.randint(1,5)
@@ -1118,13 +1226,22 @@ class Player_Move:
                             if all(Type not in target["Type"] for Type in ["Spirit", "Elemental", "Wraith", "Phantom", "Sprite"]):
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
@@ -1210,13 +1327,22 @@ class Player_Move:
                                 Damage = round(Damage)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
@@ -1329,13 +1455,22 @@ class Player_Move:
                                 Damage = round(Damage)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
@@ -1451,15 +1586,24 @@ class Player_Move:
                                 Breaker = True
 
                                 Damage = round(Damage)
-                                if (POI == Enemy1_Weakpoint):
+                                if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
-                                if (POI == Enemy2_Weakpoint) and Enemy2 != None:
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
+                                if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage2 = round(Damage2 * 1.5)
-                                if (POI == Enemy3_Weakpoint) and Enemy3 != None:
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
+                                if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage3 = round(Damage3 * 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 Enemy1["Health"] -= Damage
                                 if Enemy2 != None:
                                     Enemy2["Health"] -= Damage2
@@ -1563,13 +1707,22 @@ class Player_Move:
                                 Damage = round(Damage)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
@@ -1660,13 +1813,22 @@ class Player_Move:
                                 Damage = round(Damage)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
@@ -1777,13 +1939,22 @@ class Player_Move:
                                             target["Evasion"] -= (target["Evasion"] * random.uniform(0.1,0.2))
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
@@ -1886,13 +2057,23 @@ class Player_Move:
                                 Damage = round(Damage)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
+                                    
                                 Damage /= 4
                                 Damage = round(Damage)
                                 num_Moves = random.randint(1,6)
@@ -1997,13 +2178,24 @@ class Player_Move:
                                 Damage = round(Damage)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
+                                if target["Category"] == "Demon":
+                                    Damage *= 0.5
 
                                 Damage = Damage * 0.8
                                 Damage = round(Damage)
@@ -2230,13 +2422,24 @@ class Player_Move:
                                 Damage = round(Damage)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
+                                if target["Category"] == "Demon":
+                                    Damage *= 0.5
 
                                 if (target["Max Health"] * random.uniform(0.05,0.15)) <= Damage:
 
@@ -2353,14 +2556,24 @@ class Player_Move:
                                 Damage = round(Damage)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
-
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
+                                if target["Category"] == "Demon":
+                                    Damage *= 0.5
                                 if (target["Max Health"] * random.uniform(0.05,0.15)) <= Damage:
 
                                     poison_chance = random.randint(1,2)
@@ -2471,20 +2684,31 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
-                                if target["Category"] == "Demon" or target["Category"] == "Undead":
+                                if  target["Category"] == "Undead":
                                     Damage *= 2
+                                if target["Category"] == "Demon":
+                                    Damage *= 3
                                 choice = "Purify"
                                 Breaker = True
                                 Damage = round(Damage)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used")
                                 print(f"{name} does {Damage} damage")
@@ -2718,13 +2942,22 @@ class Player_Move:
                                 Damage *= (1+ Mana_Amount / 100)
                                 if (POI == Enemy1_Weakpoint) and target == Enemy1:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy2_Weakpoint) and target == Enemy2:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 if (POI == Enemy3_Weakpoint) and target == Enemy3:
                                     print("You hit a weakpoint!\n")
-                                    Damage = round(Damage* 1.5)
+                                    if Enemy2["Category"] == "Construct":
+                                        Damage = round(Damage * 5)
+                                    else:
+                                        Damage = round(Damage* 1.5)
                                 target["Health"] -= Damage
                                 print(f"{choice} is used\n")
                                 print(f"{name} does {Damage} damage\n")

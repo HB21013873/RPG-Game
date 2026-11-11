@@ -1122,7 +1122,8 @@ class Enemy_Move:
                             choice = "Life Drain"
 
                             Damage = round(Damage)
-                            Damage = Damage * 0.8
+                            if target["Category"] == "Demon":
+                                Damage *= 1.5
                             Damage = round(Damage)
                             Player_copy["Health"] -= Damage
                             Health_Gained = round(Damage/2)
@@ -1253,7 +1254,8 @@ class Enemy_Move:
                             if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                                 Damage += Damage_Amount
                                 choice = "Corrupting Touch"
-
+                                if target["Category"] == "Demon":
+                                    Damage *= 1.5
                                 Damage = round(Damage)
                                 if (Player_copy["Max Health"] * random.uniform(0.05,0.1)) <= Damage:
                                     poison_chance = random.randint(1,5)
@@ -1321,7 +1323,8 @@ class Enemy_Move:
                             if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                                 Damage += Damage_Amount
                                 choice = "Toxin Spray"
-
+                                if target["Category"] == "Demon":
+                                 Damage *= 1.5
                                 Damage = round(Damage)
                                 if (Player_copy["Max Health"] * random.uniform(0.05,0.1)) <= Damage:
                                     poison_chance = random.randint(1,2)
@@ -1340,7 +1343,7 @@ class Enemy_Move:
                                             print("You have been Poisoned")
 
                                     
-
+                                
                                 Damage = round(Damage)
                                 Player_copy["Health"] -= Damage
                                 print(f"{choice} is used")
