@@ -735,6 +735,8 @@ class Enemy_Move:
                         if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                             Damage += Damage_Amount
                             choice = "Fireball"
+                            if target["Attribute"] == "Fire":
+                                Damage *= 1.5
                             if (Player_copy["Max Health"] * random.uniform(0.05,0.15)) <= Damage:
                                 burn_chance = random.randint(1,5)
                                 if burn_chance == 1:

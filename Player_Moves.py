@@ -1305,8 +1305,10 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
-                                if target["Type"] == "Venom Spider":
+                                if target["Attribute"] == "Ice":
                                     Damage *= 2
+                                if target["Attribute"] == "Fire":
+                                    Damage *= 0.5
                                 choice = "Fireball"
                                 Breaker = True
                                 if (target["Max Health"] * random.uniform(0.05,0.15)) <= Damage:

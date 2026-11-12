@@ -453,6 +453,93 @@ class Tower:
                 Enemy1,Enemy2,Enemy1_Weakpoint,Enemy2_Weakpoint   = L1.Level_1(Enemy,Player_copy,b,place)
             elif b >= 1:
                 Enemy1,Enemy1_Weakpoint = L1.Level_1(Enemy,Player_copy,b,place)
+                
+            if "Venom" in Enemy3["Type"] or "Swamp" in Enemy3["Type"] or "Bog" in Enemy3["Type"] or "Acid" in Enemy3["Type"] or "Toxic" in Enemy3["Type"] or "Venom" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Poison"
+            if "Rot" in Enemy3["Type"] or "Plague" in Enemy3["Type"] or "Disease" in Enemy3["Type"] or "Ruin" in Enemy3["Type"] or "Bone" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Decay"
+            if "Ice" in Enemy3["Type"] or "Frost" in Enemy3["Type"] or "Frozen" in Enemy3["Type"] or "Snow" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Ice"
+            if "Lightning" in Enemy3["Type"] or "Storm" in Enemy3["Type"] or "Tempest" in Enemy3["Type"] or "Thunder" in Enemy3["Type"] or "Charged" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Lightning"
+            if "Shadow" in Enemy3["Type"] or "Void" in Enemy3["Type"] or "Dark" in Enemy3["Type"] or "Night" in Enemy3["Type"] or "Phantom" in Enemy3["Type"] or "Lich" in Enemy3["Type"] or "Abyss" in Enemy3["Type"] or "Nightmare" in Enemy3["Type"] or "Demon Lord" in Enemy3["Type"] or "Cursed" in Enemy3["Type"] or "Eclipsed" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Dark"
+            if "Alchemical" in Enemy3["Type"] or "Mutant" in Enemy3["Type"] or "Experiment" in Enemy3["Type"] or "Potion" in Enemy3["Type"] or "Mutation" in Enemy3["Type"] or "Living" in Enemy3["Type"] or "Mad Alchemist" in Enemy3["Type"] or "Tiny" in Enemy3["Type"] or "Chemical" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Chemical"
+            if "Fire" in Enemy3["Type"] or "Flame" in Enemy3["Type"] or "Burning" in Enemy3["Type"] or "Molten" in Enemy3["Type"] or "Inferno" in Enemy3["Type"] or  "Demon" in Enemy3["Type"] or "Ash" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Fire"
+            if "Shield" in Enemy3["Type"] or "Stone" in Enemy3["Type"] or "Heavy" in Enemy3["Type"] or "Rust" in Enemy3["Type"] or "Steel" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Tanky"
+            if "Ritual" in Enemy3["Type"] or "Ancient" in Enemy3["Type"] or "Tomb" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Cursed"
+            if "Bridge" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Bridge"
+            if "Armory" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Armory"
+            if "Arena" in Enemy3["Type"] or "Pit" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Crowd"
+            if "Rogue" in Enemy3["Type"] or "Wind" in Enemy3["Type"] or "Dust" in Enemy3["Type"]:
+                Enemy3["Attribute "] = "Agile"
+            if "War" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Aggressive"
+            
+            if "Venom" in Enemy2["Type"] or "Swamp" in Enemy2["Type"] or "Bog" in Enemy2["Type"] or "Acid" in Enemy2["Type"] or "Toxic" in Enemy2["Type"] or "Venom" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Poison"
+            if "Rot" in Enemy2["Type"] or "Plague" in Enemy2["Type"] or "Disease" in Enemy2["Type"] or "Ruin" in Enemy2["Type"] or "Bone" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Decay"
+            if "Ice" in Enemy2["Type"] or "Frost" in Enemy2["Type"] or "Frozen" in Enemy2["Type"] or "Snow" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Ice"
+            if "Lightning" in Enemy2["Type"] or "Storm" in Enemy2["Type"] or "Tempest" in Enemy2["Type"] or "Thunder" in Enemy2["Type"] or "Charged" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Lightning"
+            if "Shadow" in Enemy2["Type"] or "Void" in Enemy2["Type"] or "Dark" in Enemy2["Type"] or "Night" in Enemy2["Type"] or "Phantom" in Enemy2["Type"] or "Lich" in Enemy2["Type"] or "Abyss" in Enemy2["Type"] or "Nightmare" in Enemy2["Type"] or "Demon Lord" in Enemy2["Type"] or "Cursed" in Enemy2["Type"] or "Eclipsed" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Dark"
+            if "Alchemical" in Enemy2["Type"] or "Mutant" in Enemy2["Type"] or "Experiment" in Enemy2["Type"] or "Potion" in Enemy2["Type"] or "Mutation" in Enemy2["Type"] or "Living" in Enemy2["Type"] or "Mad Alchemist" in Enemy2["Type"] or "Tiny" in Enemy2["Type"] or "Chemical" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Chemical"
+            if "Fire" in Enemy2["Type"] or "Flame" in Enemy2["Type"] or "Burning" in Enemy2["Type"] or "Molten" in Enemy2["Type"] or "Inferno" in Enemy2["Type"] or  "Demon" in Enemy2["Type"] or "Ash" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Fire"
+            if "Shield" in Enemy2["Type"] or "Stone" in Enemy2["Type"] or "Heavy" in Enemy2["Type"] or "Rust" in Enemy2["Type"] or "Steel" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Tanky"
+            if "Ritual" in Enemy2["Type"] or "Ancient" in Enemy2["Type"] or "Tomb" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Cursed"
+            if "Bridge" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Bridge"
+            if "Armory" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Armory"
+            if "Arena" in Enemy2["Type"] or "Pit" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Crowd"
+            if "Rogue" in Enemy2["Type"] or "Wind" in Enemy2["Type"] or "Dust" in Enemy2["Type"]:
+                Enemy2["Attribute "] = "Agile"
+            if "War" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Aggressive"
+            
+            if "Venom" in Enemy1["Type"] or "Swamp" in Enemy1["Type"] or "Bog" in Enemy1["Type"] or "Acid" in Enemy1["Type"] or "Toxic" in Enemy1["Type"] or "Venom" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Poison"
+            if "Rot" in Enemy1["Type"] or "Plague" in Enemy1["Type"] or "Disease" in Enemy1["Type"] or "Ruin" in Enemy1["Type"] or "Bone" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Decay"
+            if "Ice" in Enemy1["Type"] or "Frost" in Enemy1["Type"] or "Frozen" in Enemy1["Type"] or "Snow" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Ice"
+            if "Lightning" in Enemy1["Type"] or "Storm" in Enemy1["Type"] or "Tempest" in Enemy1["Type"] or "Thunder" in Enemy1["Type"] or "Charged" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Lightning"
+            if "Shadow" in Enemy1["Type"] or "Void" in Enemy1["Type"] or "Dark" in Enemy1["Type"] or "Night" in Enemy1["Type"] or "Phantom" in Enemy1["Type"] or "Lich" in Enemy1["Type"] or "Abyss" in Enemy1["Type"] or "Nightmare" in Enemy1["Type"] or "Demon Lord" in Enemy1["Type"] or "Cursed" in Enemy1["Type"] or "Eclipsed" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Dark"
+            if "Alchemical" in Enemy1["Type"] or "Mutant" in Enemy1["Type"] or "Experiment" in Enemy1["Type"] or "Potion" in Enemy1["Type"] or "Mutation" in Enemy1["Type"] or "Living" in Enemy1["Type"] or "Mad Alchemist" in Enemy1["Type"] or "Tiny" in Enemy1["Type"] or "Chemical" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Chemical"
+            if "Fire" in Enemy1["Type"] or "Flame" in Enemy1["Type"] or "Burning" in Enemy1["Type"] or "Molten" in Enemy1["Type"] or "Inferno" in Enemy1["Type"] or  "Demon" in Enemy1["Type"] or "Ash" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Fire"
+            if "Shield" in Enemy1["Type"] or "Stone" in Enemy1["Type"] or "Heavy" in Enemy1["Type"] or "Rust" in Enemy1["Type"] or "Steel" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Tanky"
+            if "Ritual" in Enemy1["Type"] or "Ancient" in Enemy1["Type"] or "Tomb" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Cursed"
+            if "Bridge" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Bridge"
+            if "Armory" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Armory"
+            if "Arena" in Enemy1["Type"] or "Pit" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Crowd"
+            if "Rogue" in Enemy1["Type"] or "Wind" in Enemy1["Type"] or "Dust" in Enemy1["Type"]:
+                Enemy1["Attribute "] = "Agile"
+            if "War" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Aggressive"
 
             print(Enemy1["Type"]," has appeared\n")
             if b >= 2:
@@ -1695,6 +1782,92 @@ class Tower:
                 Enemy1,Enemy2,Enemy1_Weakpoint,Enemy2_Weakpoint, = L2.Level_2(Enemy,Player_copy,b,place)
             elif b >= 1:
                 Enemy1,Enemy1_Weakpoint = L2.Level_2(Enemy,Player_copy,b,place)
+            if "Venom" in Enemy3["Type"] or "Swamp" in Enemy3["Type"] or "Bog" in Enemy3["Type"] or "Acid" in Enemy3["Type"] or "Toxic" in Enemy3["Type"] or "Venom" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Poison"
+            if "Rot" in Enemy3["Type"] or "Plague" in Enemy3["Type"] or "Disease" in Enemy3["Type"] or "Ruin" in Enemy3["Type"] or "Bone" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Decay"
+            if "Ice" in Enemy3["Type"] or "Frost" in Enemy3["Type"] or "Frozen" in Enemy3["Type"] or "Snow" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Ice"
+            if "Lightning" in Enemy3["Type"] or "Storm" in Enemy3["Type"] or "Tempest" in Enemy3["Type"] or "Thunder" in Enemy3["Type"] or "Charged" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Lightning"
+            if "Shadow" in Enemy3["Type"] or "Void" in Enemy3["Type"] or "Dark" in Enemy3["Type"] or "Night" in Enemy3["Type"] or "Phantom" in Enemy3["Type"] or "Lich" in Enemy3["Type"] or "Abyss" in Enemy3["Type"] or "Nightmare" in Enemy3["Type"] or "Demon Lord" in Enemy3["Type"] or "Cursed" in Enemy3["Type"] or "Eclipsed" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Dark"
+            if "Alchemical" in Enemy3["Type"] or "Mutant" in Enemy3["Type"] or "Experiment" in Enemy3["Type"] or "Potion" in Enemy3["Type"] or "Mutation" in Enemy3["Type"] or "Living" in Enemy3["Type"] or "Mad Alchemist" in Enemy3["Type"] or "Tiny" in Enemy3["Type"] or "Chemical" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Chemical"
+            if "Fire" in Enemy3["Type"] or "Flame" in Enemy3["Type"] or "Burning" in Enemy3["Type"] or "Molten" in Enemy3["Type"] or "Inferno" in Enemy3["Type"] or  "Demon" in Enemy3["Type"] or "Ash" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Fire"
+            if "Shield" in Enemy3["Type"] or "Stone" in Enemy3["Type"] or "Heavy" in Enemy3["Type"] or "Rust" in Enemy3["Type"] or "Steel" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Tanky"
+            if "Ritual" in Enemy3["Type"] or "Ancient" in Enemy3["Type"] or "Tomb" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Cursed"
+            if "Bridge" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Bridge"
+            if "Armory" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Armory"
+            if "Arena" in Enemy3["Type"] or "Pit" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Crowd"
+            if "Rogue" in Enemy3["Type"] or "Wind" in Enemy3["Type"] or "Dust" in Enemy3["Type"]:
+                Enemy3["Attribute "] = "Agile"
+            if "War" in Enemy3["Type"]:
+                Enemy3["Attribute"] = "Aggressive"
+            
+            if "Venom" in Enemy2["Type"] or "Swamp" in Enemy2["Type"] or "Bog" in Enemy2["Type"] or "Acid" in Enemy2["Type"] or "Toxic" in Enemy2["Type"] or "Venom" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Poison"
+            if "Rot" in Enemy2["Type"] or "Plague" in Enemy2["Type"] or "Disease" in Enemy2["Type"] or "Ruin" in Enemy2["Type"] or "Bone" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Decay"
+            if "Ice" in Enemy2["Type"] or "Frost" in Enemy2["Type"] or "Frozen" in Enemy2["Type"] or "Snow" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Ice"
+            if "Lightning" in Enemy2["Type"] or "Storm" in Enemy2["Type"] or "Tempest" in Enemy2["Type"] or "Thunder" in Enemy2["Type"] or "Charged" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Lightning"
+            if "Shadow" in Enemy2["Type"] or "Void" in Enemy2["Type"] or "Dark" in Enemy2["Type"] or "Night" in Enemy2["Type"] or "Phantom" in Enemy2["Type"] or "Lich" in Enemy2["Type"] or "Abyss" in Enemy2["Type"] or "Nightmare" in Enemy2["Type"] or "Demon Lord" in Enemy2["Type"] or "Cursed" in Enemy2["Type"] or "Eclipsed" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Dark"
+            if "Alchemical" in Enemy2["Type"] or "Mutant" in Enemy2["Type"] or "Experiment" in Enemy2["Type"] or "Potion" in Enemy2["Type"] or "Mutation" in Enemy2["Type"] or "Living" in Enemy2["Type"] or "Mad Alchemist" in Enemy2["Type"] or "Tiny" in Enemy2["Type"] or "Chemical" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Chemical"
+            if "Fire" in Enemy2["Type"] or "Flame" in Enemy2["Type"] or "Burning" in Enemy2["Type"] or "Molten" in Enemy2["Type"] or "Inferno" in Enemy2["Type"] or  "Demon" in Enemy2["Type"] or "Ash" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Fire"
+            if "Shield" in Enemy2["Type"] or "Stone" in Enemy2["Type"] or "Heavy" in Enemy2["Type"] or "Rust" in Enemy2["Type"] or "Steel" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Tanky"
+            if "Ritual" in Enemy2["Type"] or "Ancient" in Enemy2["Type"] or "Tomb" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Cursed"
+            if "Bridge" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Bridge"
+            if "Armory" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Armory"
+            if "Arena" in Enemy2["Type"] or "Pit" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Crowd"
+            if "Rogue" in Enemy2["Type"] or "Wind" in Enemy2["Type"] or "Dust" in Enemy2["Type"]:
+                Enemy2["Attribute "] = "Agile"
+            if "War" in Enemy2["Type"]:
+                Enemy2["Attribute"] = "Aggressive"
+            
+            if "Venom" in Enemy1["Type"] or "Swamp" in Enemy1["Type"] or "Bog" in Enemy1["Type"] or "Acid" in Enemy1["Type"] or "Toxic" in Enemy1["Type"] or "Venom" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Poison"
+            if "Rot" in Enemy1["Type"] or "Plague" in Enemy1["Type"] or "Disease" in Enemy1["Type"] or "Ruin" in Enemy1["Type"] or "Bone" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Decay"
+            if "Ice" in Enemy1["Type"] or "Frost" in Enemy1["Type"] or "Frozen" in Enemy1["Type"] or "Snow" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Ice"
+            if "Lightning" in Enemy1["Type"] or "Storm" in Enemy1["Type"] or "Tempest" in Enemy1["Type"] or "Thunder" in Enemy1["Type"] or "Charged" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Lightning"
+            if "Shadow" in Enemy1["Type"] or "Void" in Enemy1["Type"] or "Dark" in Enemy1["Type"] or "Night" in Enemy1["Type"] or "Phantom" in Enemy1["Type"] or "Lich" in Enemy1["Type"] or "Abyss" in Enemy1["Type"] or "Nightmare" in Enemy1["Type"] or "Demon Lord" in Enemy1["Type"] or "Cursed" in Enemy1["Type"] or "Eclipsed" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Dark"
+            if "Alchemical" in Enemy1["Type"] or "Mutant" in Enemy1["Type"] or "Experiment" in Enemy1["Type"] or "Potion" in Enemy1["Type"] or "Mutation" in Enemy1["Type"] or "Living" in Enemy1["Type"] or "Mad Alchemist" in Enemy1["Type"] or "Tiny" in Enemy1["Type"] or "Chemical" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Chemical"
+            if "Fire" in Enemy1["Type"] or "Flame" in Enemy1["Type"] or "Burning" in Enemy1["Type"] or "Molten" in Enemy1["Type"] or "Inferno" in Enemy1["Type"] or  "Demon" in Enemy1["Type"] or "Ash" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Fire"
+            if "Shield" in Enemy1["Type"] or "Stone" in Enemy1["Type"] or "Heavy" in Enemy1["Type"] or "Rust" in Enemy1["Type"] or "Steel" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Tanky"
+            if "Ritual" in Enemy1["Type"] or "Ancient" in Enemy1["Type"] or "Tomb" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Cursed"
+            if "Bridge" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Bridge"
+            if "Armory" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Armory"
+            if "Arena" in Enemy1["Type"] or "Pit" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Crowd"
+            if "Rogue" in Enemy1["Type"] or "Wind" in Enemy1["Type"] or "Dust" in Enemy1["Type"]:
+                Enemy1["Attribute "] = "Agile"
+            if "War" in Enemy1["Type"]:
+                Enemy1["Attribute"] = "Aggressive"
 
             print(Enemy1["Type"]," has appeared\n")
             if b >= 2:
