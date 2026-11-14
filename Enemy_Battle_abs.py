@@ -551,7 +551,7 @@ class Enemy_Battle:
             if "Armory" in Enemy1["Type"]:
                 Enemy1["Attribute"] = "Armory"
                 armory_grab = random.choice(["Helmet","Shoulderwear","Armwear","Chestplate","Legwear","Footwear","Weapon","Offhand"])
-                print (Enemy1["Type"]," equips a ",armory_grab)
+                print (Enemy1["Type"]," absorbs a ",armory_grab," from their interdimensional armory")
                 if armory_grab == "Helmet":
                     Enemy1["Defense"] *= 1.03
                     Enemy1["Defense"] = round(Enemy1["Defense"])
@@ -1351,7 +1351,7 @@ class Enemy_Battle:
             if "Armory" in Enemy2["Type"]:
                 Enemy2["Attribute"] = "Armory"
                 armory_grab = random.choice(["Helmet","Shoulderwear","Armwear","Chestplate","Legwear","Footwear","Weapon","Offhand"])
-                print (Enemy2["Type"]," equips a ",armory_grab)
+                print (Enemy2["Type"]," absorbs a ",armory_grab," from their interdimensional armory")
                 if armory_grab == "Helmet":
                     Enemy2["Defense"] *= 1.03
                     Enemy2["Defense"] = round(Enemy2["Defense"])
@@ -2150,7 +2150,7 @@ class Enemy_Battle:
             if "Armory" in Enemy3["Type"]:
                 Enemy3["Attribute"] = "Armory"
                 armory_grab = random.choice(["Helmet","Shoulderwear","Armwear","Chestplate","Legwear","Footwear","Weapon","Offhand"])
-                print (Enemy3["Type"]," equips a ",armory_grab)
+                print (Enemy3["Type"]," absorbs a ",armory_grab," from their interdimensional armory")
                 if armory_grab == "Helmet":
                     Enemy3["Defense"] *= 1.03
                     Enemy3["Defense"] = round(Enemy3["Defense"])
