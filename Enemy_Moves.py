@@ -28,6 +28,9 @@ class Enemy_Move:
                     if 50 < target["Stamina"]:
                         Percentage = random.random()
                         Enemy_Critical_Chance = target["Critical Chance"] / 100
+                        if target["Category"] == "Beast":
+                            Enemy_Critical_Chance *= 1.25
+                            Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                         if Percentage <= Enemy_Critical_Chance:
                             Damage = int(( 25 * target["Attack"]/  Player_copy["Defense"]) )
                             Damage *= (1 + (Player_copy["Critical Damage"]/100))
@@ -70,8 +73,11 @@ class Enemy_Move:
                 if Turn_Time >= 0.5:
                     if 10 < target["Stamina"]:
                         Percentage = random.random()
-                        Player_copy_Critical_Chance = target["Critical Chance"] / 100
-                        if Percentage <= Player_copy_Critical_Chance:
+                        Enemy_copy_Critical_Chance = target["Critical Chance"] / 100
+                        if target["Category"] == "Beast":
+                            Enemy_Critical_Chance *= 1.25
+                            Enemy_Critical_Chance = round(Enemy_Critical_Chance)
+                        if Percentage <= Enemy_copy_Critical_Chance:
                             Damage = int(( 50 * target["Attack"]/  Player_copy["Defense"]) )
                             Damage *= (1 + (target["Critical Damage"]/100))
                             print("\n\nCritical Hit!\n")
@@ -179,6 +185,9 @@ class Enemy_Move:
                 if 25 < target["Stamina"]:
                     Percentage = random.random()
                     Enemy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( (15 * target["Attack"]/  Player_copy["Defense"]))
                         Damage *= (1 + (target["Critical Damage"]/100))
@@ -213,6 +222,9 @@ class Enemy_Move:
                 if 50 < target["Stamina"]:
                     Percentage = random.random()
                     Enemy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( (25 * target["Attack"])/  Player_copy["Defense"])
                         Damage *= (1 + (Player_copy["Critical Damage"]/100))
@@ -253,6 +265,9 @@ class Enemy_Move:
                 if 50 < Player_copy["Stamina"]:
                     Percentage = random.random()
                     Enemy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( (25 * target["Attack"]/  Player_copy["Defense"]) )
                         Damage *= (1 + (target["Critical Damage"]/100))
@@ -286,9 +301,12 @@ class Enemy_Move:
                     POI = kwargs.get("POI",None)
                     Turn_Time = kwargs.get("Turn_Time",None)
                     if Turn_Time >= 1:
-                        Target_Critical_Chance = target["Critical Chance"] / 100
+                        Enemy_Critical_Chance = target["Critical Chance"] / 100
+                        if target["Category"] == "Beast":
+                            Enemy_Critical_Chance *= 1.25
+                            Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                         Percentage = random.random()
-                        if Percentage <= Target_Critical_Chance:
+                        if Percentage <= Enemy_Critical_Chance:
                             Damage = int( 25   * target["Attack"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
                             Damage *= (1 + (target["Critical Damage"]/100))
                         else:
@@ -335,6 +353,9 @@ class Enemy_Move:
                 if 25 < target["Stamina"]:
                     Percentage = random.random()
                     Enemy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( (25 * target["Attack"]/  Player_copy["Defense"]))
                         Damage *= (1 + (target["Critical Damage"]/100))
@@ -368,6 +389,9 @@ class Enemy_Move:
                 if 25 < target["Stamina"]:
                     Percentage = random.random()
                     Enemy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( (10 * target["Attack"]/  Player_copy["Defense"]))
                         Damage *= (1 + (target["Critical Damage"]/100))
@@ -401,6 +425,9 @@ class Enemy_Move:
                 if 25 < target["Stamina"]:
                     Percentage = random.random()
                     Enemy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( (15 * target["Attack"]/  Player_copy["Defense"]))
                         Damage *= (1 + (target["Critical Damage"]/100))
@@ -434,6 +461,9 @@ class Enemy_Move:
                 if 25 < target["Stamina"]:
                     Percentage = random.random()
                     Enemy_Critical_Chance = target["Critical Chance"] / 50
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( (25 * target["Attack"]/  Player_copy["Defense"]))
                         Damage *= (1 + (target["Critical Damage"]/75))
@@ -536,6 +566,9 @@ class Enemy_Move:
                 if 25 < target["Stamina"]:
                     Percentage = random.random()
                     Enemy_Critical_Chance = target["Critical Chance"] / 50
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( (25 * target["Attack"]/  Player_copy["Defense"]))
                         Damage *= (1 + (target["Critical Damage"]/75))
@@ -637,6 +670,9 @@ class Enemy_Move:
                 if 100 < Player_copy["Stamina"]:
                     Percentage = random.random()
                     Enemy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( (75 * target["Attack"]/  Player_copy["Defense"]) )
                         Damage *= (1 + (target["Critical Damage"]/100))
@@ -675,6 +711,9 @@ class Enemy_Move:
                 if 25 < target["Stamina"]:
                     Percentage = random.random()
                     Enemy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( (10 * target["Attack"]/  Player_copy["Defense"]))
                         Damage *= (1 + (target["Critical Damage"]/100))
@@ -711,6 +750,9 @@ class Enemy_Move:
 
                 
                     Enemy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     Percentage = random.random()
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( 25    *  target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
@@ -776,6 +818,9 @@ class Enemy_Move:
                     Enemy3 = kwargs.get("Enemy3",None)
                 
                     Enemy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     Percentage = random.random()
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( 25 * target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
@@ -799,6 +844,8 @@ class Enemy_Move:
                         Evasion_Chance = random.randint(1,100)
                         if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                             Damage += Damage_Amount
+                            if target["Attribute"] == "Ice":
+                                Damage *= 1.5
                             choice = "Ice Shard"
                             if (Player_copy["Max Health"] * random.uniform(0.05,0.15)) <= Damage:
                                 freeze_chance = random.randint(1,5)
@@ -838,6 +885,9 @@ class Enemy_Move:
                     
 
                     Enemy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     Percentage = random.random()
                     if Percentage <= Enemy_Critical_Chance:
                         Damage = int( 25 * target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
@@ -861,6 +911,8 @@ class Enemy_Move:
                         Evasion_Chance = random.randint(1,100)
                         if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                             Damage += Damage_Amount
+                            if target["Attribute"] == "Lightning":
+                                Damage *= 1.5
                             choice = "Shock"
                             Damage = round(Damage)
                             Player_copy["Health"] -= Damage
@@ -884,6 +936,9 @@ class Enemy_Move:
                     Enemy3 = kwargs.get("Enemy3",None)
                     
                     Player_copy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     Percentage = random.random()
                     if Percentage <= Player_copy_Critical_Chance:
                         Damage = int( 25   * target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
@@ -910,6 +965,8 @@ class Enemy_Move:
                         Evasion_Chance = random.randint(1,100)
                         if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                             Damage += Damage_Amount
+                            if target["Attribute"] == "Water":
+                                Damage *= 1.5
                             choice = "River Fist"
 
                             Damage = round(Damage)
@@ -934,6 +991,9 @@ class Enemy_Move:
                     Enemy3 = kwargs.get("Enemy3",None)
                     
                     Player_copy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     Percentage = random.random()
                     if Percentage <= Player_copy_Critical_Chance:
                         Damage = int( 25    * target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
@@ -957,6 +1017,8 @@ class Enemy_Move:
                         Evasion_Chance = random.randint(1,100)
                         if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                             Damage += Damage_Amount
+                            if target["Attribute"] == "Earth":
+                                Damage *= 1.5
                             choice = "Mud Shot"
                             mud_chance = random.randint(1,5)
                             if mud_chance == 1:
@@ -981,6 +1043,9 @@ class Enemy_Move:
                     Turn_Time = kwargs.get("Turn_Time",None)
                     if Turn_Time >= 1:
                         Target_Critical_Chance = target["Critical Chance"] / 100
+                        if target["Category"] == "Beast":
+                            Enemy_Critical_Chance *= 1.25
+                            Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                         Percentage = random.random()
                         if Percentage <= Target_Critical_Chance:
                             Damage = int( 25   * target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
@@ -1004,6 +1069,8 @@ class Enemy_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                                 Damage += Damage_Amount
+                                if target["Attribute"] == "Earth":
+                                    Damage *= 1.5
                                 choice = "Tremor"
                                 if (Player_copy["Max Health"] * random.uniforn(0.1,0.25)) <= Damage:
                                     chance = random.randint(1,5)
@@ -1037,6 +1104,9 @@ class Enemy_Move:
                     Enemy3 = kwargs.get("Enemy3",None)
                     
                     Player_copy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     Percentage = random.random()
                     if Percentage <= Player_copy_Critical_Chance:
                         Damage = int( 25  * target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
@@ -1060,6 +1130,8 @@ class Enemy_Move:
                         Evasion_Chance = random.randint(1,100)
                         if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                             Damage += Damage_Amount
+                            if target["Attribute"] == "Wind":
+                                Damage *= 1.5
                             choice = "Stone Slipstream"
 
                             Damage = round(Damage)
@@ -1098,6 +1170,9 @@ class Enemy_Move:
                     Enemy3 = kwargs.get("Enemy3",None)
                     
                     Player_copy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     Percentage = random.random()
                     if Percentage <= Player_copy_Critical_Chance:
                         Damage = int( 25   * Player_copy["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
@@ -1121,6 +1196,8 @@ class Enemy_Move:
                         Evasion_Chance = random.randint(1,100)
                         if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                             Damage += Damage_Amount
+                            if target["Attribute"] == "Dark":
+                                Damage *= 1.5
                             choice = "Life Drain"
 
                             Damage = round(Damage)
@@ -1232,6 +1309,9 @@ class Enemy_Move:
                     
                     if Turn_Time >= 0.5:
                         Player_copy_Critical_Chance = target["Critical Chance"] / 100
+                        if target["Category"] == "Beast":
+                            Enemy_Critical_Chance *= 1.25
+                            Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( 25 * target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
@@ -1255,6 +1335,8 @@ class Enemy_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                                 Damage += Damage_Amount
+                                if target["Attribute"] == "Dark":
+                                    Damage *= 1.5
                                 choice = "Corrupting Touch"
                                 if target["Category"] == "Demon":
                                     Damage *= 1.5
@@ -1301,6 +1383,9 @@ class Enemy_Move:
                     
                     if Turn_Time >= 0.5:
                         Player_copy_Critical_Chance = target["Critical Chance"] / 100
+                        if target["Category"] == "Beast":
+                            Enemy_Critical_Chance *= 1.25
+                            Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                         Percentage = random.random()
                         if Percentage <= Player_copy_Critical_Chance:
                             Damage = int( 10 * target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
@@ -1324,6 +1409,8 @@ class Enemy_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                                 Damage += Damage_Amount
+                                if target["Attribute"] == ("Dark" or "Poison"):
+                                    Damage *= 1.5
                                 choice = "Toxin Spray"
                                 if target["Category"] == "Demon":
                                  Damage *= 1.5
@@ -1370,6 +1457,9 @@ class Enemy_Move:
                     Enemy3 = kwargs.get("Enemy3",None)
                     
                     Player_copy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     Percentage = random.random()
                     if Percentage <= Player_copy_Critical_Chance:
                         Damage = int( 25    * target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))
@@ -1393,6 +1483,8 @@ class Enemy_Move:
                         Evasion_Chance = random.randint(1,100)
                         if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                             Damage += Damage_Amount
+                            if target["Attribute"] == "Light":
+                                Damage *= 1.5
                             choice = "Purify"
                             Damage = round(Damage)
 
@@ -1488,6 +1580,9 @@ class Enemy_Move:
                     Enemy3 = kwargs.get("Enemy3",None)
                     
                     Player_copy_Critical_Chance = target["Critical Chance"] / 100
+                    if target["Category"] == "Beast":
+                        Enemy_Critical_Chance *= 1.25
+                        Enemy_Critical_Chance = round(Enemy_Critical_Chance)
                     Percentage = random.random()
                     if Percentage <= Player_copy_Critical_Chance:
                         Damage = int( 10    * target["Magic Damage"]    / (Player_copy["Defense"])    * (1 + target["Magic Density"] / 100))

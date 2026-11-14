@@ -453,7 +453,25 @@ class Tower:
                 Enemy1,Enemy2,Enemy1_Weakpoint,Enemy2_Weakpoint   = L1.Level_1(Enemy,Player_copy,b,place)
             elif b >= 1:
                 Enemy1,Enemy1_Weakpoint = L1.Level_1(Enemy,Player_copy,b,place)
-                
+
+            if Enemy1["Category"] == "Abberation":
+
+                Weakpoints = ["head", "leftleg", "rightleg", "leftarm", "rightarm", "chest", "back"]
+
+                Enemy1_Weakpoint = random.choice(Weakpoints)
+
+            if Enemy2["Category"] == "Abberation":
+
+                Weakpoints = ["head", "leftleg", "rightleg", "leftarm", "rightarm", "chest", "back"]
+
+                Enemy2_Weakpoint = random.choice(Weakpoints)
+
+            if Enemy3["Category"] == "Abberation":
+
+                Weakpoints = ["head", "leftleg", "rightleg", "leftarm", "rightarm", "chest", "back"]
+
+                Enemy3_Weakpoint = random.choice(Weakpoints)
+
             if "Venom" in Enemy3["Type"] or "Swamp" in Enemy3["Type"] or "Bog" in Enemy3["Type"] or "Acid" in Enemy3["Type"] or "Toxic" in Enemy3["Type"] or "Venom" in Enemy3["Type"]:
                 Enemy3["Attribute"] = "Poison"
             if "Rot" in Enemy3["Type"] or "Plague" in Enemy3["Type"] or "Disease" in Enemy3["Type"] or "Ruin" in Enemy3["Type"] or "Bone" in Enemy3["Type"]:
@@ -1782,6 +1800,25 @@ class Tower:
                 Enemy1,Enemy2,Enemy1_Weakpoint,Enemy2_Weakpoint, = L2.Level_2(Enemy,Player_copy,b,place)
             elif b >= 1:
                 Enemy1,Enemy1_Weakpoint = L2.Level_2(Enemy,Player_copy,b,place)
+
+            if Enemy1["Category"] == "Abberation":
+
+                Weakpoints = ["head", "leftleg", "rightleg", "leftarm", "rightarm", "chest", "back"]
+
+                Enemy1_Weakpoint = random.choice(Weakpoints)
+
+            if Enemy2["Category"] == "Abberation":
+
+                Weakpoints = ["head", "leftleg", "rightleg", "leftarm", "rightarm", "chest", "back"]
+
+                Enemy2_Weakpoint = random.choice(Weakpoints)
+
+            if Enemy3["Category"] == "Abberation":
+
+                Weakpoints = ["head", "leftleg", "rightleg", "leftarm", "rightarm", "chest", "back"]
+
+                Enemy3_Weakpoint = random.choice(Weakpoints)
+
             if "Venom" in Enemy3["Type"] or "Swamp" in Enemy3["Type"] or "Bog" in Enemy3["Type"] or "Acid" in Enemy3["Type"] or "Toxic" in Enemy3["Type"] or "Venom" in Enemy3["Type"]:
                 Enemy3["Attribute"] = "Poison"
             if "Rot" in Enemy3["Type"] or "Plague" in Enemy3["Type"] or "Disease" in Enemy3["Type"] or "Ruin" in Enemy3["Type"] or "Bone" in Enemy3["Type"]:

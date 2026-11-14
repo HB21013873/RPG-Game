@@ -1309,6 +1309,8 @@ class Player_Move:
                                     Damage *= 2
                                 if target["Attribute"] == "Fire":
                                     Damage *= 0.5
+                                if target["Attribute"] == "Water":
+                                    Damage *= 0.5
                                 choice = "Fireball"
                                 Breaker = True
                                 if (target["Max Health"] * random.uniform(0.05,0.15)) <= Damage:
@@ -1434,7 +1436,11 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
-                                if "Fire" in target["Type"] or "Flame" in target["Type"] or "Burning" in target["Type"] or "Molten" in target["Type"] or "Inferno" in target["Type"] or  "Demon" in target["Type"] or "Ash" in target["Type"]:
+                                if target["Attribute"] == "Fire":
+                                    Damage *= 2
+                                if target["Attribute"] == "Ice":
+                                    Damage *= 0.5
+                                if target["Attribute"] == "Water":
                                     Damage *= 2
                                 choice = "Ice Shard"
                                 Breaker = True
@@ -1576,6 +1582,15 @@ class Player_Move:
                             Player_copy["Mana"] -= Mana_Amount
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
+                                if target["Attribute"] == "Ground":
+                                    Damage_Amount = 0 
+                                if target["Attribute"] == "Water":
+                                    Damage_Amount *= 2
+                                if target["Attribute"] == "Lightning":
+                                    Damage_Amount *= 0.5
+                                if target["Attribute"] == "Wind":
+                                    Damage *= 2
+
                                 Damage += Damage_Amount
                                 if Enemy2 != None:
                                     Damage2 += Damage_Amount
@@ -1701,8 +1716,10 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
-                                if "Fire" in target["Type"] or "Flame" in target["Type"] or "Burning" in target["Type"] or "Molten" in target["Type"] or "Inferno" in target["Type"] or  "Demon" in target["Type"] or "Ash" in target["Type"]:
+                                if target["Attribute"] == "Fire":
                                     Damage *= 2
+                                if target["Attribute"] == "Water":
+                                    Damage *= 0.5
                                 choice = "River Fist"
                                 Breaker = True
 
@@ -1800,6 +1817,10 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
+                                if target["Attribute"] == "Earth":
+                                    Damage *= 0.5
+                                if target["Attribute"] == "Water":
+                                    Damage *= 2
                                 choice = "Mud Shot"
                                 Breaker = True
                                 mud_chance = random.randint(1,5)
@@ -1915,6 +1936,10 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
+                                if target["Attribute"] == "Earth":
+                                    Damage *= 0.5
+                                if target["Attribute"] == "Water":
+                                    Damage *= 2
                                 choice = "Tremor"
                                 Breaker = True
                                 if (target["Max Health"] * random.uniform(0.1,0.25)) <= Damage:
@@ -2053,6 +2078,8 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
+                                if target["Attribute"] == "Wind":
+                                    Damage *= 0.5
                                 choice = "Stone Slipstream"
                                 Breaker = True
 
@@ -2174,6 +2201,14 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
+                                if target["Attribute"] == "Dark":
+                                    Damage *= 0.5
+                                if target["Attribute"] == "Decay":
+                                    Damage *= 0.5
+                                if target["Attribute"] == "Light":
+                                    Damage *= 2
+                                if target["Attribute"] == "Holy":
+                                    Damage *= 2
                                 choice = "Life Drain"
                                 Breaker = True
 
@@ -2418,6 +2453,14 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
+                                if target["Attribute"] == "Dark":
+                                    Damage *= 0.5
+                                if target["Attribute"] == "Decay":
+                                    Damage *= 0.5
+                                if target["Attribute"] == "Light":
+                                    Damage *= 2
+                                if target["Attribute"] == "Holy":
+                                    Damage *= 2
                                 choice = "Corrupting Touch"
                                 Breaker = True
 
@@ -2552,6 +2595,16 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
+                                if target["Attribute"] == "Dark":
+                                    Damage *= 0.5
+                                if target["Attribute"] == "Decay":
+                                    Damage *= 0.5
+                                if target["Attribute"] == "Light":
+                                    Damage *= 2
+                                if target["Attribute"] == "Holy":
+                                    Damage *= 2
+                                if target["Attribute"] == "Poison":
+                                    Damage *= 0.5
                                 choice = "Toxin Spray"
                                 Breaker = True
 
@@ -2686,6 +2739,20 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
+                                if target["Attribute"] == "Dark":
+                                    Damage *= 2
+                                if target["Attribute"] == "Decay":
+                                    Damage *= 2
+                                if target["Attribute"] == "Light":
+                                    Damage *= 0.5
+                                if target["Attribute"] == "Holy":
+                                    Damage *= 0.5
+                                if target["Attribute"] == "Poison":
+                                    Damage *= 2
+                                if target["Attribute"] == "Chemical":
+                                    Damage *= 2
+                                if target["Attribute"] == "Cursed":
+                                    Damage *= 2
                                 if  target["Category"] == "Undead":
                                     Damage *= 2
                                 if target["Category"] == "Demon":
