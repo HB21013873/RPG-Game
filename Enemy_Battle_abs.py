@@ -550,6 +550,33 @@ class Enemy_Battle:
                 Enemy1["Attribute"] = "Bridge"
             if "Armory" in Enemy1["Type"]:
                 Enemy1["Attribute"] = "Armory"
+                armory_grab = random.choice(["Helmet","Shoulderwear","Armwear","Chestplate","Legwear","Footwear","Weapon","Offhand"])
+                print (Enemy1["Type"]," equips a ",armory_grab)
+                if armory_grab == "Helmet":
+                    Enemy1["Defense"] *= 1.03
+                    Enemy1["Defense"] = round(Enemy1["Defense"])
+                if armory_grab == "Shoulderwear":
+                    Enemy1["Defense"] *= 1.04
+                    Enemy1["Defense"] = round(Enemy1["Defense"])
+                if armory_grab == "Armwear":
+                    Enemy1["Attack"] *= 1.03
+                    Enemy1["Attack"] = round(Enemy1["Attack"])
+                if armory_grab == "Chestplate":
+                    Enemy1["Defense"] *= 1.1
+                    Enemy1["Defense"] = round(Enemy1["Defense"])
+                if armory_grab == "Legwear":
+                    Enemy1["Defense"] *= 1.05
+                    Enemy1["Defense"] = round(Enemy1["Defense"])
+                if armory_grab == "Footwear":
+                    Enemy1["Defense"] *= 1.08
+                    Enemy1["Defense"] = round(Enemy1["Defense"])
+                if armory_grab == "Weapon":
+                    Enemy1["Attack"] *= 1.08
+                    Enemy1["Attack"] = round(Enemy1["Attack"])
+                if armory_grab == "Offhand":
+                    Enemy1["Defense"] *= 1.07
+                    Enemy1["Defense"] = round(Enemy1["Defense"])
+                                                                
             if "Arena" in Enemy1["Type"] or "Pit" in Enemy1["Type"]:
                 Enemy1["Attribute"] = "Crowd"
                 Move += ["Empower"]
@@ -771,7 +798,10 @@ class Enemy_Battle:
                 else:
                     print(f"\n",Enemy1["Type"]," does not have enough mana to cast a heal spell\n")
                     print(f"\n",Enemy1["Type"]," braces to withstand your next attack\n")
-                    Enemy1["Defense"] += 10
+                    if Enemy1["Attribute"] == "Bridge":
+                        Enemy1["Defense"] += 20
+                    else:
+                        Enemy1["Defense"] += 10
                     Defense1_Stopper = True
                 break
 
@@ -1320,6 +1350,33 @@ class Enemy_Battle:
                 Enemy2["Attribute"] = "Bridge"
             if "Armory" in Enemy2["Type"]:
                 Enemy2["Attribute"] = "Armory"
+                armory_grab = random.choice(["Helmet","Shoulderwear","Armwear","Chestplate","Legwear","Footwear","Weapon","Offhand"])
+                print (Enemy2["Type"]," equips a ",armory_grab)
+                if armory_grab == "Helmet":
+                    Enemy2["Defense"] *= 1.03
+                    Enemy2["Defense"] = round(Enemy2["Defense"])
+                if armory_grab == "Shoulderwear":
+                    Enemy2["Defense"] *= 1.04
+                    Enemy2["Defense"] = round(Enemy2["Defense"])
+                if armory_grab == "Armwear":
+                    Enemy2["Attack"] *= 1.03
+                    Enemy2["Attack"] = round(Enemy2["Attack"])
+                if armory_grab == "Chestplate":
+                    Enemy2["Defense"] *= 1.1
+                    Enemy2["Defense"] = round(Enemy2["Defense"])
+                if armory_grab == "Legwear":
+                    Enemy2["Defense"] *= 1.05
+                    Enemy2["Defense"] = round(Enemy2["Defense"])
+                if armory_grab == "Footwear":
+                    Enemy2["Defense"] *= 1.08
+                    Enemy2["Defense"] = round(Enemy2["Defense"])
+                if armory_grab == "Weapon":
+                    Enemy2["Attack"] *= 1.08
+                    Enemy2["Attack"] = round(Enemy2["Attack"])
+                if armory_grab == "Offhand":
+                    Enemy2["Defense"] *= 1.07
+                    Enemy2["Defense"] = round(Enemy2["Defense"])
+                                                                
             if "Arena" in Enemy2["Type"] or "Pit" in Enemy2["Type"]:
                 Enemy2["Attribute"] = "Crowd"
                 Move += ["Empower"]
@@ -1540,7 +1597,10 @@ class Enemy_Battle:
                 else:
                     print(f"\n",Enemy2["Type"]," does not have enough mana to cast a heal spell\n")
                     print(f"\n",Enemy2["Type"]," braces to withstand your next attack\n")
-                    Enemy2["Defense"] += 10
+                    if Enemy2["Attribute"] == "Bridge":
+                        Enemy2["Defense"] += 20
+                    else:
+                        Enemy2["Defense"] += 10
                     Defense2_Stopper = True
                 break
 
@@ -2089,11 +2149,38 @@ class Enemy_Battle:
                 Enemy3["Attribute"] = "Bridge"
             if "Armory" in Enemy3["Type"]:
                 Enemy3["Attribute"] = "Armory"
+                armory_grab = random.choice(["Helmet","Shoulderwear","Armwear","Chestplate","Legwear","Footwear","Weapon","Offhand"])
+                print (Enemy3["Type"]," equips a ",armory_grab)
+                if armory_grab == "Helmet":
+                    Enemy3["Defense"] *= 1.03
+                    Enemy3["Defense"] = round(Enemy3["Defense"])
+                if armory_grab == "Shoulderwear":
+                    Enemy3["Defense"] *= 1.04
+                    Enemy3["Defense"] = round(Enemy3["Defense"])
+                if armory_grab == "Armwear":
+                    Enemy3["Attack"] *= 1.03
+                    Enemy3["Attack"] = round(Enemy3["Attack"])
+                if armory_grab == "Chestplate":
+                    Enemy3["Defense"] *= 1.1
+                    Enemy3["Defense"] = round(Enemy3["Defense"])
+                if armory_grab == "Legwear":
+                    Enemy3["Defense"] *= 1.05
+                    Enemy3["Defense"] = round(Enemy3["Defense"])
+                if armory_grab == "Footwear":
+                    Enemy3["Defense"] *= 1.08
+                    Enemy3["Defense"] = round(Enemy3["Defense"])
+                if armory_grab == "Weapon":
+                    Enemy3["Attack"] *= 1.08
+                    Enemy3["Attack"] = round(Enemy3["Attack"])
+                if armory_grab == "Offhand":
+                    Enemy3["Defense"] *= 1.07
+                    Enemy3["Defense"] = round(Enemy3["Defense"])
+                                                                                                                
             if "Arena" in Enemy3["Type"] or "Pit" in Enemy3["Type"]:
                 Enemy3["Attribute"] = "Crowd"
                 Move += ["Empower"]
             if "Rogue" in Enemy3["Type"] or "Wind" in Enemy3["Type"] or "Dust" in Enemy3["Type"]:
-                Enemy3["Attribute "] = "Agile"
+                Enemy3["Attribute"] = "Agile"
                 Enemy3["Speed"] += round(Enemy3["Speed"] * 0.01)
                 Move += ["Stone Slipstream"]
             if "War" in Enemy3["Type"]:
@@ -2309,7 +2396,10 @@ class Enemy_Battle:
                 else:
                     print(f"\n",Enemy3["Type"]," does not have enough mana to cast a heal spell\n")
                     print(f"\n",Enemy3["Type"]," braces to withstand your next attack\n")
-                    Enemy3["Defense"] += 10
+                    if Enemy3["Attribute"] == "Bridge":
+                        Enemy3["Defense"] += 20
+                    else:
+                        Enemy3["Defense"] += 10
                     Defense3_Stopper = True
                 break
 

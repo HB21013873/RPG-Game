@@ -1873,7 +1873,7 @@ class Tower:
             if "Arena" in Enemy2["Type"] or "Pit" in Enemy2["Type"]:
                 Enemy2["Attribute"] = "Crowd"
             if "Rogue" in Enemy2["Type"] or "Wind" in Enemy2["Type"] or "Dust" in Enemy2["Type"]:
-                Enemy2["Attribute "] = "Agile"
+                Enemy2["Attribute"] = "Agile"
             if "War" in Enemy2["Type"]:
                 Enemy2["Attribute"] = "Aggressive"
             
