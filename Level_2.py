@@ -188,7 +188,7 @@ class Level_2:
                 if start_hour <= now.hour < end_hour:
                     Enemy_Chances = {
                         "Ice Kobold": 40,
-                        "Frost Skeleton": 20,
+                        "Frozen Skeleton": 20,
                         "Ice Archer": 10,
                         "Frost Wolf": 15,
                         "Ice Slime": 30

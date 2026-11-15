@@ -585,116 +585,135 @@ while leave == False:
         Player["Critical Chance"] = round(Player["Critical Chance"])
         Player["Critical Damage"] *= 1.25
         Player["Critical Damage"] = round(Player["Critical Damage"])
-        if Player["Title"] == "Winner":
-            Player["Attack"] *= 1.1
-            Player["Attack"] = round(Player["Attack"])
-            Player["Magic Damage"] *= 1.1
+    if Player["Title"] == "Winner":
+        Player["Attack"] *= 1.1
+        Player["Attack"] = round(Player["Attack"])
+        Player["Magic Damage"] *= 1.1
+    Player["Magic Damage"] = round(Player["Magic Damage"])
+    if Player["Title"] == "The Professional":
+        Player["Attack"] *= 1.15
+        Player["Attack"] = round(Player["Attack"])
+        Player["Magic Damage"] *= 1.15
+    Player["Magic Damage"] = round(Player["Magic Damage"])
+    if Player["Title"] == "Indomitable":
+        Player["Attack"] *= 1.25
+        Player["Attack"] = round(Player["Attack"])
+        Player["Magic Damage"] *= 1.25
         Player["Magic Damage"] = round(Player["Magic Damage"])
-        if Player["Title"] == "The Professional":
-            Player["Attack"] *= 1.15
-            Player["Attack"] = round(Player["Attack"])
-            Player["Magic Damage"] *= 1.15
+    if Player["Title"] == "Unstoppable Force":
+        Player["Attack"] *= 1.4
+        Player["Attack"] = round(Player["Attack"])
+        Player["Magic Damage"] *= 1.4
         Player["Magic Damage"] = round(Player["Magic Damage"])
-        if Player["Title"] == "Indomitable":
-            Player["Attack"] *= 1.25
-            Player["Attack"] = round(Player["Attack"])
-            Player["Magic Damage"] *= 1.25
-            Player["Magic Damage"] = round(Player["Magic Damage"])
-        if Player["Title"] == "Unstoppable Force":
-            Player["Attack"] *= 1.4
-            Player["Attack"] = round(Player["Attack"])
-            Player["Magic Damage"] *= 1.4
-            Player["Magic Damage"] = round(Player["Magic Damage"])
-        if Player["Title"] == "The One Above All":
-            Player["Attack"] *= 1.5
-            Player["Attack"] = round(Player["Attack"])
-            Player["Magic Damage"] *= 1.5
-            Player["Magic Damage"] = round(Player["Magic Damage"])
-        if Player["Title"] == "Loser":
-            Player["Defense"] *= 1.1
-            Player["Defense"] = round(Player["Defense"])
-        if Player["Title"] == "Scarred":
-            Player["Defense"] *= 1.15
-            Player["Defense"] = round(Player["Defense"])
-        if Player["Title"] == "Tenacious":
-            Player["Defense"] *= 1.25
-            Player["Defense"] = round(Player["Defense"])
-        if Player["Title"] == "The Immovable":
-            Player["Defense"] *= 1.4
-            Player["Defense"] = round(Player["Defense"])
-        if Player["Title"] == "The Ever Enduring":
-            Player["Defense"] *= 1.5
-            Player["Defense"] = round(Player["Defense"])
-        if Player["Title"] == "Unscathed":
-            Player["Speed"] *= 1.05
-            Player["Speed"] = round(Player["Speed"])
-            Player["Evasion"] *= 1.05
-            Player["Evasion"] = round(Player["Evasion"])
-        if Player["Title"] == "Flawless Victor":
-            Player["Speed"] *= 1.075
-            Player["Speed"] = round(Player["Speed"])
-            Player["Evasion"] *= 1.075
-            Player["Evasion"] = round(Player["Evasion"])
-        if Player["Title"] == "Phantom Menace":
-            Player["Speed"] *= 1.125
-            Player["Speed"] = round(Player["Speed"])
-            Player["Evasion"] *= 1.125
-            Player["Evasion"] = round(Player["Evasion"])
-        if Player["Title"] == "Untouchable Duelist":
-            Player["Speed"] *= 1.2
-            Player["Speed"] = round(Player["Speed"])
-            Player["Evasion"] *= 1.2
-            Player["Evasion"] = round(Player["Evasion"])
-        if Player["Title"] == "The Peerless Champion":
-            Player["Speed"] *= 1.25
-            Player["Speed"] = round(Player["Speed"])
-            Player["Evasion"] *= 1.25
-            Player["Evasion"] = round(Player["Evasion"])
-        if Player["Title"] == "Trainee":
-            Player["Stamina"] *= 1.05
-            Player["Stamina"] = round(Player["Stamina"])
-            Player["Mana"] *= 1.05
-            Player["Mana"] = round(Player["Mana"])
-        if Player["Title"] == "Dedicated":
-            Player["Stamina"] *= 1.075
-            Player["Stamina"] = round(Player["Stamina"])
-            Player["Mana"] *= 1.075
-            Player["Mana"] = round(Player["Mana"])
-        if Player["Title"] == "Fanatic Trainer":
-            Player["Stamina"] *= 1.125
-            Player["Stamina"] = round(Player["Stamina"])
-            Player["Mana"] *= 1.125
-            Player["Mana"] = round(Player["Mana"])
-        if Player["Title"] == "Tireless":
-            Player["Stamina"] *= 1.2
-            Player["Stamina"] = round(Player["Stamina"])
-            Player["Mana"] *= 1.2
-            Player["Mana"] = round(Player["Mana"])
-        if Player["Title"] == "Pillar Of Discipline":
-            Player["Stamina"] *= 1.25
-            Player["Stamina"] = round(Player["Stamina"])
-            Player["Mana"] *= 1.25
-            Player["Mana"] = round(Player["Mana"])
-        if Player["Title"] == "Virile":
-            Player["Max Health"] *= 1.1
-            Player["Max Health"] = round(Player["Max Health"])
-            Player["Health"] = copy.deepcopy(Player["Max Health"])
-        if Player["Title"] == "Hearty":
-            Player["Max Health"] *= 1.15
-            Player["Max Health"] = round(Player["Max Health"])
-            Player["Health"] = copy.deepcopy(Player["Max Health"])
-        if Player["Title"] == "Bulky":
-            Player["Max Health"] *= 1.25
-            Player["Max Health"] = round(Player["Max Health"])
-            Player["Health"] = copy.deepcopy(Player["Max Health"])
-        if Player["Title"] == "Behemoth":
-            Player["Max Health"] *= 1.4
-            Player["Max Health"] = round(Player["Max Health"])
-            Player["Health"] = copy.deepcopy(Player["Max Health"])
-        if Player["Title"] == "The Jade Emperor":
-            Player["Max Health"] *= 1.5
-            Player["Max Health"] = round(Player["Max Health"])
-            Player["Health"] = copy.deepcopy(Player["Max Health"])
+    if Player["Title"] == "The One Above All":
+        Player["Attack"] *= 1.5
+        Player["Attack"] = round(Player["Attack"])
+        Player["Magic Damage"] *= 1.5
+        Player["Magic Damage"] = round(Player["Magic Damage"])
+    if Player["Title"] == "Loser":
+        Player["Defense"] *= 1.1
+        Player["Defense"] = round(Player["Defense"])
+    if Player["Title"] == "Scarred":
+        Player["Defense"] *= 1.15
+        Player["Defense"] = round(Player["Defense"])
+    if Player["Title"] == "Tenacious":
+        Player["Defense"] *= 1.25
+        Player["Defense"] = round(Player["Defense"])
+    if Player["Title"] == "The Immovable":
+        Player["Defense"] *= 1.4
+        Player["Defense"] = round(Player["Defense"])
+    if Player["Title"] == "The Ever Enduring":
+        Player["Defense"] *= 1.5
+        Player["Defense"] = round(Player["Defense"])
+    if Player["Title"] == "Unscathed":
+        Player["Speed"] *= 1.05
+        Player["Speed"] = round(Player["Speed"])
+        Player["Evasion"] *= 1.05
+        Player["Evasion"] = round(Player["Evasion"])
+    if Player["Title"] == "Flawless Victor":
+        Player["Speed"] *= 1.075
+        Player["Speed"] = round(Player["Speed"])
+        Player["Evasion"] *= 1.075
+        Player["Evasion"] = round(Player["Evasion"])
+    if Player["Title"] == "Phantom Menace":
+        Player["Speed"] *= 1.125
+        Player["Speed"] = round(Player["Speed"])
+        Player["Evasion"] *= 1.125
+        Player["Evasion"] = round(Player["Evasion"])
+    if Player["Title"] == "Untouchable Duelist":
+        Player["Speed"] *= 1.2
+        Player["Speed"] = round(Player["Speed"])
+        Player["Evasion"] *= 1.2
+        Player["Evasion"] = round(Player["Evasion"])
+    if Player["Title"] == "The Peerless Champion":
+        Player["Speed"] *= 1.25
+        Player["Speed"] = round(Player["Speed"])
+        Player["Evasion"] *= 1.25
+        Player["Evasion"] = round(Player["Evasion"])
+    if Player["Title"] == "Trainee":
+        Player["Stamina"] *= 1.05
+        Player["Stamina"] = round(Player["Stamina"])
+        Player["Mana"] *= 1.05
+        Player["Mana"] = round(Player["Mana"])
+    if Player["Title"] == "Dedicated":
+        Player["Stamina"] *= 1.075
+        Player["Stamina"] = round(Player["Stamina"])
+        Player["Mana"] *= 1.075
+        Player["Mana"] = round(Player["Mana"])
+    if Player["Title"] == "Fanatic Trainer":
+        Player["Stamina"] *= 1.125
+        Player["Stamina"] = round(Player["Stamina"])
+        Player["Mana"] *= 1.125
+        Player["Mana"] = round(Player["Mana"])
+    if Player["Title"] == "Tireless":
+        Player["Stamina"] *= 1.2
+        Player["Stamina"] = round(Player["Stamina"])
+        Player["Mana"] *= 1.2
+        Player["Mana"] = round(Player["Mana"])
+    if Player["Title"] == "Pillar Of Discipline":
+        Player["Stamina"] *= 1.25
+        Player["Stamina"] = round(Player["Stamina"])
+        Player["Mana"] *= 1.25
+        Player["Mana"] = round(Player["Mana"])
+    if Player["Title"] == "Virile":
+        Player["Max Health"] *= 1.1
+        Player["Max Health"] = round(Player["Max Health"])
+        Player["Health"] = copy.deepcopy(Player["Max Health"])
+    if Player["Title"] == "Hearty":
+        Player["Max Health"] *= 1.15
+        Player["Max Health"] = round(Player["Max Health"])
+        Player["Health"] = copy.deepcopy(Player["Max Health"])
+    if Player["Title"] == "Bulky":
+        Player["Max Health"] *= 1.25
+        Player["Max Health"] = round(Player["Max Health"])
+        Player["Health"] = copy.deepcopy(Player["Max Health"])
+    if Player["Title"] == "Behemoth":
+        Player["Max Health"] *= 1.4
+        Player["Max Health"] = round(Player["Max Health"])
+        Player["Health"] = copy.deepcopy(Player["Max Health"])
+    if Player["Title"] == "The Jade Emperor":
+        Player["Max Health"] *= 1.5
+        Player["Max Health"] = round(Player["Max Health"])
+        Player["Health"] = copy.deepcopy(Player["Max Health"])
+    if Player["Title"] == "Admin":
+        Player["Attack"] *= 1000
+        Player["Attack"] = round(Player["Attack"])
+        Player["Defense"] *= 1000
+        Player["Defense"] = round(Player["Defense"])
+        Player["Speed"] *= 1000
+        Player["Speed"] = round(Player["Speed"])
+        Player["Stamina"] *= 1000
+        Player["Stamina"] = round(Player["Stamina"])
+        Player["Mana"] *= 1000
+        Player["Mana"] = round(Player["Mana"])
+        Player["Magic Density"] *= 1000
+        Player["Magic Density"] = round(Player["Magic Density"])
+        Player["Magic Damage"] *= 1000
+        Player["Magic Damage"] = round(Player["Magic Damage"])
+        Player["Critical Chance"] *= 1000
+        Player["Critical Chance"] = round(Player["Critical Chance"])
+        Player["Critical Damage"] *= 1000
+        Player["Critical Damage"] = round(Player["Critical Damage"])
 
        
     Choice = input("")
@@ -2609,6 +2628,9 @@ while leave == False:
                 if equipped in ["thejadeemperor"] and "The Jade Emperor" in Titles:
                     Player["Title"] = "The Jade Emperor"
                     print("\nTitle Equipped\n")
+                if equipped in ["admin"] and "Admin" in Titles:
+                    Player["Title"] = "Admin"
+                    print("\nYou have become an 'Admin'\n")
                 
                 
         
@@ -5353,5 +5375,9 @@ while leave == False:
             else:
                 print("\n\nThis is Locked\n\n\n\n\n")
 
-
-
+    if Choice in ["unlock"]:
+        print("\n\n  Put in the code:\n\n")
+        Choice = input("")
+        if Choice == "H_Admin" and "Admin" not in Titles :
+            print("Your Admin Title Unlocked")
+            Titles.append("Admin")

@@ -58,10 +58,13 @@ class Player_Battle:
                     
                 if Enemy1["Health"] <= 0:
                     dead_enemy1 = "(Dead)"
+                    Enemy1["Health"] = 0
                 if Enemy2["Health"] <= 0:
                     dead_enemy2 = "(Dead)"
+                    Enemy2["Health"] = 0
                 if Enemy3["Health"] <= 0:
                     dead_enemy3 = "(Dead)"
+                    Enemy3["Health"] = 0
                 if Player_Skip == False:
                     while True:
                         print("Fight\nAvatar\nPotions\nInteract\nWait\nRetreat\n")
@@ -96,6 +99,8 @@ class Player_Battle:
                                         break
                                 elif enemy_choice in ["3","enemy3","enemy 3"] and Enemy3["Health"] > 0:
                                         target = Enemy3
+                                        break
+                                elif enemy_choice in [""]:
                                         break
                                 else:
                                     print("\nNot an option\n")
@@ -1802,8 +1807,10 @@ class Player_Battle:
                     
                 if Enemy1["Health"] <= 0:
                     dead_enemy1 = "(Dead)"
+                    Enemy1["Health"] = 0
                 if Enemy2["Health"] <= 0:
                     dead_enemy2 = "(Dead)"
+                    Enemy1["Health"] = 0
                 if Player_Skip == False:
                     while True:
                         print("Fight\nAvatar\nPotions\nInteract\nWait\nRetreat")
@@ -1836,6 +1843,8 @@ class Player_Battle:
                                 elif enemy_choice in ["2","enemy2","enemy 2"] and Enemy2["Health"] > 0:
                                         target = Enemy2
                                         break
+                                elif enemy_choice in [""]:
+                                    break
                                 else:
                                     print("\nNot an option\n")
                             print("Choose what move to use.")
@@ -3386,6 +3395,7 @@ class Player_Battle:
                     
                 if Enemy1["Health"] <= 0:
                     dead_enemy1 = "(Dead)"
+                    Enemy1["Health"] = 0
 
                 if Player_Skip == False:
                     while True:
