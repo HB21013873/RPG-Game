@@ -1720,6 +1720,8 @@ class Player_Move:
                                     Damage *= 2
                                 if target["Attribute"] == "Water":
                                     Damage *= 0.5
+                                if target["Attribute"] == "Earth":
+                                    Damage *= 2
                                 choice = "River Fist"
                                 Breaker = True
 
@@ -1821,6 +1823,8 @@ class Player_Move:
                                     Damage *= 0.5
                                 if target["Attribute"] == "Water":
                                     Damage *= 2
+                                if target["Attribute"] == "Lightning":
+                                    Damage *= 2 
                                 choice = "Mud Shot"
                                 Breaker = True
                                 mud_chance = random.randint(1,5)
@@ -2209,6 +2213,8 @@ class Player_Move:
                                     Damage *= 2
                                 if target["Attribute"] == "Holy":
                                     Damage *= 2
+                                if target["Attribute"] == "Cursed":
+                                    Damage *= 0.5
                                 choice = "Life Drain"
                                 Breaker = True
 
@@ -2408,7 +2414,7 @@ class Player_Move:
                         
                     
                     return Player_copy,target,Turn_Time,Breaker
-                
+            class Poison:
                 def Corrupting_Touch(Player_copy,Enemy,Spell_list,Skill_Tree,typewriters,**kwargs):
                     global typewriter
                     typewriter = typewriters
@@ -2453,14 +2459,12 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
-                                if target["Attribute"] == "Dark":
-                                    Damage *= 0.5
-                                if target["Attribute"] == "Decay":
-                                    Damage *= 0.5
                                 if target["Attribute"] == "Light":
                                     Damage *= 2
                                 if target["Attribute"] == "Holy":
                                     Damage *= 2
+                                if target["Attribute"] == "Poison":
+                                    Damage *= 0.5
                                 choice = "Corrupting Touch"
                                 Breaker = True
 
@@ -2595,10 +2599,6 @@ class Player_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(target["Evasion"] * (1 - (Player_copy["Accuracy"]/100))))):
                                 Damage += Damage_Amount
-                                if target["Attribute"] == "Dark":
-                                    Damage *= 0.5
-                                if target["Attribute"] == "Decay":
-                                    Damage *= 0.5
                                 if target["Attribute"] == "Light":
                                     Damage *= 2
                                 if target["Attribute"] == "Holy":

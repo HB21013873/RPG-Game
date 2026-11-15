@@ -457,7 +457,32 @@ class Player_Battle:
                                         break
                                     else:
                                         print("Not an option.")
-                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Dark.Corrupting_Touch(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)  
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Poison.Corrupting_Touch(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip)  
+                            elif skill_choice in ["toxinspray"] and "Toxin Spray" in Spell_list:
+                                while True:
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
+                                    POI = input("")
+                                    POI = POI.lower()
+                                    POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
+                                    if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
+                                        break
+                                    else:
+                                        print("Not an option.")
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Poison.Toxin_Spray(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,Enemy3_Weakpoint=Enemy3_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2, Enemy3 = Enemy3,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip,Enemy3_Skip=Enemy3_Skip) 
                             elif skill_choice in ["bloodoffering"] and "Blood Offering" in Method_list:
                                 POI = None
                                 Player_copy,Breaker = PM.Methods.Blood_Offering(Player_copy,typewriters)
@@ -2175,7 +2200,33 @@ class Player_Battle:
                                         break
                                     else:
                                         print("Not an option.")
-                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Dark.Corrupting_Touch(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)  
+                            
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Poison.Corrupting_Touch(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip)  
+                            elif skill_choice in ["toxinspray"] and "Toxin Spray" in Spell_list:
+                                while True:
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
+                                    POI = input("")
+                                    POI = POI.lower()
+                                    POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
+                                    if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
+                                        break
+                                    else:
+                                        print("Not an option.")
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Poison.Toxin_Spray(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,Enemy2_Weakpoint=Enemy2_Weakpoint,target=target,Enemy1 = Enemy1,Enemy2 = Enemy2,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip,Enemy2_Skip=Enemy2_Skip) 
                             elif skill_choice in ["bloodoffering"] and "Blood Offering" in Method_list:
                                 POI = None
                                 Player_copy,Breaker = PM.Methods.Blood_Offering(Player_copy)
@@ -3725,7 +3776,32 @@ class Player_Battle:
                                         break
                                     else:
                                         print("Not an option.")
-                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Dark.Corrupting_Touch(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip)  
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Poison.Corrupting_Touch(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip)  
+                            elif skill_choice in ["toxinspray"] and "Toxin Spray" in Spell_list:
+                                while True:
+                                    print("\nWhere do you want to hit:\n\n1. Head\n\n2. Left Arm\n\n3. Right Arm\n\n4. Chest\n\n5. Back\n\n6. Left Leg\n\n7. Right Leg\n")
+                                    POI = input("")
+                                    POI = POI.lower()
+                                    POI = "".join(POI.split())
+                                    if POI == "1":
+                                        POI = "head"
+                                    if POI == "2":
+                                        POI = "leftarm"
+                                    if POI == "3":
+                                        POI = "rightarm"
+                                    if POI == "4":
+                                        POI = "chest"
+                                    if POI == "5":
+                                        POI = "back"
+                                    if POI == "6":
+                                        POI = "leftleg"
+                                    if POI == "7":
+                                        POI = "rightleg"
+                                    if POI in["head","leftarm","rightarm","chest","leftleg","rightleg","back"]:
+                                        break
+                                    else:
+                                        print("Not an option.")
+                                Player_copy,target,Breaker,Turn_Time,Enemy1_Skip,Enemy2_Skip,Enemy3_Skip = PM.Spell_Moves.Elemental.Poison.Toxin_Spray(Player_copy,Enemy,Spell_list,Skill_Tree,typewriter,Enemy1_Weakpoint=Enemy1_Weakpoint,target=target,Enemy1 = Enemy1,name = name,Turn_Time=Turn_Time,Enemy1_Skip=Enemy1_Skip) 
                             elif skill_choice in ["bloodoffering"] and "Blood Offering" in Method_list:
                                 POI = None
                                 Player_copy,Breaker = PM.Methods.Blood_Offering(Player_copy,typewriters)

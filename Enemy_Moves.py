@@ -1297,7 +1297,7 @@ class Enemy_Move:
                         
                     
                     return Player_copy,target,Turn_Time
-                
+            class Poison:
                 def Corrupting_Touch(Player_copy,typewriters,**kwargs):
                     global typewriter
                     typewriter = typewriters
@@ -1335,7 +1335,7 @@ class Enemy_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                                 Damage += Damage_Amount
-                                if target["Attribute"] == "Dark":
+                                if target["Attribute"] == "Poison":
                                     Damage *= 1.5
                                 choice = "Corrupting Touch"
                                 if target["Category"] == "Demon":
@@ -1409,7 +1409,7 @@ class Enemy_Move:
                             Evasion_Chance = random.randint(1,100)
                             if Evasion_Chance > (min(50,(Player_copy["Evasion"] * (1 - (target["Accuracy"]/100))))):
                                 Damage += Damage_Amount
-                                if target["Attribute"] == ("Dark" or "Poison"):
+                                if target["Attribute"] == "Poison":
                                     Damage *= 1.5
                                 choice = "Toxin Spray"
                                 if target["Category"] == "Demon":

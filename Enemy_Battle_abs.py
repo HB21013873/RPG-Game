@@ -714,7 +714,7 @@ class Enemy_Battle:
                             Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Dark.Devour_Essence(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
                             break
                         elif Move_Selected in ["Corrupting Touch"] and Turn_Time >= 0.5:
-                            Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Dark.Corrupting_Touch(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
+                            Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Poison.Corrupting_Touch(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
                             break
                         elif Move_Selected in ["Purify"] and Turn_Time >= 0.5:
                             Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Light.Purify(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
@@ -738,7 +738,7 @@ class Enemy_Battle:
                             Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Support.Heal(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
                             break
                         elif Move_Selected in ["Toxin Spray"] and Turn_Time >= 0.5:
-                            Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Dark.Toxin_Spray(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
+                            Player_copy,Enemy1,Turn_Time = EM.Spell_Moves.Elemental.Poison.Toxin_Spray(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
                             break
                     if Move_Selected in ["Straight Punch"] and Turn_Time >= 0.5:
                         Player_copy,Enemy1,Turn_Time = EM.Melee_Moves.Arms.Straight_Punch(Player_copy,typewriter,Enemy1=Enemy1,Turn_Time=Turn_Time,target=target)
@@ -1513,7 +1513,7 @@ class Enemy_Battle:
                             Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Elemental.Dark.Devour_Essence(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
                             break
                         elif Move_Selected in ["Corrupting Touch"] and Turn_Time >= 0.5:
-                            Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Elemental.Dark.Corrupting_Touch(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
+                            Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Elemental.Poison.Corrupting_Touch(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
                             break
                         elif Move_Selected in ["Purify"] and Turn_Time >= 0.5:
                             Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Elemental.Light.Purify(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
@@ -1537,7 +1537,7 @@ class Enemy_Battle:
                             Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Support.Heal(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
                             break
                         elif Move_Selected in ["Toxin Spray"] and Turn_Time >= 0.5:
-                            Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Elemental.Dark.Toxin_Spray(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
+                            Player_copy,Enemy2,Turn_Time = EM.Spell_Moves.Elemental.Poison.Toxin_Spray(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
                             break
                     if Move_Selected in ["Straight Punch"] and Turn_Time >= 0.5:
                         Player_copy,Enemy2,Turn_Time = EM.Melee_Moves.Arms.Straight_Punch(Player_copy,typewriter,Enemy2=Enemy2,Turn_Time=Turn_Time,target=target)
@@ -2312,7 +2312,7 @@ class Enemy_Battle:
                             Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Devour_Essence(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
                             break
                         elif Move_Selected in ["Corrupting Touch"] and Turn_Time >= 0.5:
-                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Corrupting_Touch(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Poison.Corrupting_Touch(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
                             break
                         elif Move_Selected in ["Purify"] and Turn_Time >= 0.5:
                             Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Light.Purify(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
@@ -2336,7 +2336,7 @@ class Enemy_Battle:
                             Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Support.Heal(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
                             break
                         elif Move_Selected in ["Toxin Spray"] and Turn_Time >= 0.5:
-                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Dark.Toxin_Spray(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
+                            Player_copy,Enemy3,Turn_Time = EM.Spell_Moves.Elemental.Poison.Toxin_Spray(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
                             break
                     if Move_Selected in ["Straight Punch"] and Turn_Time >= 0.5:
                         Player_copy,Enemy3,Turn_Time = EM.Melee_Moves.Arms.Straight_Punch(Player_copy,typewriter,Enemy3=Enemy3,Turn_Time=Turn_Time,target=target)
