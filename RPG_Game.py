@@ -21,7 +21,7 @@ def print(*args, sep=" ", end="\n"):
         builtins.print(*args, sep=sep, end=end)
         
 
-Player = {"XP":0,"XP Needed":100,"Max Health":100,"Health":100,"Attack":10,"Defense":10,"Speed":10,"Magic Density":10,"Magic Damage":10,"Level":1,"Stamina":500,"Critical Chance":5,"Critical Damage":125,"Evasion":2,"Accuracy":75,"Mana":0,"Tower Level":1,"Buff":{"Type":"None","Value":5,"Duration":3},"Title":"None","Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0} },"Gold":100000,"Title":"None"}
+Player = {"XP":0,"XP Needed":100,"Max Health":100,"Health":100,"Attack":10,"Defense":10,"Speed":10,"Magic Density":10,"Magic Damage":10,"Level":1,"Stamina":500,"Critical Chance":5,"Critical Damage":125,"Evasion":2,"Accuracy":75,"Mana":0,"Tower Level":1,"Buff":{"Type":"None","Value":5,"Duration":3},"Title":"None","Status Effects":{"Status 1":{"Type":"None","Value":0,"Duration":0} ,"Status 2":{"Type":"None","Value":0,"Duration":0},"Status 3":{"Type":"None","Value":0,"Duration":0} },"Gold":100000,"Title":"None","Class":"None"}
     
 
 Game = {"Current Effect":{"Type":"None","Value":5,"Duration":3}}
@@ -34,8 +34,9 @@ Body_Condition = {"Biceps":{"Strength":5},"Triceps":{"Strength":5},"Hands":{"Str
 Base_Stats = {"XP":0,"XP Needed":100,"Max Health":100,"Health":100,"Attack":10,"Defense":10,"Speed":10,"Magic Density":10,"Magic Damage":10,"Level":1,"Stamina":500,"Critical Chance":5,"Critical Damage":125,"Evasion":2,"Accuracy":75,"Mana":0,"Tower Level":1,"Buff":{"Type":"None","Value":5,"Duration":3}}
 treasure_list = ["Wood","Stone","Cloth","Glass","Spirit Essence","String","Healing Herb","Mana Herb","Bitter Herb","Coal"]
 inventory = {"Orc Tusk":5,"Galvano Flower":5,"Copper":100,"Wood":100,"Orb":100,"Gear":["Copper Dagger"],"Potions":[]}
-Skill_Tree = {"General": {"Advanced Mind":{"Status":"(Locked)"},"Bloodthirsty":{"Status":"(Locked)"},"Momentum":{"Status":"(Locked)"},"Arcane Echo":{"Status":"(Locked)"},"Fast Recovery":{"Status":"(Locked)"},"Meditative Mind":{"Status":"(Locked)"},"Strong Body":{"Status":"(Locked)"}},"Training": { "Lock": "(Locked)","Lightweight": {"Status": "(Locked)"},"Running": {"Status": "(Locked)"}, "Sword Swing": {"Status": "(Locked)"}, "Weight Carry": {"Status": "(Locked)"}, "Dead Hang": {"Status": "(Locked)"}, "Neck Bridge": {"Status": "(Locked)"}, "Push Up": {"Status": "(Locked)"}} ,"Smithing": { "Lock": "(Locked)","Apprenticeship": {"Status": "(Locked)"},"Hit em": {"Status": "(Locked)"}, "Skill 3": {"Status": "(Locked)"}} ,"Alchemy": { "Lock": "(Locked)","Scientific Cooking": {"Status": "(Locked)"},"Skill 2": {"Status": "(Locked)"}, "Skill 3": {"Status": "(Locked)"}}}
-Unlocked_Functions = {"Training":{"Status": "(Locked)"},"Smithing":{"Status":"(Locked)"},"Alchemy":{"Status":"(Locked)"}}
+Skill_Tree = {"General": {"Advanced Mind":{"Status":"(Locked)"},"Bloodthirsty":{"Status":"(Locked)"},"Momentum":{"Status":"(Locked)"},"Arcane Echo":{"Status":"(Locked)"},"Fast Recovery":{"Status":"(Locked)"},"Meditative Mind":{"Status":"(Locked)"},"Strong Body":{"Status":"(Locked)"}},"Training": { "Lock": "(Locked)","Lightweight": {"Status": "(Locked)"},"Running": {"Status": "(Locked)"}, "Sword Swing": {"Status": "(Locked)"}, "Weight Carry": {"Status": "(Locked)"}, "Dead Hang": {"Status": "(Locked)"}, "Neck Bridge": {"Status": "(Locked)"}, "Push Up": {"Status": "(Locked)"}} ,"Smithing": { "Lock": "(Locked)","Apprenticeship": {"Status": "(Locked)"},"Hit em": {"Status": "(Locked)"}, "Skill 3": {"Status": "(Locked)"}} ,"Alchemy": { "Lock": "(Locked)","Scientific Cooking": {"Status": "(Locked)"},"Skill 2": {"Status": "(Locked)"}, "Skill 3": {"Status": "(Locked)"}},"The Hall of Classes": { "Lock": "(Locked)","Inauguration":{"Status":"(Locked)"}}}
+Unlocked_Functions = {"Training":{"Status": "(Locked)"},"Smithing":{"Status":"(Locked)"},"Alchemy":{"Status":"(Locked)"},"The Hall of Classes":{"Status": "(Locked)"}}
+Class_Progression = {"Progress":0,"Milestone to reach":0,"Development":"0%"}
 name = "player"
 Move_Set = ()
 Memory = 4
@@ -2127,6 +2128,8 @@ while leave == False:
                 print(f"Scientific Cooking: {Skill_Tree['Alchemy']['Scientific Cooking']['Status']}")
                 if Skill_Tree["Alchemy"]["Lock"] == "(Unlocked)":
                     print(f"Skill 2: {Skill_Tree['Alchemy']['Skill 2']['Status']}")
+                print("\n---------------------------------------------\nThe Hall of Classes\n---------------------------------------------")
+                print(f"Inauguration: {Skill_Tree['The Hall of Classes']['Inauguration']['Status']}")
                 Target = input("")
                 Target = Target.lower()
                 Target = "".join(Target.split())
@@ -2146,6 +2149,12 @@ while leave == False:
                     Skill_Tree["Alchemy"]["Lock"] = "(Unlocked)"
                     Skill_Tree["Alchemy"]["Scientific Cooking"]["Status"] = "(Unlocked)"
                     Unlocked_Functions["Alchemy"]["Status"] = "(Unlocked)"
+                    print("\nPurchase Complete!\n")
+                    skill_points -= 1
+                elif (Target == "inauguration" and skill_points > 0) and Skill_Tree["The Hall of Classes"]["Lock"] != "(Unlocked)" :
+                    Skill_Tree["The Hall of Classes"]["Lock"] = "(Unlocked)"
+                    Skill_Tree["The Hall of Classes"]["Inauguration"]["Status"] = "(Unlocked)"
+                    Unlocked_Functions["The Hall of Classes"]["Status"] = "(Unlocked)"
                     print("\nPurchase Complete!\n")
                     skill_points -= 1
                 
@@ -2687,7 +2696,7 @@ while leave == False:
     elif Choice in ["facilities","f","fc","3"]:
 
         
-        print("\n---------------------------------------------\n                  Simulation\n---------------------------------------------\n                  Market\n---------------------------------------------\n                  Mine\n---------------------------------------------\n                  Forest\n---------------------------------------------\n                  "f"Training {Unlocked_Functions['Training']['Status']}\n""---------------------------------------------\n                  "f"Smithing {Unlocked_Functions['Smithing']['Status']}\n""---------------------------------------------\n                  "f"Alchemy {Unlocked_Functions['Alchemy']['Status']}\n---------------------------------------------")
+        print("\n---------------------------------------------\n             Simulation\n---------------------------------------------\n             Market\n---------------------------------------------\n             Mine\n---------------------------------------------\n             Forest\n---------------------------------------------\n             "f"Training {Unlocked_Functions['Training']['Status']}\n""---------------------------------------------\n             "f"Smithing {Unlocked_Functions['Smithing']['Status']}\n""---------------------------------------------\n             "f"Alchemy {Unlocked_Functions['Alchemy']['Status']}\n---------------------------------------------\n            "f" The Hall of Classes {Unlocked_Functions['The Hall of Classes']['Status']}\n---------------------------------------------")
         Choice = input("")
         Choice = Choice.lower()
         
@@ -5374,7 +5383,24 @@ while leave == False:
                     
             else:
                 print("\n\nThis is Locked\n\n\n\n\n")
-
+        elif Choice in ["thoc","thehallofclasses","t","class","classes","the","hall","8"]:
+            if Unlocked_Functions['The Hall of Classes']['Status'] == "(Unlocked)":
+                print("\n What do you want to do?\n\n Press enter to cancel\n\n 1. Roll a Class\n\n")
+                if Player["Class"] != "None":
+                    print(" 2. Class Quests\n\n 3. Advance Class\n\n 4. Buy Class Information\n")
+                Option = input("")
+                Option = Option.lower()
+                Option = "".join(Option.split())
+                if Option in ["1","rollaclass","r","rac","roll"]:
+                    pass
+                if Option in ["2","classquests","c","cq","quest","quests"]:
+                    pass
+                if Option in ["3","advanceclass","a","ac","advance","advances"]:
+                    pass
+                if Option in ["4","buyclassinformation","b","bci","buy","buyinformation"]:
+                    pass
+            else:
+                print("\n\n This is Locked\n\n\n\n")
     if Choice in ["unlock"]:
         print("\n\n  Put in the code:\n\n")
         Choice = input("")
