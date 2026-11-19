@@ -5385,14 +5385,16 @@ while leave == False:
                 print("\n\nThis is Locked\n\n\n\n\n")
         elif Choice in ["thoc","thehallofclasses","t","class","classes","the","hall","8"]:
             if Unlocked_Functions['The Hall of Classes']['Status'] == "(Unlocked)":
-                print("\n What do you want to do?\n\n Press enter to cancel\n\n 1. Roll a Class\n\n")
+                print("\n What do you want to do?\n\n Press enter to cancel\n\n 1. Roll a Class (Cost: 5 Skill points)\n\n")
                 if Player["Class"] != "None":
                     print(" 2. Class Quests\n\n 3. Advance Class\n\n 4. Buy Class Information\n")
                 Option = input("")
                 Option = Option.lower()
                 Option = "".join(Option.split())
                 if Option in ["1","rollaclass","r","rac","roll"]:
-                    pass
+                    lottery = random.choice(["Barbarian","Mage","Assassin","Blacksmith","Herbalist","Wizard","Tank","Forager","Miner","Swordfighter"])
+                    Player["Class"] = lottery
+                    print(f"\n\nYou are now the class of {lottery} \n")
                 if Option in ["2","classquests","c","cq","quest","quests"]:
                     pass
                 if Option in ["3","advanceclass","a","ac","advance","advances"]:
